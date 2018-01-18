@@ -10,6 +10,7 @@ e gastos, por partido e por estado, além de lista de senadores com maiores gast
 
 ### Futuro
 Versões futuras devem:
+* Melhorar tratamento de erros/exceções
 * Gerar página HTML com os dados coletados
   * Utilizar frameworks de visualização?
 * Salvar e permitir reuso de informação coletada
