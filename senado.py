@@ -1,5 +1,9 @@
 #coding='utf-8'
+# Imports
 import requests, errno
+from bs4 import BeautifulSoup
+import pandas as pd
+import os
 
 # Lê dados de parlamentares das páginas de dados abertos do Senado
 # Retorna um dicionário com parlamentares atuais e afastados
@@ -64,8 +68,6 @@ for senador in parlamentaresAfastados:
 print('Fim de organização de operações...')
 #dados = sorted(dados, key=lambda k: k['nome'])
 
-from bs4 import BeautifulSoup
-
 # Retira '.' e substitui ',' por '.' e converte para float
 def s2float(dado):
     return float(dado.replace('.', '').replace(',', '.'))
@@ -105,7 +107,6 @@ for senador in range(0, len(dados)):
 
 print('\nFim de recuperação de informações de gastos parlamentares...')
 
-import pandas as pd
 
 # Cria DataFrame dos dados do senado
 dadosSenado = pd.DataFrame(dados)
@@ -143,8 +144,6 @@ print("O gasto médio dos senadores, em exercício e afastados, foi de R$ {:.2f}
 print("O montante de despesas parlamentares em 3 anos foi de R$ {:.2f}, com media anual de R$ {:.2f}".format(totalGasto, totalGasto/3))
 
 # Gera gráficos
-
-import os
 if not os.path.exists('imagens'):
     os.makedirs('imagens')
 
