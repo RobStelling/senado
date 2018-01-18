@@ -4,6 +4,8 @@ Levantamento de informações sobre senadores brasileiros. Trabalho para o curso
 ## Importante
 Alterações posteriores ao dia 17/01/2018 foram feitas no arquivo senadov2.py e outros arquivos que foram criados a partir desta data. O arquivo senado.py é o original do dia 17 e não foi alterado desde então. As imagens do diretorio 'imagens' e o arquivo 'texto.txt' também são originais do dia 17/01/2018.
 
+Repositório como no fim do dia 17/01/2018 pode ser visto [aqui](https://github.com/RobStelling/senado/tree/38ef5779e164393248c864a96a44a9ed98157040)
+
 ### Como funciona?
 O programa lê informações de todos os senadores da legislatura atual, usando a API do senado brasileiro, e
 raspa dados das páginas de gastos de cada senador, desde o início desta legislatura, em 2015.
