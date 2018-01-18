@@ -78,12 +78,12 @@ print('Fim de organização de operações...')
 def s2float(dado):
     return float(dado.replace('.', '').replace(',', '.'))
 
-# Retorna o total de gastos de um parlamentar, pelo seu código
-# em um ano determinado
+# Retorna o total de gastos de um parlamentar, e informações de
+# utilização de pessoal, pelo seu código e ano de legislatura
 # Consulta as páginas de transparência do senado para efetuar a operação
 # Página exemplo: Senador Itamar Franco, 2011
 # http://www6g.senado.leg.br/transparencia/sen/1754/?ano=2011
-def totalGastos(codigoSenador, ano=2017):
+def infoSenador(codigoSenador, ano=2017):
     # Indicador de atividade
     print('.', end='', flush=True)
 
@@ -95,6 +95,14 @@ def totalGastos(codigoSenador, ano=2017):
 
     # Seleciona a área onde estão os dados desejados
     bloco = sopaSenador.find('div', {'class':'sen-conteudo-interno'})
+
+    # Recupera dados de pessoal
+    # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
+    quantidades = bloco.find('div', {'id': 'accordion-pessoal'}).find('tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})
+    infoPessoal = {}
+    # Texto está no elemento <span> e valores no elemento <a>
+    for i in range(0, len(quantidades)):
+        infoPessoal[quantidades[i].find('span').text.strip()] = int(quantidades[i].find('a').text.strip().split()[0])
 
     # Os totais de gastos estão nos dois rodapés das páginas
     valores = bloco.find_all('tfoot')
@@ -116,7 +124,7 @@ def totalGastos(codigoSenador, ano=2017):
         total += valores[i]
 
     # Retorna o gasto total do senador para o ano pedido
-    return total
+    return [total, infoPessoal]
 
 print('Recuperando informações de gastos parlamentares...')
 
@@ -125,8 +133,11 @@ print('Recuperando informações de gastos parlamentares...')
 for senador in range(0, len(dados)):
     dados[senador]['gastos'] = 0
     for ano in anos:
-        dados[senador][f'gastos{ano}'] = totalGastos(dados[senador]['codigo'], ano)
+        info = infoSenador(dados[senador]['codigo'], ano)
+        dados[senador][f'gastos{ano}'] = info[0]
         dados[senador]['gastos'] += dados[senador][f'gastos{ano}']
+        for key in info[1].keys():
+          dados[senador][f'{key}-{ano}'] = info[1][key]
 
 print('\nFim de recuperação de informações de gastos parlamentares...')
 
