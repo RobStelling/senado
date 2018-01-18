@@ -12,9 +12,11 @@ e gastos, por partido e por estado, além de lista de senadores com maiores gast
 Versões futuras devem:
 * Melhorar tratamento de erros/exceções
 * Gerar página HTML com os dados coletados
+  * Incluindo informações sobre cada senador (Nome, foto, email etc.)
   * Utilizar frameworks de visualização?
 * Salvar e permitir reuso de informação coletada
 * Melhorar e expandir gráficos gerados
 * Coletar e agregar outras informações, como:
   * Salários de senadores
   * Pessoal em gabinete por senadores
+  * Redes sociais de senadores
