@@ -17,11 +17,11 @@ anos = [2015, 2016, 2017]
 
 dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8')
 top10 = pd.read_csv('csv/top10.csv', encoding='utf-8')
-gastoPartidos = pd.read_csv('csv/gastoPartidos.csv', encoding='utf-8')
-gastoEstados = pd.read_csv('csv/gastoEstados.csv', encoding='utf-8')
+gastoPartidos = pd.read_csv('csv/gastoPartidos.csv', encoding='utf-8', index_col=0)
+gastoEstados = pd.read_csv('csv/gastoEstados.csv', encoding='utf-8', index_col=0)
 #sexo = pd.read_csv('csv/sexo.csv', encoding='utf-8')
 sexo = dadosSenado.rename(columns={'Participacao':'(Sexo, Situação)'}).groupby(['sexo', 'status'])['(Sexo, Situação)'].count()
-sexoT = pd.read_csv('csv/sexoT.csv', encoding='utf-8')
+sexoT = pd.read_csv('csv/sexoT.csv', encoding='utf-8', index_col=0)
 
 # Agrega dados do gabinete
 def agregaGabinete(df, anos=[2015, 2016, 2017]):
@@ -69,21 +69,16 @@ if not os.path.exists('imagensV2'):
 gSexo = sexo.plot(kind='pie', figsize=(13,13), fontsize=12, subplots=True, legend=False, colormap='Paired')
 gSexo[0].get_figure().savefig('imagensV2/distSexo.png')
 
-sexoT = sexoT.set_index('sexo')
 gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(5,5), subplots=True, legend=False, fontsize=12, colormap='Paired')
 gSexoT[0].get_figure().savefig('imagensV2/distSexoT.png')
 
-gastoEstados = gastoEstados.set_index('UF')
 gEstados = gastoEstados[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot = 0, title ='Gastos por Estado', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
 gEstados.get_figure().savefig('imagensV2/gastoEstados.png')
 
 gabineteEstados = gastoEstados.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(kind='bar', title='Tamanho do gabinete em 2017 por unidade', figsize=(10,10), fontsize=12, legend=False)
 gabineteEstados.get_figure().savefig('imagensV2/gastoGabineteEstados-2017.png')
 
-gastoPartidos = gastoPartidos.set_index('partido')
-
 gPartidos=gastoPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot = 0,title ='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
-
 gPartidos.get_figure().savefig('imagensV2/gastoPartidos.png')
 
 gabinetePartidos = gastoPartidos.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(kind='bar', title='Tamanho do gabinete em 2017 por partido', figsize=(10,10), fontsize=12, legend=False)
