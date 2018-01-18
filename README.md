@@ -1,5 +1,5 @@
 # Informações do senado brasileiro
-Levantamento de informações sobre senadores brasileiros. Trabalho para o curso de Jornalismo de dados do [KnightCenter](https://journalismcourses.org/)
+Levantamento de informações sobre senadores brasileiros. Trabalho para o curso de Jornalismo de Dados do [KnightCenter](https://journalismcourses.org/)
 
 ### Como funciona?
 O programa lê informações de todos os senadores da legislatura atual, usando a API do senado brasileiro, e
