@@ -1,5 +1,5 @@
 #coding='utf-8'
-import requests
+import requests, errno
 
 # Lê dados de parlamentares das páginas de dados abertos do Senado
 # Retorna um dicionário com parlamentares atuais e afastados
@@ -75,7 +75,7 @@ def s2float(dado):
 # Consulta as páginas de transparência do senado para efetuar a operação
 def totalGastos(codigoSenador, ano=2017):
     #print(codigoSenador, ano)
-    print('.', end='')
+    print('.', end='', flush=True)
     requisicao = requests.get(f"http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}")
     sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
     bloco = sopaSenador.find('div', {'class':'sen-conteudo-interno'})
@@ -143,13 +143,18 @@ print("O gasto médio dos senadores, em exercício e afastados, foi de R$ {:.2f}
 print("O montante de despesas parlamentares em 3 anos foi de R$ {:.2f}, com media anual de R$ {:.2f}".format(totalGasto, totalGasto/3))
 
 # Gera gráficos
+
+import os
+if not os.path.exists('imagens'):
+    os.makedirs('imagens')
+
 gEstados = gastoEstados[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot = 0, title ="Gastos por Estado", figsize=(15,5), legend=True, fontsize=12, colormap="Paired")
-gEstados.get_figure().savefig('gastoEstados.png')
+gEstados.get_figure().savefig('imagens/gastoEstados.png')
 gPartidos=gastosPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot = 0,title ="Gastos por Partido", figsize=(15,5), legend=True, fontsize=10, colormap="Paired")
-gPartidos.get_figure().savefig('gastoPartidos.png')
+gPartidos.get_figure().savefig('imagens/gastoPartidos.png')
 gSexo = sexo[['Participacao']].plot(kind='pie', figsize=(5,5), subplots=True, legend=False, fontsize=12, colormap="Paired")
-gSexo[0].get_figure().savefig('distSexo.png')
+gSexo[0].get_figure().savefig('imagens/distSexo.png')
 gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(5,5), subplots=True, legend=False, fontsize=12, colormap="Paired")
-gSexoT[0].get_figure().savefig('distSexoT.png')
+gSexoT[0].get_figure().savefig('imagens/distSexoT.png')
 gTop10 = top10[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot=20, title ="10 maiores gastadores", x = top10['nome'], figsize=(15,8), legend=True, fontsize=12, colormap="Paired")
-gTop10.get_figure().savefig('10maiores.png')
+gTop10.get_figure().savefig('imagens/10maiores.png')
