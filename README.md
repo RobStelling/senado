@@ -8,6 +8,8 @@ raspa dados das páginas de gastos de cada senador, desde o início desta legisl
 Com os dados contabilizados são gerados textos com informaçes dos senadores e gráficos de distribuição de participação
 e gastos, por partido e por estado, além de lista de senadores com maiores gastos.
 
+Na versão atual são contabilizados apenas os gastos de cotas para exercício da atividade parlamentar e outros gastos (como viagens oficiais, diárias, passagens, combustível, correios etc.) de todos os senadores.
+
 ### Futuro
 Versões futuras devem:
 * Melhorar tratamento de erros/exceções
