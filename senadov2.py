@@ -88,7 +88,7 @@ def infoSenador(codigoSenador, ano=2017):
     print('.', end='', flush=True)
 
     # Coleta a página
-    requisicao = requests.get(f"http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}")
+    requisicao = requests.get(f'http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}')
 
     # E gera a sopa
     sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
@@ -145,13 +145,13 @@ print('\nFim de recuperação de informações de gastos parlamentares...')
 # Cria DataFrame dos dados do senado
 dadosSenado = pd.DataFrame(dados)
 
-# Exclui quem tem gastos == 0 e status == "Afastado"
+# Exclui quem tem gastos == 0 e status == 'Afastado'
 dadosSenado = dadosSenado.query('gastos != 0 or status != "Afastado"')
 
 # Calcula dados importantes
 totalSenadores = len(dadosSenado)
-totalHomens = len(dadosSenado[dadosSenado.sexo == "Masculino"])
-totalMulheres = len(dadosSenado[dadosSenado.sexo == "Feminino"])
+totalHomens = len(dadosSenado[dadosSenado.sexo == 'Masculino'])
+totalMulheres = len(dadosSenado[dadosSenado.sexo == 'Feminino'])
 totalExercicio = len(dadosSenado[dadosSenado.status == 'Exercicio'])
 totalMulheresExercicio = dadosSenado.query('sexo == "Feminino" and status == "Exercicio"').count()[0]
 totalAfastados = len(dadosSenado[dadosSenado.status == 'Afastado'])
@@ -171,14 +171,14 @@ sexo = dadosSenado.rename(columns={'Participacao':'(Sexo, Situação)'}).groupby
 sexoT = dadosSenado[['Participacao', 'sexo']].groupby(['sexo']).count()
 
 # Imprime algumas informações do senado, pelos dados coletados
-print("Há no senado {:d} senadores, distribuidos entre {:d} homens e {:d} mulheres".format(totalSenadores, totalHomens, totalMulheres))
-print("As mulheres representam {:.2f}% do total".format(totalMulheres/totalSenadores*100))
-print("Há {:d} senadores em exercício, destes {:d} são mulheres".format(totalExercicio, totalMulheresExercicio))
-print("As mulheres representam {:.2f}% deste total".format(totalMulheresExercicio/totalExercicio*100))
-print("O gasto médio de senadores homens em exercício foi de R$ {:.2f}".format(mediaGastosHomensExercicio))
-print("O gasto médio de senadores mulheres em exercício foi de R$ {:.2f}".format(mediaGastosMulheresExercicio))
-print("O gasto médio dos senadores, em exercício e afastados, foi de R$ {:.2f}".format(gastoMedioSenadores))
-print("O montante de despesas parlamentares em {:d} anos foi de R$ {:.2f}, com media anual de R$ {:.2f}".format(len(anos), totalGasto, totalGasto/len(anos)))
+print('Há no senado {:d} senadores, distribuidos entre {:d} homens e {:d} mulheres'.format(totalSenadores, totalHomens, totalMulheres))
+print('As mulheres representam {:.2f}% do total'.format(totalMulheres/totalSenadores*100))
+print('Há {:d} senadores em exercício, destes {:d} são mulheres'.format(totalExercicio, totalMulheresExercicio))
+print('As mulheres representam {:.2f}% deste total'.format(totalMulheresExercicio/totalExercicio*100))
+print('O gasto médio de senadores homens em exercício foi de R$ {:.2f}'.format(mediaGastosHomensExercicio))
+print('O gasto médio de senadores mulheres em exercício foi de R$ {:.2f}'.format(mediaGastosMulheresExercicio))
+print('O gasto médio dos senadores, em exercício e afastados, foi de R$ {:.2f}'.format(gastoMedioSenadores))
+print('O montante de despesas parlamentares em {:d} anos foi de R$ {:.2f}, com media anual de R$ {:.2f}'.format(len(anos), totalGasto, totalGasto/len(anos)))
 
 # Salva arquivos
 if not os.path.exists('csv'):
@@ -188,21 +188,21 @@ dadosSenado.to_csv('csv/senado.csv', na_rep='', header=True, index=False, mode='
 top10.to_csv('csv/top10.csv', na_rep='', header=True, index=False, mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
 gastoPartidos.to_csv('csv/gastoPartidos.csv', na_rep='', header=True, index=True, mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
 gastoEstados.to_csv('csv/gastoEstados.csv', na_rep='', header=True, index=True, mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
-sexo.to_csv("csv/sexo.csv", index=True, na_rep='', header=True, index_label=None, mode='w', encoding='utf-8', decimal='.')
-sexoT.to_csv("csv/sexoT.csv", index=True, na_rep='', header=True, index_label=None, mode='w', encoding='utf-8', decimal='.')
+sexo.to_csv('csv/sexo.csv', index=True, na_rep='', header=True, index_label=None, mode='w', encoding='utf-8', decimal='.')
+sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True, index_label=None, mode='w', encoding='utf-8', decimal='.')
 
 
 # Gera gráficos
 if not os.path.exists('imagensV2'):
     os.makedirs('imagensV2')
 
-gEstados = gastoEstados[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot = 0, title ="Gastos por Estado", figsize=(15, 5), legend=True, fontsize=12, colormap="Paired")
+gEstados = gastoEstados[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot = 0, title ='Gastos por Estado', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
 gEstados.get_figure().savefig('imagensV2/gastoEstados.png')
-gPartidos=gastoPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot = 0,title ="Gastos por Partido", figsize=(15, 5), legend=True, fontsize=10, colormap="Paired")
+gPartidos=gastoPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot = 0,title ='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
 gPartidos.get_figure().savefig('imagensV2/gastoPartidos.png')
 gSexo = sexo.plot(kind='pie', figsize=(12,12), fontsize=12, subplots=True, legend=False, colormap='Paired')
 gSexo[0].get_figure().savefig('imagensV2/distSexo.png')
-gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(5,5), subplots=True, legend=False, fontsize=12, colormap="Paired")
+gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(5,5), subplots=True, legend=False, fontsize=12, colormap='Paired')
 gSexoT[0].get_figure().savefig('imagensV2/distSexoT.png')
-gTop10 = top10[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot=20, title ="10 maiores gastadores", x = top10['nome'], figsize=(15,8), legend=True, fontsize=12, colormap="Paired")
+gTop10 = top10[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(kind='bar', rot=20, title ='10 maiores gastadores', x = top10['nome'], figsize=(15,8), legend=True, fontsize=12, colormap='Paired')
 gTop10.get_figure().savefig('imagensV2/10maiores.png')
