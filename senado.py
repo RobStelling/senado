@@ -38,8 +38,8 @@ listaParlamentares = leParlamentares()
 parlamentares = listaParlamentares['atuais']
 parlamentaresAfastados = listaParlamentares['afastados']
 
-# Adiciona dados de parlametares a uma lista
-# Não retorna valor algum (a lista de entrada é modificada)
+# Adiciona dados de parlametares, com os campos escolhidos, a uma lista
+# Não retorna valor (a lista de entrada é modificada)
 # Se statos não for passado assume que parlamentar está em exercício
 def adicionaDados(lista, parlamentar, status='Exercicio'):
     lista.append({'codigo': parlamentar['IdentificacaoParlamentar']['CodigoParlamentar'],
@@ -58,16 +58,18 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
 
 dados = []
 print('Organizando informações de parlamentares...')
+# Adiciona informações dos parlamentares em exercício e afastados
+# à lista 'dados'
 for senador in parlamentares:
-    #print(senador['IdentificacaoParlamentar']['NomeCompletoParlamentar'])
     adicionaDados(dados, senador, 'Exercicio')
 
 for senador in parlamentaresAfastados:
-    #print(senador['IdentificacaoParlamentar']['NomeCompletoParlamentar'])
     adicionaDados(dados, senador, 'Afastado')
 print('Fim de organização de operações...')
+
 #dados = sorted(dados, key=lambda k: k['nome'])
 
+# Converte uma string numérica no formato brasileiro para float
 # Retira '.' e substitui ',' por '.' e converte para float
 def s2float(dado):
     return float(dado.replace('.', '').replace(',', '.'))
@@ -76,29 +78,44 @@ def s2float(dado):
 # em um ano determinado
 # Consulta as páginas de transparência do senado para efetuar a operação
 def totalGastos(codigoSenador, ano=2017):
-    #print(codigoSenador, ano)
+    # Indicador de atividade
     print('.', end='', flush=True)
+
+    # Coleta a página
     requisicao = requests.get(f"http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}")
+
+    # E gera a sopa
     sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
+
+    # Seleciona a área onde estão os dados desejados
     bloco = sopaSenador.find('div', {'class':'sen-conteudo-interno'})
+
+    # Os totais de gastos estão nos dois rodapés das páginas
     valores = bloco.find_all('tfoot')
+
     # Extrai apenas o valor em string (strip().split()[1])
-    # e converte para float
+    # e converte para float (s2float)
     for i in range(0, len(valores)):
         valores[i] = s2float(valores[i].text.strip().split()[1])
 
-    heading = bloco.find_all('a', {'class':'accordion-toggle'})
-    for i in range(0, len(heading)):
-        heading[i] = heading[i].text.strip()
+    # Recupera o heading - Não é necessário nesta versão
+    # Mas deverá ser no futuro
+    #heading = bloco.find_all('a', {'class':'accordion-toggle'})
+    #for i in range(0, len(heading)):
+    #    heading[i] = heading[i].text.strip()
 
+    # Contabiliza o total de gastos
     total = 0
     for i in range(0, len(valores)):
-        #print(f"{heading[i]}: {valores[i]}")
         total += valores[i]
-    #print(f"Total de gastos: {total}")
+
+    # Retorna o gasto total do senador para o ano pedido
     return total
 
 print('Recuperando informações de gastos parlamentares...')
+
+# Para cada senador coleta os gastos de cada ano da legislatura
+# e soma os gastos em 'gastos'
 for senador in range(0, len(dados)):
     dados[senador]['gastos'] = 0
     for ano in anos:
@@ -122,18 +139,21 @@ totalExercicio = len(dadosSenado[dadosSenado.status == 'Exercicio'])
 totalMulheresExercicio = dadosSenado.query('sexo == "Feminino" and status == "Exercicio"').count()[0]
 totalAfastados = len(dadosSenado[dadosSenado.status == 'Afastado'])
 totalGasto = dadosSenado['gastos'].sum()
+
 # Não contabiliza parlamentares que ainda não efetuaram gastos no cálculo de médias
 gastoMedioSenadores = dadosSenado.query('gastos != 0')['gastos'].mean()
 mediaGastosHomensExercicio = dadosSenado.query('gastos != 0 and sexo == "Masculino" and status == "Exercicio"')['gastos'].mean()
 mediaGastosMulheresExercicio = dadosSenado.query('gastos !=0 and sexo == "Feminino" and status == "Exercicio"')['gastos'].mean()
 # 10 maiores gastadores
 top10 = dadosSenado.sort_values(by=['gastos'], ascending=[False]).head(10)
+
 # Dataframes de gastos por estado e por partidos
 gastoEstados = dadosSenado.groupby('UF').sum().sort_values(by=['gastos'], ascending=[False])
 gastosPartidos = dadosSenado.groupby('partido').sum().sort_values(by=['gastos'], ascending=[False])
 sexo = dadosSenado.groupby(['sexo', 'status']).count()
 sexoT = dadosSenado[['Participacao', 'sexo']].groupby(['sexo']).count()
 
+# Imprime algumas informações do senado, pelos dados coletados
 print("Há no senado {:d} senadores, distribuidos entre {:d} homens e {:d} mulheres".format(totalSenadores, totalHomens, totalMulheres))
 print("As mulheres representam {:.2f}% do total".format(totalMulheres/totalSenadores*100))
 print("Há {:d} senadores em exercício, destes {:d} são mulheres".format(totalExercicio, totalMulheresExercicio))
