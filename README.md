@@ -2,7 +2,7 @@
 Levantamento de informações sobre senadores brasileiros. Trabalho para o curso de Jornalismo de Dados do [KnightCenter](https://journalismcourses.org/)
 
 ## Importante
-Alterações feitas a partir do dia 17/01/18 foram feitas no arquivo senadoV2.py. O arquivo senado.py é o original do dia 17 e não foi alterado desde esta data.
+Alterações feitas a partir do dia 17/01/18 foram feitas no arquivo senadov2.py. O arquivo senado.py é o original do dia 17 e não foi alterado desde esta data.
 
 ### Como funciona?
 O programa lê informações de todos os senadores da legislatura atual, usando a API do senado brasileiro, e
