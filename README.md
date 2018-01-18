@@ -1,12 +1,12 @@
-# senado
-Levantamento de informações sobre Senadores Brasileiros. Trabalho para o curso de Jornalismo de dados do [KnightCenter](https://journalismcourses.org/)
+# Informações do senado brasileiro
+Levantamento de informações sobre senadores brasileiros. Trabalho para o curso de Jornalismo de dados do [KnightCenter](https://journalismcourses.org/)
 
 ### Como funciona?
-O programa lê informações de todos os Senadores da legislatura atual, usando a API do senado brasileiro, e
-raspa dados das páginas de gastos de cada Senador, desde o início da legislatura, em 2015.
+O programa lê informações de todos os senadores da legislatura atual, usando a API do senado brasileiro, e
+raspa dados das páginas de gastos de cada senador, desde o início desta legislatura, em 2015.
 
-Com os dados contabilizados são gerados textos com informaçes dos senadores e gráficos de distribuição de participação e gastos,
-por partido e por estado, além de lista de senadores com maiores gastos.
+Com os dados contabilizados são gerados textos com informaçes dos senadores e gráficos de distribuição de participação
+e gastos, por partido e por estado, além de lista de senadores com maiores gastos.
 
 ### Futuro
 Versões futuras devem:
