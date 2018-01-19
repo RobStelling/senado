@@ -82,10 +82,12 @@ print('Fim de organização de operações...')
 
 #dados = sorted(dados, key=lambda k: k['nome'])
 
+
 def s2float(dado):
     """ Converte uma string numérica no formato brasileiro para float """
     # Retira '.' e substitui ',' por '.' e converte para float
     return float(dado.replace('.', '').replace(',', '.'))
+
 
 def infoSenador(codigoSenador, ano=2017):
     """Coleta informações de um ano de legislatura de um senador pelo seu código

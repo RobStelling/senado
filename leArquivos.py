@@ -24,8 +24,15 @@ sexo = dadosSenado.rename(columns={'Participacao': '(Sexo, Situação)'}).groupb
     ['sexo', 'status'])['(Sexo, Situação)'].count()
 sexoT = pd.read_csv('csv/sexoT.csv', encoding='utf-8', index_col=0)
 
-# Agrega dados do gabinete
+
 def agregaGabinete(df, anos=[2015, 2016, 2017]):
+    """Agrega dados de gabinete a partir de um dataframe
+    ##
+    A versão atual depende das strings "Gabinete" e
+    "Escritório(s) de Apoio" que aparecem na página
+    original do senado.
+    Ex: http://www6g.senado.leg.br/transparencia/sen/1754/?ano=2011
+    """
     Gabinete = 'Gabinete-'
     Escritorio = 'Escritório(s) de Apoio-'
     for ano in anos:
