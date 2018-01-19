@@ -193,7 +193,7 @@ for senador in range(0, len(dados)):
             dados[senador][coluna] = valor
             dados[senador][f"TotalGabinete-{ano}"] += valor
         for beneficio in range(0, len(info['auxilio'])):
-            coluna = f"{info['auxilio'][beneficio]['beneficio']}"
+            coluna = f"{info['auxilio'][beneficio]['beneficio']}-{ano}"
             valor = info['auxilio'][beneficio]['meses']
             dados[senador][coluna] = valor
 
