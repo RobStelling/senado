@@ -78,7 +78,7 @@ for senador in parlamentares:
 
 for senador in parlamentaresAfastados:
     adicionaDados(dados, senador, status='Afastado')
-print('Fim de organização de operações...')
+print('Fim de organização de informações...')
 
 #dados = sorted(dados, key=lambda k: k['nome'])
 
@@ -92,7 +92,7 @@ def s2float(dado):
 def infoSenador(codigoSenador, ano=2017):
     """Coleta informações de um ano de legislatura de um senador pelo seu código
     Retorna um dicionário com o total de gastos (escalar) de um parlamentar e
-    informações de utilização de pessoal (dicionario).
+    uma lista de dicionário com informações de utilização de pessoal.
     Consulta as páginas de transparência do senado para efetuar a operação
     Página exemplo: Senador Itamar Franco, 2011
     http://www6g.senado.leg.br/transparencia/sen/1754/?ano=2011
@@ -101,7 +101,7 @@ def infoSenador(codigoSenador, ano=2017):
 
     # Coleta a página
     requisicao = requests.get(
-        f'http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}')
+        f"http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}")
 
     # E gera a sopa
     sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
@@ -113,12 +113,14 @@ def infoSenador(codigoSenador, ano=2017):
     # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
     quantidades = bloco.find('div', {'id': 'accordion-pessoal'}).find(
         'tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})
-    infoPessoal = {}
 
-    # Texto está no elemento <span> e valores no elemento <a>
+    infoPessoal = []
+
+    # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
     for i in range(0, len(quantidades)):
-        infoPessoal[quantidades[i].find('span').text.strip()] = int(
-            quantidades[i].find('a').text.strip().split()[0])
+        infoPessoal.append(
+            {'titulo': quantidades[i].find('span').text.strip(),
+             'valor': int(quantidades[i].find('a').text.strip().split()[0])})
 
     # Os totais de gastos estão nos dois rodapés das páginas
     valores = bloco.find_all('tfoot')
@@ -156,10 +158,14 @@ for senador in range(0, len(dados)):
     # pessoal (info['pessoal'].keys())
     for ano in anos:
         info = infoSenador(dados[senador]['codigo'], ano=ano)
-        dados[senador][f'gastos{ano}'] = info['total']
-        dados[senador]['gastos'] += dados[senador][f'gastos{ano}']
-        for key in info['pessoal'].keys():
-            dados[senador][f'{key}-{ano}'] = info['pessoal'][key]
+        dados[senador][f"gastos{ano}"] = info['total']
+        dados[senador]['gastos'] += dados[senador][f"gastos{ano}"]
+        dados[senador][f"TotalGabinete-{ano}"] = 0
+        for tipo in range(0, len(info['pessoal'])):
+            coluna = f"{info['pessoal'][tipo]['titulo']}-{ano}"
+            valor = info['pessoal'][tipo]['valor']
+            dados[senador][coluna] = valor
+            dados[senador][f"TotalGabinete-{ano}"] += valor
 
 print('\nFim de recuperação de informações de gastos parlamentares...')
 
@@ -232,24 +238,3 @@ sexo.to_csv('csv/sexo.csv', index=True, na_rep='', header=True,
             index_label=None, mode='w', encoding='utf-8', decimal='.')
 sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
              index_label=None, mode='w', encoding='utf-8', decimal='.')
-
-
-# Gera gráficos
-if not os.path.exists('imagensV2'):
-    os.makedirs('imagensV2')
-
-gEstados = gastoEstados[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
-    kind='bar', rot=0, title='Gastos por Estado', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
-gEstados.get_figure().savefig('imagensV2/gastoEstados.png')
-gPartidos = gastoPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
-    kind='bar', rot=0, title='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
-gPartidos.get_figure().savefig('imagensV2/gastoPartidos.png')
-gSexo = sexo.plot(kind='pie', figsize=(12, 12), fontsize=12,
-                  subplots=True, legend=False, colormap='Paired')
-gSexo[0].get_figure().savefig('imagensV2/distSexo.png')
-gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(
-    5, 5), subplots=True, legend=False, fontsize=12, colormap='Paired')
-gSexoT[0].get_figure().savefig('imagensV2/distSexoT.png')
-gTop10 = top10[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
-    kind='bar', rot=20, title='10 maiores gastadores', x=top10['nome'], figsize=(15, 8), legend=True, fontsize=12, colormap='Paired')
-gTop10.get_figure().savefig('imagensV2/10maiores.png')
