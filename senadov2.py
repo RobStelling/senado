@@ -1,11 +1,12 @@
 # coding='utf-8'
 # Imports
-import requests
-import errno
 from bs4 import BeautifulSoup
-import pandas as pd
-import os
+import errno
 import matplotlib.pyplot as plt
+import os
+import pandas as pd
+import re
+import requests
 
 
 def leParlamentares():
@@ -80,8 +81,6 @@ for senador in parlamentaresAfastados:
     adicionaDados(dados, senador, status='Afastado')
 print('Fim de organização de informações...')
 
-#dados = sorted(dados, key=lambda k: k['nome'])
-
 
 def s2float(dado):
     """ Converte uma string numérica no formato brasileiro para float """
@@ -109,18 +108,7 @@ def infoSenador(codigoSenador, ano=2017):
     # Seleciona a área onde estão os dados desejados
     bloco = sopaSenador.find('div', {'class': 'sen-conteudo-interno'})
 
-    # Recupera dados de pessoal
-    # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
-    quantidades = bloco.find('div', {'id': 'accordion-pessoal'}).find(
-        'tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})
-
-    infoPessoal = []
-
-    # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
-    for i in range(0, len(quantidades)):
-        infoPessoal.append(
-            {'titulo': quantidades[i].find('span').text.strip(),
-             'valor': int(quantidades[i].find('a').text.strip().split()[0])})
+    # Primeiro computa o total de gastos do senador
 
     # Os totais de gastos estão nos dois rodapés das páginas
     valores = bloco.find_all('tfoot')
@@ -141,8 +129,46 @@ def infoSenador(codigoSenador, ano=2017):
     for i in range(0, len(valores)):
         total += valores[i]
 
+    # Depois recupera utilização de auxílio-moradia e imóvel funcional
+
+    # Auxílios estão em #accordion-outros
+    outros = bloco.find('div', {'id': 'accordion-outros'})
+    # e os dados estão em td's
+    tdOutros = outros.find_all('td')
+
+    infoAuxilio = []
+    # Se tudo estiver correto, no td[i] teremos o nome do auxício
+    # e no td[i+1] sua utilização em meses
+    for i in range(0, len(tdOutros), 2):
+        meses = 0
+        auxilio = tdOutros[i].text.strip()
+        uso = tdOutros[i + 1].text.strip()
+        # Uso pode ser "Não utilizou", "Informações disponíveis depois..." ou
+        # "Utilizou (X) meses" ou "Utilizou (1) mês"
+        if (uso != 'Não utilizou'):
+            if not re.match(r'Informações disponíveis.*', uso):
+                meses = int(uso.replace('Utilizou (', '').replace(
+                    ' meses)', '').replace(' mês)', ''))
+
+        infoAuxilio.append({'beneficio': auxilio, 'meses': meses})
+
+    # Ao fim, recupera as informações de uso de pessoal
+
+    # Recupera dados de pessoal
+    # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
+    quantidades = bloco.find('div', {'id': 'accordion-pessoal'}).find(
+        'tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})
+
+    infoPessoal = []
+
+    # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
+    for i in range(0, len(quantidades)):
+        infoPessoal.append(
+            {'titulo': quantidades[i].find('span').text.strip(),
+             'valor': int(quantidades[i].find('a').text.strip().split()[0])})
+
     # Retorna o gasto total do senador para o ano pedido
-    return {'total': total, 'pessoal': infoPessoal}
+    return {'total': total, 'auxilio': infoAuxilio, 'pessoal': infoPessoal}
 
 
 print('Recuperando informações de gastos parlamentares...')
@@ -166,6 +192,10 @@ for senador in range(0, len(dados)):
             valor = info['pessoal'][tipo]['valor']
             dados[senador][coluna] = valor
             dados[senador][f"TotalGabinete-{ano}"] += valor
+        for beneficio in range(0, len(info['auxilio'])):
+            coluna = f"{info['auxilio'][beneficio]['beneficio']}"
+            valor = info['auxilio'][beneficio]['meses']
+            dados[senador][coluna] = valor
 
 print('\nFim de recuperação de informações de gastos parlamentares...')
 
