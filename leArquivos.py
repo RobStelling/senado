@@ -6,11 +6,9 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 
-# Lê dados de parlamentares das páginas de dados abertos do Senado
-# Retorna um dicionário com parlamentares atuais e afastados
-# Documentação da API do Senado Federal:
-# http://legis.senado.leg.br/dadosabertos/docs/resource_ListaSenadorService.html
-#
+"""Lê dados de parlamentares de arquivos CSV e
+gera gráficos, texto e páginas com o conteúdo
+"""
 
 # Lista de anos de mandato para contabilização
 anos = [2015, 2016, 2017]
@@ -27,8 +25,6 @@ sexo = dadosSenado.rename(columns={'Participacao': '(Sexo, Situação)'}).groupb
 sexoT = pd.read_csv('csv/sexoT.csv', encoding='utf-8', index_col=0)
 
 # Agrega dados do gabinete
-
-
 def agregaGabinete(df, anos=[2015, 2016, 2017]):
     Gabinete = 'Gabinete-'
     Escritorio = 'Escritório(s) de Apoio-'
@@ -97,7 +93,7 @@ gEstados = gastoEstados[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].pl
 gEstados.get_figure().savefig('imagensV2/gastoEstados.png')
 
 gabineteEstados = gastoEstados.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(
-    kind='bar', title='Tamanho do gabinete em 2017 por unidade', figsize=(10, 10), fontsize=12, legend=False)
+    kind='bar', title='Tamanho do gabinete em 2017 por unidade da federação', figsize=(10, 10), fontsize=12, legend=False)
 gabineteEstados.get_figure().savefig('imagensV2/gastoGabineteEstados-2017.png')
 
 gPartidos = gastoPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(

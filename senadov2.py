@@ -7,14 +7,13 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 
-# Lê dados de parlamentares das páginas de dados abertos do Senado
-# Retorna um dicionário com parlamentares atuais e afastados
-# Documentação da API do Senado Federal:
-# http://legis.senado.leg.br/dadosabertos/docs/resource_ListaSenadorService.html
-#
-
 
 def leParlamentares():
+    """Lê dados de parlamentares das páginas de dados abertos do Senado
+    Retorna um dicionário com parlamentares atuais e afastados
+    Documentação da API do Senado Federal:
+    http://legis.senado.leg.br/dadosabertos/docs/resource_ListaSenadorService.html
+    """
     print('Lendo dados de parlamentares...')
     # Abre uma sessão e define que aceita json
     sessao = requests.Session()
@@ -48,12 +47,12 @@ listaParlamentares = leParlamentares()
 parlamentares = listaParlamentares['atuais']
 parlamentaresAfastados = listaParlamentares['afastados']
 
-# Adiciona dados de parlametares, com os campos escolhidos, a uma lista
-# Não retorna valor (a lista de entrada é modificada)
-# Se statos não for passado assume que parlamentar está em exercício
-
 
 def adicionaDados(lista, parlamentar, status='Exercicio'):
+    """Adiciona dados de parlametares, com os campos escolhidos, a uma lista
+    Não retorna valor (a lista de entrada é modificada)
+    Se status não for passado assume que parlamentar está em exercício
+    """
     lista.append({'codigo': parlamentar['IdentificacaoParlamentar']['CodigoParlamentar'],
                   'nomeCompleto': parlamentar['IdentificacaoParlamentar']['NomeCompletoParlamentar'],
                   'nome': parlamentar['IdentificacaoParlamentar']['NomeParlamentar'],
@@ -75,31 +74,28 @@ print('Organizando informações de parlamentares...')
 # Adiciona informações dos parlamentares em exercício e afastados
 # à lista 'dados'
 for senador in parlamentares:
-    adicionaDados(dados, senador, 'Exercicio')
+    adicionaDados(dados, senador, status='Exercicio')
 
 for senador in parlamentaresAfastados:
-    adicionaDados(dados, senador, 'Afastado')
+    adicionaDados(dados, senador, status='Afastado')
 print('Fim de organização de operações...')
 
 #dados = sorted(dados, key=lambda k: k['nome'])
 
-# Converte uma string numérica no formato brasileiro para float
-# Retira '.' e substitui ',' por '.' e converte para float
-
-
 def s2float(dado):
+    """ Converte uma string numérica no formato brasileiro para float """
+    # Retira '.' e substitui ',' por '.' e converte para float
     return float(dado.replace('.', '').replace(',', '.'))
 
-# Retorna o total de gastos de um parlamentar, e informações de
-# utilização de pessoal, pelo seu código e ano de legislatura
-# Consulta as páginas de transparência do senado para efetuar a operação
-# Página exemplo: Senador Itamar Franco, 2011
-# http://www6g.senado.leg.br/transparencia/sen/1754/?ano=2011
-
-
 def infoSenador(codigoSenador, ano=2017):
-    # Indicador de atividade
-    print('.', end='', flush=True)
+    """Coleta informações de um ano de legislatura de um senador pelo seu código
+    Retorna um dicionário com o total de gastos (escalar) de um parlamentar e
+    informações de utilização de pessoal (dicionario).
+    Consulta as páginas de transparência do senado para efetuar a operação
+    Página exemplo: Senador Itamar Franco, 2011
+    http://www6g.senado.leg.br/transparencia/sen/1754/?ano=2011
+    """
+    print('.', end='', flush=True)            # Indicador de atividade
 
     # Coleta a página
     requisicao = requests.get(
@@ -116,6 +112,7 @@ def infoSenador(codigoSenador, ano=2017):
     quantidades = bloco.find('div', {'id': 'accordion-pessoal'}).find(
         'tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})
     infoPessoal = {}
+
     # Texto está no elemento <span> e valores no elemento <a>
     for i in range(0, len(quantidades)):
         infoPessoal[quantidades[i].find('span').text.strip()] = int(
@@ -141,7 +138,7 @@ def infoSenador(codigoSenador, ano=2017):
         total += valores[i]
 
     # Retorna o gasto total do senador para o ano pedido
-    return [total, infoPessoal]
+    return {'total': total, 'pessoal': infoPessoal}
 
 
 print('Recuperando informações de gastos parlamentares...')
@@ -150,12 +147,17 @@ print('Recuperando informações de gastos parlamentares...')
 # e soma os gastos em 'gastos'
 for senador in range(0, len(dados)):
     dados[senador]['gastos'] = 0
+    # Para cada ano, recupera as informações do senador
+    # Guarda o total daquele ano (gastos{ano}) e soma no total
+    # de gastos (gastos).
+    # Cria uma coluna para cada tipo de uso de
+    # pessoal (info['pessoal'].keys())
     for ano in anos:
-        info = infoSenador(dados[senador]['codigo'], ano)
-        dados[senador][f'gastos{ano}'] = info[0]
+        info = infoSenador(dados[senador]['codigo'], ano=ano)
+        dados[senador][f'gastos{ano}'] = info['total']
         dados[senador]['gastos'] += dados[senador][f'gastos{ano}']
-        for key in info[1].keys():
-            dados[senador][f'{key}-{ano}'] = info[1][key]
+        for key in info['pessoal'].keys():
+            dados[senador][f'{key}-{ano}'] = info['pessoal'][key]
 
 print('\nFim de recuperação de informações de gastos parlamentares...')
 
