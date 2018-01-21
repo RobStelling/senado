@@ -31,7 +31,7 @@ totalMulheres = len(dadosSenado[dadosSenado.sexo == 'Feminino'])
 totalExercicio = len(dadosSenado[dadosSenado.status == 'Exercicio'])
 totalMulheresExercicio = dadosSenado.query(
     'sexo == "Feminino" and status == "Exercicio"').count()[0]
-totalAfastados = len(dadosSenado[dadosSenado.status == 'Afastado'])
+totalForaExercicio = len(dadosSenado[dadosSenado.status == 'ForaExercicio'])
 totalGasto = dadosSenado['gastos'].sum()
 
 # Não contabiliza parlamentares que ainda não efetuaram gastos no cálculo de médias
@@ -55,7 +55,7 @@ print('O gasto médio de senadores homens em exercício foi de R$ {:.2f}'.format
     mediaGastosHomensExercicio))
 print('O gasto médio de senadores mulheres em exercício foi de R$ {:.2f}'.format(
     mediaGastosMulheresExercicio))
-print('O gasto médio dos senadores, em exercício e afastados, foi de R$ {:.2f}'.format(
+print('O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ {:.2f}'.format(
     gastoMedioSenadores))
 print('O montante de despesas parlamentares em {:d} anos foi de R$ {:.2f}, com media anual de R$ {:.2f}'.format(
     len(anos), totalGasto, totalGasto / len(anos)))
