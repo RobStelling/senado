@@ -93,10 +93,10 @@ gTop10 = top10[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
     kind='bar', rot=20, title='10 maiores gastadores', x=top10['nome'], figsize=(15, 8), legend=True, fontsize=12, colormap='Paired')
 gTop10.get_figure().savefig('imagensV2/10maiores.png')
 
-beneficioMoradia = gastoEstados['Auxílio-Moradia-2015'] + gastoEstados['Auxílio-Moradia-2016'] + gastoEstados['Auxílio-Moradia-2017'] + \
+beneficioMoradia = (gastoEstados['Auxílio-Moradia-2015'] + gastoEstados['Auxílio-Moradia-2016'] + gastoEstados['Auxílio-Moradia-2017'] + \
     gastoEstados['Imóvel Funcional-2015'] + \
     gastoEstados['Imóvel Funcional-2016'] + \
-    gastoEstados['Imóvel Funcional-2017']
+    gastoEstados['Imóvel Funcional-2017']) / len(anos)
 gBeneficio = beneficioMoradia.sort_values(ascending=False).plot(
-    kind='bar', title='Uso de benefícios de moradia por unidade da federação em meses', figsize=(10, 10), fontsize=(12), legend=False)
+    kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
 gBeneficio.get_figure().savefig('imagensV2/moradiaEstado.png')
