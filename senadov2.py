@@ -235,7 +235,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     # Retorna o gasto total do senador para o ano pedido
     return {'total': total, 'auxilio': infoAuxilio, 'pessoal': infoPessoal}
 
-def recuperaLegislaturaAtual():
+def infoLegislaturaAtual():
     url = "https://www25.senado.leg.br/web/senadores/em-exercicio"
     header = {'user-agent': f"senadoInfo/{versao}"}
     try:
@@ -248,12 +248,33 @@ def recuperaLegislaturaAtual():
     # Exemplo de texto:
     # 55ª Legislatura (2015 - 2019)
     numeroLegislatura = int(textoLegislatura.split('ª')[0])
-    return numeroLegislatura
 
-# Lista de anos de mandato para contabilização
-anos = [2015, 2016, 2017]
+    anos = textoLegislatura.split('(')[1].split(')')[0].split('-')
+    for i in range(len(anos)):
+        anos[i] = int(anos[i].strip())
 
-legislaturaAtual = recuperaLegislaturaAtual()
+    anos = list(range(anos[0], anos[1]+1))
+
+    return {'legislatura': numeroLegislatura, 'anos': anos}
+
+
+infoLegislatura = infoLegislaturaAtual()
+# Legislatura atual
+legislaturaAtual = infoLegislatura['legislatura']
+# Lista de anos de mandato da legislatura atual
+anos = infoLegislatura['anos']
+anoAtual = datetime.today().year
+# Só contabiliza até o ano anterior
+# Incluir ano atual se for parcial?
+# Por exemplo, se estivermos em julho de 2018, devemos incluir também os dados de 2018
+# Resposta: É preciso esperar um pouco para ver em quanto tempo o senado atualiza as inforamções
+# de gastos do ano corrente, dependendo da frequência pode ser interessante incluir o ano atual 
+i = 0
+while i < len(anos):
+    if anos[i] >= anoAtual:
+        anos.pop(i)
+    else:
+        i += 1
 
 print('Lendo dados de parlamentares da legislatura {}...'.format(legislaturaAtual))
 listaParlamentares = leParlamentares(legislaturaAtual)
