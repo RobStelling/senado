@@ -1,5 +1,5 @@
 sexo,status,"(Sexo, Situação)"
-Feminino,Afastado,2
 Feminino,Exercicio,13
-Masculino,Afastado,40
+Feminino,ForaExercicio,1
 Masculino,Exercicio,68
+Masculino,ForaExercicio,36
