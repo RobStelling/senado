@@ -22,7 +22,7 @@ MAJOR.MINOR.PATCH.
 
 MAJOR = 0 indica que o estado atual é de desenvolvimento inicial, qualquer funcionalidade pode mudar.
 """
-versao = '0.2.13'
+versao = '0.2.14'
 
 def leParlamentares(legislatura=55):
     """Lê dados de parlamentares das páginas de dados abertos do Senado
@@ -82,19 +82,22 @@ def leParlamentares(legislatura=55):
     AP,30,gilvamborges@senador.leg.br,Gilvam Borges,Gilvam Pinheiro Borges,PMDB,Masculino
     PA,4998,marinorbrito@senadora.leg.br,Marinor Brito,Marinor Jorge Brito,PSOL,Feminino
     PB,3811,wilson.santiago@senador.leg.br,Wilson Santiago,José Wilson Santiago,PMDB,Masculino
-    Também inclui Demóstenes Torres, que teve seu mandato cassado pelo Senado por quebra de decoro parlamentar:
+    Os parlamentares acima não aparecem nas listas de Vacantes do Senado, os senadores abaixo também
+    não foram eleitos na legislatura atual mas aparecem na lista de vacantes do senado:
+    Demóstenes Torres, que teve seu mandato cassado pelo Senado por quebra de decoro parlamentar:
     - Demóstenes Torres:
     GO,3399,demostenes.torres@senador.leg.br,Demóstenes Torres,Demóstenes Lazaro Xavier Torres,S/Partido,Masculino
-    Além disso a lista inclui 2 senadores que faleceram antes da legislatura atual
+    2 senadores que faleceram antes da legislatura atual
     - Itamar Franco: 02/07/2011
     - João Ribeiro: 18/12/2013
     MG,1754,itamar.franco@senador.leg.br,Itamar Franco,Itamar Augusto Cautiero Franco,,Masculino
     TO,916,joaoribeiro@senador.leg.br,João Ribeiro,João Batista de Jesus Ribeiro,PR,Masculino
-    E os que renunciaram em outras legislaturas:
+    E os que renunciaram em legislatura anterior:
     - Vital do Rego
     - Wellington Dias
     PB,4645,vital.rego@senador.leg.br,Vital do Rêgo,Vital do Rêgo Filho,PMDB,Masculino
     PI,5016,wellington.dias@senador.leg.br,Wellington Dias,José Wellington Barroso de Araujo Dias,PT,Masculino
+    Os dados destes senadores não serão incluídos nos cálculos de estatísticas
     """
     listaNegada = ["Demóstenes Torres", "Gilvam Borges", "Itamar Franco", "João Ribeiro", "Marinor Brito", "Vital do Rêgo", "Wellington Dias", "Wilson Santiago"]
     i = 0
@@ -232,12 +235,28 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     # Retorna o gasto total do senador para o ano pedido
     return {'total': total, 'auxilio': infoAuxilio, 'pessoal': infoPessoal}
 
+def recuperaLegislaturaAtual():
+    url = "https://www25.senado.leg.br/web/senadores/em-exercicio"
+    header = {'user-agent': f"senadoInfo/{versao}"}
+    try:
+        requisicao = requests.get(url, headers=header)
+    except requests.exceptions.RequestException as erro:
+        print(erro)
+        sys.exit(1)
+    sopa = BeautifulSoup(requisicao.content, 'html.parser')
+    textoLegislatura = sopa.find('h2').text.strip()
+    # Exemplo de texto:
+    # 55ª Legislatura (2015 - 2019)
+    numeroLegislatura = int(textoLegislatura.split('ª')[0])
+    return numeroLegislatura
 
 # Lista de anos de mandato para contabilização
 anos = [2015, 2016, 2017]
 
-print('Lendo dados de parlamentares...')
-listaParlamentares = leParlamentares()
+legislaturaAtual = recuperaLegislaturaAtual()
+
+print('Lendo dados de parlamentares da legislatura {}...'.format(legislaturaAtual))
+listaParlamentares = leParlamentares(legislaturaAtual)
 print('Fim de leitura...')
 
 parlamentares = listaParlamentares['atuais']
