@@ -3,6 +3,7 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
 import errno
+import locale
 import matplotlib.pyplot as plt
 import os
 import pandas as pd
@@ -22,7 +23,11 @@ MAJOR.MINOR.PATCH.
 
 MAJOR = 0 indica que o estado atual é de desenvolvimento inicial, qualquer funcionalidade pode mudar.
 """
-versao = '0.2.14'
+
+locale.setlocale(locale.LC_ALL, '')
+
+versao = '0.2.15'
+
 
 def leParlamentares(legislatura=55):
     """Lê dados de parlamentares das páginas de dados abertos do Senado
@@ -37,13 +42,16 @@ def leParlamentares(legislatura=55):
 
         # Teoricamente pode haver múltiplas legislaturas de um mandato
         # mas nos exemplos encontrados só vimos casos até segunda.
-        ordemLegislatura = ['Primeira', 'Segunda', 'Terceira', 'Quarta', 'Quinta', 'Sexta', 'Setima', 'Oitava', 'Nona']
+        ordemLegislatura = ['Primeira', 'Segunda', 'Terceira',
+                            'Quarta', 'Quinta', 'Sexta', 'Setima', 'Oitava', 'Nona']
         for ordinal in ordemLegislatura:
             # Se não encontrou legislatura então não é senador atual
             if parlamentar['Mandatos']['Mandato'].get(f"{ordinal}LegislaturaDoMandato", '') == '':
                 return False
-            ordemLegislatura = parlamentar['Mandatos']['Mandato'][f"{ordinal}LegislaturaDoMandato"]
-            inicio =  [int(x) for x in ordemLegislatura['DataInicio'].split('-')]
+            ordemLegislatura = parlamentar['Mandatos'][
+                'Mandato'][f"{ordinal}LegislaturaDoMandato"]
+            inicio = [int(x)
+                      for x in ordemLegislatura['DataInicio'].split('-')]
             fim = [int(x) for x in ordemLegislatura['DataFim'].split('-')]
             dataInicio = datetime(inicio[0], inicio[1], inicio[2])
             dataFim = datetime(fim[0], fim[1], fim[2])
@@ -62,7 +70,8 @@ def leParlamentares(legislatura=55):
 
     # Define no header que aceita JSON
     # Resposta padrão da API é XML
-    header = {'Accept': 'application/json', 'user-agent': f"senadoInfo/{versao}"}
+    header = {'Accept': 'application/json',
+              'user-agent': f"senadoInfo/{versao}"}
     url = f"http://legis.senado.leg.br/dadosabertos/senador/lista/legislatura/{legislatura}"
 
     try:
@@ -99,14 +108,16 @@ def leParlamentares(legislatura=55):
     PI,5016,wellington.dias@senador.leg.br,Wellington Dias,José Wellington Barroso de Araujo Dias,PT,Masculino
     Os dados destes senadores não serão incluídos nos cálculos de estatísticas
     """
-    listaNegada = ["Demóstenes Torres", "Gilvam Borges", "Itamar Franco", "João Ribeiro", "Marinor Brito", "Vital do Rêgo", "Wellington Dias", "Wilson Santiago"]
+    listaNegada = ["Demóstenes Torres", "Gilvam Borges", "Itamar Franco", "João Ribeiro",
+                   "Marinor Brito", "Vital do Rêgo", "Wellington Dias", "Wilson Santiago"]
     i = 0
     # Retira da lista os parlamentares que nunca exerceram mandato
     while i < len(parlamentares):
         if parlamentares[i]['Mandatos']['Mandato'].get('Exercicios', '') == '':
             parlamentares.pop(i)
         elif parlamentares[i]['IdentificacaoParlamentar']['NomeParlamentar'] in listaNegada:
-            listaNegada.remove(parlamentares[i]['IdentificacaoParlamentar']['NomeParlamentar'])
+            listaNegada.remove(
+                parlamentares[i]['IdentificacaoParlamentar']['NomeParlamentar'])
             parlamentares.pop(i)
         else:
             i = i + 1
@@ -114,14 +125,15 @@ def leParlamentares(legislatura=55):
     parlamentaresAtuais = []
     parlamentaresForaExercicio = []
 
-    agora = datetime.now()
+    hoje = datetime.today()
     for parlamentar in parlamentares:
-        if ativo(parlamentar, agora):
+        if ativo(parlamentar, hoje):
             parlamentaresAtuais.append(parlamentar)
         else:
             parlamentaresForaExercicio.append(parlamentar)
 
     return {'atuais': parlamentaresAtuais, 'foraExercicio': parlamentaresForaExercicio}
+
 
 def adicionaDados(lista, parlamentar, status='Exercicio'):
     """Adiciona dados de parlametares, com os campos escolhidos, a uma lista
@@ -160,8 +172,9 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     http://www6g.senado.leg.br/transparencia/sen/1754/?ano=2011
     """
     print('.', end='', flush=True)            # Indicador de atividade
-    # Espera, em segundos, antes de carregar a página
-    time.sleep(intervalo)
+    # Intervalo, em segundos, antes de carregar a página
+    if intervalo > 0:
+        time.sleep(intervalo)
 
     header = {'user-agent': f"senadoInfo/{versao}"}
     # Coleta a página
@@ -173,7 +186,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
         print(erro)
         sys.exit(1)
 
-    # Se houve um redirect então a página sobre aquele ano não existe
+    # Se houve um redirect então a página sobre aquele ano daquele senador não existe
     if requisicao.history:
         return {'total': 0, 'auxilio': [], 'pessoal': []}
 
@@ -235,6 +248,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     # Retorna o gasto total do senador para o ano pedido
     return {'total': total, 'auxilio': infoAuxilio, 'pessoal': infoPessoal}
 
+
 def infoLegislaturaAtual():
     url = "https://www25.senado.leg.br/web/senadores/em-exercicio"
     header = {'user-agent': f"senadoInfo/{versao}"}
@@ -253,7 +267,7 @@ def infoLegislaturaAtual():
     for i in range(len(anos)):
         anos[i] = int(anos[i].strip())
 
-    anos = list(range(anos[0], anos[1]+1))
+    anos = list(range(anos[0], anos[1] + 1))
 
     return {'legislatura': numeroLegislatura, 'anos': anos}
 
@@ -261,14 +275,14 @@ def infoLegislaturaAtual():
 infoLegislatura = infoLegislaturaAtual()
 # Legislatura atual
 legislaturaAtual = infoLegislatura['legislatura']
-# Lista de anos de mandato da legislatura atual
+# Lista dos anos de mandato da legislatura atual
 anos = infoLegislatura['anos']
 anoAtual = datetime.today().year
 # Só contabiliza até o ano anterior
 # Incluir ano atual se for parcial?
-# Por exemplo, se estivermos em julho de 2018, devemos incluir também os dados de 2018
+# Por exemplo, se estivermos em julho de 2018, devemos incluir também os dados de 2018?
 # Resposta: É preciso esperar um pouco para ver em quanto tempo o senado atualiza as inforamções
-# de gastos do ano corrente, dependendo da frequência pode ser interessante incluir o ano atual 
+# de gastos do ano corrente, dependendo da frequência pode ser interessante incluir o ano atual
 i = 0
 while i < len(anos):
     if anos[i] >= anoAtual:
@@ -300,6 +314,7 @@ print('Recuperando informações de gastos parlamentares...')
 
 # Para cada senador coleta os gastos de cada ano da legislatura
 # e soma os gastos em 'gastos'
+colunaInteiro = set()
 for senador in range(len(dados)):
     dados[senador]['gastos'] = 0
     # Para cada ano, recupera as informações do senador
@@ -308,19 +323,28 @@ for senador in range(len(dados)):
     # Cria uma coluna para cada tipo de uso de
     # pessoal (info['pessoal'].keys())
     for ano in anos:
-        info = infoSenador(dados[senador]['codigo'], ano=ano, intervalo=0.5)
+        info = infoSenador(dados[senador]['codigo'], ano=ano, intervalo=0.25)
         dados[senador][f"gastos{ano}"] = info['total']
         dados[senador]['gastos'] += dados[senador][f"gastos{ano}"]
         dados[senador][f"TotalGabinete-{ano}"] = 0
         for tipo in range(len(info['pessoal'])):
             coluna = f"{info['pessoal'][tipo]['titulo']}-{ano}"
+            colunaInteiro.add(coluna)
             valor = info['pessoal'][tipo]['valor']
             dados[senador][coluna] = valor
             dados[senador][f"TotalGabinete-{ano}"] += valor
         for beneficio in range(len(info['auxilio'])):
             coluna = f"{info['auxilio'][beneficio]['beneficio']}-{ano}"
+            colunaInteiro.add(coluna)
             valor = info['auxilio'][beneficio]['meses']
             dados[senador][coluna] = valor
+
+# Acrescenta zeros (int) em colunas que não existem para alguns senadores
+# Por exemplo: um determinado senador não possui informação de Gabinete em 2015 
+for coluna in colunaInteiro:
+    for senador in range(len(dados)):
+        if dados[senador].get(coluna, 'Não tem') == 'Não tem':
+            dados[senador][coluna] = 0
 
 print('\nFim de recuperação de informações de gastos parlamentares...')
 
