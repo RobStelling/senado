@@ -29,15 +29,17 @@ locale.setlocale(locale.LC_ALL, '')
 versao = '0.2.15'
 
 
-def leParlamentares(legislatura=55):
+def leDadosParlamentares(legislatura=55):
     """Lê dados de parlamentares das páginas de dados abertos do Senado
-    Retorna um dicionário com parlamentares ativos e inativos
+    Retorna parlamentares em exercício e fora de exercício
     Documentação da API do Senado Federal:
     http://legis.senado.leg.br/dadosabertos/docs/resource_ListaSenadorService.html
     """
 
     def ativo(parlamentar, data):
         """Verifica se um parlamentar está ativo no momento
+        Retorna True se estiver ativo, False se estiver inativo
+
         """
 
         # Teoricamente pode haver múltiplas legislaturas de um mandato
@@ -59,7 +61,8 @@ def leParlamentares(legislatura=55):
             if dataInicio < data < dataFim:
                 # Recupera os exercícios
                 exercicios = parlamentar['Mandatos']['Mandato']['Exercicios']['Exercicio']
-                # Se houve só um exercício o JSON retorna um dicionário, que convertemos para lista
+                # Se houve só um exercício o JSON retorna um dicionário e não uma lista de dicionários.
+                # Convertemos o dicionário para lista de dicionário, para facilitar o código a seguir
                 if not isinstance(exercicios, list):
                     exercicios = [exercicios]
                 # Se entre os exercícios há um sem DataFim, então é ativo
@@ -68,7 +71,7 @@ def leParlamentares(legislatura=55):
                         return True
         return False
 
-    # Define no header que aceita JSON
+    # Define no que aceita JSON
     # Resposta padrão da API é XML
     header = {'Accept': 'application/json',
               'user-agent': f"senadoInfo/{versao}"}
@@ -132,7 +135,7 @@ def leParlamentares(legislatura=55):
         else:
             parlamentaresForaExercicio.append(parlamentar)
 
-    return {'atuais': parlamentaresAtuais, 'foraExercicio': parlamentaresForaExercicio}
+    return parlamentaresAtuais, parlamentaresForaExercicio
 
 
 def adicionaDados(lista, parlamentar, status='Exercicio'):
@@ -150,7 +153,7 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
                   'partido': parlamentar['IdentificacaoParlamentar'].get('SiglaPartidoParlamentar', ''),
                   'urlFoto': parlamentar['IdentificacaoParlamentar']['UrlFotoParlamentar'],
                   'urlPagina': parlamentar['IdentificacaoParlamentar']['UrlPaginaParlamentar'],
-                  # Se for afastado então o campo a adicionar está em Mandato
+                  # Se for afastado então a UF está em Mandato
                   'UF': parlamentar['IdentificacaoParlamentar'].get('UfParlamentar', parlamentar['Mandatos']['Mandato']['UfParlamentar']),
                   'Participacao': parlamentar['Mandatos']['Mandato']['DescricaoParticipacao'],
                   'status': status})
@@ -164,8 +167,9 @@ def s2float(dado):
 
 def infoSenador(codigoSenador, ano=2017, intervalo=0):
     """Coleta informações de um ano de legislatura de um senador pelo seu código
-    Retorna um dicionário com o total de gastos (escalar) de um parlamentar e
-    uma lista de dicionário com informações de utilização de pessoal.
+    Retorna o total de gastos de um parlamentar, uma lista de meses de utilização
+    de auxílio moradia e apartamento funcional e uma lista de utilização de pessoal
+    no gabinete e escritórios de apoio.
     Consulta as páginas de transparência do senado para efetuar a operação,
     se definido, espera "intervalo" segundos antes de fazer a requisição
     Página exemplo: Senador Itamar Franco, 2011
@@ -186,9 +190,13 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
         print(erro)
         sys.exit(1)
 
+    total = 0
+    infoAuxilio = []
+    infoPessoal = []
+
     # Se houve um redirect então a página sobre aquele ano daquele senador não existe
     if requisicao.history:
-        return {'total': 0, 'auxilio': [], 'pessoal': []}
+        return total, infoAuxilio, infoPessoal
 
     # E gera a sopa
     sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
@@ -202,7 +210,6 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
 
     # Extrai apenas o valor em string (strip().split()[1]),
     # converte para float (s2float) e contabiliza o total
-    total = 0
     for i in range(len(valores)):
         valores[i] = s2float(valores[i].text.strip().split()[1])
         total += valores[i]
@@ -213,7 +220,6 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     # e os dados estão em td's
     tdOutros = outros.find_all('td')
 
-    infoAuxilio = []
     # Se tudo estiver correto, no td[i] teremos o nome do auxício
     # e no td[i+1] sua utilização em meses
     for i in range(0, len(tdOutros), 2):
@@ -237,19 +243,20 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     quantidades = bloco.find('div', {'id': 'accordion-pessoal'}).find(
         'tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})
 
-    infoPessoal = []
-
     # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
     for i in range(len(quantidades)):
         infoPessoal.append(
             {'titulo': quantidades[i].find('span').text.strip(),
-             'valor': int(quantidades[i].find('a').text.strip().split()[0])})
+             'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
 
     # Retorna o gasto total do senador para o ano pedido
-    return {'total': total, 'auxilio': infoAuxilio, 'pessoal': infoPessoal}
+    return total, infoAuxilio, infoPessoal
 
 
 def infoLegislaturaAtual():
+    """Retorna a legislatura atual e os anos de exercício a partir
+    da página de senadores em exercício do senado
+    """
     url = "https://www25.senado.leg.br/web/senadores/em-exercicio"
     header = {'user-agent': f"senadoInfo/{versao}"}
     try:
@@ -269,14 +276,10 @@ def infoLegislaturaAtual():
 
     anos = list(range(anos[0], anos[1] + 1))
 
-    return {'legislatura': numeroLegislatura, 'anos': anos}
+    return numeroLegislatura, anos
 
 
-infoLegislatura = infoLegislaturaAtual()
-# Legislatura atual
-legislaturaAtual = infoLegislatura['legislatura']
-# Lista dos anos de mandato da legislatura atual
-anos = infoLegislatura['anos']
+legislaturaAtual, anos = infoLegislaturaAtual()
 anoAtual = datetime.today().year
 # Só contabiliza até o ano anterior
 # Incluir ano atual se for parcial?
@@ -291,12 +294,9 @@ while i < len(anos):
         i += 1
 
 print('Lendo dados de parlamentares da legislatura {}...'.format(legislaturaAtual))
-listaParlamentares = leParlamentares(legislaturaAtual)
+parlamentares, parlamentaresForaExercicio = leDadosParlamentares(
+    legislaturaAtual)
 print('Fim de leitura...')
-
-parlamentares = listaParlamentares['atuais']
-parlamentaresForaExercicio = listaParlamentares['foraExercicio']
-
 
 dados = []
 print('Organizando informações de parlamentares...')
@@ -318,29 +318,31 @@ colunaInteiro = set()
 for senador in range(len(dados)):
     dados[senador]['gastos'] = 0
     # Para cada ano, recupera as informações do senador
-    # Guarda o total daquele ano (gastos{ano}) e soma no total
+    # Guarda o total daquele ano (dados[senador][gastos{ano}]) e soma no total
     # de gastos (gastos).
     # Cria uma coluna para cada tipo de uso de
-    # pessoal (info['pessoal'].keys())
+    # pessoal
     for ano in anos:
-        info = infoSenador(dados[senador]['codigo'], ano=ano, intervalo=0.25)
-        dados[senador][f"gastos{ano}"] = info['total']
-        dados[senador]['gastos'] += dados[senador][f"gastos{ano}"]
+        # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
+        total, auxilio, pessoal = infoSenador(
+            dados[senador]['codigo'], ano=ano, intervalo=0.5)
+        dados[senador][f"gastos{ano}"] = total
+        dados[senador]['gastos'] += total
         dados[senador][f"TotalGabinete-{ano}"] = 0
-        for tipo in range(len(info['pessoal'])):
-            coluna = f"{info['pessoal'][tipo]['titulo']}-{ano}"
+        for tipo in range(len(pessoal)):
+            coluna = f"{pessoal[tipo]['titulo']}-{ano}"
             colunaInteiro.add(coluna)
-            valor = info['pessoal'][tipo]['valor']
-            dados[senador][coluna] = valor
-            dados[senador][f"TotalGabinete-{ano}"] += valor
-        for beneficio in range(len(info['auxilio'])):
-            coluna = f"{info['auxilio'][beneficio]['beneficio']}-{ano}"
+            quantidade = pessoal[tipo]['quantidade']
+            dados[senador][coluna] = quantidade
+            dados[senador][f"TotalGabinete-{ano}"] += quantidade
+        for beneficio in range(len(auxilio)):
+            coluna = f"{auxilio[beneficio]['beneficio']}-{ano}"
             colunaInteiro.add(coluna)
-            valor = info['auxilio'][beneficio]['meses']
-            dados[senador][coluna] = valor
+            meses = auxilio[beneficio]['meses']
+            dados[senador][coluna] = meses
 
 # Acrescenta zeros (int) em colunas que não existem para alguns senadores
-# Por exemplo: um determinado senador não possui informação de Gabinete em 2015 
+# Por exemplo: um determinado senador não possui informação de Gabinete em 2015
 for coluna in colunaInteiro:
     for senador in range(len(dados)):
         if dados[senador].get(coluna, 'Não tem') == 'Não tem':
@@ -375,10 +377,10 @@ mediaGastosMulheresExercicio = dadosSenado.query(
 top10 = dadosSenado.sort_values(by=['gastos'], ascending=[False]).head(10)
 
 # Dataframes de gastos por estado e por partidos
-gastoEstados = dadosSenado.groupby('UF').sum().sort_values(by=[
-    'gastos'], ascending=[False])
-gastoPartidos = dadosSenado.groupby('partido').sum(
-).sort_values(by=['gastos'], ascending=[False])
+gastoEstados = dadosSenado.groupby('UF').sum().sort_values(
+    by=['gastos'], ascending=[False])
+gastoPartidos = dadosSenado.groupby('partido').sum().sort_values(
+    by=['gastos'], ascending=[False])
 sexo = dadosSenado.rename(columns={'Participacao': '(Sexo, Situação)'}).groupby(
     ['sexo', 'status'])['(Sexo, Situação)'].count()
 sexoT = dadosSenado[['Participacao', 'sexo']].groupby(['sexo']).count()
