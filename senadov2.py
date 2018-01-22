@@ -34,7 +34,7 @@ Lista de ideias a fazer:
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
-versao = '0.2.15'
+versao = '0.2.16'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -151,9 +151,22 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
     Não retorna valor (a lista de entrada é modificada)
     Se status não for passado assume que parlamentar está em exercício
     """
+
+    def limpaNome(nome):
+        """Retorna o nome em minúsculas e com caracteres acentuados convertidos
+        para caracteres sem acentos. Para ordenação do DataFrame pelo campo nome
+        """
+        p = {'a': re.compile('(á|â|à|ã)'), 'e': re.compile('(é|ê|è)'), 'i': re.compile('(í|î|ì)'),
+             'o': re.compile('(ó|ô|ò|õ)'), 'u': re.compile('(ú|û|ù)'), 'c': re.compile('(ç)')}
+        nomeMinusculas = nome.lower()
+        for letra in p:
+            nomeMinusculas = p[letra].sub(letra, nomeMinusculas)
+        return nomeMinusculas
+
     lista.append({'codigo': parlamentar['IdentificacaoParlamentar']['CodigoParlamentar'],
                   'nomeCompleto': parlamentar['IdentificacaoParlamentar']['NomeCompletoParlamentar'],
                   'nome': parlamentar['IdentificacaoParlamentar']['NomeParlamentar'],
+                  'nomeSort': limpaNome(parlamentar['IdentificacaoParlamentar']['NomeParlamentar']),
                   # Alguns não tem email
                   'email': parlamentar['IdentificacaoParlamentar'].get('EmailParlamentar', ''),
                   'sexo': parlamentar['IdentificacaoParlamentar']['SexoParlamentar'],
