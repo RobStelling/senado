@@ -2,6 +2,7 @@
 # Imports
 from bs4 import BeautifulSoup
 import errno
+import locale
 import matplotlib.pyplot as plt
 import os
 import pandas as pd
@@ -9,6 +10,8 @@ import pandas as pd
 """Lê dados de parlamentares de arquivos CSV e
 gera gráficos, texto e páginas com o conteúdo
 """
+
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
 # Lista de anos de mandato para contabilização
 anos = [2015, 2016, 2017]
@@ -45,21 +48,20 @@ mediaGastosMulheresExercicio = dadosSenado.query(
 # Imprime algumas informações do senado, pelos dados coletados
 print('Há no senado {:d} senadores, distribuidos entre {:d} homens e {:d} mulheres'.format(
     totalSenadores, totalHomens, totalMulheres))
-print('As mulheres representam {:.2f}% do total'.format(
-    totalMulheres / totalSenadores * 100))
+print('As mulheres representam ' + locale.format('%.2f',
+                                                 totalMulheres / totalSenadores * 100) + '% do total')
 print('Há {:d} senadores em exercício, destes {:d} são mulheres'.format(
     totalExercicio, totalMulheresExercicio))
-print('As mulheres representam {:.2f}% deste total'.format(
-    totalMulheresExercicio / totalExercicio * 100))
-print('O gasto médio de senadores homens em exercício foi de R$ {:.2f}'.format(
-    mediaGastosHomensExercicio))
-print('O gasto médio de senadores mulheres em exercício foi de R$ {:.2f}'.format(
-    mediaGastosMulheresExercicio))
-print('O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ {:.2f}'.format(
-    gastoMedioSenadores))
-print('O montante de despesas parlamentares em {:d} anos foi de R$ {:.2f}, com media anual de R$ {:.2f}'.format(
-    len(anos), totalGasto, totalGasto / len(anos)))
-
+print('As mulheres representam ' + locale.format('%.2f',
+                                                 totalMulheresExercicio / totalExercicio * 100) + '% deste total')
+print('O gasto médio de senadores homens em exercício foi de R$ ' +
+      locale.format('%.2f', mediaGastosHomensExercicio, grouping=True))
+print('O gasto médio de senadores mulheres em exercício foi de R$ ' +
+      locale.format('%.2f', mediaGastosMulheresExercicio, grouping=True))
+print('O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ ' +
+      locale.format('%.2f', gastoMedioSenadores, grouping=True))
+print('O montante de despesas parlamentares em {:d} anos foi de R$ '.format(len(anos)) + locale.format(
+    '%.2f', totalGasto, grouping=True) + ', com media anual de R$ ' + locale.format('%.2f', totalGasto / len(anos), grouping=True))
 
 # Gera gráficos
 if not os.path.exists('imagensV2'):

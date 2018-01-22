@@ -23,8 +23,16 @@ MAJOR.MINOR.PATCH.
 
 MAJOR = 0 indica que o estado atual é de desenvolvimento inicial, qualquer funcionalidade pode mudar.
 """
+"""
+Lista de ideias a fazer:
+- Gerar página HTML (já tempos todo o conteúdo)
+  - Yattag? Django?
+- Incluir tratamento de locale (tratamento de valores numéricos, moeda e ordenação)
+- Passar parâmetros para aplicação(número de legislatura, intervalo de polling, etc.)
+- Armazenar dados em base de dados (Django ORM?)
+"""
 
-locale.setlocale(locale.LC_ALL, '')
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
 versao = '0.2.15'
 
@@ -71,7 +79,7 @@ def leDadosParlamentares(legislatura=55):
                         return True
         return False
 
-    # Define no que aceita JSON
+    # Define que aceita JSON
     # Resposta padrão da API é XML
     header = {'Accept': 'application/json',
               'user-agent': f"senadoInfo/{versao}"}
@@ -388,20 +396,20 @@ sexoT = dadosSenado[['Participacao', 'sexo']].groupby(['sexo']).count()
 # Imprime algumas informações do senado, pelos dados coletados
 print('Há no senado {:d} senadores, distribuidos entre {:d} homens e {:d} mulheres'.format(
     totalSenadores, totalHomens, totalMulheres))
-print('As mulheres representam {:.2f}% do total'.format(
-    totalMulheres / totalSenadores * 100))
+print('As mulheres representam ' + locale.format('%.2f',
+                                                 totalMulheres / totalSenadores * 100) + '% do total')
 print('Há {:d} senadores em exercício, destes {:d} são mulheres'.format(
     totalExercicio, totalMulheresExercicio))
-print('As mulheres representam {:.2f}% deste total'.format(
-    totalMulheresExercicio / totalExercicio * 100))
-print('O gasto médio de senadores homens em exercício foi de R$ {:.2f}'.format(
-    mediaGastosHomensExercicio))
-print('O gasto médio de senadores mulheres em exercício foi de R$ {:.2f}'.format(
-    mediaGastosMulheresExercicio))
-print('O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ {:.2f}'.format(
-    gastoMedioSenadores))
-print('O montante de despesas parlamentares em {:d} anos foi de R$ {:.2f}, com media anual de R$ {:.2f}'.format(
-    len(anos), totalGasto, totalGasto / len(anos)))
+print('As mulheres representam ' + locale.format('%.2f',
+                                                 totalMulheresExercicio / totalExercicio * 100) + '% deste total')
+print('O gasto médio de senadores homens em exercício foi de R$ ' +
+      locale.format('%.2f', mediaGastosHomensExercicio, grouping=True))
+print('O gasto médio de senadores mulheres em exercício foi de R$ ' +
+      locale.format('%.2f', mediaGastosMulheresExercicio, grouping=True))
+print('O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ ' +
+      locale.format('%.2f', gastoMedioSenadores, grouping=True))
+print('O montante de despesas parlamentares em {:d} anos foi de R$ '.format(len(anos)) + locale.format(
+    '%.2f', totalGasto, grouping=True) + ', com media anual de R$ ' + locale.format('%.2f', totalGasto / len(anos), grouping=True))
 
 # Salva arquivos
 if not os.path.exists('csv'):
