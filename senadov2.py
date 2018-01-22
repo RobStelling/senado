@@ -34,7 +34,7 @@ Lista de ideias a fazer:
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
-versao = '0.2.16'
+versao = '0.2.17'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -156,8 +156,8 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
         """Retorna o nome em minúsculas e com caracteres acentuados convertidos
         para caracteres sem acentos. Para ordenação do DataFrame pelo campo nome
         """
-        p = {'a': re.compile('(á|â|à|ã)'), 'e': re.compile('(é|ê|è)'), 'i': re.compile('(í|î|ì)'),
-             'o': re.compile('(ó|ô|ò|õ)'), 'u': re.compile('(ú|û|ù)'), 'c': re.compile('(ç)')}
+        p = {'a': re.compile('(á|â|à|ã|ä)'), 'e': re.compile('(é|ê|è|ë)'), 'i': re.compile('(í|î|ì|ï)'),
+             'o': re.compile('(ó|ô|ò|õ|ö)'), 'u': re.compile('(ú|û|ù|ü)'), 'c': re.compile('(ç)')}
         nomeMinusculas = nome.lower()
         for letra in p:
             nomeMinusculas = p[letra].sub(letra, nomeMinusculas)
@@ -440,3 +440,27 @@ sexo.to_csv('csv/sexo.csv', index=True, na_rep='', header=True,
             index_label=None, mode='w', encoding='utf-8', decimal='.')
 sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
              index_label=None, mode='w', encoding='utf-8', decimal='.')
+
+# Coleta fotos que estejam faltando
+# Créditos devem ser extraísdos do
+# EXIF de cada foto
+dirFotos = 'fotos'
+if not os.path.exists(dirFotos):
+    os.makedirs(dirFotos)
+
+for url in dadosSenado['urlFoto']:
+    nomeArquivo = f"{dirFotos}/{url.split('/')[-1]}"
+    if not os.path.exists(nomeArquivo):
+        header = {'user-agent': f"senadoInfo/{versao}", 'Accept': 'image/jpeg'}
+        try:
+            requisicao = requests.get(url, headers=header, stream=True)
+        except requests.exceptions.RequestException as erro:
+            print(erro)
+            sys.exit(1)
+        if requisicao.status_code == 200:
+            print(f"Criando arquivo {nomeArquivo}...")
+            arquivo = open(nomeArquivo, 'wb')
+            arquivo.write(requisicao.content)
+            arquivo.close()
+        else:
+            print(f"Erro {requisicao.status_code} na recuperação de {url}")
