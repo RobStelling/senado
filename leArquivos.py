@@ -24,7 +24,7 @@ def reais(x, pos=None):
 anos = [2015, 2016, 2017]
 
 dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8')
-top10 = pd.read_csv('csv/top10.csv', encoding='utf-8')
+top = pd.read_csv('csv/top.csv', encoding='utf-8')
 gastoPartidos = pd.read_csv('csv/gastoPartidos.csv',
                             encoding='utf-8', index_col=0)
 gastoEstados = pd.read_csv('csv/gastoEstados.csv',
@@ -61,8 +61,8 @@ print('Há {:d} senadores em exercício, destes {:d} são mulheres'.format(
     totalExercicio, totalMulheresExercicio))
 print('As mulheres representam ' + locale.format('%.2f',
                                                  totalMulheresExercicio / totalExercicio * 100) + '% deste total')
-print('O gasto médio de senadores homens em exercício foi de R$ ' +
-      locale.format('%.2f', mediaGastosHomensExercicio, grouping=True))
+print('O gasto médio de senadores homens em exercício foi de ' +
+      reais(mediaGastosHomensExercicio))
 print('O gasto médio de senadores mulheres em exercício foi de ' +
       reais(mediaGastosMulheresExercicio))
 print('O gasto médio dos senadores, em exercício e fora de exercício, foi de ' +
@@ -103,10 +103,10 @@ gabinetePartidos = gastoPartidos.sort_values(by=['TotalGabinete-2017'], ascendin
     kind='bar', title='Tamanho do gabinete em 2017 por partido', figsize=(10, 10), fontsize=12, legend=False)
 gabinetePartidos.get_figure().savefig(f"{imagens}/gastoGabinetePartidos-2017.png")
 
-gTop10 = top10[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
-    kind='bar', rot=20, title='Senadores com maiores gastos', x=top10['nome'], figsize=(15, 8), legend=True, fontsize=12, colormap='Paired')
-gTop10.yaxis.set_major_formatter(FuncFormatter(reais))
-gTop10.get_figure().savefig(f"{imagens}/10maiores.png")
+gTop = top[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
+    kind='bar', rot=20, title='Senadores com maiores gastos', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
+gTop.yaxis.set_major_formatter(FuncFormatter(reais))
+gTop.get_figure().savefig(f"{imagens}/maiores.png")
 
 beneficioMoradia = (gastoEstados['Auxílio-Moradia-2015'] + gastoEstados['Auxílio-Moradia-2016'] + gastoEstados['Auxílio-Moradia-2017'] + \
     gastoEstados['Imóvel Funcional-2015'] + \

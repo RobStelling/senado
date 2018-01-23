@@ -27,14 +27,20 @@ MAJOR = 0 indica que o estado atual é de desenvolvimento inicial, qualquer func
 Lista de ideias a fazer:
 - Gerar página HTML (já tempos todo o conteúdo)
   - Yattag? Django?
-- Incluir tratamento de locale (tratamento de valores numéricos, moeda e ordenação)
-- Passar parâmetros para aplicação(número de legislatura, intervalo de polling, etc.)
+- Incluir tratamento de locale (tratamento de valores numéricos, moeda e ordenação) (Feito)
+- Passar parâmetros para aplicação(Ex: número de legislatura, intervalo de polling, etc.)
 - Armazenar dados em base de dados (Django ORM?)
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-
 versao = '0.2.17'
+
+
+def reais(x, pos=None):
+    """Retorna o valor formatado em reais, o parâmetro pos é necessário
+    apenas quando a função é chamada pelo FuncFormatter do matplotlib.ticker
+    """
+    return 'R$ ' + locale.format('%.2f', x, grouping=True)
 
 
 def leDadosParlamentares(legislatura=55):
@@ -395,7 +401,7 @@ mediaGastosHomensExercicio = dadosSenado.query(
 mediaGastosMulheresExercicio = dadosSenado.query(
     'gastos !=0 and sexo == "Feminino" and status == "Exercicio"')['gastos'].mean()
 # 10 maiores gastadores
-top10 = dadosSenado.sort_values(by=['gastos'], ascending=[False]).head(10)
+top = dadosSenado.sort_values(by=['gastos'], ascending=[False]).head(15)
 
 # Dataframes de gastos por estado e por partidos
 gastoEstados = dadosSenado.groupby('UF').sum().sort_values(
@@ -415,14 +421,14 @@ print('Há {:d} senadores em exercício, destes {:d} são mulheres'.format(
     totalExercicio, totalMulheresExercicio))
 print('As mulheres representam ' + locale.format('%.2f',
                                                  totalMulheresExercicio / totalExercicio * 100) + '% deste total')
-print('O gasto médio de senadores homens em exercício foi de R$ ' +
-      locale.format('%.2f', mediaGastosHomensExercicio, grouping=True))
-print('O gasto médio de senadores mulheres em exercício foi de R$ ' +
-      locale.format('%.2f', mediaGastosMulheresExercicio, grouping=True))
-print('O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ ' +
-      locale.format('%.2f', gastoMedioSenadores, grouping=True))
-print('O montante de despesas parlamentares em {:d} anos foi de R$ '.format(len(anos)) + locale.format(
-    '%.2f', totalGasto, grouping=True) + ', com media anual de R$ ' + locale.format('%.2f', totalGasto / len(anos), grouping=True))
+print('O gasto médio de senadores homens em exercício foi de ' +
+      reais(mediaGastosHomensExercicio))
+print('O gasto médio de senadores mulheres em exercício foi de ' +
+      reais(mediaGastosMulheresExercicio))
+print('O gasto médio dos senadores, em exercício e fora de exercício, foi de ' +
+      reais(gastoMedioSenadores))
+print('O montante de despesas parlamentares em {:d} anos foi de '.format(len(anos)) + reais(
+    totalGasto) + ', com media anual de ' + reais(totalGasto / len(anos)))
 
 # Salva arquivos
 if not os.path.exists('csv'):
@@ -430,8 +436,8 @@ if not os.path.exists('csv'):
 
 dadosSenado.to_csv('csv/senado.csv', na_rep='', header=True, index=False,
                    mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
-top10.to_csv('csv/top10.csv', na_rep='', header=True, index=False,
-             mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
+top.to_csv('csv/top.csv', na_rep='', header=True, index=False,
+           mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
 gastoPartidos.to_csv('csv/gastoPartidos.csv', na_rep='', header=True,
                      index=True, mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
 gastoEstados.to_csv('csv/gastoEstados.csv', na_rep='', header=True, index=True,
@@ -442,7 +448,7 @@ sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
              index_label=None, mode='w', encoding='utf-8', decimal='.')
 
 # Coleta fotos que estejam faltando
-# Créditos devem ser extraísdos do
+# Créditos devem ser extraídos do
 # EXIF de cada foto
 dirFotos = 'fotos'
 if not os.path.exists(dirFotos):
