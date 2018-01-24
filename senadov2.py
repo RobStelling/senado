@@ -34,7 +34,7 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-versao = '0.2.17'
+versao = '0.2.18'
 
 
 def reais(x, pos=None):

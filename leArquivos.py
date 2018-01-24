@@ -21,13 +21,16 @@ def reais(x, pos=None):
     """
     return 'R$ ' + locale.format('%.2f', x, grouping=True)
 
-def maiorZero(str):
-    """Retorna True se a string é um inteiro maior que 0
-    falso caso contrário
+def maiorQue(numero, menor=0):
+    """Retorna True se numero é um inteiro maior que 0
+    False caso contrário. O valor mínimo de referência 
+    pode ser alterado passando menor=<novoValor>
+    numero pode ser string ou qualquer outro tipo aceito
+    por int() 
     """
     try:
-        valor = int(str)
-        return valor > 0
+        valor = int(str(numero))
+        return valor > menor
     except ValueError:
         return False
 
@@ -36,7 +39,7 @@ with open('csv/anos.csv', newline='') as arquivoAnos:
     anosReader = csv.reader(arquivoAnos)
     for row in anosReader:
         # Ignora o header (se houver)
-        if maiorZero(row[0]) and maiorZero(row[1]):
+        if maiorQue(row[0]) and maiorQue(row[1]):
             anos = list(range(int(row[0]), int(row[1])+1))
             break
 
