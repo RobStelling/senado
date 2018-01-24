@@ -2,6 +2,7 @@
 # Imports
 from bs4 import BeautifulSoup
 from datetime import datetime
+import csv
 import errno
 import locale
 import matplotlib.pyplot as plt
@@ -297,10 +298,12 @@ def infoLegislaturaAtual():
     # 55ª Legislatura (2015 - 2019)
     numeroLegislatura = int(textoLegislatura.split('ª')[0])
 
+    # Recupera as strings dos anos iniciais e finais
     anos = textoLegislatura.split('(')[1].split(')')[0].split('-')
+    # Converte os anos para inteiro
     for i in range(len(anos)):
         anos[i] = int(anos[i].strip())
-
+    # Reconstroi a lista como um range do ano inicial para o final
     anos = list(range(anos[0], anos[1] + 1))
 
     return numeroLegislatura, anos
@@ -446,6 +449,12 @@ sexo.to_csv('csv/sexo.csv', index=True, na_rep='', header=True,
             index_label=None, mode='w', encoding='utf-8', decimal='.')
 sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
              index_label=None, mode='w', encoding='utf-8', decimal='.')
+
+with open('csv/anos.csv', 'w') as arquivoAnos:
+    anosWriter = csv.writer(arquivoAnos)
+    anosWriter.writerow(["Inicial", "Final"])
+    anosWriter.writerow([anos[0], anos[-1]])
+    arquivoAnos.close()
 
 # Coleta fotos que estejam faltando
 # Créditos devem ser extraídos do

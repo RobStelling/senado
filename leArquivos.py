@@ -2,6 +2,7 @@
 # Imports
 from bs4 import BeautifulSoup
 from matplotlib.ticker import FuncFormatter
+import csv
 import errno
 import locale
 import matplotlib.pyplot as plt
@@ -20,8 +21,24 @@ def reais(x, pos=None):
     """
     return 'R$ ' + locale.format('%.2f', x, grouping=True)
 
+def maiorZero(str):
+    """Retorna True se a string é um inteiro maior que 0
+    falso caso contrário
+    """
+    try:
+        valor = int(str)
+        return valor > 0
+    except ValueError:
+        return False
+
 # Lista de anos de mandato para contabilização
-anos = [2015, 2016, 2017]
+with open('csv/anos.csv', newline='') as arquivoAnos:
+    anosReader = csv.reader(arquivoAnos)
+    for row in anosReader:
+        # Ignora o header (se houver)
+        if maiorZero(row[0]) and maiorZero(row[1]):
+            anos = list(range(int(row[0]), int(row[1])+1))
+            break
 
 dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8')
 top = pd.read_csv('csv/top.csv', encoding='utf-8')
