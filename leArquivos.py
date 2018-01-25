@@ -43,6 +43,15 @@ with open('csv/anos.csv', newline='') as arquivoAnos:
             anos = list(range(int(row[0]), int(row[1])+1))
             break
 
+# Lê créditos das fotos
+# Ao fim, listaCredito[codigo] = credito para senador[codigo]
+with open('csv/creditos.csv', newline='') as creditos:
+    creditosReader = csv.reader(creditos)
+    header = next(creditosReader)
+    listaCredito = {}
+    for row in creditosReader:
+        listaCredito[int(row[0].split('.')[0].replace('senador', ''))] = row[1]
+
 dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8')
 top = pd.read_csv('csv/top.csv', encoding='utf-8')
 gastoPartidos = pd.read_csv('csv/gastoPartidos.csv',
