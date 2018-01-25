@@ -15,11 +15,13 @@ gera gráficos, texto e páginas com o conteúdo
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
+
 def reais(x, pos=None):
     """Retorna o valor formatado em reais, o parâmetro pos é necessário
     apenas quando a função é chamada pelo FuncFormatter do matplotlib.ticker
     """
     return 'R$ ' + locale.format('%.2f', x, grouping=True)
+
 
 def maiorQue(numero, menor=0):
     """Retorna True se numero é um inteiro maior que 0
@@ -34,13 +36,14 @@ def maiorQue(numero, menor=0):
     except ValueError:
         return False
 
+
 # Lista de anos de mandato para contabilização
 with open('csv/anos.csv', newline='') as arquivoAnos:
     anosReader = csv.reader(arquivoAnos)
     for row in anosReader:
         # Ignora o header (se houver)
         if maiorQue(row[0]) and maiorQue(row[1]):
-            anos = list(range(int(row[0]), int(row[1])+1))
+            anos = list(range(int(row[0]), int(row[1]) + 1))
             break
 
 # Lê créditos das fotos
@@ -121,7 +124,8 @@ gEstados.get_figure().savefig(f"{imagens}/gastoEstados.png")
 
 gabineteEstados = gastoEstados.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(
     kind='bar', title='Tamanho do gabinete em 2017 por unidade da federação', figsize=(10, 10), fontsize=12, legend=False)
-gabineteEstados.get_figure().savefig(f"{imagens}/gastoGabineteEstados-2017.png")
+gabineteEstados.get_figure().savefig(
+    f"{imagens}/gastoGabineteEstados-2017.png")
 
 gPartidos = gastoPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
     kind='bar', rot=0, title='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
@@ -130,17 +134,18 @@ gPartidos.get_figure().savefig(f"{imagens}/gastoPartidos.png")
 
 gabinetePartidos = gastoPartidos.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(
     kind='bar', title='Tamanho do gabinete em 2017 por partido', figsize=(10, 10), fontsize=12, legend=False)
-gabinetePartidos.get_figure().savefig(f"{imagens}/gastoGabinetePartidos-2017.png")
+gabinetePartidos.get_figure().savefig(
+    f"{imagens}/gastoGabinetePartidos-2017.png")
 
 gTop = top[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
     kind='bar', rot=20, title='Senadores com maiores gastos', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
 gTop.yaxis.set_major_formatter(FuncFormatter(reais))
 gTop.get_figure().savefig(f"{imagens}/maiores.png")
 
-beneficioMoradia = (gastoEstados['Auxílio-Moradia-2015'] + gastoEstados['Auxílio-Moradia-2016'] + gastoEstados['Auxílio-Moradia-2017'] + \
-    gastoEstados['Imóvel Funcional-2015'] + \
-    gastoEstados['Imóvel Funcional-2016'] + \
-    gastoEstados['Imóvel Funcional-2017']) / len(anos)
+beneficioMoradia = (gastoEstados['Auxílio-Moradia-2015'] + gastoEstados['Auxílio-Moradia-2016'] + gastoEstados['Auxílio-Moradia-2017'] +
+                    gastoEstados['Imóvel Funcional-2015'] +
+                    gastoEstados['Imóvel Funcional-2016'] +
+                    gastoEstados['Imóvel Funcional-2017']) / len(anos)
 gBeneficio = beneficioMoradia.sort_values(ascending=False).plot(
     kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
 gBeneficio.get_figure().savefig(f"{imagens}/moradiaEstado.png")

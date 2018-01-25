@@ -10,47 +10,52 @@
   </head>
   <body>
     <script>
-      function realParaFloat(texto) {
-        // Espera real no formato "comportado":
-        // Ex: R$ 1.534.445,93
-        return parseFloat(texto.split(' ')[1].replace(/\./g, '').replace(',', '.'))
-      }
-      
-      function numTexto(texto) {
-        // Espera texto no seguinte formato:
-        // <inteiro> <textoQualquer>
-        return parseInt(texto.split(' ')[0])
-      }
-      
       function sortTable(tabela, coluna, tipo) {
         // Baseado em https://www.w3schools.com/howto/howto_js_sort_table.asp
         function comparaTexto(dir, a, b) {
           return (dir == "asc"  && a.localeCompare(b) == 1) ||
                  (dir == "desc" && a.localeCompare(b) == -1);
         }
+
         function comparaReal(dir, a, b) {
+          function realParaFloat(texto) {
+            // Espera real no formato "comportado":
+            // Ex: R$ 1.534.445,93
+            return parseFloat(texto.split(' ')[1].replace(/\./g, '').replace(',', '.'))
+          }
+
           a = realParaFloat(a);
           b = realParaFloat(b);
           // Para reais, queremos valores maiores primeiro quando dir == "asc"
           return (dir == "asc"  && a < b ) ||
                  (dir == "desc" && a > b)
         }
+
         function comparaDados(dir, a, b) {
+          function numTexto(texto) {
+            // Espera texto no seguinte formato:
+            // <inteiro> <textoQualquer>
+            return parseInt(texto.split(' ')[0])
+          }
           a = numTexto(a);
           b = numTexto(b);
           // Para números, queremos valores maiores primeiro quando dir == "asc"
           return (dir == "asc"  && a < b ) ||
                  (dir == "desc" && a > b)
         }
+
+        function comparaParticipacao(dir, a, b) {
+          const ordem = {'Titular': 0, '1º Suplente': 1, '2º Suplente': 2, '3º Suplente': 3, '4º Suplente': 4}
+          a = ordem[a];
+          b = ordem[b];
+          return (dir == "asc"  && a > b ) ||
+                 (dir == "desc" && a < b)
+        }
+
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        const funcoes = { 'texto': comparaTexto, 'reais': comparaReal, 'dados': comparaDados, 'participacao': comparaParticipacao}
       
-        if (tipo == 'texto')
-          compara = comparaTexto;
-        else if (tipo == 'reais')
-          compara = comparaReal;
-        else
-          compara = comparaDados;
-      
+        compara = funcoes[tipo]
         table = document.getElementById(tabela);
         switching = true;
         // Set the sorting direction to ascending:
@@ -109,822 +114,904 @@
             <th align="left">Nº</th>
             <th align="middle">Deputado</th>
             <th onclick="sortTable('leg1', 2, 'texto')" align="left">Nome</th>
-            <th onclick="sortTable('leg1', 3, 'texto')" align="left">UF</th>
-            <th onclick="sortTable('leg1', 4, 'texto')" align="left">Partido</th>
-            <th onclick="sortTable('leg1', 5, 'reais')" align="right">Despesas no Mandato</th>
-            <th onclick="sortTable('leg1', 6, 'dados')" align="right">Escritório e Gabinete</th>
-            <th onclick="sortTable('leg1', 7, 'dados')" align="right">Benefício Moradia</th>
+            <th onclick="sortTable('leg1', 3, 'participacao')" align="left">Participação</th>
+            <th onclick="sortTable('leg1', 4, 'texto')" align="left">UF</th>
+            <th onclick="sortTable('leg1', 5, 'texto')" align="left">Partido</th>
+            <th onclick="sortTable('leg1', 6, 'reais')" align="right">Despesas no Mandato</th>
+            <th onclick="sortTable('leg1', 7, 'dados')" align="right">Escritório e Gabinete</th>
+            <th onclick="sortTable('leg1', 8, 'dados')" align="right">Benefício Moradia</th>
           </tr>
           <tr>
             <td>1</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4981'><img src='fotos/senador4981.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Acir Gurgacz</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4981'><img src='fotos/senador4981.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Acir Gurgacz</td>
+            <td align='left'>Titular</td>
             <td align='left'>RO</td>
             <td align='left'>PDT</td>
             <td align='right'>R$ 1.203.321,32</td>
             <td align='right'>46 pessoas</td>
             <td align='right'>1 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>2</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/391'><img src='fotos/senador391.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Aécio Neves</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/391'><img src='fotos/senador391.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Aécio Neves</td>
+            <td align='left'>Titular</td>
             <td align='left'>MG</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 965.461,80</td>
             <td align='right'>26 pessoas</td>
             <td align='right'>9 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>3</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5140'><img src='fotos/senador5140.jpg' title='Crédito: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
-            <td aligt='left'>Airton Sandoval</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5140'><img src='fotos/senador5140.jpg' title='Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
+            <td align='left'>Airton Sandoval</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>SP</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 262.420,82</td>
             <td align='right'>29 pessoas</td>
             <td align='right'>10 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>4</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/945'><img src='fotos/senador945.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Alvaro Dias</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/945'><img src='fotos/senador945.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Alvaro Dias</td>
+            <td align='left'>Titular</td>
             <td align='left'>PR</td>
             <td align='left'>PODE</td>
             <td align='right'>R$ 463.317,92</td>
             <td align='right'>30 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>5</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4988'><img src='fotos/senador4988.jpg' title='Crédito: Beto Oliveira/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Ana Amélia</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4988'><img src='fotos/senador4988.jpg' title='Beto Oliveira/Supres' height='51' width='42'></a></td>
+            <td align='left'>Ana Amélia</td>
+            <td align='left'>Titular</td>
             <td align='left'>RS</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 650.250,85</td>
             <td align='right'>21 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>6</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4697'><img src='fotos/senador4697.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Ângela Portela</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4697'><img src='fotos/senador4697.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Ângela Portela</td>
+            <td align='left'>Titular</td>
             <td align='left'>RR</td>
             <td align='left'>PDT</td>
             <td align='right'>R$ 1.483.285,46</td>
             <td align='right'>40 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>7</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5529'><img src='fotos/senador5529.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Antonio Anastasia</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5529'><img src='fotos/senador5529.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Antonio Anastasia</td>
+            <td align='left'>Titular</td>
             <td align='left'>MG</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 1.098.828,69</td>
             <td align='right'>19 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>8</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/715'><img src='fotos/senador715.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Armando Monteiro</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/715'><img src='fotos/senador715.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Armando Monteiro</td>
+            <td align='left'>Titular</td>
             <td align='left'>PE</td>
             <td align='left'>PTB</td>
             <td align='right'>R$ 586.906,40</td>
             <td align='right'>36 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>9</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5164'><img src='fotos/senador5164.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Ataídes Oliveira</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5164'><img src='fotos/senador5164.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Ataídes Oliveira</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>TO</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 949.276,87</td>
             <td align='right'>44 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>10</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3823'><img src='fotos/senador3823.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Benedito de Lira</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3823'><img src='fotos/senador3823.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Benedito de Lira</td>
+            <td align='left'>Titular</td>
             <td align='left'>AL</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 638.644,16</td>
             <td align='right'>62 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>11</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5197'><img src='fotos/senador5197.jpg' title='Crédito: Beto Oliveira/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Cássio Cunha Lima</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5197'><img src='fotos/senador5197.jpg' title='Beto Oliveira/Supres' height='51' width='42'></a></td>
+            <td align='left'>Cássio Cunha Lima</td>
+            <td align='left'>Titular</td>
             <td align='left'>PB</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 1.149.118,36</td>
             <td align='right'>48 pessoas</td>
             <td align='right'>35 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>12</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5108'><img src='fotos/senador5108.jpg' title='Crédito: Rodrigo Viana/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Cidinho Santos</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5108'><img src='fotos/senador5108.jpg' title='Rodrigo Viana/Supres' height='51' width='42'></a></td>
+            <td align='left'>Cidinho Santos</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>MT</td>
             <td align='left'>PR</td>
             <td align='right'>R$ 639.460,69</td>
             <td align='right'>34 pessoas</td>
             <td align='right'>19 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>13</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/739'><img src='fotos/senador739.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Ciro Nogueira</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/739'><img src='fotos/senador739.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Ciro Nogueira</td>
+            <td align='left'>Titular</td>
             <td align='left'>PI</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 1.821.866,88</td>
             <td align='right'>54 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>14</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3398'><img src='fotos/senador3398.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Cristovam Buarque</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3398'><img src='fotos/senador3398.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Cristovam Buarque</td>
+            <td align='left'>Titular</td>
             <td align='left'>DF</td>
             <td align='left'>PPS</td>
             <td align='right'>R$ 246.775,88</td>
             <td align='right'>26 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>15</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5132'><img src='fotos/senador5132.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Dalirio Beber</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5132'><img src='fotos/senador5132.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Dalirio Beber</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>SC</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 662.695,25</td>
             <td align='right'>20 pessoas</td>
             <td align='right'>31 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>16</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5537'><img src='fotos/senador5537.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Dário Berger</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5537'><img src='fotos/senador5537.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Dário Berger</td>
+            <td align='left'>Titular</td>
             <td align='left'>SC</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 982.921,81</td>
             <td align='right'>20 pessoas</td>
             <td align='right'>35 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>17</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3830'><img src='fotos/senador3830.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Davi Alcolumbre</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3830'><img src='fotos/senador3830.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Davi Alcolumbre</td>
+            <td align='left'>Titular</td>
             <td align='left'>AP</td>
             <td align='left'>DEM</td>
             <td align='right'>R$ 1.271.440,75</td>
             <td align='right'>41 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>18</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4721'><img src='fotos/senador4721.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Eduardo Amorim</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4721'><img src='fotos/senador4721.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Eduardo Amorim</td>
+            <td align='left'>Titular</td>
             <td align='left'>SE</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 1.070.428,70</td>
             <td align='right'>52 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>19</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4994'><img src='fotos/senador4994.jpg' title='Crédito: Beto Oliveira/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Eduardo Braga</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4994'><img src='fotos/senador4994.jpg' title='Beto Oliveira/Supres' height='51' width='42'></a></td>
+            <td align='left'>Eduardo Braga</td>
+            <td align='left'>Titular</td>
             <td align='left'>AM</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 797.171,21</td>
             <td align='right'>31 pessoas</td>
             <td align='right'>21 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>20</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4767'><img src='fotos/senador4767.jpg' title='Crédito: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
-            <td aligt='left'>Eduardo Lopes</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4767'><img src='fotos/senador4767.jpg' title='Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
+            <td align='left'>Eduardo Lopes</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>RJ</td>
             <td align='left'>PRB</td>
             <td align='right'>R$ 581.903,38</td>
             <td align='right'>59 pessoas</td>
             <td align='right'>15 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>21</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4969'><img src='fotos/senador4969.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Elber Batalha</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4969'><img src='fotos/senador4969.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Elber Batalha</td>
+            <td align='left'>2º Suplente</td>
             <td align='left'>SE</td>
             <td align='left'>PSB</td>
             <td align='right'>R$ 43.458,41</td>
             <td align='right'>48 pessoas</td>
             <td align='right'>1 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>22</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5531'><img src='fotos/senador5531.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Elmano Férrer</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5531'><img src='fotos/senador5531.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Elmano Férrer</td>
+            <td align='left'>Titular</td>
             <td align='left'>PI</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 1.379.978,78</td>
             <td align='right'>60 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>23</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/612'><img src='fotos/senador612.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Eunício Oliveira</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/612'><img src='fotos/senador612.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Eunício Oliveira</td>
+            <td align='left'>Titular</td>
             <td align='left'>CE</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 65.277,76</td>
             <td align='right'>37 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>24</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3713'><img src='fotos/senador3713.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Fátima Bezerra</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3713'><img src='fotos/senador3713.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Fátima Bezerra</td>
+            <td align='left'>Titular</td>
             <td align='left'>RN</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.016.955,19</td>
             <td align='right'>33 pessoas</td>
             <td align='right'>35 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>25</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5540'><img src='fotos/senador5540.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Fernando Bezerra Coelho</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5540'><img src='fotos/senador5540.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Fernando Bezerra Coelho</td>
+            <td align='left'>Titular</td>
             <td align='left'>PE</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 1.373.855,59</td>
             <td align='right'>34 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>26</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4525'><img src='fotos/senador4525.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Fernando Collor</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4525'><img src='fotos/senador4525.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Fernando Collor</td>
+            <td align='left'>Titular</td>
             <td align='left'>AL</td>
             <td align='left'>PTC</td>
             <td align='right'>R$ 1.408.923,76</td>
             <td align='right'>80 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>27</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3634'><img src='fotos/senador3634.jpg' title='Crédito: Beto Oliveira/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Flexa Ribeiro</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3634'><img src='fotos/senador3634.jpg' title='Beto Oliveira/Supres' height='51' width='42'></a></td>
+            <td align='left'>Flexa Ribeiro</td>
+            <td align='left'>Titular</td>
             <td align='left'>PA</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 1.453.938,74</td>
             <td align='right'>29 pessoas</td>
             <td align='right'>37 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>28</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/87'><img src='fotos/senador87.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Garibaldi Alves Filho</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/87'><img src='fotos/senador87.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Garibaldi Alves Filho</td>
+            <td align='left'>Titular</td>
             <td align='left'>RN</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 854.007,47</td>
             <td align='right'>40 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>29</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4558'><img src='fotos/senador4558.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Gladson Cameli</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4558'><img src='fotos/senador4558.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Gladson Cameli</td>
+            <td align='left'>Titular</td>
             <td align='left'>AC</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 1.755.939,15</td>
             <td align='right'>40 pessoas</td>
             <td align='right'>31 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>30</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5006'><img src='fotos/senador5006.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Gleisi Hoffmann</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5006'><img src='fotos/senador5006.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Gleisi Hoffmann</td>
+            <td align='left'>Titular</td>
             <td align='left'>PR</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.258.377,06</td>
             <td align='right'>42 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>31</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5100'><img src='fotos/senador5100.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Hélio José</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5100'><img src='fotos/senador5100.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Hélio José</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>DF</td>
             <td align='left'>PROS</td>
             <td align='right'>R$ 864.245,98</td>
             <td align='right'>76 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>32</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5008'><img src='fotos/senador5008.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Humberto Costa</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5008'><img src='fotos/senador5008.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Humberto Costa</td>
+            <td align='left'>Titular</td>
             <td align='left'>PE</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.720.684,71</td>
             <td align='right'>39 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>33</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5004'><img src='fotos/senador5004.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Ivo Cassol</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5004'><img src='fotos/senador5004.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Ivo Cassol</td>
+            <td align='left'>Titular</td>
             <td align='left'>RO</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 1.325.612,24</td>
             <td align='right'>68 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>34</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/35'><img src='fotos/senador35.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Jader Barbalho</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/35'><img src='fotos/senador35.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Jader Barbalho</td>
+            <td align='left'>Titular</td>
             <td align='left'>PA</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 672.038,99</td>
             <td align='right'>28 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>35</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/950'><img src='fotos/senador950.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>João Alberto Souza</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/950'><img src='fotos/senador950.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>João Alberto Souza</td>
+            <td align='left'>Titular</td>
             <td align='left'>MA</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 1.027.468,32</td>
             <td align='right'>84 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>36</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3394'><img src='fotos/senador3394.jpg' title='Crédito: Rodrigo Viana/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>João Capiberibe</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3394'><img src='fotos/senador3394.jpg' title='Rodrigo Viana/Supres' height='51' width='42'></a></td>
+            <td align='left'>João Capiberibe</td>
+            <td align='left'>Titular</td>
             <td align='left'>AP</td>
             <td align='left'>PSB</td>
             <td align='right'>R$ 1.621.776,66</td>
             <td align='right'>62 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>37</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4990'><img src='fotos/senador4990.jpg' title='Crédito: Beto Oliveira/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Jorge Viana</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4990'><img src='fotos/senador4990.jpg' title='Beto Oliveira/Supres' height='51' width='42'></a></td>
+            <td align='left'>Jorge Viana</td>
+            <td align='left'>Titular</td>
             <td align='left'>AC</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.261.884,22</td>
             <td align='right'>35 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>38</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/40'><img src='fotos/senador40.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>José Agripino</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/40'><img src='fotos/senador40.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>José Agripino</td>
+            <td align='left'>Titular</td>
             <td align='left'>RN</td>
             <td align='left'>DEM</td>
             <td align='right'>R$ 1.062.932,71</td>
             <td align='right'>46 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>39</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3361'><img src='fotos/senador3361.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>José Maranhão</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3361'><img src='fotos/senador3361.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>José Maranhão</td>
+            <td align='left'>Titular</td>
             <td align='left'>PB</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 886.817,03</td>
             <td align='right'>28 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>40</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5112'><img src='fotos/senador5112.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>José Medeiros</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5112'><img src='fotos/senador5112.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>José Medeiros</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>MT</td>
             <td align='left'>PODE</td>
             <td align='right'>R$ 1.394.474,59</td>
             <td align='right'>29 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>41</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/615'><img src='fotos/senador615.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>José Pimentel</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/615'><img src='fotos/senador615.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>José Pimentel</td>
+            <td align='left'>Titular</td>
             <td align='left'>CE</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.646.477,06</td>
             <td align='right'>41 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>42</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/90'><img src='fotos/senador90.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>José Serra</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/90'><img src='fotos/senador90.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>José Serra</td>
+            <td align='left'>Titular</td>
             <td align='left'>SP</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 769.243,78</td>
             <td align='right'>25 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>43</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/1249'><img src='fotos/senador1249.jpg' title='Crédito: Beto Oliveira/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Kátia Abreu</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/1249'><img src='fotos/senador1249.jpg' title='Beto Oliveira/Supres' height='51' width='42'></a></td>
+            <td align='left'>Kátia Abreu</td>
+            <td align='left'>Titular</td>
             <td align='left'>TO</td>
             <td align='left'>S/Partido</td>
             <td align='right'>R$ 488.015,35</td>
             <td align='right'>44 pessoas</td>
             <td align='right'>20 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>44</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5533'><img src='fotos/senador5533.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Lasier Martins</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5533'><img src='fotos/senador5533.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Lasier Martins</td>
+            <td align='left'>Titular</td>
             <td align='left'>RS</td>
             <td align='left'>PSD</td>
             <td align='right'>R$ 801.855,46</td>
             <td align='right'>20 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>45</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4575'><img src='fotos/senador4575.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Lídice da Mata</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4575'><img src='fotos/senador4575.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Lídice da Mata</td>
+            <td align='left'>Titular</td>
             <td align='left'>BA</td>
             <td align='left'>PSB</td>
             <td align='right'>R$ 1.177.282,17</td>
             <td align='right'>50 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>46</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3695'><img src='fotos/senador3695.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Lindbergh Farias</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3695'><img src='fotos/senador3695.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Lindbergh Farias</td>
+            <td align='left'>Titular</td>
             <td align='left'>RJ</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.242.644,69</td>
             <td align='right'>33 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>47</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/643'><img src='fotos/senador643.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Lúcia Vânia</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/643'><img src='fotos/senador643.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Lúcia Vânia</td>
+            <td align='left'>Titular</td>
             <td align='left'>GO</td>
             <td align='left'>PSB</td>
             <td align='right'>R$ 916.288,57</td>
             <td align='right'>27 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>48</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/631'><img src='fotos/senador631.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Magno Malta</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/631'><img src='fotos/senador631.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Magno Malta</td>
+            <td align='left'>Titular</td>
             <td align='left'>ES</td>
             <td align='left'>PR</td>
             <td align='right'>R$ 1.231.974,93</td>
             <td align='right'>45 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>49</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/1023'><img src='fotos/senador1023.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Maria do Carmo Alves</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/1023'><img src='fotos/senador1023.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Maria do Carmo Alves</td>
+            <td align='left'>Titular</td>
             <td align='left'>SE</td>
             <td align='left'>DEM</td>
             <td align='right'>R$ 365.833,23</td>
             <td align='right'>35 pessoas</td>
             <td align='right'>1 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>50</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5000'><img src='fotos/senador5000.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Marta Suplicy</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5000'><img src='fotos/senador5000.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Marta Suplicy</td>
+            <td align='left'>Titular</td>
             <td align='left'>SP</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 822.471,31</td>
             <td align='right'>37 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>51</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5525'><img src='fotos/senador5525.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Omar Aziz</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5525'><img src='fotos/senador5525.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Omar Aziz</td>
+            <td align='left'>Titular</td>
             <td align='left'>AM</td>
             <td align='left'>PSD</td>
             <td align='right'>R$ 1.252.503,49</td>
             <td align='right'>38 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>52</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5523'><img src='fotos/senador5523.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Otto Alencar</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5523'><img src='fotos/senador5523.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Otto Alencar</td>
+            <td align='left'>Titular</td>
             <td align='left'>BA</td>
             <td align='left'>PSD</td>
             <td align='right'>R$ 705.576,13</td>
             <td align='right'>34 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>53</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5018'><img src='fotos/senador5018.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Pastor Bel</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5018'><img src='fotos/senador5018.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Pastor Bel</td>
+            <td align='left'>2º Suplente</td>
             <td align='left'>MA</td>
             <td align='left'>PRTB</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>43 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>54</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3741'><img src='fotos/senador3741.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Paulo Bauer</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3741'><img src='fotos/senador3741.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Paulo Bauer</td>
+            <td align='left'>Titular</td>
             <td align='left'>SC</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 1.381.460,65</td>
             <td align='right'>25 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>55</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/825'><img src='fotos/senador825.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Paulo Paim</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/825'><img src='fotos/senador825.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Paulo Paim</td>
+            <td align='left'>Titular</td>
             <td align='left'>RS</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.319.068,02</td>
             <td align='right'>37 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>56</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/374'><img src='fotos/senador374.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Paulo Rocha</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/374'><img src='fotos/senador374.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Paulo Rocha</td>
+            <td align='left'>Titular</td>
             <td align='left'>PA</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.586.691,07</td>
             <td align='right'>46 pessoas</td>
             <td align='right'>19 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>57</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5116'><img src='fotos/senador5116.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Pedro Chaves</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5116'><img src='fotos/senador5116.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Pedro Chaves</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>MS</td>
             <td align='left'>PSC</td>
             <td align='right'>R$ 694.782,47</td>
             <td align='right'>32 pessoas</td>
             <td align='right'>18 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>58</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/2207'><img src='fotos/senador2207.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Raimundo Lira</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/2207'><img src='fotos/senador2207.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Raimundo Lira</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>PB</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 556.522,00</td>
             <td align='right'>26 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>59</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5012'><img src='fotos/senador5012.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Randolfe Rodrigues</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5012'><img src='fotos/senador5012.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Randolfe Rodrigues</td>
+            <td align='left'>Titular</td>
             <td align='left'>AP</td>
             <td align='left'>REDE</td>
             <td align='right'>R$ 1.489.773,46</td>
             <td align='right'>48 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>60</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5182'><img src='fotos/senador5182.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Regina Sousa</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5182'><img src='fotos/senador5182.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Regina Sousa</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>PI</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 1.200.657,12</td>
             <td align='right'>30 pessoas</td>
             <td align='right'>35 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>61</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5236'><img src='fotos/senador5236.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Reguffe</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5236'><img src='fotos/senador5236.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Reguffe</td>
+            <td align='left'>Titular</td>
             <td align='left'>DF</td>
             <td align='left'>S/Partido</td>
             <td align='right'>R$ 3.467,69</td>
             <td align='right'>10 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>62</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/70'><img src='fotos/senador70.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Renan Calheiros</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/70'><img src='fotos/senador70.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Renan Calheiros</td>
+            <td align='left'>Titular</td>
             <td align='left'>AL</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 463.998,03</td>
             <td align='right'>45 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>63</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5052'><img src='fotos/senador5052.jpg' title='Crédito: Beto Oliveira/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Roberto Muniz</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5052'><img src='fotos/senador5052.jpg' title='Beto Oliveira/Supres' height='51' width='42'></a></td>
+            <td align='left'>Roberto Muniz</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>BA</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 571.555,54</td>
             <td align='right'>31 pessoas</td>
             <td align='right'>17 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>64</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/72'><img src='fotos/senador72.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Roberto Requião</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/72'><img src='fotos/senador72.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Roberto Requião</td>
+            <td align='left'>Titular</td>
             <td align='left'>PR</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 1.292.596,62</td>
             <td align='right'>28 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>65</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/677'><img src='fotos/senador677.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Roberto Rocha</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/677'><img src='fotos/senador677.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Roberto Rocha</td>
+            <td align='left'>Titular</td>
             <td align='left'>MA</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 1.392.660,80</td>
             <td align='right'>47 pessoas</td>
             <td align='right'>29 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>66</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5322'><img src='fotos/senador5322.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Romário</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5322'><img src='fotos/senador5322.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Romário</td>
+            <td align='left'>Titular</td>
             <td align='left'>RJ</td>
             <td align='left'>PODE</td>
             <td align='right'>R$ 1.116.816,99</td>
             <td align='right'>34 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>67</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/73'><img src='fotos/senador73.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Romero Jucá</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/73'><img src='fotos/senador73.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Romero Jucá</td>
+            <td align='left'>Titular</td>
             <td align='left'>RR</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 1.644.431,21</td>
             <td align='right'>57 pessoas</td>
             <td align='right'>17 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>68</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/456'><img src='fotos/senador456.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Ronaldo Caiado</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/456'><img src='fotos/senador456.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Ronaldo Caiado</td>
+            <td align='left'>Titular</td>
             <td align='left'>GO</td>
             <td align='left'>DEM</td>
             <td align='right'>R$ 763.642,62</td>
             <td align='right'>46 pessoas</td>
             <td align='right'>27 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>69</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/2331'><img src='fotos/senador2331.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Rose de Freitas</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/2331'><img src='fotos/senador2331.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Rose de Freitas</td>
+            <td align='left'>Titular</td>
             <td align='left'>ES</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 1.124.886,90</td>
             <td align='right'>32 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>70</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5106'><img src='fotos/senador5106.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Sérgio de Castro</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5106'><img src='fotos/senador5106.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Sérgio de Castro</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>ES</td>
             <td align='left'>PDT</td>
             <td align='right'>R$ 50.113,76</td>
             <td align='right'>24 pessoas</td>
             <td align='right'>1 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>71</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4560'><img src='fotos/senador4560.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Sérgio Petecão</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4560'><img src='fotos/senador4560.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Sérgio Petecão</td>
+            <td align='left'>Titular</td>
             <td align='left'>AC</td>
             <td align='left'>PSD</td>
             <td align='right'>R$ 1.447.236,78</td>
             <td align='right'>37 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>72</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5527'><img src='fotos/senador5527.jpg' title='Crédito: Fabiano Accorsi' height='51' width='42'></a></td>
-            <td aligt='left'>Simone Tebet</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5527'><img src='fotos/senador5527.jpg' title='Fabiano Accorsi' height='51' width='42'></a></td>
+            <td align='left'>Simone Tebet</td>
+            <td align='left'>Titular</td>
             <td align='left'>MS</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 682.779,61</td>
             <td align='right'>26 pessoas</td>
             <td align='right'>34 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>73</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3396'><img src='fotos/senador3396.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Tasso Jereissati</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3396'><img src='fotos/senador3396.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Tasso Jereissati</td>
+            <td align='left'>Titular</td>
             <td align='left'>CE</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 556.486,05</td>
             <td align='right'>16 pessoas</td>
             <td align='right'>29 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>74</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5535'><img src='fotos/senador5535.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Telmário Mota</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5535'><img src='fotos/senador5535.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Telmário Mota</td>
+            <td align='left'>Titular</td>
             <td align='left'>RR</td>
             <td align='left'>PTB</td>
             <td align='right'>R$ 1.370.561,01</td>
             <td align='right'>50 pessoas</td>
             <td align='right'>19 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>75</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3372'><img src='fotos/senador3372.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Valdir Raupp</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3372'><img src='fotos/senador3372.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Valdir Raupp</td>
+            <td align='left'>Titular</td>
             <td align='left'>RO</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 1.453.719,01</td>
             <td align='right'>63 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>76</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/558'><img src='fotos/senador558.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Vanessa Grazziotin</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/558'><img src='fotos/senador558.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Vanessa Grazziotin</td>
+            <td align='left'>Titular</td>
             <td align='left'>AM</td>
             <td align='left'>PCdoB</td>
             <td align='right'>R$ 1.534.445,93</td>
             <td align='right'>61 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>77</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4763'><img src='fotos/senador4763.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Vicentinho Alves</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4763'><img src='fotos/senador4763.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Vicentinho Alves</td>
+            <td align='left'>Titular</td>
             <td align='left'>TO</td>
             <td align='left'>PR</td>
             <td align='right'>R$ 1.162.970,22</td>
             <td align='right'>63 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>78</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/1176'><img src='fotos/senador1176.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Waldemir Moka</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/1176'><img src='fotos/senador1176.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Waldemir Moka</td>
+            <td align='left'>Titular</td>
             <td align='left'>MS</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 927.596,18</td>
             <td align='right'>27 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>79</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/1173'><img src='fotos/senador1173.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Wellington Fagundes</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/1173'><img src='fotos/senador1173.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Wellington Fagundes</td>
+            <td align='left'>Titular</td>
             <td align='left'>MT</td>
             <td align='left'>PR</td>
             <td align='right'>R$ 1.334.928,71</td>
             <td align='right'>42 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>80</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5070'><img src='fotos/senador5070.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Wilder Morais</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5070'><img src='fotos/senador5070.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Wilder Morais</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>GO</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 1.084.668,67</td>
             <td align='right'>35 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>81</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5144'><img src='fotos/senador5144.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Zeze Perrella</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5144'><img src='fotos/senador5144.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Zeze Perrella</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>MG</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 1.346.214,54</td>
             <td align='right'>56 pessoas</td>
             <td align='right'>38 meses</td>
-          </tr>
+            </tr>
         </table>
       </div>
       <div>
@@ -934,383 +1021,421 @@
             <th align="left">Nº</th>
             <th align="middle">Deputado</th>
             <th onclick="sortTable('leg2', 2, 'texto')" align="left">Nome</th>
-            <th onclick="sortTable('leg2', 3, 'texto')" align="left">UF</th>
-            <th onclick="sortTable('leg2', 4, 'texto')" align="left">Partido</th>
-            <th onclick="sortTable('leg2', 5, 'reais')" align="right">Despesas no Mandato</th>
-            <th onclick="sortTable('leg2', 6, 'dados')" align="right">Escritório e Gabinete</th>
-            <th onclick="sortTable('leg2', 7, 'dados')" align="right">Benefício Moradia</th>
+            <th onclick="sortTable('leg2', 3, 'participacao')" align="left">Participação</th>
+            <th onclick="sortTable('leg2', 4, 'texto')" align="left">UF</th>
+            <th onclick="sortTable('leg2', 5, 'texto')" align="left">Partido</th>
+            <th onclick="sortTable('leg2', 6, 'reais')" align="right">Despesas no Mandato</th>
+            <th onclick="sortTable('leg2', 7, 'dados')" align="right">Escritório e Gabinete</th>
+            <th onclick="sortTable('leg2', 8, 'dados')" align="right">Benefício Moradia</th>
           </tr>
+
           <tr>
             <td>1</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/846'><img src='fotos/senador846.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Aloysio Nunes Ferreira</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/846'><img src='fotos/senador846.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Aloysio Nunes Ferreira</td>
+            <td align='left'>Titular</td>
             <td align='left'>SP</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 778.312,10</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>2</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5150'><img src='fotos/senador5150.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Antonio Carlos Rodrigues</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5150'><img src='fotos/senador5150.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Antonio Carlos Rodrigues</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>SP</td>
             <td align='left'>PR</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>3</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3'><img src='fotos/senador3.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Antonio Carlos Valadares</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3'><img src='fotos/senador3.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Antonio Carlos Valadares</td>
+            <td align='left'>Titular</td>
             <td align='left'>SE</td>
             <td align='left'>PSB</td>
             <td align='right'>R$ 1.104.338,86</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>36 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>4</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/111'><img src='fotos/senador111.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Blairo Maggi</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/111'><img src='fotos/senador111.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Blairo Maggi</td>
+            <td align='left'>Titular</td>
             <td align='left'>MT</td>
             <td align='left'>PR</td>
             <td align='right'>R$ 289.345,05</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>24 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>5</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3881'><img src='fotos/senador3881.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Clovis Fecury</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3881'><img src='fotos/senador3881.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Clovis Fecury</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>MA</td>
             <td align='left'>DEM</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>6</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5199'><img src='fotos/senador5199.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Deca</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5199'><img src='fotos/senador5199.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Deca</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>PB</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 182.853,10</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>5 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>7</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3360'><img src='fotos/senador3360.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Delcídio do Amaral</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3360'><img src='fotos/senador3360.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Delcídio do Amaral</td>
+            <td align='left'>Titular</td>
             <td align='left'>MS</td>
             <td align='left'>S/Partido</td>
             <td align='right'>R$ 266.903,21</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>13 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>8</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5637'><img src='fotos/senador5637.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Donizeti Nogueira</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5637'><img src='fotos/senador5637.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Donizeti Nogueira</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>TO</td>
             <td align='left'>PT</td>
             <td align='right'>R$ 469.601,43</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>16 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>9</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5178'><img src='fotos/senador5178.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Douglas Cintra</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5178'><img src='fotos/senador5178.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Douglas Cintra</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>PE</td>
             <td align='left'>PTB</td>
             <td align='right'>R$ 403.665,63</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>16 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>10</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/16'><img src='fotos/senador16.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Edison Lobão</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/16'><img src='fotos/senador16.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Edison Lobão</td>
+            <td align='left'>Titular</td>
             <td align='left'>MA</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 953.847,06</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>11</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/2632'><img src='fotos/senador2632.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Fernando Ribeiro</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/2632'><img src='fotos/senador2632.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Fernando Ribeiro</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>PA</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 33.790,27</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>12</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4873'><img src='fotos/senador4873.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Fleury</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4873'><img src='fotos/senador4873.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Fleury</td>
+            <td align='left'>2º Suplente</td>
             <td align='left'>GO</td>
             <td align='left'>DEM</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>13</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4522'><img src='fotos/senador4522.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Geovani Borges</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4522'><img src='fotos/senador4522.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Geovani Borges</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>AP</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>14</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5615'><img src='fotos/senador5615.jpg' title='Crédito: Nenhum' height='51' width='42'></a></td>
-            <td aligt='left'>Gilberto Piselo</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5615'><img src='fotos/senador5615.jpg' title='None' height='51' width='42'></a></td>
+            <td align='left'>Gilberto Piselo</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>RO</td>
             <td align='left'>PDT</td>
             <td align='right'>R$ 3.950,84</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>15</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5166'><img src='fotos/senador5166.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>João Costa</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5166'><img src='fotos/senador5166.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>João Costa</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>TO</td>
             <td align='left'>PPL</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>16</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/878'><img src='fotos/senador878.jpg' title='Crédito: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
-            <td aligt='left'>José Aníbal</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/878'><img src='fotos/senador878.jpg' title='Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
+            <td align='left'>José Aníbal</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>SP</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 265.182,23</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>7 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>17</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5158'><img src='fotos/senador5158.jpg' title='Crédito: Waldemir Barreto' height='51' width='42'></a></td>
-            <td aligt='left'>Kaká Andrade</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5158'><img src='fotos/senador5158.jpg' title='Waldemir Barreto' height='51' width='42'></a></td>
+            <td align='left'>Kaká Andrade</td>
+            <td align='left'>2º Suplente</td>
             <td align='left'>SE</td>
             <td align='left'>PDT</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>18</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5156'><img src='fotos/senador5156.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Lauro Antonio</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5156'><img src='fotos/senador5156.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Lauro Antonio</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>SE</td>
             <td align='left'>PR</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>19</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3579'><img src='fotos/senador3579.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Lobão Filho</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3579'><img src='fotos/senador3579.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Lobão Filho</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>MA</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>20</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5002'><img src='fotos/senador5002.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Luiz Henrique</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5002'><img src='fotos/senador5002.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Luiz Henrique</td>
+            <td align='left'>Titular</td>
             <td align='left'>SC</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 141.541,22</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>4 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>21</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3366'><img src='fotos/senador3366.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Marcelo Crivella</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3366'><img src='fotos/senador3366.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Marcelo Crivella</td>
+            <td align='left'>Titular</td>
             <td align='left'>RJ</td>
             <td align='left'>PRB</td>
             <td align='right'>R$ 664.778,91</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>24 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>22</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/64'><img src='fotos/senador64.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Odacir Soares</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/64'><img src='fotos/senador64.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Odacir Soares</td>
+            <td align='left'>2º Suplente</td>
             <td align='left'>RO</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>23</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5617'><img src='fotos/senador5617.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Pastor Valadares</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5617'><img src='fotos/senador5617.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Pastor Valadares</td>
+            <td align='left'>2º Suplente</td>
             <td align='left'>RO</td>
             <td align='left'>PDT</td>
             <td align='right'>R$ 124.881,02</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>4 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>24</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5020'><img src='fotos/senador5020.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Paulo Davim</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5020'><img src='fotos/senador5020.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Paulo Davim</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>RN</td>
             <td align='left'>PV</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>25</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5010'><img src='fotos/senador5010.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Pedro Taques</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5010'><img src='fotos/senador5010.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Pedro Taques</td>
+            <td align='left'>Titular</td>
             <td align='left'>MT</td>
             <td align='left'>PDT</td>
             <td align='right'>R$ 28,59</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>26</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4606'><img src='fotos/senador4606.jpg' title='Crédito: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
-            <td aligt='left'>Pinto Itamaraty</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4606'><img src='fotos/senador4606.jpg' title='Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
+            <td align='left'>Pinto Itamaraty</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>MA</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 134.755,84</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>4 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>27</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5072'><img src='fotos/senador5072.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Reditario Cassol</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5072'><img src='fotos/senador5072.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Reditario Cassol</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>RO</td>
             <td align='left'>PP</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>28</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/635'><img src='fotos/senador635.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Ricardo Ferraço</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/635'><img src='fotos/senador635.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Ricardo Ferraço</td>
+            <td align='left'>Titular</td>
             <td align='left'>ES</td>
             <td align='left'>PSDB</td>
             <td align='right'>R$ 993.718,59</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>32 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>29</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5635'><img src='fotos/senador5635.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Ricardo Franco</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5635'><img src='fotos/senador5635.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Ricardo Franco</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>SE</td>
             <td align='left'>DEM</td>
             <td align='right'>R$ 91.224,82</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>10 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>30</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4593'><img src='fotos/senador4593.jpg' title='Crédito: Cleber Medeiros/Supres' height='51' width='42'></a></td>
-            <td aligt='left'>Rodrigo Rollemberg</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4593'><img src='fotos/senador4593.jpg' title='Cleber Medeiros/Supres' height='51' width='42'></a></td>
+            <td align='left'>Rodrigo Rollemberg</td>
+            <td align='left'>Titular</td>
             <td align='left'>DF</td>
             <td align='left'>PSB</td>
             <td align='right'>R$ 45,75</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>31</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5038'><img src='fotos/senador5038.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Sandra Braga</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5038'><img src='fotos/senador5038.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Sandra Braga</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>AM</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 533.642,79</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>16 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>32</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5048'><img src='fotos/senador5048.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Sergio Souza</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5048'><img src='fotos/senador5048.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Sergio Souza</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>PR</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>33</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5619'><img src='fotos/senador5619.jpg' title='Crédito: Edilson Rodrigues/Agência Senado' height='51' width='42'></a></td>
-            <td aligt='left'>Thieres Pinto</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5619'><img src='fotos/senador5619.jpg' title='Edilson Rodrigues/Agência Senado' height='51' width='42'></a></td>
+            <td align='left'>Thieres Pinto</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>RR</td>
             <td align='left'>PTB</td>
             <td align='right'>R$ 94.386,43</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>34</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4949'><img src='fotos/senador4949.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Tomás Correia</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4949'><img src='fotos/senador4949.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Tomás Correia</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>RO</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 0,00</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>35</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4786'><img src='fotos/senador4786.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Virginio de Carvalho</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4786'><img src='fotos/senador4786.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Virginio de Carvalho</td>
+            <td align='left'>2º Suplente</td>
             <td align='left'>SE</td>
             <td align='left'>PSC</td>
             <td align='right'>R$ 47.161,41</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>2 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>36</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/604'><img src='fotos/senador604.jpg' title='Crédito: Pedro França/Agência Senado' height='51' width='42'></a></td>
-            <td aligt='left'>Walter Pinheiro</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/604'><img src='fotos/senador604.jpg' title='Pedro França/Agência Senado' height='51' width='42'></a></td>
+            <td align='left'>Walter Pinheiro</td>
+            <td align='left'>Titular</td>
             <td align='left'>BA</td>
             <td align='left'>S/Partido</td>
             <td align='right'>R$ 393.721,39</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>17 meses</td>
-          </tr>
+            </tr>
           <tr>
             <td>37</td>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3597'><img src='fotos/senador3597.jpg' title='Crédito: Senado Federal' height='51' width='42'></a></td>
-            <td aligt='left'>Wirlande da Luz</td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3597'><img src='fotos/senador3597.jpg' title='Senado Federal' height='51' width='42'></a></td>
+            <td align='left'>Wirlande da Luz</td>
+            <td align='left'>1º Suplente</td>
             <td align='left'>RR</td>
             <td align='left'>PMDB</td>
             <td align='right'>R$ 11.662,94</td>
             <td align='right'>0 pessoas</td>
             <td align='right'>0 meses</td>
-          </tr>
-        </table>
+            </tr>        </table>
       </div>
       <div class="row">
         <footer>
