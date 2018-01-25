@@ -9,6 +9,91 @@
     <title>Gastos de Senadores</title>
   </head>
   <body>
+    <script>
+    function realParaFloat(texto) {
+      // Espera real no formato "comportado":
+      // Ex: R$ 1.534.445,93
+      return parseFloat(texto.split(' ')[1].replace('.', '').replace(',', '.'))
+    }
+
+    function numTexto(texto) {
+      // Espera texto no seguinte formato:
+      // <inteiro> <textoQualquer>
+      return parseInt(texto.split(' ')[0])
+    }
+
+    function sortTable(coluna, tipo) {
+      // Baseado em https://www.w3schools.com/howto/howto_js_sort_table.asp
+      function comparaTexto(dir, a, b) {
+        return (dir == "asc"  && a.localeCompare(b) == 1) ||
+               (dir == "desc" && a.localeCompare(b) == -1);
+      }
+      function comparaReal(dir, a, b) {
+        a = realParaFloat(a);
+        b = realParaFloat(b);
+        // Para reais, queremos valores maiores primeiro quando dir == "asc"
+        return (dir == "asc"  && a < b ) ||
+               (dir == "desc" && a > b)
+      }
+      function comparaDados(dir, a, b) {
+        a = numTexto(a);
+        b = numTexto(b);
+        // Para números, queremos valores maiores primeiro quando dir == "asc"
+        return (dir == "asc"  && a < b ) ||
+               (dir == "desc" && a > b)
+      }
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+
+      if (tipo == 'texto')
+        compara = comparaTexto;
+      else if (tipo == 'reais')
+        compara = comparaReal;
+      else
+        compara = comparaDados;
+
+      table = document.getElementById("leg1");
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc"; 
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.getElementsByTagName("TR");
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[coluna].innerHTML.trim();
+          y = rows[i + 1].getElementsByTagName("TD")[coluna].innerHTML.trim();
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          shouldSwitch = compara(dir, x, y)
+          if (shouldSwitch)
+            break;
+        }
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++; 
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+    </script>
     <div class="container">
       <div class="row"><b class="SenadoTitle">BRASIL </b><br></div>
       <div class="row"><b class="SenadoSubTitle">Informações de despesas de senadores</b><br></div>
@@ -16,15 +101,15 @@
         <table id="leg1" style="width:100%">
           <tr>
             <th align="middle">Deputado</th>
-            <th align="left">Nome</th>
-            <th align="left">UF</th>
-            <th align="left">Partido</th>
-            <th align="right">Despesas no Mandato</th>
-            <th align="right">Escritório e Gabinete</th>
-            <th align="right">Benefício Moradia</th>
+            <th onclick="sortTable(1, 'texto')" align="left">Nome</th>
+            <th onclick="sortTable(2, 'texto')" align="left">UF</th>
+            <th onclick="sortTable(3, 'texto')" align="left">Partido</th>
+            <th onclick="sortTable(4, 'reais')" align="right">Despesas no Mandato</th>
+            <th onclick="sortTable(5, 'dados')" align="right">Escritório e Gabinete</th>
+            <th onclick="sortTable(6, 'dados')" align="right">Benefício Moradia</th>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/739'><img src='fotos/senador739.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/739'><img src='fotos/senador739.jpg' title='Cleber Medeiros/Supres' height='52' width='42'></a></td>
             <td aligt='left'>Ciro Nogueira</td>
             <td align='left'>PI</td>
             <td align='left'>PP</td>
@@ -33,7 +118,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4558'><img src='fotos/senador4558.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4558'><img src='fotos/senador4558.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Gladson Cameli</td>
             <td align='left'>AC</td>
             <td align='left'>PP</td>
@@ -42,7 +127,7 @@
             <td align='right'>31 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5008'><img src='fotos/senador5008.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5008'><img src='fotos/senador5008.jpg' title='Cleber Medeiros/Supres' height='52' width='42'></a></td>
             <td aligt='left'>Humberto Costa</td>
             <td align='left'>PE</td>
             <td align='left'>PT</td>
@@ -51,7 +136,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/615'><img src='fotos/senador615.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/615'><img src='fotos/senador615.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>José Pimentel</td>
             <td align='left'>CE</td>
             <td align='left'>PT</td>
@@ -60,7 +145,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/73'><img src='fotos/senador73.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/73'><img src='fotos/senador73.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Romero Jucá</td>
             <td align='left'>RR</td>
             <td align='left'>PMDB</td>
@@ -69,7 +154,7 @@
             <td align='right'>17 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3394'><img src='fotos/senador3394.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3394'><img src='fotos/senador3394.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>João Capiberibe</td>
             <td align='left'>AP</td>
             <td align='left'>PSB</td>
@@ -78,7 +163,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/374'><img src='fotos/senador374.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/374'><img src='fotos/senador374.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Paulo Rocha</td>
             <td align='left'>PA</td>
             <td align='left'>PT</td>
@@ -87,7 +172,7 @@
             <td align='right'>19 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/558'><img src='fotos/senador558.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/558'><img src='fotos/senador558.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Vanessa Grazziotin</td>
             <td align='left'>AM</td>
             <td align='left'>PCdoB</td>
@@ -96,7 +181,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5012'><img src='fotos/senador5012.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5012'><img src='fotos/senador5012.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Randolfe Rodrigues</td>
             <td align='left'>AP</td>
             <td align='left'>REDE</td>
@@ -105,7 +190,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4697'><img src='fotos/senador4697.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4697'><img src='fotos/senador4697.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Ângela Portela</td>
             <td align='left'>RR</td>
             <td align='left'>PDT</td>
@@ -114,7 +199,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3634'><img src='fotos/senador3634.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3634'><img src='fotos/senador3634.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Flexa Ribeiro</td>
             <td align='left'>PA</td>
             <td align='left'>PSDB</td>
@@ -123,7 +208,7 @@
             <td align='right'>37 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3372'><img src='fotos/senador3372.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/3372'><img src='fotos/senador3372.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Valdir Raupp</td>
             <td align='left'>RO</td>
             <td align='left'>PMDB</td>
@@ -132,7 +217,7 @@
             <td align='right'>0 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4560'><img src='fotos/senador4560.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4560'><img src='fotos/senador4560.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Sérgio Petecão</td>
             <td align='left'>AC</td>
             <td align='left'>PSD</td>
@@ -141,7 +226,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4525'><img src='fotos/senador4525.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/4525'><img src='fotos/senador4525.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>Fernando Collor</td>
             <td align='left'>AL</td>
             <td align='left'>PTC</td>
@@ -150,7 +235,7 @@
             <td align='right'>36 meses</td>
           </tr>
           <tr>
-            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5112'><img src='fotos/senador5112.jpg' alt='Senado Federal' height='52' width='42'></a></td>
+            <td align='middle'><a href='http://www25.senado.leg.br/web/senadores/senador/-/perfil/5112'><img src='fotos/senador5112.jpg' title='Senado Federal' height='52' width='42'></a></td>
             <td aligt='left'>José Medeiros</td>
             <td align='left'>MT</td>
             <td align='left'>PODE</td>
