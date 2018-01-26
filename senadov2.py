@@ -28,9 +28,12 @@ MAJOR = 0 indica que o estado atual é de desenvolvimento inicial, qualquer func
 Lista de ideias a fazer:
 - Gerar página HTML (já tempos todo o conteúdo)
   - Yattag? Django?
-- Incluir tratamento de locale (tratamento de valores numéricos, moeda e ordenação) (Feito)
 - Passar parâmetros para aplicação(Ex: número de legislatura, intervalo de polling, etc.)
 - Armazenar dados em base de dados (Django ORM?)
+- Gastos dos senadores com passagens aéreas são bem "interessantes", talvez valha a pena
+  pensar em uma estrutura hieráquica para os dados e coletar alguns (senão todos) tipos de gastos
+  e gerar visualizações
+- Necessário melhorar gráficos!!
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
