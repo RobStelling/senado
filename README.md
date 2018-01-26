@@ -19,6 +19,7 @@ Na versão atual são contabilizados apenas os gastos de cotas para exercício d
 Versões futuras devem:
 * Melhorar tratamento de erros/exceções
 * Gerar página HTML com os dados coletados
+  * [Versão inicial](http://stelling.cc/senado)
   * Incluindo informações sobre cada senador (Nome, foto, email etc.)
   * Utilizar frameworks de visualização?
 * Salvar e permitir reuso de informação coletada
