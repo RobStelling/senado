@@ -1,19 +1,25 @@
 table {
     border-collapse: collapse;
     width: 100%;
+    max-width:70em;
 }
 
 th, td {
 /*
     text-align: left; */
-    padding: 8px;
-    border: 1px solid black;
-    font-size:11pt;
+
+    border: 1px solid transparent;
+    font-size:1em;
     font-family:Arial, Helvetica, Open Sans, sans-serif;
 }
 
 th {
-	background-color: #c6c6c6
+	background-color: #c6c6c6;
+	padding: 3px;
+}
+
+td {
+    padding: 1px;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
@@ -44,7 +50,7 @@ div {
 }
 
 .SenadoTitle {
-	color:#ed4337;
+	color:#d84334;
 	font-weight:bold;
 	font-size:25pt;
 	font-family:Arial, Helvetica, Open Sans, sans-serif;
