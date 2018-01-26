@@ -62,13 +62,13 @@
             y,
             temQueTrocar,
             contaTrocas = 0;
-
+      
         const funcoes = { 'texto': comparaTexto, 'reais': comparaReal, 'dados': comparaDados, 'participacao': comparaParticipacao};
       
         compara = funcoes[tipo];
         tabela = document.getElementById(nomeTabela);
         troca = true;
-
+      
         /* Fica em loop enquanto foram feitas trocas */
         while (troca) {
           // No início do loop, nenhuma troca foi feita
@@ -99,28 +99,24 @@
             troca = true;
             // A cada troca, incrementa a contagem de trocas
             contaTrocas ++; 
-          } else {
-            if (contaTrocas == 0) {
-              /* Se o for terminou sem trocas então, da primeira
-              vez que chegamos aqui, a tabela já estava ordenada
-              pelo critério atual (ascendente, por exemplo) nesse
-              caso invertemos a critério e somamos um à contagem de
-              trocas. Isso evita um loop infinito caso todos os valores
-              da coluna que estamos comparando sejam iguais. */
-              const inverte = {"asc": "desc", "desc": "asc"};
+          } else if (contaTrocas == 0) {
+            /* Se o for terminou sem trocas então, da primeira
+            vez que chegamos aqui, a tabela já estava ordenada
+            pelo critério atual (ascendente, por exemplo) nesse
+            caso invertemos a critério e somamos um à contagem de
+            trocas. Isso evita um loop infinito caso todos os valores
+            da coluna que estamos comparando sejam iguais. */
+            const inverte = {"asc": "desc", "desc": "asc"};
       
-              dir = inverte[dir];
-              troca = true;
-              /* Evita que passemos por aqui mais de uma vez caso
-              a coluna só tenha valores iguais */
-              contaTrocas++;
-            }
-            else {
-              /* Se chegamos aqui então todos os valores são iguais,
-              não precisamos ficar em loop infinito... */
-              break;
-            }
-          }
+            dir = inverte[dir];
+            troca = true;
+            /* Evita que passemos por aqui mais de uma vez caso
+            a coluna só tenha valores iguais */
+            contaTrocas++;
+          } else
+            break;
+            /* Se chegamos aqui então todos os valores são iguais,
+            não precisamos ficar em loop infinito... */       
         }
       }
     </script>
