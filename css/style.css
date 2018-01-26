@@ -1,0 +1,58 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+/*
+    text-align: left; */
+    padding: 8px;
+    border: 1px solid black;
+    font-size:11pt;
+    font-family:Arial, Helvetica, Open Sans, sans-serif;
+}
+
+th {
+	background-color: #c6c6c6
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+caption {
+	color:gray;
+	font-weight:normal;
+	font-size:20pt;
+	font-family:Arial, Helvetica, Open Sans, sans-serif;
+}
+
+h1 {
+/*
+    border: 5px solid red;
+ */
+}
+
+h2 {
+/*
+    border: 4px dotted blue;
+ */
+}
+
+div {
+/*
+    border: double;
+ */
+}
+
+.SenadoTitle {
+	color:#ed4337;
+	font-weight:bold;
+	font-size:25pt;
+	font-family:Arial, Helvetica, Open Sans, sans-serif;
+}
+
+.SenadoSubTitle {
+	color:gray;
+	font-weight:normal;
+	font-size:20pt;
+	font-family:Arial, Helvetica, Open Sans, sans-serif;
+}
