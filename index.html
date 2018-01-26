@@ -69,7 +69,7 @@
         tabela = document.getElementById(nomeTabela);
         troca = true;
 
-        /* Fica em loop enquanto são foram feitas trocas */
+        /* Fica em loop enquanto foram feitas trocas */
         while (troca) {
           // No início do loop, nenhuma troca foi feita
           troca = false;
@@ -104,7 +104,7 @@
               /* Se o for terminou sem trocas então, da primeira
               vez que chegamos aqui, a tabela já estava ordenada
               pelo critério atual (ascendente, por exemplo) nesse
-              caso invertemos a critério e somamos um à contatem de
+              caso invertemos a critério e somamos um à contagem de
               trocas. Isso evita um loop infinito caso todos os valores
               da coluna que estamos comparando sejam iguais. */
               const inverte = {"asc": "desc", "desc": "asc"};
@@ -135,13 +135,13 @@
             <tr>
               <th align="left">Nº</th>
               <th align="middle">Deputado</th>
-              <th onclick="ordenaTabela('asc',  'leg1', 2, 'texto')" align="left">Nome</th>
-              <th onclick="ordenaTabela('asc',  'leg1', 3, 'participacao')" align="left">Participação</th>
-              <th onclick="ordenaTabela('asc',  'leg1', 4, 'texto')" align="left">UF</th>
-              <th onclick="ordenaTabela('asc',  'leg1', 5, 'texto')" align="left">Partido</th>
-              <th onclick="ordenaTabela('desc', 'leg1', 6, 'reais')" align="right">Despesas no Mandato</th>
-              <th onclick="ordenaTabela('desc', 'leg1', 7, 'dados')" align="right">Escritório e Gabinete</th>
-              <th onclick="ordenaTabela('desc', 'leg1', 8, 'dados')" align="right">Benefício Moradia</th>
+              <th onclick="ordenaTabela('asc',  'leg1', 2, 'texto')" align="left">Nome<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 3, 'participacao')" align="left">Participação<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 4, 'texto')" align="middle">UF<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 5, 'texto')" align="left">Partido<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 6, 'reais')" align="right">Despesas no Mandato<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 7, 'dados')" align="right">Escritório e Gabinete<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 8, 'dados')" align="right">Benefício Moradia<img src="imagens/sort.png"></th>
             </tr>
           </thead>
           <tbody>
@@ -150,7 +150,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4981/?ano=2017' target='_blank'><img src='fotos/senador4981.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Acir Gurgacz</td>
               <td align='left'>Titular</td>
-              <td align='left'>RO</td>
+              <td align='middle'>RO</td>
               <td align='left'>PDT</td>
               <td align='right'>R$ 1.203.321,32</td>
               <td align='right'>46 pessoas</td>
@@ -161,7 +161,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/391/?ano=2017' target='_blank'><img src='fotos/senador391.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Aécio Neves</td>
               <td align='left'>Titular</td>
-              <td align='left'>MG</td>
+              <td align='middle'>MG</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 965.461,80</td>
               <td align='right'>26 pessoas</td>
@@ -172,7 +172,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5140/?ano=2017' target='_blank'><img src='fotos/senador5140.jpg' title='Crédito foto: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
               <td align='left'>Airton Sandoval</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>SP</td>
+              <td align='middle'>SP</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 262.420,82</td>
               <td align='right'>29 pessoas</td>
@@ -183,7 +183,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/945/?ano=2017' target='_blank'><img src='fotos/senador945.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Alvaro Dias</td>
               <td align='left'>Titular</td>
-              <td align='left'>PR</td>
+              <td align='middle'>PR</td>
               <td align='left'>PODE</td>
               <td align='right'>R$ 463.317,92</td>
               <td align='right'>30 pessoas</td>
@@ -194,7 +194,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4988/?ano=2017' target='_blank'><img src='fotos/senador4988.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
               <td align='left'>Ana Amélia</td>
               <td align='left'>Titular</td>
-              <td align='left'>RS</td>
+              <td align='middle'>RS</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 650.250,85</td>
               <td align='right'>21 pessoas</td>
@@ -205,7 +205,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4697/?ano=2017' target='_blank'><img src='fotos/senador4697.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Ângela Portela</td>
               <td align='left'>Titular</td>
-              <td align='left'>RR</td>
+              <td align='middle'>RR</td>
               <td align='left'>PDT</td>
               <td align='right'>R$ 1.483.285,46</td>
               <td align='right'>40 pessoas</td>
@@ -216,7 +216,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5529/?ano=2017' target='_blank'><img src='fotos/senador5529.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Antonio Anastasia</td>
               <td align='left'>Titular</td>
-              <td align='left'>MG</td>
+              <td align='middle'>MG</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 1.098.828,69</td>
               <td align='right'>19 pessoas</td>
@@ -227,7 +227,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/715/?ano=2017' target='_blank'><img src='fotos/senador715.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Armando Monteiro</td>
               <td align='left'>Titular</td>
-              <td align='left'>PE</td>
+              <td align='middle'>PE</td>
               <td align='left'>PTB</td>
               <td align='right'>R$ 586.906,40</td>
               <td align='right'>36 pessoas</td>
@@ -238,7 +238,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5164/?ano=2017' target='_blank'><img src='fotos/senador5164.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Ataídes Oliveira</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>TO</td>
+              <td align='middle'>TO</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 949.276,87</td>
               <td align='right'>44 pessoas</td>
@@ -249,7 +249,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3823/?ano=2017' target='_blank'><img src='fotos/senador3823.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Benedito de Lira</td>
               <td align='left'>Titular</td>
-              <td align='left'>AL</td>
+              <td align='middle'>AL</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 638.644,16</td>
               <td align='right'>62 pessoas</td>
@@ -260,7 +260,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5197/?ano=2017' target='_blank'><img src='fotos/senador5197.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
               <td align='left'>Cássio Cunha Lima</td>
               <td align='left'>Titular</td>
-              <td align='left'>PB</td>
+              <td align='middle'>PB</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 1.149.118,36</td>
               <td align='right'>48 pessoas</td>
@@ -271,7 +271,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5108/?ano=2017' target='_blank'><img src='fotos/senador5108.jpg' title='Crédito foto: Rodrigo Viana/Supres' height='51' width='42'></a></td>
               <td align='left'>Cidinho Santos</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>MT</td>
+              <td align='middle'>MT</td>
               <td align='left'>PR</td>
               <td align='right'>R$ 639.460,69</td>
               <td align='right'>34 pessoas</td>
@@ -282,7 +282,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/739/?ano=2017' target='_blank'><img src='fotos/senador739.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Ciro Nogueira</td>
               <td align='left'>Titular</td>
-              <td align='left'>PI</td>
+              <td align='middle'>PI</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 1.821.866,88</td>
               <td align='right'>54 pessoas</td>
@@ -293,7 +293,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3398/?ano=2017' target='_blank'><img src='fotos/senador3398.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Cristovam Buarque</td>
               <td align='left'>Titular</td>
-              <td align='left'>DF</td>
+              <td align='middle'>DF</td>
               <td align='left'>PPS</td>
               <td align='right'>R$ 246.775,88</td>
               <td align='right'>26 pessoas</td>
@@ -304,7 +304,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5132/?ano=2017' target='_blank'><img src='fotos/senador5132.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Dalirio Beber</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>SC</td>
+              <td align='middle'>SC</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 662.695,25</td>
               <td align='right'>20 pessoas</td>
@@ -315,7 +315,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5537/?ano=2017' target='_blank'><img src='fotos/senador5537.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Dário Berger</td>
               <td align='left'>Titular</td>
-              <td align='left'>SC</td>
+              <td align='middle'>SC</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 982.921,81</td>
               <td align='right'>20 pessoas</td>
@@ -326,7 +326,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3830/?ano=2017' target='_blank'><img src='fotos/senador3830.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Davi Alcolumbre</td>
               <td align='left'>Titular</td>
-              <td align='left'>AP</td>
+              <td align='middle'>AP</td>
               <td align='left'>DEM</td>
               <td align='right'>R$ 1.271.440,75</td>
               <td align='right'>41 pessoas</td>
@@ -337,7 +337,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4721/?ano=2017' target='_blank'><img src='fotos/senador4721.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Eduardo Amorim</td>
               <td align='left'>Titular</td>
-              <td align='left'>SE</td>
+              <td align='middle'>SE</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 1.070.428,70</td>
               <td align='right'>52 pessoas</td>
@@ -348,7 +348,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4994/?ano=2017' target='_blank'><img src='fotos/senador4994.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
               <td align='left'>Eduardo Braga</td>
               <td align='left'>Titular</td>
-              <td align='left'>AM</td>
+              <td align='middle'>AM</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 797.171,21</td>
               <td align='right'>31 pessoas</td>
@@ -359,7 +359,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4767/?ano=2017' target='_blank'><img src='fotos/senador4767.jpg' title='Crédito foto: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
               <td align='left'>Eduardo Lopes</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>RJ</td>
+              <td align='middle'>RJ</td>
               <td align='left'>PRB</td>
               <td align='right'>R$ 581.903,38</td>
               <td align='right'>59 pessoas</td>
@@ -370,7 +370,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4969/?ano=2017' target='_blank'><img src='fotos/senador4969.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Elber Batalha</td>
               <td align='left'>2º Suplente</td>
-              <td align='left'>SE</td>
+              <td align='middle'>SE</td>
               <td align='left'>PSB</td>
               <td align='right'>R$ 43.458,41</td>
               <td align='right'>48 pessoas</td>
@@ -381,7 +381,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5531/?ano=2017' target='_blank'><img src='fotos/senador5531.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Elmano Férrer</td>
               <td align='left'>Titular</td>
-              <td align='left'>PI</td>
+              <td align='middle'>PI</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 1.379.978,78</td>
               <td align='right'>60 pessoas</td>
@@ -392,7 +392,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/612/?ano=2017' target='_blank'><img src='fotos/senador612.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Eunício Oliveira</td>
               <td align='left'>Titular</td>
-              <td align='left'>CE</td>
+              <td align='middle'>CE</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 65.277,76</td>
               <td align='right'>37 pessoas</td>
@@ -403,7 +403,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3713/?ano=2017' target='_blank'><img src='fotos/senador3713.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Fátima Bezerra</td>
               <td align='left'>Titular</td>
-              <td align='left'>RN</td>
+              <td align='middle'>RN</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.016.955,19</td>
               <td align='right'>33 pessoas</td>
@@ -414,7 +414,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5540/?ano=2017' target='_blank'><img src='fotos/senador5540.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Fernando Bezerra Coelho</td>
               <td align='left'>Titular</td>
-              <td align='left'>PE</td>
+              <td align='middle'>PE</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 1.373.855,59</td>
               <td align='right'>34 pessoas</td>
@@ -425,7 +425,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4525/?ano=2017' target='_blank'><img src='fotos/senador4525.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Fernando Collor</td>
               <td align='left'>Titular</td>
-              <td align='left'>AL</td>
+              <td align='middle'>AL</td>
               <td align='left'>PTC</td>
               <td align='right'>R$ 1.408.923,76</td>
               <td align='right'>80 pessoas</td>
@@ -436,7 +436,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3634/?ano=2017' target='_blank'><img src='fotos/senador3634.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
               <td align='left'>Flexa Ribeiro</td>
               <td align='left'>Titular</td>
-              <td align='left'>PA</td>
+              <td align='middle'>PA</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 1.453.938,74</td>
               <td align='right'>29 pessoas</td>
@@ -447,7 +447,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/87/?ano=2017' target='_blank'><img src='fotos/senador87.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Garibaldi Alves Filho</td>
               <td align='left'>Titular</td>
-              <td align='left'>RN</td>
+              <td align='middle'>RN</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 854.007,47</td>
               <td align='right'>40 pessoas</td>
@@ -458,7 +458,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4558/?ano=2017' target='_blank'><img src='fotos/senador4558.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Gladson Cameli</td>
               <td align='left'>Titular</td>
-              <td align='left'>AC</td>
+              <td align='middle'>AC</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 1.755.939,15</td>
               <td align='right'>40 pessoas</td>
@@ -469,7 +469,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5006/?ano=2017' target='_blank'><img src='fotos/senador5006.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Gleisi Hoffmann</td>
               <td align='left'>Titular</td>
-              <td align='left'>PR</td>
+              <td align='middle'>PR</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.258.377,06</td>
               <td align='right'>42 pessoas</td>
@@ -480,7 +480,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5100/?ano=2017' target='_blank'><img src='fotos/senador5100.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Hélio José</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>DF</td>
+              <td align='middle'>DF</td>
               <td align='left'>PROS</td>
               <td align='right'>R$ 864.245,98</td>
               <td align='right'>76 pessoas</td>
@@ -491,7 +491,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5008/?ano=2017' target='_blank'><img src='fotos/senador5008.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Humberto Costa</td>
               <td align='left'>Titular</td>
-              <td align='left'>PE</td>
+              <td align='middle'>PE</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.720.684,71</td>
               <td align='right'>39 pessoas</td>
@@ -502,7 +502,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5004/?ano=2017' target='_blank'><img src='fotos/senador5004.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Ivo Cassol</td>
               <td align='left'>Titular</td>
-              <td align='left'>RO</td>
+              <td align='middle'>RO</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 1.325.612,24</td>
               <td align='right'>68 pessoas</td>
@@ -513,7 +513,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/35/?ano=2017' target='_blank'><img src='fotos/senador35.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Jader Barbalho</td>
               <td align='left'>Titular</td>
-              <td align='left'>PA</td>
+              <td align='middle'>PA</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 672.038,99</td>
               <td align='right'>28 pessoas</td>
@@ -524,7 +524,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/950/?ano=2017' target='_blank'><img src='fotos/senador950.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>João Alberto Souza</td>
               <td align='left'>Titular</td>
-              <td align='left'>MA</td>
+              <td align='middle'>MA</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 1.027.468,32</td>
               <td align='right'>84 pessoas</td>
@@ -535,7 +535,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3394/?ano=2017' target='_blank'><img src='fotos/senador3394.jpg' title='Crédito foto: Rodrigo Viana/Supres' height='51' width='42'></a></td>
               <td align='left'>João Capiberibe</td>
               <td align='left'>Titular</td>
-              <td align='left'>AP</td>
+              <td align='middle'>AP</td>
               <td align='left'>PSB</td>
               <td align='right'>R$ 1.621.776,66</td>
               <td align='right'>62 pessoas</td>
@@ -546,7 +546,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4990/?ano=2017' target='_blank'><img src='fotos/senador4990.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
               <td align='left'>Jorge Viana</td>
               <td align='left'>Titular</td>
-              <td align='left'>AC</td>
+              <td align='middle'>AC</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.261.884,22</td>
               <td align='right'>35 pessoas</td>
@@ -557,7 +557,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/40/?ano=2017' target='_blank'><img src='fotos/senador40.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>José Agripino</td>
               <td align='left'>Titular</td>
-              <td align='left'>RN</td>
+              <td align='middle'>RN</td>
               <td align='left'>DEM</td>
               <td align='right'>R$ 1.062.932,71</td>
               <td align='right'>46 pessoas</td>
@@ -568,7 +568,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3361/?ano=2017' target='_blank'><img src='fotos/senador3361.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>José Maranhão</td>
               <td align='left'>Titular</td>
-              <td align='left'>PB</td>
+              <td align='middle'>PB</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 886.817,03</td>
               <td align='right'>28 pessoas</td>
@@ -579,7 +579,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5112/?ano=2017' target='_blank'><img src='fotos/senador5112.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>José Medeiros</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>MT</td>
+              <td align='middle'>MT</td>
               <td align='left'>PODE</td>
               <td align='right'>R$ 1.394.474,59</td>
               <td align='right'>29 pessoas</td>
@@ -590,7 +590,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/615/?ano=2017' target='_blank'><img src='fotos/senador615.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>José Pimentel</td>
               <td align='left'>Titular</td>
-              <td align='left'>CE</td>
+              <td align='middle'>CE</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.646.477,06</td>
               <td align='right'>41 pessoas</td>
@@ -601,7 +601,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/90/?ano=2017' target='_blank'><img src='fotos/senador90.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>José Serra</td>
               <td align='left'>Titular</td>
-              <td align='left'>SP</td>
+              <td align='middle'>SP</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 769.243,78</td>
               <td align='right'>25 pessoas</td>
@@ -612,7 +612,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1249/?ano=2017' target='_blank'><img src='fotos/senador1249.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
               <td align='left'>Kátia Abreu</td>
               <td align='left'>Titular</td>
-              <td align='left'>TO</td>
+              <td align='middle'>TO</td>
               <td align='left'>S/Partido</td>
               <td align='right'>R$ 488.015,35</td>
               <td align='right'>44 pessoas</td>
@@ -623,7 +623,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5533/?ano=2017' target='_blank'><img src='fotos/senador5533.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Lasier Martins</td>
               <td align='left'>Titular</td>
-              <td align='left'>RS</td>
+              <td align='middle'>RS</td>
               <td align='left'>PSD</td>
               <td align='right'>R$ 801.855,46</td>
               <td align='right'>20 pessoas</td>
@@ -634,7 +634,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4575/?ano=2017' target='_blank'><img src='fotos/senador4575.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Lídice da Mata</td>
               <td align='left'>Titular</td>
-              <td align='left'>BA</td>
+              <td align='middle'>BA</td>
               <td align='left'>PSB</td>
               <td align='right'>R$ 1.177.282,17</td>
               <td align='right'>50 pessoas</td>
@@ -645,7 +645,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3695/?ano=2017' target='_blank'><img src='fotos/senador3695.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Lindbergh Farias</td>
               <td align='left'>Titular</td>
-              <td align='left'>RJ</td>
+              <td align='middle'>RJ</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.242.644,69</td>
               <td align='right'>33 pessoas</td>
@@ -656,7 +656,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/643/?ano=2017' target='_blank'><img src='fotos/senador643.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Lúcia Vânia</td>
               <td align='left'>Titular</td>
-              <td align='left'>GO</td>
+              <td align='middle'>GO</td>
               <td align='left'>PSB</td>
               <td align='right'>R$ 916.288,57</td>
               <td align='right'>27 pessoas</td>
@@ -667,7 +667,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/631/?ano=2017' target='_blank'><img src='fotos/senador631.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Magno Malta</td>
               <td align='left'>Titular</td>
-              <td align='left'>ES</td>
+              <td align='middle'>ES</td>
               <td align='left'>PR</td>
               <td align='right'>R$ 1.231.974,93</td>
               <td align='right'>45 pessoas</td>
@@ -678,7 +678,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1023/?ano=2017' target='_blank'><img src='fotos/senador1023.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Maria do Carmo Alves</td>
               <td align='left'>Titular</td>
-              <td align='left'>SE</td>
+              <td align='middle'>SE</td>
               <td align='left'>DEM</td>
               <td align='right'>R$ 365.833,23</td>
               <td align='right'>35 pessoas</td>
@@ -689,7 +689,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5000/?ano=2017' target='_blank'><img src='fotos/senador5000.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Marta Suplicy</td>
               <td align='left'>Titular</td>
-              <td align='left'>SP</td>
+              <td align='middle'>SP</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 822.471,31</td>
               <td align='right'>37 pessoas</td>
@@ -700,7 +700,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5525/?ano=2017' target='_blank'><img src='fotos/senador5525.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Omar Aziz</td>
               <td align='left'>Titular</td>
-              <td align='left'>AM</td>
+              <td align='middle'>AM</td>
               <td align='left'>PSD</td>
               <td align='right'>R$ 1.252.503,49</td>
               <td align='right'>38 pessoas</td>
@@ -711,7 +711,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5523/?ano=2017' target='_blank'><img src='fotos/senador5523.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Otto Alencar</td>
               <td align='left'>Titular</td>
-              <td align='left'>BA</td>
+              <td align='middle'>BA</td>
               <td align='left'>PSD</td>
               <td align='right'>R$ 705.576,13</td>
               <td align='right'>34 pessoas</td>
@@ -722,7 +722,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5018/?ano=2017' target='_blank'><img src='fotos/senador5018.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Pastor Bel</td>
               <td align='left'>2º Suplente</td>
-              <td align='left'>MA</td>
+              <td align='middle'>MA</td>
               <td align='left'>PRTB</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>43 pessoas</td>
@@ -733,7 +733,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3741/?ano=2017' target='_blank'><img src='fotos/senador3741.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Paulo Bauer</td>
               <td align='left'>Titular</td>
-              <td align='left'>SC</td>
+              <td align='middle'>SC</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 1.381.460,65</td>
               <td align='right'>25 pessoas</td>
@@ -744,7 +744,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/825/?ano=2017' target='_blank'><img src='fotos/senador825.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Paulo Paim</td>
               <td align='left'>Titular</td>
-              <td align='left'>RS</td>
+              <td align='middle'>RS</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.319.068,02</td>
               <td align='right'>37 pessoas</td>
@@ -755,7 +755,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/374/?ano=2017' target='_blank'><img src='fotos/senador374.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Paulo Rocha</td>
               <td align='left'>Titular</td>
-              <td align='left'>PA</td>
+              <td align='middle'>PA</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.586.691,07</td>
               <td align='right'>46 pessoas</td>
@@ -766,7 +766,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5116/?ano=2017' target='_blank'><img src='fotos/senador5116.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Pedro Chaves</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>MS</td>
+              <td align='middle'>MS</td>
               <td align='left'>PSC</td>
               <td align='right'>R$ 694.782,47</td>
               <td align='right'>32 pessoas</td>
@@ -777,7 +777,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2207/?ano=2017' target='_blank'><img src='fotos/senador2207.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Raimundo Lira</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>PB</td>
+              <td align='middle'>PB</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 556.522,00</td>
               <td align='right'>26 pessoas</td>
@@ -788,7 +788,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5012/?ano=2017' target='_blank'><img src='fotos/senador5012.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Randolfe Rodrigues</td>
               <td align='left'>Titular</td>
-              <td align='left'>AP</td>
+              <td align='middle'>AP</td>
               <td align='left'>REDE</td>
               <td align='right'>R$ 1.489.773,46</td>
               <td align='right'>48 pessoas</td>
@@ -799,7 +799,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5182/?ano=2017' target='_blank'><img src='fotos/senador5182.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Regina Sousa</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>PI</td>
+              <td align='middle'>PI</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 1.200.657,12</td>
               <td align='right'>30 pessoas</td>
@@ -810,7 +810,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5236/?ano=2017' target='_blank'><img src='fotos/senador5236.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Reguffe</td>
               <td align='left'>Titular</td>
-              <td align='left'>DF</td>
+              <td align='middle'>DF</td>
               <td align='left'>S/Partido</td>
               <td align='right'>R$ 3.467,69</td>
               <td align='right'>10 pessoas</td>
@@ -821,7 +821,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/70/?ano=2017' target='_blank'><img src='fotos/senador70.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Renan Calheiros</td>
               <td align='left'>Titular</td>
-              <td align='left'>AL</td>
+              <td align='middle'>AL</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 463.998,03</td>
               <td align='right'>45 pessoas</td>
@@ -832,7 +832,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5052/?ano=2017' target='_blank'><img src='fotos/senador5052.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
               <td align='left'>Roberto Muniz</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>BA</td>
+              <td align='middle'>BA</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 571.555,54</td>
               <td align='right'>31 pessoas</td>
@@ -843,7 +843,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/72/?ano=2017' target='_blank'><img src='fotos/senador72.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Roberto Requião</td>
               <td align='left'>Titular</td>
-              <td align='left'>PR</td>
+              <td align='middle'>PR</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 1.292.596,62</td>
               <td align='right'>28 pessoas</td>
@@ -854,7 +854,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/677/?ano=2017' target='_blank'><img src='fotos/senador677.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Roberto Rocha</td>
               <td align='left'>Titular</td>
-              <td align='left'>MA</td>
+              <td align='middle'>MA</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 1.392.660,80</td>
               <td align='right'>47 pessoas</td>
@@ -865,7 +865,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5322/?ano=2017' target='_blank'><img src='fotos/senador5322.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Romário</td>
               <td align='left'>Titular</td>
-              <td align='left'>RJ</td>
+              <td align='middle'>RJ</td>
               <td align='left'>PODE</td>
               <td align='right'>R$ 1.116.816,99</td>
               <td align='right'>34 pessoas</td>
@@ -876,7 +876,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/73/?ano=2017' target='_blank'><img src='fotos/senador73.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Romero Jucá</td>
               <td align='left'>Titular</td>
-              <td align='left'>RR</td>
+              <td align='middle'>RR</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 1.644.431,21</td>
               <td align='right'>57 pessoas</td>
@@ -887,7 +887,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/456/?ano=2017' target='_blank'><img src='fotos/senador456.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Ronaldo Caiado</td>
               <td align='left'>Titular</td>
-              <td align='left'>GO</td>
+              <td align='middle'>GO</td>
               <td align='left'>DEM</td>
               <td align='right'>R$ 763.642,62</td>
               <td align='right'>46 pessoas</td>
@@ -898,7 +898,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2331/?ano=2017' target='_blank'><img src='fotos/senador2331.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Rose de Freitas</td>
               <td align='left'>Titular</td>
-              <td align='left'>ES</td>
+              <td align='middle'>ES</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 1.124.886,90</td>
               <td align='right'>32 pessoas</td>
@@ -909,7 +909,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5106/?ano=2017' target='_blank'><img src='fotos/senador5106.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Sérgio de Castro</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>ES</td>
+              <td align='middle'>ES</td>
               <td align='left'>PDT</td>
               <td align='right'>R$ 50.113,76</td>
               <td align='right'>24 pessoas</td>
@@ -920,7 +920,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4560/?ano=2017' target='_blank'><img src='fotos/senador4560.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Sérgio Petecão</td>
               <td align='left'>Titular</td>
-              <td align='left'>AC</td>
+              <td align='middle'>AC</td>
               <td align='left'>PSD</td>
               <td align='right'>R$ 1.447.236,78</td>
               <td align='right'>37 pessoas</td>
@@ -931,7 +931,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5527/?ano=2017' target='_blank'><img src='fotos/senador5527.jpg' title='Crédito foto: Fabiano Accorsi' height='51' width='42'></a></td>
               <td align='left'>Simone Tebet</td>
               <td align='left'>Titular</td>
-              <td align='left'>MS</td>
+              <td align='middle'>MS</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 682.779,61</td>
               <td align='right'>26 pessoas</td>
@@ -942,7 +942,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3396/?ano=2017' target='_blank'><img src='fotos/senador3396.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Tasso Jereissati</td>
               <td align='left'>Titular</td>
-              <td align='left'>CE</td>
+              <td align='middle'>CE</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 556.486,05</td>
               <td align='right'>16 pessoas</td>
@@ -953,7 +953,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5535/?ano=2017' target='_blank'><img src='fotos/senador5535.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Telmário Mota</td>
               <td align='left'>Titular</td>
-              <td align='left'>RR</td>
+              <td align='middle'>RR</td>
               <td align='left'>PTB</td>
               <td align='right'>R$ 1.370.561,01</td>
               <td align='right'>50 pessoas</td>
@@ -964,7 +964,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3372/?ano=2017' target='_blank'><img src='fotos/senador3372.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Valdir Raupp</td>
               <td align='left'>Titular</td>
-              <td align='left'>RO</td>
+              <td align='middle'>RO</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 1.453.719,01</td>
               <td align='right'>63 pessoas</td>
@@ -975,7 +975,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/558/?ano=2017' target='_blank'><img src='fotos/senador558.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Vanessa Grazziotin</td>
               <td align='left'>Titular</td>
-              <td align='left'>AM</td>
+              <td align='middle'>AM</td>
               <td align='left'>PCdoB</td>
               <td align='right'>R$ 1.534.445,93</td>
               <td align='right'>61 pessoas</td>
@@ -986,7 +986,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4763/?ano=2017' target='_blank'><img src='fotos/senador4763.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Vicentinho Alves</td>
               <td align='left'>Titular</td>
-              <td align='left'>TO</td>
+              <td align='middle'>TO</td>
               <td align='left'>PR</td>
               <td align='right'>R$ 1.162.970,22</td>
               <td align='right'>63 pessoas</td>
@@ -997,7 +997,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1176/?ano=2017' target='_blank'><img src='fotos/senador1176.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Waldemir Moka</td>
               <td align='left'>Titular</td>
-              <td align='left'>MS</td>
+              <td align='middle'>MS</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 927.596,18</td>
               <td align='right'>27 pessoas</td>
@@ -1008,7 +1008,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1173/?ano=2017' target='_blank'><img src='fotos/senador1173.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Wellington Fagundes</td>
               <td align='left'>Titular</td>
-              <td align='left'>MT</td>
+              <td align='middle'>MT</td>
               <td align='left'>PR</td>
               <td align='right'>R$ 1.334.928,71</td>
               <td align='right'>42 pessoas</td>
@@ -1019,7 +1019,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5070/?ano=2017' target='_blank'><img src='fotos/senador5070.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Wilder Morais</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>GO</td>
+              <td align='middle'>GO</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 1.084.668,67</td>
               <td align='right'>35 pessoas</td>
@@ -1030,7 +1030,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5144/?ano=2017' target='_blank'><img src='fotos/senador5144.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Zeze Perrella</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>MG</td>
+              <td align='middle'>MG</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 1.346.214,54</td>
               <td align='right'>56 pessoas</td>
@@ -1047,13 +1047,13 @@
             <tr>
               <th align="left">Nº</th>
               <th align="middle">Deputado</th>
-              <th onclick="ordenaTabela('asc',  'leg2', 2, 'texto')" align="left">Nome</th>
-              <th onclick="ordenaTabela('asc',  'leg2', 3, 'participacao')" align="left">Participação</th>
-              <th onclick="ordenaTabela('asc',  'leg2', 4, 'texto')" align="left">UF</th>
-              <th onclick="ordenaTabela('asc',  'leg2', 5, 'texto')" align="left">Partido</th>
-              <th onclick="ordenaTabela('desc', 'leg2', 6, 'reais')" align="right">Despesas no Mandato</th>
-              <th onclick="ordenaTabela('desc', 'leg2', 7, 'dados')" align="right">Escritório e Gabinete</th>
-              <th onclick="ordenaTabela('desc', 'leg2', 8, 'dados')" align="right">Benefício Moradia</th>
+              <th onclick="ordenaTabela('asc',  'leg2', 2, 'texto')" align="left">Nome<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 3, 'participacao')" align="left">Participação<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 4, 'texto')" align="middle">UF<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 5, 'texto')" align="left">Partido<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 6, 'reais')" align="right">Despesas no Mandato<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 7, 'dados')" align="right">Escritório e Gabinete<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 8, 'dados')" align="right">Benefício Moradia<img src="imagens/sort.png"></th>
             </tr>
           </thead>
           <tbody>
@@ -1062,7 +1062,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/846/?ano=2017' target='_blank'><img src='fotos/senador846.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Aloysio Nunes Ferreira</td>
               <td align='left'>Titular</td>
-              <td align='left'>SP</td>
+              <td align='middle'>SP</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 778.312,10</td>
               <td align='right'>0 pessoas</td>
@@ -1073,7 +1073,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5150/?ano=2017' target='_blank'><img src='fotos/senador5150.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Antonio Carlos Rodrigues</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>SP</td>
+              <td align='middle'>SP</td>
               <td align='left'>PR</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1084,7 +1084,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3/?ano=2017' target='_blank'><img src='fotos/senador3.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Antonio Carlos Valadares</td>
               <td align='left'>Titular</td>
-              <td align='left'>SE</td>
+              <td align='middle'>SE</td>
               <td align='left'>PSB</td>
               <td align='right'>R$ 1.104.338,86</td>
               <td align='right'>0 pessoas</td>
@@ -1095,7 +1095,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/111/?ano=2017' target='_blank'><img src='fotos/senador111.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Blairo Maggi</td>
               <td align='left'>Titular</td>
-              <td align='left'>MT</td>
+              <td align='middle'>MT</td>
               <td align='left'>PR</td>
               <td align='right'>R$ 289.345,05</td>
               <td align='right'>0 pessoas</td>
@@ -1106,7 +1106,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3881/?ano=2017' target='_blank'><img src='fotos/senador3881.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Clovis Fecury</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>MA</td>
+              <td align='middle'>MA</td>
               <td align='left'>DEM</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1117,7 +1117,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5199/?ano=2017' target='_blank'><img src='fotos/senador5199.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Deca</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>PB</td>
+              <td align='middle'>PB</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 182.853,10</td>
               <td align='right'>0 pessoas</td>
@@ -1128,7 +1128,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3360/?ano=2017' target='_blank'><img src='fotos/senador3360.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Delcídio do Amaral</td>
               <td align='left'>Titular</td>
-              <td align='left'>MS</td>
+              <td align='middle'>MS</td>
               <td align='left'>S/Partido</td>
               <td align='right'>R$ 266.903,21</td>
               <td align='right'>0 pessoas</td>
@@ -1139,7 +1139,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5637/?ano=2017' target='_blank'><img src='fotos/senador5637.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Donizeti Nogueira</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>TO</td>
+              <td align='middle'>TO</td>
               <td align='left'>PT</td>
               <td align='right'>R$ 469.601,43</td>
               <td align='right'>0 pessoas</td>
@@ -1150,7 +1150,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5178/?ano=2017' target='_blank'><img src='fotos/senador5178.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Douglas Cintra</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>PE</td>
+              <td align='middle'>PE</td>
               <td align='left'>PTB</td>
               <td align='right'>R$ 403.665,63</td>
               <td align='right'>0 pessoas</td>
@@ -1161,7 +1161,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/16/?ano=2017' target='_blank'><img src='fotos/senador16.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Edison Lobão</td>
               <td align='left'>Titular</td>
-              <td align='left'>MA</td>
+              <td align='middle'>MA</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 953.847,06</td>
               <td align='right'>0 pessoas</td>
@@ -1172,7 +1172,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2632/?ano=2017' target='_blank'><img src='fotos/senador2632.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Fernando Ribeiro</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>PA</td>
+              <td align='middle'>PA</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 33.790,27</td>
               <td align='right'>0 pessoas</td>
@@ -1183,7 +1183,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4873/?ano=2017' target='_blank'><img src='fotos/senador4873.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Fleury</td>
               <td align='left'>2º Suplente</td>
-              <td align='left'>GO</td>
+              <td align='middle'>GO</td>
               <td align='left'>DEM</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1194,7 +1194,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4522/?ano=2017' target='_blank'><img src='fotos/senador4522.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Geovani Borges</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>AP</td>
+              <td align='middle'>AP</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1205,7 +1205,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5615/?ano=2017' target='_blank'><img src='fotos/senador5615.jpg' title='Crédito foto: None' height='51' width='42'></a></td>
               <td align='left'>Gilberto Piselo</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>RO</td>
+              <td align='middle'>RO</td>
               <td align='left'>PDT</td>
               <td align='right'>R$ 3.950,84</td>
               <td align='right'>0 pessoas</td>
@@ -1216,7 +1216,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5166/?ano=2017' target='_blank'><img src='fotos/senador5166.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>João Costa</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>TO</td>
+              <td align='middle'>TO</td>
               <td align='left'>PPL</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1227,7 +1227,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/878/?ano=2017' target='_blank'><img src='fotos/senador878.jpg' title='Crédito foto: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
               <td align='left'>José Aníbal</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>SP</td>
+              <td align='middle'>SP</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 265.182,23</td>
               <td align='right'>0 pessoas</td>
@@ -1238,7 +1238,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5158/?ano=2017' target='_blank'><img src='fotos/senador5158.jpg' title='Crédito foto: Waldemir Barreto' height='51' width='42'></a></td>
               <td align='left'>Kaká Andrade</td>
               <td align='left'>2º Suplente</td>
-              <td align='left'>SE</td>
+              <td align='middle'>SE</td>
               <td align='left'>PDT</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1249,7 +1249,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5156/?ano=2017' target='_blank'><img src='fotos/senador5156.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Lauro Antonio</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>SE</td>
+              <td align='middle'>SE</td>
               <td align='left'>PR</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1260,7 +1260,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3579/?ano=2017' target='_blank'><img src='fotos/senador3579.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Lobão Filho</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>MA</td>
+              <td align='middle'>MA</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1271,7 +1271,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5002/?ano=2017' target='_blank'><img src='fotos/senador5002.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Luiz Henrique</td>
               <td align='left'>Titular</td>
-              <td align='left'>SC</td>
+              <td align='middle'>SC</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 141.541,22</td>
               <td align='right'>0 pessoas</td>
@@ -1282,7 +1282,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3366/?ano=2017' target='_blank'><img src='fotos/senador3366.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Marcelo Crivella</td>
               <td align='left'>Titular</td>
-              <td align='left'>RJ</td>
+              <td align='middle'>RJ</td>
               <td align='left'>PRB</td>
               <td align='right'>R$ 664.778,91</td>
               <td align='right'>0 pessoas</td>
@@ -1293,7 +1293,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/64/?ano=2017' target='_blank'><img src='fotos/senador64.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Odacir Soares</td>
               <td align='left'>2º Suplente</td>
-              <td align='left'>RO</td>
+              <td align='middle'>RO</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1304,7 +1304,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5617/?ano=2017' target='_blank'><img src='fotos/senador5617.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Pastor Valadares</td>
               <td align='left'>2º Suplente</td>
-              <td align='left'>RO</td>
+              <td align='middle'>RO</td>
               <td align='left'>PDT</td>
               <td align='right'>R$ 124.881,02</td>
               <td align='right'>0 pessoas</td>
@@ -1315,7 +1315,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5020/?ano=2017' target='_blank'><img src='fotos/senador5020.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Paulo Davim</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>RN</td>
+              <td align='middle'>RN</td>
               <td align='left'>PV</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1326,7 +1326,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5010/?ano=2017' target='_blank'><img src='fotos/senador5010.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Pedro Taques</td>
               <td align='left'>Titular</td>
-              <td align='left'>MT</td>
+              <td align='middle'>MT</td>
               <td align='left'>PDT</td>
               <td align='right'>R$ 28,59</td>
               <td align='right'>0 pessoas</td>
@@ -1337,7 +1337,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4606/?ano=2017' target='_blank'><img src='fotos/senador4606.jpg' title='Crédito foto: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
               <td align='left'>Pinto Itamaraty</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>MA</td>
+              <td align='middle'>MA</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 134.755,84</td>
               <td align='right'>0 pessoas</td>
@@ -1348,7 +1348,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5072/?ano=2017' target='_blank'><img src='fotos/senador5072.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Reditario Cassol</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>RO</td>
+              <td align='middle'>RO</td>
               <td align='left'>PP</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1359,7 +1359,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/635/?ano=2017' target='_blank'><img src='fotos/senador635.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Ricardo Ferraço</td>
               <td align='left'>Titular</td>
-              <td align='left'>ES</td>
+              <td align='middle'>ES</td>
               <td align='left'>PSDB</td>
               <td align='right'>R$ 993.718,59</td>
               <td align='right'>0 pessoas</td>
@@ -1370,7 +1370,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5635/?ano=2017' target='_blank'><img src='fotos/senador5635.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Ricardo Franco</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>SE</td>
+              <td align='middle'>SE</td>
               <td align='left'>DEM</td>
               <td align='right'>R$ 91.224,82</td>
               <td align='right'>0 pessoas</td>
@@ -1381,7 +1381,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4593/?ano=2017' target='_blank'><img src='fotos/senador4593.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
               <td align='left'>Rodrigo Rollemberg</td>
               <td align='left'>Titular</td>
-              <td align='left'>DF</td>
+              <td align='middle'>DF</td>
               <td align='left'>PSB</td>
               <td align='right'>R$ 45,75</td>
               <td align='right'>0 pessoas</td>
@@ -1392,7 +1392,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5038/?ano=2017' target='_blank'><img src='fotos/senador5038.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Sandra Braga</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>AM</td>
+              <td align='middle'>AM</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 533.642,79</td>
               <td align='right'>0 pessoas</td>
@@ -1403,7 +1403,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5048/?ano=2017' target='_blank'><img src='fotos/senador5048.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Sergio Souza</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>PR</td>
+              <td align='middle'>PR</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1414,7 +1414,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5619/?ano=2017' target='_blank'><img src='fotos/senador5619.jpg' title='Crédito foto: Edilson Rodrigues/Agência Senado' height='51' width='42'></a></td>
               <td align='left'>Thieres Pinto</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>RR</td>
+              <td align='middle'>RR</td>
               <td align='left'>PTB</td>
               <td align='right'>R$ 94.386,43</td>
               <td align='right'>0 pessoas</td>
@@ -1425,7 +1425,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4949/?ano=2017' target='_blank'><img src='fotos/senador4949.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Tomás Correia</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>RO</td>
+              <td align='middle'>RO</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
@@ -1436,7 +1436,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4786/?ano=2017' target='_blank'><img src='fotos/senador4786.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Virginio de Carvalho</td>
               <td align='left'>2º Suplente</td>
-              <td align='left'>SE</td>
+              <td align='middle'>SE</td>
               <td align='left'>PSC</td>
               <td align='right'>R$ 47.161,41</td>
               <td align='right'>0 pessoas</td>
@@ -1447,7 +1447,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/604/?ano=2017' target='_blank'><img src='fotos/senador604.jpg' title='Crédito foto: Pedro França/Agência Senado' height='51' width='42'></a></td>
               <td align='left'>Walter Pinheiro</td>
               <td align='left'>Titular</td>
-              <td align='left'>BA</td>
+              <td align='middle'>BA</td>
               <td align='left'>S/Partido</td>
               <td align='right'>R$ 393.721,39</td>
               <td align='right'>0 pessoas</td>
@@ -1458,7 +1458,7 @@
               <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3597/?ano=2017' target='_blank'><img src='fotos/senador3597.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
               <td align='left'>Wirlande da Luz</td>
               <td align='left'>1º Suplente</td>
-              <td align='left'>RR</td>
+              <td align='middle'>RR</td>
               <td align='left'>PMDB</td>
               <td align='right'>R$ 11.662,94</td>
               <td align='right'>0 pessoas</td>
