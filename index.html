@@ -8,117 +8,116 @@
   </head>
   <body>
     <script>
-      function sortTable(dir, tabela, coluna, tipo) {
+      function ordenaTabela(dir, nomeTabela, coluna, tipo) {
         // Baseado em https://www.w3schools.com/howto/howto_js_sort_table.asp
         function comparaTexto(dir, a, b) {
+          // Compara duas strings considerando locale.
           return (dir == "asc"  && a.localeCompare(b) == 1) ||
                  (dir == "desc" && a.localeCompare(b) == -1);
         }
       
         function comparaReal(dir, a, b) {
+          // Compara valores em reais, no formato R$ 1.027.468,32
           function realParaFloat(texto) {
-            // Espera real no formato "comportado":
-            // Ex: R$ 1.534.445,93
-            return parseFloat(texto.split(' ')[1].replace(/\./g, '').replace(',', '.'))
+            // Retorna um float de um texto no formato "R$ 1.534.445,93"
+            // Ex: (str) R$ 1.534.445,93 -> (float) 153445.93
+            return parseFloat(texto.split(' ')[1].replace(/\./g, '').replace(',', '.'));
           }
       
           a = realParaFloat(a);
           b = realParaFloat(b);
-          // Para reais, queremos valores maiores primeiro quando dir == "asc"
           return (dir == "asc"  && a > b ) ||
-                 (dir == "desc" && a < b)
+                 (dir == "desc" && a < b);
         }
       
         function comparaDados(dir, a, b) {
+          // Compara valores no formato "<número> <texto>"" ignorando o texto
+          // comparação numérica
           function numTexto(texto) {
-            // Espera texto no seguinte formato:
-            // <inteiro> <textoQualquer>
+            // Retorna um inteiro da string no formato
+            // <número> <texto>
             return parseInt(texto.split(' ')[0])
           }
           a = numTexto(a);
           b = numTexto(b);
-          // Para números, queremos valores maiores primeiro quando dir == "asc"
           return (dir == "asc"  && a > b ) ||
-                 (dir == "desc" && a < b)
+                 (dir == "desc" && a < b);
         }
       
         function comparaParticipacao(dir, a, b) {
-          const ordem = {'Titular': 0, '1º Suplente': 1, '2º Suplente': 2, '3º Suplente': 3, '4º Suplente': 4}
+          // Compara participação do senador, Titular > 1º Suplente > 2º Suplente etc.
+          const ordem = {'Titular': 0, '1º Suplente': 1, '2º Suplente': 2, '3º Sup;lente': 3, '4º Suplente': 4,
+                         '5º Suplente': 5, '6º Suplente': 6, '7º Suplente': 7}
           a = ordem[a];
           b = ordem[b];
           return (dir == "asc"  && a > b ) ||
-                 (dir == "desc" && a < b)
+                 (dir == "desc" && a < b);
         }
       
-        var table,
-            rows,
-            switching,
+        var tabela,
+            linhas,
+            troca,
             i,
             x,
             y,
-            shouldSwitch,
-            dir,
-            switchcount = 0,
-            changecount = 0;
-        const funcoes = { 'texto': comparaTexto, 'reais': comparaReal, 'dados': comparaDados, 'participacao': comparaParticipacao}
+            temQueTrocar,
+            contaTrocas = 0;
+
+        const funcoes = { 'texto': comparaTexto, 'reais': comparaReal, 'dados': comparaDados, 'participacao': comparaParticipacao};
       
-        compara = funcoes[tipo]
-        table = document.getElementById(tabela);
-        switching = true;
-        // Set the sorting direction to ascending:
-        // dir = "asc"; 
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-          // Start by saying: no switching is done:
-          switching = false;
-          rows = table.getElementsByTagName("TR");
-          /* Loop through all table rows (except the
-          first, which contains table headers): */
-          for (i = 1; i < (rows.length - 1); i++) {
-            // Start by saying there should be no switching:
-            shouldSwitch = false;
-            /* Get the two elements you want to compare,
-            one from current row and one from the next: */
-            x = rows[i].getElementsByTagName("TD")[coluna].innerHTML.trim();
-            y = rows[i + 1].getElementsByTagName("TD")[coluna].innerHTML.trim();
-            /* Check if the two rows should switch place,
-            based on the direction, asc or desc: */
-            shouldSwitch = compara(dir, x, y)
-            if (shouldSwitch)
+        compara = funcoes[tipo];
+        tabela = document.getElementById(nomeTabela);
+        troca = true;
+
+        /* Fica em loop enquanto são foram feitas trocas */
+        while (troca) {
+          // No início do loop, nenhuma troca foi feita
+          troca = false;
+          linhas = tabela.getElementsByTagName("TR");
+          // Passa por todos os elementos da tabela, exceto pelo primeiro, que contém o header
+          for (i = 1; i < (linhas.length - 1); i++) {
+            // Assume que não tem que trocar
+            temQueTrocar = false;
+            // Recupera os dois elementos a comparar, o da linha atual e o da seguinte
+            x = linhas[i].getElementsByTagName("TD")[coluna].innerHTML.trim();
+            y = linhas[i + 1].getElementsByTagName("TD")[coluna].innerHTML.trim();
+            // Verifica se as linhas precisam ser trocadas
+            temQueTrocar = compara(dir, x, y)
+            // Se tem que trocar, interrompe o loop
+            if (temQueTrocar)
               break;
           }
-          if (shouldSwitch) {
-            /* If a switch has been marked, make the switch
-            and mark that a switch has been done: */
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            /* Switch column number back, to keept unchanged */
-            pa = rows[i].getElementsByTagName("TD")[0].innerHTML;
-            pb = rows[i+1].getElementsByTagName("TD")[0].innerHTML;
-            rows[i].getElementsByTagName("TD")[0].innerHTML = pb;
-            rows[i+1].getElementsByTagName("TD")[0].innerHTML = pa;
-            switching = true;
-            // Each time a switch is done, increase this count by 1:
-            switchcount ++; 
+          if (temQueTrocar) {
+            /* Se tem que trocar, faz a troca mas ignora a primeira coluna, que tem
+            a numeração da linha da tabela. Marca que a troca foi feita */
+            linhas[i].parentNode.insertBefore(linhas[i + 1], linhas[i]);
+            // Como trocou a linha inteira, pega só a primeira coluna e inverte
+            pa = linhas[i].getElementsByTagName("TD")[0].innerHTML;
+            pb = linhas[i+1].getElementsByTagName("TD")[0].innerHTML;
+            linhas[i].getElementsByTagName("TD")[0].innerHTML = pb;
+            linhas[i+1].getElementsByTagName("TD")[0].innerHTML = pa;
+            troca = true;
+            // A cada troca, incrementa a contagem de trocas
+            contaTrocas ++; 
           } else {
-            /* If no switching has been done,
-            invert the direction and run the while loop again.
-            If switchcount == 0 then this is the first run, if
-            shouldSwitch == false and switchcount != 0 then we
-            got here twice, so all the values of the table are
-            the same, no need to run again. */
-            if (switchcount == 0) {
-              const change = {"asc": "desc", "desc": "asc"};
+            if (contaTrocas == 0) {
+              /* Se o for terminou sem trocas então, da primeira
+              vez que chegamos aqui, a tabela já estava ordenada
+              pelo critério atual (ascendente, por exemplo) nesse
+              caso invertemos a critério e somamos um à contatem de
+              trocas. Isso evita um loop infinito caso todos os valores
+              da coluna que estamos comparando sejam iguais. */
+              const inverte = {"asc": "desc", "desc": "asc"};
       
-              dir = change[dir];
-              switching = true;
-              /* Makes sure this test fails if shouldSwitch is not
-              set on the next run. */
-              switchcount++;
+              dir = inverte[dir];
+              troca = true;
+              /* Evita que passemos por aqui mais de uma vez caso
+              a coluna só tenha valores iguais */
+              contaTrocas++;
             }
             else {
-              /* If we got here then all values are the same, no need
-              to keep looping. */
+              /* Se chegamos aqui então todos os valores são iguais,
+              não precisamos ficar em loop infinito... */
               break;
             }
           }
@@ -136,13 +135,13 @@
             <tr>
               <th align="left">Nº</th>
               <th align="middle">Deputado</th>
-              <th onclick="sortTable('asc',  'leg1', 2, 'texto')" align="left">Nome</th>
-              <th onclick="sortTable('asc',  'leg1', 3, 'participacao')" align="left">Participação</th>
-              <th onclick="sortTable('asc',  'leg1', 4, 'texto')" align="left">UF</th>
-              <th onclick="sortTable('asc',  'leg1', 5, 'texto')" align="left">Partido</th>
-              <th onclick="sortTable('desc', 'leg1', 6, 'reais')" align="right">Despesas no Mandato</th>
-              <th onclick="sortTable('desc', 'leg1', 7, 'dados')" align="right">Escritório e Gabinete</th>
-              <th onclick="sortTable('desc', 'leg1', 8, 'dados')" align="right">Benefício Moradia</th>
+              <th onclick="ordenaTabela('asc',  'leg1', 2, 'texto')" align="left">Nome</th>
+              <th onclick="ordenaTabela('asc',  'leg1', 3, 'participacao')" align="left">Participação</th>
+              <th onclick="ordenaTabela('asc',  'leg1', 4, 'texto')" align="left">UF</th>
+              <th onclick="ordenaTabela('asc',  'leg1', 5, 'texto')" align="left">Partido</th>
+              <th onclick="ordenaTabela('desc', 'leg1', 6, 'reais')" align="right">Despesas no Mandato</th>
+              <th onclick="ordenaTabela('desc', 'leg1', 7, 'dados')" align="right">Escritório e Gabinete</th>
+              <th onclick="ordenaTabela('desc', 'leg1', 8, 'dados')" align="right">Benefício Moradia</th>
             </tr>
           </thead>
           <tbody>
@@ -1048,13 +1047,13 @@
             <tr>
               <th align="left">Nº</th>
               <th align="middle">Deputado</th>
-              <th onclick="sortTable('asc',  'leg2', 2, 'texto')" align="left">Nome</th>
-              <th onclick="sortTable('asc',  'leg2', 3, 'participacao')" align="left">Participação</th>
-              <th onclick="sortTable('asc',  'leg2', 4, 'texto')" align="left">UF</th>
-              <th onclick="sortTable('asc',  'leg2', 5, 'texto')" align="left">Partido</th>
-              <th onclick="sortTable('desc', 'leg2', 6, 'reais')" align="right">Despesas no Mandato</th>
-              <th onclick="sortTable('desc', 'leg2', 7, 'dados')" align="right">Escritório e Gabinete</th>
-              <th onclick="sortTable('desc', 'leg2', 8, 'dados')" align="right">Benefício Moradia</th>
+              <th onclick="ordenaTabela('asc',  'leg2', 2, 'texto')" align="left">Nome</th>
+              <th onclick="ordenaTabela('asc',  'leg2', 3, 'participacao')" align="left">Participação</th>
+              <th onclick="ordenaTabela('asc',  'leg2', 4, 'texto')" align="left">UF</th>
+              <th onclick="ordenaTabela('asc',  'leg2', 5, 'texto')" align="left">Partido</th>
+              <th onclick="ordenaTabela('desc', 'leg2', 6, 'reais')" align="right">Despesas no Mandato</th>
+              <th onclick="ordenaTabela('desc', 'leg2', 7, 'dados')" align="right">Escritório e Gabinete</th>
+              <th onclick="ordenaTabela('desc', 'leg2', 8, 'dados')" align="right">Benefício Moradia</th>
             </tr>
           </thead>
           <tbody>
