@@ -8,6 +8,7 @@
   </head>
   <body>
     <script>
+      document.addEventListener("touchstart", function(){}, true);
       function ordenaTabela(dir, nomeTabela, coluna, tipo) {
         // Baseado em https://www.w3schools.com/howto/howto_js_sort_table.asp
         function comparaTexto(dir, a, b) {
@@ -141,9 +142,10 @@
             </tr>
           </thead>
           <tbody>
+
             <tr>
               <td>1</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4981/?ano=2017' target='_blank'><img src='fotos/senador4981.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4981/?ano=2017' target='_blank'><img src='fotos/senador4981.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Acir Gurgacz</td>
               <td align='left'>Titular</td>
               <td align='middle'>RO</td>
@@ -154,7 +156,7 @@
             </tr>
             <tr>
               <td>2</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/391/?ano=2017' target='_blank'><img src='fotos/senador391.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/391/?ano=2017' target='_blank'><img src='fotos/senador391.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Aécio Neves</td>
               <td align='left'>Titular</td>
               <td align='middle'>MG</td>
@@ -165,7 +167,7 @@
             </tr>
             <tr>
               <td>3</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5140/?ano=2017' target='_blank'><img src='fotos/senador5140.jpg' title='Crédito foto: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5140/?ano=2017' target='_blank'><img src='fotos/senador5140.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Jefferson Rudy/Agência Senado</span></a></td>
               <td align='left'>Airton Sandoval</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>SP</td>
@@ -176,7 +178,7 @@
             </tr>
             <tr>
               <td>4</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/945/?ano=2017' target='_blank'><img src='fotos/senador945.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/945/?ano=2017' target='_blank'><img src='fotos/senador945.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Alvaro Dias</td>
               <td align='left'>Titular</td>
               <td align='middle'>PR</td>
@@ -187,7 +189,7 @@
             </tr>
             <tr>
               <td>5</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4988/?ano=2017' target='_blank'><img src='fotos/senador4988.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4988/?ano=2017' target='_blank'><img src='fotos/senador4988.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
               <td align='left'>Ana Amélia</td>
               <td align='left'>Titular</td>
               <td align='middle'>RS</td>
@@ -198,7 +200,7 @@
             </tr>
             <tr>
               <td>6</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4697/?ano=2017' target='_blank'><img src='fotos/senador4697.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4697/?ano=2017' target='_blank'><img src='fotos/senador4697.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Ângela Portela</td>
               <td align='left'>Titular</td>
               <td align='middle'>RR</td>
@@ -209,7 +211,7 @@
             </tr>
             <tr>
               <td>7</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5529/?ano=2017' target='_blank'><img src='fotos/senador5529.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5529/?ano=2017' target='_blank'><img src='fotos/senador5529.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Antonio Anastasia</td>
               <td align='left'>Titular</td>
               <td align='middle'>MG</td>
@@ -220,7 +222,7 @@
             </tr>
             <tr>
               <td>8</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/715/?ano=2017' target='_blank'><img src='fotos/senador715.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/715/?ano=2017' target='_blank'><img src='fotos/senador715.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Armando Monteiro</td>
               <td align='left'>Titular</td>
               <td align='middle'>PE</td>
@@ -231,7 +233,7 @@
             </tr>
             <tr>
               <td>9</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5164/?ano=2017' target='_blank'><img src='fotos/senador5164.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5164/?ano=2017' target='_blank'><img src='fotos/senador5164.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Ataídes Oliveira</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>TO</td>
@@ -242,7 +244,7 @@
             </tr>
             <tr>
               <td>10</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3823/?ano=2017' target='_blank'><img src='fotos/senador3823.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3823/?ano=2017' target='_blank'><img src='fotos/senador3823.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Benedito de Lira</td>
               <td align='left'>Titular</td>
               <td align='middle'>AL</td>
@@ -253,7 +255,7 @@
             </tr>
             <tr>
               <td>11</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5197/?ano=2017' target='_blank'><img src='fotos/senador5197.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5197/?ano=2017' target='_blank'><img src='fotos/senador5197.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
               <td align='left'>Cássio Cunha Lima</td>
               <td align='left'>Titular</td>
               <td align='middle'>PB</td>
@@ -264,7 +266,7 @@
             </tr>
             <tr>
               <td>12</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5108/?ano=2017' target='_blank'><img src='fotos/senador5108.jpg' title='Crédito foto: Rodrigo Viana/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5108/?ano=2017' target='_blank'><img src='fotos/senador5108.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Rodrigo Viana/Supres</span></a></td>
               <td align='left'>Cidinho Santos</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>MT</td>
@@ -275,7 +277,7 @@
             </tr>
             <tr>
               <td>13</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/739/?ano=2017' target='_blank'><img src='fotos/senador739.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/739/?ano=2017' target='_blank'><img src='fotos/senador739.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Ciro Nogueira</td>
               <td align='left'>Titular</td>
               <td align='middle'>PI</td>
@@ -286,7 +288,7 @@
             </tr>
             <tr>
               <td>14</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3398/?ano=2017' target='_blank'><img src='fotos/senador3398.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3398/?ano=2017' target='_blank'><img src='fotos/senador3398.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Cristovam Buarque</td>
               <td align='left'>Titular</td>
               <td align='middle'>DF</td>
@@ -297,7 +299,7 @@
             </tr>
             <tr>
               <td>15</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5132/?ano=2017' target='_blank'><img src='fotos/senador5132.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5132/?ano=2017' target='_blank'><img src='fotos/senador5132.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Dalirio Beber</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>SC</td>
@@ -308,7 +310,7 @@
             </tr>
             <tr>
               <td>16</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5537/?ano=2017' target='_blank'><img src='fotos/senador5537.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5537/?ano=2017' target='_blank'><img src='fotos/senador5537.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Dário Berger</td>
               <td align='left'>Titular</td>
               <td align='middle'>SC</td>
@@ -319,7 +321,7 @@
             </tr>
             <tr>
               <td>17</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3830/?ano=2017' target='_blank'><img src='fotos/senador3830.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3830/?ano=2017' target='_blank'><img src='fotos/senador3830.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Davi Alcolumbre</td>
               <td align='left'>Titular</td>
               <td align='middle'>AP</td>
@@ -330,7 +332,7 @@
             </tr>
             <tr>
               <td>18</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4721/?ano=2017' target='_blank'><img src='fotos/senador4721.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4721/?ano=2017' target='_blank'><img src='fotos/senador4721.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Eduardo Amorim</td>
               <td align='left'>Titular</td>
               <td align='middle'>SE</td>
@@ -341,7 +343,7 @@
             </tr>
             <tr>
               <td>19</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4994/?ano=2017' target='_blank'><img src='fotos/senador4994.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4994/?ano=2017' target='_blank'><img src='fotos/senador4994.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
               <td align='left'>Eduardo Braga</td>
               <td align='left'>Titular</td>
               <td align='middle'>AM</td>
@@ -352,7 +354,7 @@
             </tr>
             <tr>
               <td>20</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4767/?ano=2017' target='_blank'><img src='fotos/senador4767.jpg' title='Crédito foto: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4767/?ano=2017' target='_blank'><img src='fotos/senador4767.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Jefferson Rudy/Agência Senado</span></a></td>
               <td align='left'>Eduardo Lopes</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>RJ</td>
@@ -363,7 +365,7 @@
             </tr>
             <tr>
               <td>21</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4969/?ano=2017' target='_blank'><img src='fotos/senador4969.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4969/?ano=2017' target='_blank'><img src='fotos/senador4969.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Elber Batalha</td>
               <td align='left'>2º Suplente</td>
               <td align='middle'>SE</td>
@@ -374,7 +376,7 @@
             </tr>
             <tr>
               <td>22</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5531/?ano=2017' target='_blank'><img src='fotos/senador5531.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5531/?ano=2017' target='_blank'><img src='fotos/senador5531.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Elmano Férrer</td>
               <td align='left'>Titular</td>
               <td align='middle'>PI</td>
@@ -385,7 +387,7 @@
             </tr>
             <tr>
               <td>23</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/612/?ano=2017' target='_blank'><img src='fotos/senador612.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/612/?ano=2017' target='_blank'><img src='fotos/senador612.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Eunício Oliveira</td>
               <td align='left'>Titular</td>
               <td align='middle'>CE</td>
@@ -396,7 +398,7 @@
             </tr>
             <tr>
               <td>24</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3713/?ano=2017' target='_blank'><img src='fotos/senador3713.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3713/?ano=2017' target='_blank'><img src='fotos/senador3713.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Fátima Bezerra</td>
               <td align='left'>Titular</td>
               <td align='middle'>RN</td>
@@ -407,7 +409,7 @@
             </tr>
             <tr>
               <td>25</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5540/?ano=2017' target='_blank'><img src='fotos/senador5540.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5540/?ano=2017' target='_blank'><img src='fotos/senador5540.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Fernando Bezerra Coelho</td>
               <td align='left'>Titular</td>
               <td align='middle'>PE</td>
@@ -418,7 +420,7 @@
             </tr>
             <tr>
               <td>26</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4525/?ano=2017' target='_blank'><img src='fotos/senador4525.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4525/?ano=2017' target='_blank'><img src='fotos/senador4525.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Fernando Collor</td>
               <td align='left'>Titular</td>
               <td align='middle'>AL</td>
@@ -429,7 +431,7 @@
             </tr>
             <tr>
               <td>27</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3634/?ano=2017' target='_blank'><img src='fotos/senador3634.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3634/?ano=2017' target='_blank'><img src='fotos/senador3634.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
               <td align='left'>Flexa Ribeiro</td>
               <td align='left'>Titular</td>
               <td align='middle'>PA</td>
@@ -440,7 +442,7 @@
             </tr>
             <tr>
               <td>28</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/87/?ano=2017' target='_blank'><img src='fotos/senador87.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/87/?ano=2017' target='_blank'><img src='fotos/senador87.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Garibaldi Alves Filho</td>
               <td align='left'>Titular</td>
               <td align='middle'>RN</td>
@@ -451,7 +453,7 @@
             </tr>
             <tr>
               <td>29</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4558/?ano=2017' target='_blank'><img src='fotos/senador4558.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4558/?ano=2017' target='_blank'><img src='fotos/senador4558.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Gladson Cameli</td>
               <td align='left'>Titular</td>
               <td align='middle'>AC</td>
@@ -462,7 +464,7 @@
             </tr>
             <tr>
               <td>30</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5006/?ano=2017' target='_blank'><img src='fotos/senador5006.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5006/?ano=2017' target='_blank'><img src='fotos/senador5006.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Gleisi Hoffmann</td>
               <td align='left'>Titular</td>
               <td align='middle'>PR</td>
@@ -473,7 +475,7 @@
             </tr>
             <tr>
               <td>31</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5100/?ano=2017' target='_blank'><img src='fotos/senador5100.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5100/?ano=2017' target='_blank'><img src='fotos/senador5100.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Hélio José</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>DF</td>
@@ -484,7 +486,7 @@
             </tr>
             <tr>
               <td>32</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5008/?ano=2017' target='_blank'><img src='fotos/senador5008.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5008/?ano=2017' target='_blank'><img src='fotos/senador5008.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Humberto Costa</td>
               <td align='left'>Titular</td>
               <td align='middle'>PE</td>
@@ -495,7 +497,7 @@
             </tr>
             <tr>
               <td>33</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5004/?ano=2017' target='_blank'><img src='fotos/senador5004.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5004/?ano=2017' target='_blank'><img src='fotos/senador5004.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Ivo Cassol</td>
               <td align='left'>Titular</td>
               <td align='middle'>RO</td>
@@ -506,7 +508,7 @@
             </tr>
             <tr>
               <td>34</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/35/?ano=2017' target='_blank'><img src='fotos/senador35.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/35/?ano=2017' target='_blank'><img src='fotos/senador35.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Jader Barbalho</td>
               <td align='left'>Titular</td>
               <td align='middle'>PA</td>
@@ -517,7 +519,7 @@
             </tr>
             <tr>
               <td>35</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/950/?ano=2017' target='_blank'><img src='fotos/senador950.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/950/?ano=2017' target='_blank'><img src='fotos/senador950.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>João Alberto Souza</td>
               <td align='left'>Titular</td>
               <td align='middle'>MA</td>
@@ -528,7 +530,7 @@
             </tr>
             <tr>
               <td>36</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3394/?ano=2017' target='_blank'><img src='fotos/senador3394.jpg' title='Crédito foto: Rodrigo Viana/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3394/?ano=2017' target='_blank'><img src='fotos/senador3394.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Rodrigo Viana/Supres</span></a></td>
               <td align='left'>João Capiberibe</td>
               <td align='left'>Titular</td>
               <td align='middle'>AP</td>
@@ -539,7 +541,7 @@
             </tr>
             <tr>
               <td>37</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4990/?ano=2017' target='_blank'><img src='fotos/senador4990.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4990/?ano=2017' target='_blank'><img src='fotos/senador4990.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
               <td align='left'>Jorge Viana</td>
               <td align='left'>Titular</td>
               <td align='middle'>AC</td>
@@ -550,7 +552,7 @@
             </tr>
             <tr>
               <td>38</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/40/?ano=2017' target='_blank'><img src='fotos/senador40.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/40/?ano=2017' target='_blank'><img src='fotos/senador40.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>José Agripino</td>
               <td align='left'>Titular</td>
               <td align='middle'>RN</td>
@@ -561,7 +563,7 @@
             </tr>
             <tr>
               <td>39</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3361/?ano=2017' target='_blank'><img src='fotos/senador3361.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3361/?ano=2017' target='_blank'><img src='fotos/senador3361.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>José Maranhão</td>
               <td align='left'>Titular</td>
               <td align='middle'>PB</td>
@@ -572,7 +574,7 @@
             </tr>
             <tr>
               <td>40</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5112/?ano=2017' target='_blank'><img src='fotos/senador5112.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5112/?ano=2017' target='_blank'><img src='fotos/senador5112.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>José Medeiros</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>MT</td>
@@ -583,7 +585,7 @@
             </tr>
             <tr>
               <td>41</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/615/?ano=2017' target='_blank'><img src='fotos/senador615.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/615/?ano=2017' target='_blank'><img src='fotos/senador615.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>José Pimentel</td>
               <td align='left'>Titular</td>
               <td align='middle'>CE</td>
@@ -594,7 +596,7 @@
             </tr>
             <tr>
               <td>42</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/90/?ano=2017' target='_blank'><img src='fotos/senador90.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/90/?ano=2017' target='_blank'><img src='fotos/senador90.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>José Serra</td>
               <td align='left'>Titular</td>
               <td align='middle'>SP</td>
@@ -605,7 +607,7 @@
             </tr>
             <tr>
               <td>43</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1249/?ano=2017' target='_blank'><img src='fotos/senador1249.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1249/?ano=2017' target='_blank'><img src='fotos/senador1249.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
               <td align='left'>Kátia Abreu</td>
               <td align='left'>Titular</td>
               <td align='middle'>TO</td>
@@ -616,7 +618,7 @@
             </tr>
             <tr>
               <td>44</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5533/?ano=2017' target='_blank'><img src='fotos/senador5533.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5533/?ano=2017' target='_blank'><img src='fotos/senador5533.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Lasier Martins</td>
               <td align='left'>Titular</td>
               <td align='middle'>RS</td>
@@ -627,7 +629,7 @@
             </tr>
             <tr>
               <td>45</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4575/?ano=2017' target='_blank'><img src='fotos/senador4575.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4575/?ano=2017' target='_blank'><img src='fotos/senador4575.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Lídice da Mata</td>
               <td align='left'>Titular</td>
               <td align='middle'>BA</td>
@@ -638,7 +640,7 @@
             </tr>
             <tr>
               <td>46</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3695/?ano=2017' target='_blank'><img src='fotos/senador3695.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3695/?ano=2017' target='_blank'><img src='fotos/senador3695.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Lindbergh Farias</td>
               <td align='left'>Titular</td>
               <td align='middle'>RJ</td>
@@ -649,7 +651,7 @@
             </tr>
             <tr>
               <td>47</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/643/?ano=2017' target='_blank'><img src='fotos/senador643.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/643/?ano=2017' target='_blank'><img src='fotos/senador643.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Lúcia Vânia</td>
               <td align='left'>Titular</td>
               <td align='middle'>GO</td>
@@ -660,7 +662,7 @@
             </tr>
             <tr>
               <td>48</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/631/?ano=2017' target='_blank'><img src='fotos/senador631.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/631/?ano=2017' target='_blank'><img src='fotos/senador631.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Magno Malta</td>
               <td align='left'>Titular</td>
               <td align='middle'>ES</td>
@@ -671,7 +673,7 @@
             </tr>
             <tr>
               <td>49</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1023/?ano=2017' target='_blank'><img src='fotos/senador1023.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1023/?ano=2017' target='_blank'><img src='fotos/senador1023.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Maria do Carmo Alves</td>
               <td align='left'>Titular</td>
               <td align='middle'>SE</td>
@@ -682,7 +684,7 @@
             </tr>
             <tr>
               <td>50</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5000/?ano=2017' target='_blank'><img src='fotos/senador5000.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5000/?ano=2017' target='_blank'><img src='fotos/senador5000.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Marta Suplicy</td>
               <td align='left'>Titular</td>
               <td align='middle'>SP</td>
@@ -693,7 +695,7 @@
             </tr>
             <tr>
               <td>51</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5525/?ano=2017' target='_blank'><img src='fotos/senador5525.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5525/?ano=2017' target='_blank'><img src='fotos/senador5525.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Omar Aziz</td>
               <td align='left'>Titular</td>
               <td align='middle'>AM</td>
@@ -704,7 +706,7 @@
             </tr>
             <tr>
               <td>52</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5523/?ano=2017' target='_blank'><img src='fotos/senador5523.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5523/?ano=2017' target='_blank'><img src='fotos/senador5523.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Otto Alencar</td>
               <td align='left'>Titular</td>
               <td align='middle'>BA</td>
@@ -715,7 +717,7 @@
             </tr>
             <tr>
               <td>53</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5018/?ano=2017' target='_blank'><img src='fotos/senador5018.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5018/?ano=2017' target='_blank'><img src='fotos/senador5018.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Pastor Bel</td>
               <td align='left'>2º Suplente</td>
               <td align='middle'>MA</td>
@@ -726,7 +728,7 @@
             </tr>
             <tr>
               <td>54</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3741/?ano=2017' target='_blank'><img src='fotos/senador3741.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3741/?ano=2017' target='_blank'><img src='fotos/senador3741.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Paulo Bauer</td>
               <td align='left'>Titular</td>
               <td align='middle'>SC</td>
@@ -737,7 +739,7 @@
             </tr>
             <tr>
               <td>55</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/825/?ano=2017' target='_blank'><img src='fotos/senador825.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/825/?ano=2017' target='_blank'><img src='fotos/senador825.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Paulo Paim</td>
               <td align='left'>Titular</td>
               <td align='middle'>RS</td>
@@ -748,7 +750,7 @@
             </tr>
             <tr>
               <td>56</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/374/?ano=2017' target='_blank'><img src='fotos/senador374.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/374/?ano=2017' target='_blank'><img src='fotos/senador374.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Paulo Rocha</td>
               <td align='left'>Titular</td>
               <td align='middle'>PA</td>
@@ -759,7 +761,7 @@
             </tr>
             <tr>
               <td>57</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5116/?ano=2017' target='_blank'><img src='fotos/senador5116.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5116/?ano=2017' target='_blank'><img src='fotos/senador5116.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Pedro Chaves</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>MS</td>
@@ -770,7 +772,7 @@
             </tr>
             <tr>
               <td>58</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2207/?ano=2017' target='_blank'><img src='fotos/senador2207.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2207/?ano=2017' target='_blank'><img src='fotos/senador2207.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Raimundo Lira</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>PB</td>
@@ -781,7 +783,7 @@
             </tr>
             <tr>
               <td>59</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5012/?ano=2017' target='_blank'><img src='fotos/senador5012.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5012/?ano=2017' target='_blank'><img src='fotos/senador5012.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Randolfe Rodrigues</td>
               <td align='left'>Titular</td>
               <td align='middle'>AP</td>
@@ -792,7 +794,7 @@
             </tr>
             <tr>
               <td>60</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5182/?ano=2017' target='_blank'><img src='fotos/senador5182.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5182/?ano=2017' target='_blank'><img src='fotos/senador5182.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Regina Sousa</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>PI</td>
@@ -803,7 +805,7 @@
             </tr>
             <tr>
               <td>61</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5236/?ano=2017' target='_blank'><img src='fotos/senador5236.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5236/?ano=2017' target='_blank'><img src='fotos/senador5236.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Reguffe</td>
               <td align='left'>Titular</td>
               <td align='middle'>DF</td>
@@ -814,7 +816,7 @@
             </tr>
             <tr>
               <td>62</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/70/?ano=2017' target='_blank'><img src='fotos/senador70.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/70/?ano=2017' target='_blank'><img src='fotos/senador70.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Renan Calheiros</td>
               <td align='left'>Titular</td>
               <td align='middle'>AL</td>
@@ -825,7 +827,7 @@
             </tr>
             <tr>
               <td>63</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5052/?ano=2017' target='_blank'><img src='fotos/senador5052.jpg' title='Crédito foto: Beto Oliveira/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5052/?ano=2017' target='_blank'><img src='fotos/senador5052.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
               <td align='left'>Roberto Muniz</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>BA</td>
@@ -836,7 +838,7 @@
             </tr>
             <tr>
               <td>64</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/72/?ano=2017' target='_blank'><img src='fotos/senador72.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/72/?ano=2017' target='_blank'><img src='fotos/senador72.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Roberto Requião</td>
               <td align='left'>Titular</td>
               <td align='middle'>PR</td>
@@ -847,7 +849,7 @@
             </tr>
             <tr>
               <td>65</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/677/?ano=2017' target='_blank'><img src='fotos/senador677.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/677/?ano=2017' target='_blank'><img src='fotos/senador677.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Roberto Rocha</td>
               <td align='left'>Titular</td>
               <td align='middle'>MA</td>
@@ -858,7 +860,7 @@
             </tr>
             <tr>
               <td>66</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5322/?ano=2017' target='_blank'><img src='fotos/senador5322.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5322/?ano=2017' target='_blank'><img src='fotos/senador5322.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Romário</td>
               <td align='left'>Titular</td>
               <td align='middle'>RJ</td>
@@ -869,7 +871,7 @@
             </tr>
             <tr>
               <td>67</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/73/?ano=2017' target='_blank'><img src='fotos/senador73.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/73/?ano=2017' target='_blank'><img src='fotos/senador73.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Romero Jucá</td>
               <td align='left'>Titular</td>
               <td align='middle'>RR</td>
@@ -880,7 +882,7 @@
             </tr>
             <tr>
               <td>68</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/456/?ano=2017' target='_blank'><img src='fotos/senador456.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/456/?ano=2017' target='_blank'><img src='fotos/senador456.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Ronaldo Caiado</td>
               <td align='left'>Titular</td>
               <td align='middle'>GO</td>
@@ -891,7 +893,7 @@
             </tr>
             <tr>
               <td>69</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2331/?ano=2017' target='_blank'><img src='fotos/senador2331.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2331/?ano=2017' target='_blank'><img src='fotos/senador2331.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Rose de Freitas</td>
               <td align='left'>Titular</td>
               <td align='middle'>ES</td>
@@ -902,7 +904,7 @@
             </tr>
             <tr>
               <td>70</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5106/?ano=2017' target='_blank'><img src='fotos/senador5106.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5106/?ano=2017' target='_blank'><img src='fotos/senador5106.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Sérgio de Castro</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>ES</td>
@@ -913,7 +915,7 @@
             </tr>
             <tr>
               <td>71</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4560/?ano=2017' target='_blank'><img src='fotos/senador4560.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4560/?ano=2017' target='_blank'><img src='fotos/senador4560.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Sérgio Petecão</td>
               <td align='left'>Titular</td>
               <td align='middle'>AC</td>
@@ -924,7 +926,7 @@
             </tr>
             <tr>
               <td>72</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5527/?ano=2017' target='_blank'><img src='fotos/senador5527.jpg' title='Crédito foto: Fabiano Accorsi' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5527/?ano=2017' target='_blank'><img src='fotos/senador5527.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Fabiano Accorsi</span></a></td>
               <td align='left'>Simone Tebet</td>
               <td align='left'>Titular</td>
               <td align='middle'>MS</td>
@@ -935,7 +937,7 @@
             </tr>
             <tr>
               <td>73</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3396/?ano=2017' target='_blank'><img src='fotos/senador3396.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3396/?ano=2017' target='_blank'><img src='fotos/senador3396.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Tasso Jereissati</td>
               <td align='left'>Titular</td>
               <td align='middle'>CE</td>
@@ -946,7 +948,7 @@
             </tr>
             <tr>
               <td>74</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5535/?ano=2017' target='_blank'><img src='fotos/senador5535.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5535/?ano=2017' target='_blank'><img src='fotos/senador5535.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Telmário Mota</td>
               <td align='left'>Titular</td>
               <td align='middle'>RR</td>
@@ -957,7 +959,7 @@
             </tr>
             <tr>
               <td>75</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3372/?ano=2017' target='_blank'><img src='fotos/senador3372.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3372/?ano=2017' target='_blank'><img src='fotos/senador3372.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Valdir Raupp</td>
               <td align='left'>Titular</td>
               <td align='middle'>RO</td>
@@ -968,7 +970,7 @@
             </tr>
             <tr>
               <td>76</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/558/?ano=2017' target='_blank'><img src='fotos/senador558.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/558/?ano=2017' target='_blank'><img src='fotos/senador558.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Vanessa Grazziotin</td>
               <td align='left'>Titular</td>
               <td align='middle'>AM</td>
@@ -979,7 +981,7 @@
             </tr>
             <tr>
               <td>77</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4763/?ano=2017' target='_blank'><img src='fotos/senador4763.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4763/?ano=2017' target='_blank'><img src='fotos/senador4763.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Vicentinho Alves</td>
               <td align='left'>Titular</td>
               <td align='middle'>TO</td>
@@ -990,7 +992,7 @@
             </tr>
             <tr>
               <td>78</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1176/?ano=2017' target='_blank'><img src='fotos/senador1176.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1176/?ano=2017' target='_blank'><img src='fotos/senador1176.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Waldemir Moka</td>
               <td align='left'>Titular</td>
               <td align='middle'>MS</td>
@@ -1001,7 +1003,7 @@
             </tr>
             <tr>
               <td>79</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1173/?ano=2017' target='_blank'><img src='fotos/senador1173.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1173/?ano=2017' target='_blank'><img src='fotos/senador1173.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Wellington Fagundes</td>
               <td align='left'>Titular</td>
               <td align='middle'>MT</td>
@@ -1012,7 +1014,7 @@
             </tr>
             <tr>
               <td>80</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5070/?ano=2017' target='_blank'><img src='fotos/senador5070.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5070/?ano=2017' target='_blank'><img src='fotos/senador5070.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Wilder Morais</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>GO</td>
@@ -1023,7 +1025,7 @@
             </tr>
             <tr>
               <td>81</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5144/?ano=2017' target='_blank'><img src='fotos/senador5144.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5144/?ano=2017' target='_blank'><img src='fotos/senador5144.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Zeze Perrella</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>MG</td>
@@ -1032,6 +1034,8 @@
               <td align='right'>56 pessoas</td>
               <td align='right'>38 meses</td>
             </tr>
+
+
           </tbody>
         </table>
       </div>
@@ -1055,7 +1059,7 @@
           <tbody>
             <tr>
               <td>1</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/846/?ano=2017' target='_blank'><img src='fotos/senador846.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/846/?ano=2017' target='_blank'><img src='fotos/senador846.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Aloysio Nunes Ferreira</td>
               <td align='left'>Titular</td>
               <td align='middle'>SP</td>
@@ -1066,7 +1070,7 @@
             </tr>
             <tr>
               <td>2</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5150/?ano=2017' target='_blank'><img src='fotos/senador5150.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5150/?ano=2017' target='_blank'><img src='fotos/senador5150.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Antonio Carlos Rodrigues</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>SP</td>
@@ -1077,7 +1081,7 @@
             </tr>
             <tr>
               <td>3</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3/?ano=2017' target='_blank'><img src='fotos/senador3.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3/?ano=2017' target='_blank'><img src='fotos/senador3.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Antonio Carlos Valadares</td>
               <td align='left'>Titular</td>
               <td align='middle'>SE</td>
@@ -1088,7 +1092,7 @@
             </tr>
             <tr>
               <td>4</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/111/?ano=2017' target='_blank'><img src='fotos/senador111.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/111/?ano=2017' target='_blank'><img src='fotos/senador111.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Blairo Maggi</td>
               <td align='left'>Titular</td>
               <td align='middle'>MT</td>
@@ -1099,7 +1103,7 @@
             </tr>
             <tr>
               <td>5</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3881/?ano=2017' target='_blank'><img src='fotos/senador3881.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3881/?ano=2017' target='_blank'><img src='fotos/senador3881.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Clovis Fecury</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>MA</td>
@@ -1110,7 +1114,7 @@
             </tr>
             <tr>
               <td>6</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5199/?ano=2017' target='_blank'><img src='fotos/senador5199.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5199/?ano=2017' target='_blank'><img src='fotos/senador5199.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Deca</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>PB</td>
@@ -1121,7 +1125,7 @@
             </tr>
             <tr>
               <td>7</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3360/?ano=2017' target='_blank'><img src='fotos/senador3360.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3360/?ano=2017' target='_blank'><img src='fotos/senador3360.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Delcídio do Amaral</td>
               <td align='left'>Titular</td>
               <td align='middle'>MS</td>
@@ -1132,7 +1136,7 @@
             </tr>
             <tr>
               <td>8</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5637/?ano=2017' target='_blank'><img src='fotos/senador5637.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5637/?ano=2017' target='_blank'><img src='fotos/senador5637.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Donizeti Nogueira</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>TO</td>
@@ -1143,7 +1147,7 @@
             </tr>
             <tr>
               <td>9</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5178/?ano=2017' target='_blank'><img src='fotos/senador5178.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5178/?ano=2017' target='_blank'><img src='fotos/senador5178.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Douglas Cintra</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>PE</td>
@@ -1154,7 +1158,7 @@
             </tr>
             <tr>
               <td>10</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/16/?ano=2017' target='_blank'><img src='fotos/senador16.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/16/?ano=2017' target='_blank'><img src='fotos/senador16.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Edison Lobão</td>
               <td align='left'>Titular</td>
               <td align='middle'>MA</td>
@@ -1165,7 +1169,7 @@
             </tr>
             <tr>
               <td>11</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2632/?ano=2017' target='_blank'><img src='fotos/senador2632.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/2632/?ano=2017' target='_blank'><img src='fotos/senador2632.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Fernando Ribeiro</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>PA</td>
@@ -1176,7 +1180,7 @@
             </tr>
             <tr>
               <td>12</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4873/?ano=2017' target='_blank'><img src='fotos/senador4873.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4873/?ano=2017' target='_blank'><img src='fotos/senador4873.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Fleury</td>
               <td align='left'>2º Suplente</td>
               <td align='middle'>GO</td>
@@ -1187,7 +1191,7 @@
             </tr>
             <tr>
               <td>13</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4522/?ano=2017' target='_blank'><img src='fotos/senador4522.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4522/?ano=2017' target='_blank'><img src='fotos/senador4522.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Geovani Borges</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>AP</td>
@@ -1198,7 +1202,7 @@
             </tr>
             <tr>
               <td>14</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5615/?ano=2017' target='_blank'><img src='fotos/senador5615.jpg' title='Crédito foto: None' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5615/?ano=2017' target='_blank'><img src='fotos/senador5615.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Nenhum</span></a></td>
               <td align='left'>Gilberto Piselo</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>RO</td>
@@ -1209,7 +1213,7 @@
             </tr>
             <tr>
               <td>15</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5166/?ano=2017' target='_blank'><img src='fotos/senador5166.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5166/?ano=2017' target='_blank'><img src='fotos/senador5166.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>João Costa</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>TO</td>
@@ -1220,7 +1224,7 @@
             </tr>
             <tr>
               <td>16</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/878/?ano=2017' target='_blank'><img src='fotos/senador878.jpg' title='Crédito foto: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/878/?ano=2017' target='_blank'><img src='fotos/senador878.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Jefferson Rudy/Agência Senado</span></a></td>
               <td align='left'>José Aníbal</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>SP</td>
@@ -1231,7 +1235,7 @@
             </tr>
             <tr>
               <td>17</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5158/?ano=2017' target='_blank'><img src='fotos/senador5158.jpg' title='Crédito foto: Waldemir Barreto' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5158/?ano=2017' target='_blank'><img src='fotos/senador5158.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Waldemir Barreto</span></a></td>
               <td align='left'>Kaká Andrade</td>
               <td align='left'>2º Suplente</td>
               <td align='middle'>SE</td>
@@ -1242,7 +1246,7 @@
             </tr>
             <tr>
               <td>18</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5156/?ano=2017' target='_blank'><img src='fotos/senador5156.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5156/?ano=2017' target='_blank'><img src='fotos/senador5156.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Lauro Antonio</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>SE</td>
@@ -1253,7 +1257,7 @@
             </tr>
             <tr>
               <td>19</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3579/?ano=2017' target='_blank'><img src='fotos/senador3579.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3579/?ano=2017' target='_blank'><img src='fotos/senador3579.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Lobão Filho</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>MA</td>
@@ -1264,7 +1268,7 @@
             </tr>
             <tr>
               <td>20</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5002/?ano=2017' target='_blank'><img src='fotos/senador5002.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5002/?ano=2017' target='_blank'><img src='fotos/senador5002.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Luiz Henrique</td>
               <td align='left'>Titular</td>
               <td align='middle'>SC</td>
@@ -1275,7 +1279,7 @@
             </tr>
             <tr>
               <td>21</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3366/?ano=2017' target='_blank'><img src='fotos/senador3366.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3366/?ano=2017' target='_blank'><img src='fotos/senador3366.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Marcelo Crivella</td>
               <td align='left'>Titular</td>
               <td align='middle'>RJ</td>
@@ -1286,7 +1290,7 @@
             </tr>
             <tr>
               <td>22</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/64/?ano=2017' target='_blank'><img src='fotos/senador64.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/64/?ano=2017' target='_blank'><img src='fotos/senador64.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Odacir Soares</td>
               <td align='left'>2º Suplente</td>
               <td align='middle'>RO</td>
@@ -1297,7 +1301,7 @@
             </tr>
             <tr>
               <td>23</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5617/?ano=2017' target='_blank'><img src='fotos/senador5617.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5617/?ano=2017' target='_blank'><img src='fotos/senador5617.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Pastor Valadares</td>
               <td align='left'>2º Suplente</td>
               <td align='middle'>RO</td>
@@ -1308,7 +1312,7 @@
             </tr>
             <tr>
               <td>24</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5020/?ano=2017' target='_blank'><img src='fotos/senador5020.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5020/?ano=2017' target='_blank'><img src='fotos/senador5020.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Paulo Davim</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>RN</td>
@@ -1319,7 +1323,7 @@
             </tr>
             <tr>
               <td>25</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5010/?ano=2017' target='_blank'><img src='fotos/senador5010.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5010/?ano=2017' target='_blank'><img src='fotos/senador5010.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Pedro Taques</td>
               <td align='left'>Titular</td>
               <td align='middle'>MT</td>
@@ -1330,7 +1334,7 @@
             </tr>
             <tr>
               <td>26</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4606/?ano=2017' target='_blank'><img src='fotos/senador4606.jpg' title='Crédito foto: Jefferson Rudy/Agência Senado' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4606/?ano=2017' target='_blank'><img src='fotos/senador4606.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Jefferson Rudy/Agência Senado</span></a></td>
               <td align='left'>Pinto Itamaraty</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>MA</td>
@@ -1341,7 +1345,7 @@
             </tr>
             <tr>
               <td>27</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5072/?ano=2017' target='_blank'><img src='fotos/senador5072.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5072/?ano=2017' target='_blank'><img src='fotos/senador5072.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Reditario Cassol</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>RO</td>
@@ -1352,7 +1356,7 @@
             </tr>
             <tr>
               <td>28</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/635/?ano=2017' target='_blank'><img src='fotos/senador635.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/635/?ano=2017' target='_blank'><img src='fotos/senador635.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Ricardo Ferraço</td>
               <td align='left'>Titular</td>
               <td align='middle'>ES</td>
@@ -1363,7 +1367,7 @@
             </tr>
             <tr>
               <td>29</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5635/?ano=2017' target='_blank'><img src='fotos/senador5635.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5635/?ano=2017' target='_blank'><img src='fotos/senador5635.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Ricardo Franco</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>SE</td>
@@ -1374,7 +1378,7 @@
             </tr>
             <tr>
               <td>30</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4593/?ano=2017' target='_blank'><img src='fotos/senador4593.jpg' title='Crédito foto: Cleber Medeiros/Supres' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4593/?ano=2017' target='_blank'><img src='fotos/senador4593.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cleber Medeiros/Supres</span></a></td>
               <td align='left'>Rodrigo Rollemberg</td>
               <td align='left'>Titular</td>
               <td align='middle'>DF</td>
@@ -1385,7 +1389,7 @@
             </tr>
             <tr>
               <td>31</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5038/?ano=2017' target='_blank'><img src='fotos/senador5038.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5038/?ano=2017' target='_blank'><img src='fotos/senador5038.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Sandra Braga</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>AM</td>
@@ -1396,7 +1400,7 @@
             </tr>
             <tr>
               <td>32</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5048/?ano=2017' target='_blank'><img src='fotos/senador5048.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5048/?ano=2017' target='_blank'><img src='fotos/senador5048.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Sergio Souza</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>PR</td>
@@ -1407,7 +1411,7 @@
             </tr>
             <tr>
               <td>33</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5619/?ano=2017' target='_blank'><img src='fotos/senador5619.jpg' title='Crédito foto: Edilson Rodrigues/Agência Senado' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/5619/?ano=2017' target='_blank'><img src='fotos/senador5619.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Edilson Rodrigues/Agência Senado</span></a></td>
               <td align='left'>Thieres Pinto</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>RR</td>
@@ -1418,7 +1422,7 @@
             </tr>
             <tr>
               <td>34</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4949/?ano=2017' target='_blank'><img src='fotos/senador4949.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4949/?ano=2017' target='_blank'><img src='fotos/senador4949.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Tomás Correia</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>RO</td>
@@ -1429,7 +1433,7 @@
             </tr>
             <tr>
               <td>35</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4786/?ano=2017' target='_blank'><img src='fotos/senador4786.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4786/?ano=2017' target='_blank'><img src='fotos/senador4786.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Virginio de Carvalho</td>
               <td align='left'>2º Suplente</td>
               <td align='middle'>SE</td>
@@ -1440,7 +1444,7 @@
             </tr>
             <tr>
               <td>36</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/604/?ano=2017' target='_blank'><img src='fotos/senador604.jpg' title='Crédito foto: Pedro França/Agência Senado' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/604/?ano=2017' target='_blank'><img src='fotos/senador604.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Pedro França/Agência Senado</span></a></td>
               <td align='left'>Walter Pinheiro</td>
               <td align='left'>Titular</td>
               <td align='middle'>BA</td>
@@ -1451,7 +1455,7 @@
             </tr>
             <tr>
               <td>37</td>
-              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3597/?ano=2017' target='_blank'><img src='fotos/senador3597.jpg' title='Crédito foto: Senado Federal' height='51' width='42'></a></td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3597/?ano=2017' target='_blank'><img src='fotos/senador3597.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
               <td align='left'>Wirlande da Luz</td>
               <td align='left'>1º Suplente</td>
               <td align='middle'>RR</td>

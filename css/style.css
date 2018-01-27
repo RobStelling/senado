@@ -35,3 +35,19 @@ caption {
 	font-weight:normal;
 	font-size:2em;
 }
+/* Tooltips */
+a span.fototip {
+	display:none;
+	color: gray;
+}
+a:hover span.fototip {
+	position: absolute;
+	display: inline;
+	border: 0px solid black;
+}
+	
+element:hover, element:active {
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-user-select: none;
+-webkit-touch-callout: none /*only to disable context menu on long press*/
+}
