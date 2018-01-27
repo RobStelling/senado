@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import csv
 import errno
+import json
 import locale
 import matplotlib.pyplot as plt
 import os
@@ -37,7 +38,7 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-versao = '0.2.18'
+versao = '0.2.19'
 
 
 def reais(x, pos=None):
@@ -193,7 +194,11 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
 def s2float(dado):
     """ Converte uma string numérica no formato brasileiro para float """
     # Retira '.' e substitui ',' por '.' e converte para float
-    return float(dado.replace('.', '').replace(',', '.'))
+    try:
+        valor = float(dado.replace('.', '').replace(',', '.'))
+        return valor
+    except ValueError:
+        return float('nan')
 
 
 def infoSenador(codigoSenador, ano=2017, intervalo=0):
@@ -224,16 +229,23 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     total = 0
     infoAuxilio = []
     infoPessoal = []
-
+    gastos = {'ano': ano, 'total': 0.0, 'lista': {}};
     # Se houve um redirect então a página sobre aquele ano daquele senador não existe
     if requisicao.history:
-        return total, infoAuxilio, infoPessoal
+        return total, infoAuxilio, infoPessoal, gastos
 
     # E gera a sopa
     sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
 
     # Seleciona a área onde estão os dados desejados
     bloco = sopaSenador.find('div', {'class': 'sen-conteudo-interno'})
+    tabelas = bloco.find_all('div', {'class': 'accordion-inner'})
+    # tabelas[0]: Valores de Cotas para Exercício da Atividade Parlamentar
+    # tabelas[1]: Valores de Outros Gastos
+    # tabelas[2]: Uso de Outros Benefícios
+    # tabelas[3]: Quantidade de funcionários por local e vínculo
+    # tabelas[4]: Consulta de subsídios e aposentadoria
+
 
     # Primeiro computa o total de gastos do senador
     # Os totais de gastos estão nos dois rodapés das tabelas
@@ -243,8 +255,26 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     # converte para float (s2float) e contabiliza o total
     for i in range(len(valores)):
         valores[i] = s2float(valores[i].text.strip().split()[1])
+        # Só extrai os valores se a totalização for > 0
+        if (valores[i] > 0):
+            for linha in tabelas[i].find('tbody').find_all('tr', {'class': None}):
+                colunas = linha.find_all('td')
+                caput = colunas[0].text.strip().split('\xa0')[0]
+                montante = s2float(colunas[1].text.strip())
+                if montante > 0:
+                    gastos['lista'][caput] = montante
+                    gastos['total'] += gastos['lista'][caput]
+                #print(linhas[campos].text.strip().split('\xa0')[0],'---', linhas[campos+1].text.strip())
         total += valores[i]
-
+    
+    #pega Correios em separado
+    correios = tabelas[1].find('tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
+    correiosCaput = correios[0].text.strip()
+    correiosMontante = s2float(correios[1].text.strip())
+    if correiosMontante > 0:
+        gastos['lista'][correiosCaput] = correiosMontante
+        gastos['total'] += gastos['lista'][correiosCaput]
+    gastos['total'] = round(gastos['total'], 2)
     # Depois recupera utilização de auxílio-moradia e imóvel funcional
     # Auxílios estão em #accordion-outros
     outros = bloco.find('div', {'id': 'accordion-outros'})
@@ -280,8 +310,9 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
             {'titulo': quantidades[i].find('span').text.strip(),
              'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
 
+    #print(bloco)
     # Retorna o gasto total do senador para o ano pedido
-    return total, infoAuxilio, infoPessoal
+    return round(total, 2), infoAuxilio, infoPessoal, gastos
 
 
 def infoLegislaturaAtual():
@@ -348,7 +379,9 @@ print('Recuperando informações de gastos parlamentares...')
 # Para cada senador coleta os gastos de cada ano da legislatura
 # e soma os gastos em 'gastos'
 colunaInteiro = set()
+gastosSenadores = {}
 for senador in range(len(dados)):
+    gastosSenadores[dados[senador]['codigo']] = []
     dados[senador]['gastos'] = 0
     # Para cada ano, recupera as informações do senador
     # Guarda o total daquele ano (dados[senador][gastos{ano}]) e soma no total
@@ -357,8 +390,11 @@ for senador in range(len(dados)):
     # pessoal
     for ano in anos:
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
-        total, auxilio, pessoal = infoSenador(
+        total, auxilio, pessoal, gastos = infoSenador(
             dados[senador]['codigo'], ano=ano, intervalo=0.5)
+        gastosSenadores[dados[senador]['codigo']].append(gastos)
+        if total != gastos['total']:
+            print(f"Erro de totalização: {dados[senador]['codigo']} - {ano} - {total} - {gastos['total']}")
         dados[senador][f"gastos{ano}"] = total
         dados[senador]['gastos'] += total
         dados[senador][f"TotalGabinete-{ano}"] = 0
@@ -373,6 +409,13 @@ for senador in range(len(dados)):
             colunaInteiro.add(coluna)
             meses = auxilio[beneficio]['meses']
             dados[senador][coluna] = meses
+
+# Salva arquivo json
+if not os.path.exists('json'):
+    os.makedirs('json')
+
+with open('json/gastosSenadores.json', 'w', encoding='utf-8') as saida:
+    json.dump(gastosSenadores, saida, ensure_ascii=False)
 
 # Acrescenta zeros (int) em colunas que não existem para alguns senadores
 # Por exemplo: um determinado senador não possui informação de Gabinete em 2015
