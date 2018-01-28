@@ -2,22 +2,26 @@ body {
 	font-size:85%;
 	font-family:Arial, Helvetica, Open Sans, sans-serif;
 }
-table {
+.tabelaSenado table {
     border-collapse: collapse;
     width: 100%;
 }
-th, td {
+
+.tabelaSimples table {
+	width: 100%;
+}
+.tabelaSenado th, .tabelaSenado td {
     border: 1px solid transparent;
     font-size:1em;
 }
-th {
+.tabelaSenado th {
 	background-color: #c6c6c6;
 	padding: 3px;
 }
-td {
+.tabelaSenado td {
     padding: 1px;
 }
-tr:nth-child(even){
+.tabelaSenado tr:nth-child(even){
 	background-color: #f2f2f2
 }
 caption {
@@ -25,6 +29,14 @@ caption {
 	font-weight:normal;
 	font-size:2.5em;
 }
+
+.w3-table,.w3-table-all{border-collapse:collapse;border-spacing:0;width:100%;display:table}.w3-table-all{border:1px solid #ccc}
+.w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.w3-table-all tr:nth-child(odd){background-color:#fff}.w3-table-all tr:nth-child(even){background-color:#f1f1f1}
+.w3-hoverable tbody tr:hover,.w3-ul.w3-hoverable li:hover{background-color:#ccc}.w3-centered tr th,.w3-centered tr td{text-align:center}
+.w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:8px 8px;display:table-cell;text-align:left;vertical-align:top}
+.w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
+
 .SenadoTitle {
 	color:#d84334;
 	font-weight:bold;
@@ -50,4 +62,19 @@ element:hover, element:active {
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 -webkit-user-select: none;
 -webkit-touch-callout: none /*only to disable context menu on long press*/
+}
+
+.myTip {
+  display: table-cell;
+  vertical-align: middle;
+  position: absolute;
+  z-index: 10;
+  visibility: hidden;
+  color: white;
+  background-color: black;
+  padding: .2em;
+  font-size: .75em;
+  /*text-shadow: #f5f5f5 0 1px 0; */
+  opacity: 1;
+  border-radius: 5px;
 }

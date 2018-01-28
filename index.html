@@ -7,125 +7,18 @@
     <title>Gastos de Senadores</title>
   </head>
   <body>
-    <script>
-      document.addEventListener("touchstart", function(){}, true);
-      function ordenaTabela(dir, nomeTabela, coluna, tipo) {
-        // Baseado em https://www.w3schools.com/howto/howto_js_sort_table.asp
-        function comparaTexto(dir, a, b) {
-          // Compara duas strings considerando locale.
-          return (dir == "asc"  && a.localeCompare(b) == 1) ||
-                 (dir == "desc" && a.localeCompare(b) == -1);
-        }
-      
-        function comparaReal(dir, a, b) {
-          // Compara valores em reais, no formato R$ 1.027.468,32
-          function realParaFloat(texto) {
-            // Retorna um float de um texto no formato "R$ 1.534.445,93"
-            // Ex: (str) R$ 1.534.445,93 -> (float) 153445.93
-            return parseFloat(texto.split(' ')[1].replace(/\./g, '').replace(',', '.'));
-          }
-      
-          a = realParaFloat(a);
-          b = realParaFloat(b);
-          return (dir == "asc"  && a > b ) ||
-                 (dir == "desc" && a < b);
-        }
-      
-        function comparaDados(dir, a, b) {
-          // Compara valores no formato "<número> <texto>"" ignorando o texto
-          // comparação numérica
-          function numTexto(texto) {
-            // Retorna um inteiro da string no formato
-            // <número> <texto>
-            return parseInt(texto.split(' ')[0])
-          }
-          a = numTexto(a);
-          b = numTexto(b);
-          return (dir == "asc"  && a > b ) ||
-                 (dir == "desc" && a < b);
-        }
-      
-        function comparaParticipacao(dir, a, b) {
-          // Compara participação do senador, Titular > 1º Suplente > 2º Suplente etc.
-          const ordem = {'Titular': 0, '1º Suplente': 1, '2º Suplente': 2, '3º Sup;lente': 3, '4º Suplente': 4,
-                         '5º Suplente': 5, '6º Suplente': 6, '7º Suplente': 7}
-          a = ordem[a];
-          b = ordem[b];
-          return (dir == "asc"  && a > b ) ||
-                 (dir == "desc" && a < b);
-        }
-      
-        var tabela,
-            linhas,
-            troca,
-            i,
-            x,
-            y,
-            temQueTrocar,
-            contaTrocas = 0;
-      
-        const funcoes = { 'texto': comparaTexto, 'reais': comparaReal, 'dados': comparaDados, 'participacao': comparaParticipacao};
-      
-        compara = funcoes[tipo];
-        tabela = document.getElementById(nomeTabela);
-        troca = true;
-      
-        /* Fica em loop enquanto foram feitas trocas */
-        while (troca) {
-          // No início do loop, nenhuma troca foi feita
-          troca = false;
-          linhas = tabela.getElementsByTagName("TR");
-          // Passa por todos os elementos da tabela, exceto pelo primeiro, que contém o header
-          for (i = 1; i < (linhas.length - 1); i++) {
-            // Assume que não tem que trocar
-            temQueTrocar = false;
-            // Recupera os dois elementos a comparar, o da linha atual e o da seguinte
-            x = linhas[i].getElementsByTagName("TD")[coluna].innerHTML.trim();
-            y = linhas[i + 1].getElementsByTagName("TD")[coluna].innerHTML.trim();
-            // Verifica se as linhas precisam ser trocadas
-            temQueTrocar = compara(dir, x, y)
-            // Se tem que trocar, interrompe o loop
-            if (temQueTrocar)
-              break;
-          }
-          if (temQueTrocar) {
-            /* Se tem que trocar, faz a troca mas ignora a primeira coluna, que tem
-            a numeração da linha da tabela. Marca que a troca foi feita */
-            linhas[i].parentNode.insertBefore(linhas[i + 1], linhas[i]);
-            // Como trocou a linha inteira, pega só a primeira coluna e inverte
-            pa = linhas[i].getElementsByTagName("TD")[0].innerHTML;
-            pb = linhas[i+1].getElementsByTagName("TD")[0].innerHTML;
-            linhas[i].getElementsByTagName("TD")[0].innerHTML = pb;
-            linhas[i+1].getElementsByTagName("TD")[0].innerHTML = pa;
-            troca = true;
-            // A cada troca, incrementa a contagem de trocas
-            contaTrocas ++; 
-          } else if (contaTrocas == 0) {
-            /* Se o for terminou sem trocas então, da primeira
-            vez que chegamos aqui, a tabela já estava ordenada
-            pelo critério atual (ascendente, por exemplo) nesse
-            caso invertemos a critério e somamos um à contagem de
-            trocas. Isso evita um loop infinito caso todos os valores
-            da coluna que estamos comparando sejam iguais. */
-            const inverte = {"asc": "desc", "desc": "asc"};
-      
-            dir = inverte[dir];
-            troca = true;
-            /* Evita que passemos por aqui mais de uma vez caso
-            a coluna só tenha valores iguais */
-            contaTrocas++;
-          } else
-            break;
-            /* Se chegamos aqui então todos os valores são iguais,
-            não precisamos ficar em loop infinito... */       
-        }
-      }
-    </script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+    <script src="js/senado.js"></script>
     <div class="container">
       <div class="row"><b class="SenadoTitle">BRASIL - 55ª Legislatura</b><br></div>
       <div class="row"><b class="SenadoSubTitle">Informações de despesas de senadores</b><br></div>
       <br>
-      <div class="row" style="overflow-x:auto;">
+      <div class="tabelaSenado">
         <table id="leg1">
           <caption>Senadores em Exercício - 2015/2017</caption>
           <thead>
@@ -150,7 +43,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RO</td>
               <td align='left'>PDT</td>
-              <td align='right'>R$ 1.203.321,32</td>
+              <td align='right' class='gastos' name='4981'>R$ 1.203.321,32</td>
               <td align='right'>46 pessoas</td>
               <td align='right'>1 mês</td>
             </tr>
@@ -161,7 +54,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MG</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 965.461,80</td>
+              <td align='right' class='gastos' name='391'>R$ 965.461,80</td>
               <td align='right'>26 pessoas</td>
               <td align='right'>9 meses</td>
             </tr>
@@ -172,7 +65,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>SP</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 262.420,82</td>
+              <td align='right' class='gastos' name='5140'>R$ 262.420,82</td>
               <td align='right'>29 pessoas</td>
               <td align='right'>10 meses</td>
             </tr>
@@ -183,7 +76,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PR</td>
               <td align='left'>PODE</td>
-              <td align='right'>R$ 463.317,92</td>
+              <td align='right' class='gastos' name='945'>R$ 463.317,92</td>
               <td align='right'>30 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -194,7 +87,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RS</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 650.250,85</td>
+              <td align='right' class='gastos' name='4988'>R$ 650.250,85</td>
               <td align='right'>21 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -205,7 +98,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RR</td>
               <td align='left'>PDT</td>
-              <td align='right'>R$ 1.483.285,46</td>
+              <td align='right' class='gastos' name='4697'>R$ 1.483.285,46</td>
               <td align='right'>40 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -216,7 +109,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MG</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 1.098.828,69</td>
+              <td align='right' class='gastos' name='5529'>R$ 1.098.828,69</td>
               <td align='right'>19 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -227,7 +120,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PE</td>
               <td align='left'>PTB</td>
-              <td align='right'>R$ 586.906,40</td>
+              <td align='right' class='gastos' name='715'>R$ 586.906,40</td>
               <td align='right'>36 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -238,7 +131,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>TO</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 949.276,87</td>
+              <td align='right' class='gastos' name='5164'>R$ 949.276,87</td>
               <td align='right'>44 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -249,7 +142,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AL</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 638.644,16</td>
+              <td align='right' class='gastos' name='3823'>R$ 638.644,16</td>
               <td align='right'>62 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -260,7 +153,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PB</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 1.149.118,36</td>
+              <td align='right' class='gastos' name='5197'>R$ 1.149.118,36</td>
               <td align='right'>48 pessoas</td>
               <td align='right'>35 meses</td>
             </tr>
@@ -271,7 +164,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>MT</td>
               <td align='left'>PR</td>
-              <td align='right'>R$ 639.460,69</td>
+              <td align='right' class='gastos' name='5108'>R$ 639.460,69</td>
               <td align='right'>34 pessoas</td>
               <td align='right'>19 meses</td>
             </tr>
@@ -282,7 +175,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PI</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 1.821.866,88</td>
+              <td align='right' class='gastos' name='739'>R$ 1.821.866,88</td>
               <td align='right'>54 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -293,7 +186,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>DF</td>
               <td align='left'>PPS</td>
-              <td align='right'>R$ 246.775,88</td>
+              <td align='right' class='gastos' name='3398'>R$ 246.775,88</td>
               <td align='right'>26 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -304,7 +197,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>SC</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 662.695,25</td>
+              <td align='right' class='gastos' name='5132'>R$ 662.695,25</td>
               <td align='right'>20 pessoas</td>
               <td align='right'>31 meses</td>
             </tr>
@@ -315,7 +208,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SC</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 982.921,81</td>
+              <td align='right' class='gastos' name='5537'>R$ 982.921,81</td>
               <td align='right'>20 pessoas</td>
               <td align='right'>35 meses</td>
             </tr>
@@ -326,7 +219,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AP</td>
               <td align='left'>DEM</td>
-              <td align='right'>R$ 1.271.440,75</td>
+              <td align='right' class='gastos' name='3830'>R$ 1.271.440,75</td>
               <td align='right'>41 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -337,7 +230,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SE</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 1.070.428,70</td>
+              <td align='right' class='gastos' name='4721'>R$ 1.070.428,70</td>
               <td align='right'>52 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -348,7 +241,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AM</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 797.171,21</td>
+              <td align='right' class='gastos' name='4994'>R$ 797.171,21</td>
               <td align='right'>31 pessoas</td>
               <td align='right'>21 meses</td>
             </tr>
@@ -359,7 +252,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>RJ</td>
               <td align='left'>PRB</td>
-              <td align='right'>R$ 581.903,38</td>
+              <td align='right' class='gastos' name='4767'>R$ 581.903,38</td>
               <td align='right'>59 pessoas</td>
               <td align='right'>15 meses</td>
             </tr>
@@ -370,7 +263,7 @@
               <td align='left'>2º Suplente</td>
               <td align='middle'>SE</td>
               <td align='left'>PSB</td>
-              <td align='right'>R$ 43.458,41</td>
+              <td align='right' class='gastos' name='4969'>R$ 43.458,41</td>
               <td align='right'>48 pessoas</td>
               <td align='right'>1 mês</td>
             </tr>
@@ -381,7 +274,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PI</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 1.379.978,78</td>
+              <td align='right' class='gastos' name='5531'>R$ 1.379.978,78</td>
               <td align='right'>60 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -392,7 +285,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>CE</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 65.277,76</td>
+              <td align='right' class='gastos' name='612'>R$ 65.277,76</td>
               <td align='right'>37 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -403,7 +296,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RN</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.016.955,19</td>
+              <td align='right' class='gastos' name='3713'>R$ 1.016.955,19</td>
               <td align='right'>33 pessoas</td>
               <td align='right'>35 meses</td>
             </tr>
@@ -414,7 +307,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PE</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 1.373.855,59</td>
+              <td align='right' class='gastos' name='5540'>R$ 1.373.855,59</td>
               <td align='right'>34 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -425,7 +318,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AL</td>
               <td align='left'>PTC</td>
-              <td align='right'>R$ 1.408.923,76</td>
+              <td align='right' class='gastos' name='4525'>R$ 1.408.923,76</td>
               <td align='right'>80 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -436,7 +329,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PA</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 1.453.938,74</td>
+              <td align='right' class='gastos' name='3634'>R$ 1.453.938,74</td>
               <td align='right'>29 pessoas</td>
               <td align='right'>37 meses</td>
             </tr>
@@ -447,7 +340,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RN</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 854.007,47</td>
+              <td align='right' class='gastos' name='87'>R$ 854.007,47</td>
               <td align='right'>40 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -458,7 +351,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AC</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 1.755.939,15</td>
+              <td align='right' class='gastos' name='4558'>R$ 1.755.939,15</td>
               <td align='right'>40 pessoas</td>
               <td align='right'>31 meses</td>
             </tr>
@@ -469,7 +362,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PR</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.258.377,06</td>
+              <td align='right' class='gastos' name='5006'>R$ 1.258.377,06</td>
               <td align='right'>42 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -480,7 +373,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>DF</td>
               <td align='left'>PROS</td>
-              <td align='right'>R$ 864.245,98</td>
+              <td align='right' class='gastos' name='5100'>R$ 864.245,98</td>
               <td align='right'>76 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -491,7 +384,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PE</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.720.684,71</td>
+              <td align='right' class='gastos' name='5008'>R$ 1.720.684,71</td>
               <td align='right'>39 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -502,7 +395,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RO</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 1.325.612,24</td>
+              <td align='right' class='gastos' name='5004'>R$ 1.325.612,24</td>
               <td align='right'>68 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -513,7 +406,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PA</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 672.038,99</td>
+              <td align='right' class='gastos' name='35'>R$ 672.038,99</td>
               <td align='right'>28 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -524,7 +417,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MA</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 1.027.468,32</td>
+              <td align='right' class='gastos' name='950'>R$ 1.027.468,32</td>
               <td align='right'>84 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -535,7 +428,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AP</td>
               <td align='left'>PSB</td>
-              <td align='right'>R$ 1.621.776,66</td>
+              <td align='right' class='gastos' name='3394'>R$ 1.621.776,66</td>
               <td align='right'>62 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -546,7 +439,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AC</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.261.884,22</td>
+              <td align='right' class='gastos' name='4990'>R$ 1.261.884,22</td>
               <td align='right'>35 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -557,7 +450,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RN</td>
               <td align='left'>DEM</td>
-              <td align='right'>R$ 1.062.932,71</td>
+              <td align='right' class='gastos' name='40'>R$ 1.062.932,71</td>
               <td align='right'>46 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -568,7 +461,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PB</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 886.817,03</td>
+              <td align='right' class='gastos' name='3361'>R$ 886.817,03</td>
               <td align='right'>28 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -579,7 +472,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>MT</td>
               <td align='left'>PODE</td>
-              <td align='right'>R$ 1.394.474,59</td>
+              <td align='right' class='gastos' name='5112'>R$ 1.394.474,59</td>
               <td align='right'>29 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -590,7 +483,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>CE</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.646.477,06</td>
+              <td align='right' class='gastos' name='615'>R$ 1.646.477,06</td>
               <td align='right'>41 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -601,7 +494,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SP</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 769.243,78</td>
+              <td align='right' class='gastos' name='90'>R$ 769.243,78</td>
               <td align='right'>25 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -612,7 +505,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>TO</td>
               <td align='left'>S/Partido</td>
-              <td align='right'>R$ 488.015,35</td>
+              <td align='right' class='gastos' name='1249'>R$ 488.015,35</td>
               <td align='right'>44 pessoas</td>
               <td align='right'>20 meses</td>
             </tr>
@@ -623,7 +516,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RS</td>
               <td align='left'>PSD</td>
-              <td align='right'>R$ 801.855,46</td>
+              <td align='right' class='gastos' name='5533'>R$ 801.855,46</td>
               <td align='right'>20 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -634,7 +527,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>BA</td>
               <td align='left'>PSB</td>
-              <td align='right'>R$ 1.177.282,17</td>
+              <td align='right' class='gastos' name='4575'>R$ 1.177.282,17</td>
               <td align='right'>50 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -645,7 +538,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RJ</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.242.644,69</td>
+              <td align='right' class='gastos' name='3695'>R$ 1.242.644,69</td>
               <td align='right'>33 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -656,7 +549,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>GO</td>
               <td align='left'>PSB</td>
-              <td align='right'>R$ 916.288,57</td>
+              <td align='right' class='gastos' name='643'>R$ 916.288,57</td>
               <td align='right'>27 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -667,7 +560,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>ES</td>
               <td align='left'>PR</td>
-              <td align='right'>R$ 1.231.974,93</td>
+              <td align='right' class='gastos' name='631'>R$ 1.231.974,93</td>
               <td align='right'>45 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -678,7 +571,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SE</td>
               <td align='left'>DEM</td>
-              <td align='right'>R$ 365.833,23</td>
+              <td align='right' class='gastos' name='1023'>R$ 365.833,23</td>
               <td align='right'>35 pessoas</td>
               <td align='right'>1 mês</td>
             </tr>
@@ -689,7 +582,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SP</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 822.471,31</td>
+              <td align='right' class='gastos' name='5000'>R$ 822.471,31</td>
               <td align='right'>37 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -700,7 +593,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AM</td>
               <td align='left'>PSD</td>
-              <td align='right'>R$ 1.252.503,49</td>
+              <td align='right' class='gastos' name='5525'>R$ 1.252.503,49</td>
               <td align='right'>38 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -711,7 +604,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>BA</td>
               <td align='left'>PSD</td>
-              <td align='right'>R$ 705.576,13</td>
+              <td align='right' class='gastos' name='5523'>R$ 705.576,13</td>
               <td align='right'>34 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -722,7 +615,7 @@
               <td align='left'>2º Suplente</td>
               <td align='middle'>MA</td>
               <td align='left'>PRTB</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='5018'>R$ 0,00</td>
               <td align='right'>43 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -733,7 +626,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SC</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 1.381.460,65</td>
+              <td align='right' class='gastos' name='3741'>R$ 1.381.460,65</td>
               <td align='right'>25 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -744,7 +637,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RS</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.319.068,02</td>
+              <td align='right' class='gastos' name='825'>R$ 1.319.068,02</td>
               <td align='right'>37 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -755,7 +648,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PA</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.586.691,07</td>
+              <td align='right' class='gastos' name='374'>R$ 1.586.691,07</td>
               <td align='right'>46 pessoas</td>
               <td align='right'>19 meses</td>
             </tr>
@@ -766,7 +659,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>MS</td>
               <td align='left'>PSC</td>
-              <td align='right'>R$ 694.782,47</td>
+              <td align='right' class='gastos' name='5116'>R$ 694.782,47</td>
               <td align='right'>32 pessoas</td>
               <td align='right'>18 meses</td>
             </tr>
@@ -777,7 +670,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>PB</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 556.522,00</td>
+              <td align='right' class='gastos' name='2207'>R$ 556.522,00</td>
               <td align='right'>26 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -788,7 +681,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AP</td>
               <td align='left'>REDE</td>
-              <td align='right'>R$ 1.489.773,46</td>
+              <td align='right' class='gastos' name='5012'>R$ 1.489.773,46</td>
               <td align='right'>48 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -799,7 +692,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>PI</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 1.200.657,12</td>
+              <td align='right' class='gastos' name='5182'>R$ 1.200.657,12</td>
               <td align='right'>30 pessoas</td>
               <td align='right'>35 meses</td>
             </tr>
@@ -810,7 +703,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>DF</td>
               <td align='left'>S/Partido</td>
-              <td align='right'>R$ 3.467,69</td>
+              <td align='right' class='gastos' name='5236'>R$ 3.467,69</td>
               <td align='right'>10 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -821,7 +714,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AL</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 463.998,03</td>
+              <td align='right' class='gastos' name='70'>R$ 463.998,03</td>
               <td align='right'>45 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -832,7 +725,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>BA</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 571.555,54</td>
+              <td align='right' class='gastos' name='5052'>R$ 571.555,54</td>
               <td align='right'>31 pessoas</td>
               <td align='right'>17 meses</td>
             </tr>
@@ -843,7 +736,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>PR</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 1.292.596,62</td>
+              <td align='right' class='gastos' name='72'>R$ 1.292.596,62</td>
               <td align='right'>28 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -854,7 +747,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MA</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 1.392.660,80</td>
+              <td align='right' class='gastos' name='677'>R$ 1.392.660,80</td>
               <td align='right'>47 pessoas</td>
               <td align='right'>29 meses</td>
             </tr>
@@ -865,7 +758,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RJ</td>
               <td align='left'>PODE</td>
-              <td align='right'>R$ 1.116.816,99</td>
+              <td align='right' class='gastos' name='5322'>R$ 1.116.816,99</td>
               <td align='right'>34 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -876,7 +769,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RR</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 1.644.431,21</td>
+              <td align='right' class='gastos' name='73'>R$ 1.644.431,21</td>
               <td align='right'>57 pessoas</td>
               <td align='right'>17 meses</td>
             </tr>
@@ -887,7 +780,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>GO</td>
               <td align='left'>DEM</td>
-              <td align='right'>R$ 763.642,62</td>
+              <td align='right' class='gastos' name='456'>R$ 763.642,62</td>
               <td align='right'>46 pessoas</td>
               <td align='right'>27 meses</td>
             </tr>
@@ -898,7 +791,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>ES</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 1.124.886,90</td>
+              <td align='right' class='gastos' name='2331'>R$ 1.124.886,90</td>
               <td align='right'>32 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -909,7 +802,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>ES</td>
               <td align='left'>PDT</td>
-              <td align='right'>R$ 50.113,76</td>
+              <td align='right' class='gastos' name='5106'>R$ 50.113,76</td>
               <td align='right'>24 pessoas</td>
               <td align='right'>1 mês</td>
             </tr>
@@ -920,7 +813,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AC</td>
               <td align='left'>PSD</td>
-              <td align='right'>R$ 1.447.236,78</td>
+              <td align='right' class='gastos' name='4560'>R$ 1.447.236,78</td>
               <td align='right'>37 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -931,7 +824,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MS</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 682.779,61</td>
+              <td align='right' class='gastos' name='5527'>R$ 682.779,61</td>
               <td align='right'>26 pessoas</td>
               <td align='right'>34 meses</td>
             </tr>
@@ -942,7 +835,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>CE</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 556.486,05</td>
+              <td align='right' class='gastos' name='3396'>R$ 556.486,05</td>
               <td align='right'>16 pessoas</td>
               <td align='right'>29 meses</td>
             </tr>
@@ -953,7 +846,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RR</td>
               <td align='left'>PTB</td>
-              <td align='right'>R$ 1.370.561,01</td>
+              <td align='right' class='gastos' name='5535'>R$ 1.370.561,01</td>
               <td align='right'>50 pessoas</td>
               <td align='right'>19 meses</td>
             </tr>
@@ -964,7 +857,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RO</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 1.453.719,01</td>
+              <td align='right' class='gastos' name='3372'>R$ 1.453.719,01</td>
               <td align='right'>63 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -975,7 +868,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>AM</td>
               <td align='left'>PCdoB</td>
-              <td align='right'>R$ 1.534.445,93</td>
+              <td align='right' class='gastos' name='558'>R$ 1.534.445,93</td>
               <td align='right'>61 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -986,7 +879,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>TO</td>
               <td align='left'>PR</td>
-              <td align='right'>R$ 1.162.970,22</td>
+              <td align='right' class='gastos' name='4763'>R$ 1.162.970,22</td>
               <td align='right'>63 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -997,7 +890,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MS</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 927.596,18</td>
+              <td align='right' class='gastos' name='1176'>R$ 927.596,18</td>
               <td align='right'>27 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -1008,7 +901,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MT</td>
               <td align='left'>PR</td>
-              <td align='right'>R$ 1.334.928,71</td>
+              <td align='right' class='gastos' name='1173'>R$ 1.334.928,71</td>
               <td align='right'>42 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1019,7 +912,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>GO</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 1.084.668,67</td>
+              <td align='right' class='gastos' name='5070'>R$ 1.084.668,67</td>
               <td align='right'>35 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -1030,17 +923,15 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>MG</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 1.346.214,54</td>
+              <td align='right' class='gastos' name='5144'>R$ 1.346.214,54</td>
               <td align='right'>56 pessoas</td>
               <td align='right'>38 meses</td>
             </tr>
-
-
           </tbody>
         </table>
       </div>
       <br><br>
-      <div>
+      <div class="tabelaSenado">
         <table id="leg2">
           <caption>Senadores Fora de Exercício - 2015/2017</caption>
           <thead>
@@ -1064,7 +955,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SP</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 778.312,10</td>
+              <td align='right' class='gastos' name='846'>R$ 778.312,10</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -1075,7 +966,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>SP</td>
               <td align='left'>PR</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='5150'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1086,7 +977,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SE</td>
               <td align='left'>PSB</td>
-              <td align='right'>R$ 1.104.338,86</td>
+              <td align='right' class='gastos' name='3'>R$ 1.104.338,86</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>36 meses</td>
             </tr>
@@ -1097,7 +988,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MT</td>
               <td align='left'>PR</td>
-              <td align='right'>R$ 289.345,05</td>
+              <td align='right' class='gastos' name='111'>R$ 289.345,05</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>24 meses</td>
             </tr>
@@ -1108,7 +999,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>MA</td>
               <td align='left'>DEM</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='3881'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1119,7 +1010,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>PB</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 182.853,10</td>
+              <td align='right' class='gastos' name='5199'>R$ 182.853,10</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>5 meses</td>
             </tr>
@@ -1130,7 +1021,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MS</td>
               <td align='left'>S/Partido</td>
-              <td align='right'>R$ 266.903,21</td>
+              <td align='right' class='gastos' name='3360'>R$ 266.903,21</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>13 meses</td>
             </tr>
@@ -1141,7 +1032,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>TO</td>
               <td align='left'>PT</td>
-              <td align='right'>R$ 469.601,43</td>
+              <td align='right' class='gastos' name='5637'>R$ 469.601,43</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>16 meses</td>
             </tr>
@@ -1152,7 +1043,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>PE</td>
               <td align='left'>PTB</td>
-              <td align='right'>R$ 403.665,63</td>
+              <td align='right' class='gastos' name='5178'>R$ 403.665,63</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>16 meses</td>
             </tr>
@@ -1163,7 +1054,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MA</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 953.847,06</td>
+              <td align='right' class='gastos' name='16'>R$ 953.847,06</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1174,7 +1065,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>PA</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 33.790,27</td>
+              <td align='right' class='gastos' name='2632'>R$ 33.790,27</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1185,7 +1076,7 @@
               <td align='left'>2º Suplente</td>
               <td align='middle'>GO</td>
               <td align='left'>DEM</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='4873'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1196,7 +1087,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>AP</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='4522'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1207,7 +1098,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>RO</td>
               <td align='left'>PDT</td>
-              <td align='right'>R$ 3.950,84</td>
+              <td align='right' class='gastos' name='5615'>R$ 3.950,84</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1218,7 +1109,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>TO</td>
               <td align='left'>PPL</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='5166'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1229,7 +1120,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>SP</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 265.182,23</td>
+              <td align='right' class='gastos' name='878'>R$ 265.182,23</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>7 meses</td>
             </tr>
@@ -1240,7 +1131,7 @@
               <td align='left'>2º Suplente</td>
               <td align='middle'>SE</td>
               <td align='left'>PDT</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='5158'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1251,7 +1142,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>SE</td>
               <td align='left'>PR</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='5156'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1262,7 +1153,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>MA</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='3579'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1273,7 +1164,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>SC</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 141.541,22</td>
+              <td align='right' class='gastos' name='5002'>R$ 141.541,22</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>4 meses</td>
             </tr>
@@ -1284,7 +1175,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>RJ</td>
               <td align='left'>PRB</td>
-              <td align='right'>R$ 664.778,91</td>
+              <td align='right' class='gastos' name='3366'>R$ 664.778,91</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>24 meses</td>
             </tr>
@@ -1295,7 +1186,7 @@
               <td align='left'>2º Suplente</td>
               <td align='middle'>RO</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='64'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1306,7 +1197,7 @@
               <td align='left'>2º Suplente</td>
               <td align='middle'>RO</td>
               <td align='left'>PDT</td>
-              <td align='right'>R$ 124.881,02</td>
+              <td align='right' class='gastos' name='5617'>R$ 124.881,02</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>4 meses</td>
             </tr>
@@ -1317,7 +1208,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>RN</td>
               <td align='left'>PV</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='5020'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1328,7 +1219,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>MT</td>
               <td align='left'>PDT</td>
-              <td align='right'>R$ 28,59</td>
+              <td align='right' class='gastos' name='5010'>R$ 28,59</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1339,7 +1230,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>MA</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 134.755,84</td>
+              <td align='right' class='gastos' name='4606'>R$ 134.755,84</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>4 meses</td>
             </tr>
@@ -1350,7 +1241,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>RO</td>
               <td align='left'>PP</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='5072'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1361,7 +1252,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>ES</td>
               <td align='left'>PSDB</td>
-              <td align='right'>R$ 993.718,59</td>
+              <td align='right' class='gastos' name='635'>R$ 993.718,59</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>32 meses</td>
             </tr>
@@ -1372,7 +1263,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>SE</td>
               <td align='left'>DEM</td>
-              <td align='right'>R$ 91.224,82</td>
+              <td align='right' class='gastos' name='5635'>R$ 91.224,82</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>10 meses</td>
             </tr>
@@ -1383,7 +1274,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>DF</td>
               <td align='left'>PSB</td>
-              <td align='right'>R$ 45,75</td>
+              <td align='right' class='gastos' name='4593'>R$ 45,75</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1394,7 +1285,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>AM</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 533.642,79</td>
+              <td align='right' class='gastos' name='5038'>R$ 533.642,79</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>16 meses</td>
             </tr>
@@ -1405,7 +1296,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>PR</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='5048'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1416,7 +1307,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>RR</td>
               <td align='left'>PTB</td>
-              <td align='right'>R$ 94.386,43</td>
+              <td align='right' class='gastos' name='5619'>R$ 94.386,43</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1427,7 +1318,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>RO</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 0,00</td>
+              <td align='right' class='gastos' name='4949'>R$ 0,00</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
@@ -1438,7 +1329,7 @@
               <td align='left'>2º Suplente</td>
               <td align='middle'>SE</td>
               <td align='left'>PSC</td>
-              <td align='right'>R$ 47.161,41</td>
+              <td align='right' class='gastos' name='4786'>R$ 47.161,41</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>2 meses</td>
             </tr>
@@ -1449,7 +1340,7 @@
               <td align='left'>Titular</td>
               <td align='middle'>BA</td>
               <td align='left'>S/Partido</td>
-              <td align='right'>R$ 393.721,39</td>
+              <td align='right' class='gastos' name='604'>R$ 393.721,39</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>17 meses</td>
             </tr>
@@ -1460,7 +1351,7 @@
               <td align='left'>1º Suplente</td>
               <td align='middle'>RR</td>
               <td align='left'>PMDB</td>
-              <td align='right'>R$ 11.662,94</td>
+              <td align='right' class='gastos' name='3597'>R$ 11.662,94</td>
               <td align='right'>0 pessoas</td>
               <td align='right'>0 meses</td>
             </tr>
