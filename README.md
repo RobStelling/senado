@@ -14,17 +14,15 @@ Com os dados contabilizados são gerados textos com informaçes dos senadores e 
 e gastos, por partido e por estado, além de lista de senadores com maiores gastos.
 
 Na versão atual são contabilizados apenas os gastos de cotas para exercício da atividade parlamentar e outros gastos (como viagens oficiais, diárias, passagens, combustível, correios etc.) de todos os senadores.
+O processo está separado em duas fases:
+* Baixar dados do senado e gerar arquivos (csv, json)
+* Ler arquivos de entrada e gerar arquivo html: [Versão atual da página](http://stelling.cc/senado)
 
 ### Futuro
 Versões futuras devem:
 * Melhorar tratamento de erros/exceções
-* Gerar página HTML com os dados coletados
-  * [Versão inicial](http://stelling.cc/senado)
-  * Incluindo informações sobre cada senador (Nome, foto, email etc.)
-  * Utilizar frameworks de visualização?
-* Salvar e permitir reuso de informação coletada
 * Melhorar e expandir gráficos gerados
 * Coletar e agregar outras informações, como:
   * Salários de senadores
-  * Pessoal em gabinete por senadores
+  * Custo estimado de pessoal em gabinete por senadores
   * Redes sociais de senadores
