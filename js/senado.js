@@ -11,7 +11,6 @@ function ready(error, dados) {
   dadosSenadores = dados;
   temDados = true;
   createTooltip();
-  hookTooltip();
 }
 
 
@@ -145,65 +144,76 @@ function ordenaTabela(dir, nomeTabela, coluna, tipo) {
   }
 }
 
-//createTooltip(); // Creates map tooltip object. It starts as a hidden object defined by the myTip class
-
+//Cria tooltip para a coluna de Despesas no Mandato
 function createTooltip()
 {
   tooltip = d3.select("body")
     .append("div")
-
-  //   .style("vertical-align", "middle")
     .classed("myTip tabelaSimples", true)
     .html("Senado");
-  hookTooltip(); // Creates the hooks for the tooltips
+  hookTooltip();
 }
 
-/*
- * Describe behaviours for mouseover, mousemove, mouseout and click
+/* sen = objeto de variaveis globais
+ * sen.lista = lista inversa de acesso ao objeto json com dados de gastos de senadores
+ * sen.inicio = indice do inicio da busca para senadores que naõ estão na lista inversa
+ */
+var sen = {};
+sen.lista = {};
+sen.inicio = 0; 
+/* Descreve ações para mouseover, mousemove, mouseout e click sobre o tooltip de despesas
  */
 function hookTooltip()
 {
+  function recuperaSenador(codigo) {
+    if (sen.lista[codigo] != undefined)
+      return dadosSenadores[sen.lista[codigo]];
+
+    for (i = sen.inicio; i < dadosSenadores.length; i++) {
+      sen.lista[dadosSenadores[i]['senador']] = i;
+      if (dadosSenadores[i]['senador'] == codigo)
+        break;
+    }
+    sen.inicio = i + 1;
+    return dadosSenadores[i];
+  }
+
   var valores = d3.selectAll(".gastos")
 
   .on("mouseover", function(d){
     var tip = d3.select("div.myTip");
     var k;
-/*
-* English name - French name (or only name if VARNAME_1 == "") and #of Athletes
-*/
-    //k = d.properties.NAME_1+(d.properties.VARNAME_1 != "" ? "<br>" + d.properties.VARNAME_1 : "") +
-    //    (nAthletes > 0 ? "<br>Athletes/Athètes: "+ rateById.get(d.properties.ID_1).toLocaleString() : "");
+
     senador = +this.getAttribute('name');
     k = "";
-    for (i=dadosSenadores[senador].length-1; i>=0; i--) {
-      if (dadosSenadores[senador][i]['total'] > 0) {
-        k += "<table><tr><th>Gastos "+dadosSenadores[senador][i]['ano']+"</th><th>Valor</ht><tr>"
-        for (caput in dadosSenadores[senador][i]['lista']) {
-          k += "<tr><td>"+caput+"</td><td align='left'>R$ "+dadosSenadores[senador][i]['lista'][caput].toLocaleString('pt-BR')+"</td>";
+    dados = recuperaSenador(senador);
+    for (i=dados['gastos'].length-1; i>=0; i--) {
+      if (dados['gastos'][i]['total'] > 0) {
+        k += "<table><tr><th>Gastos "+dados['gastos'][i]['ano']+"</th><th>Valor</ht><tr>"
+        for (caput in dados['gastos'][i]['lista']) {
+          k += "<tr><td>"+caput+"</td><td align='left'>R$ "+dados['gastos'][i]['lista'][caput].toLocaleString('pt-BR')+"</td>";
         }
         k += "</table>"
       }
     }
     tip.html(k);
-/*
-* Makes sure that tooltip is visible
-*/
+// Tooltip visivel se houverem gastos
     return tooltip.style("visibility", k == "" ? "hidden" : "visible");})
 
   .on("mousemove", function(){
 /*
-* Hovers the tooltip ~20px higher and 25px left of the mouse.
+* Mantém o tooltip 20px acima e 25px à direita do mouse
 */
     return tooltip.style("top", (d3.event.pageY-20)+"px")
       .style("left",(d3.event.pageX+25)+"px");})
 
   .on("mouseout", function(d){
 /*
-* and hides the tooltip
+* Esconde o tooltip
 */
     return tooltip.style("visibility", "hidden");}) // Hides the tooltip when finished
 /*
-* Nothing to do on click at this moment
+* Click sem ações no momento
 */
   .on("click", function(d){
     return;

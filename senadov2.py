@@ -379,9 +379,11 @@ print('Recuperando informações de gastos parlamentares...')
 # Para cada senador coleta os gastos de cada ano da legislatura
 # e soma os gastos em 'gastos'
 colunaInteiro = set()
-gastosSenadores = {}
+gastosSenadores = []
+# A variável senador serve de índice para dados e para gastosSenadores,
+# porque sempre aponta para o senador atual.
 for senador in range(len(dados)):
-    gastosSenadores[dados[senador]['codigo']] = []
+    gastosSenadores.append({'senador': dados[senador]['codigo'], 'gastos': []})
     dados[senador]['gastos'] = 0
     # Para cada ano, recupera as informações do senador
     # Guarda o total daquele ano (dados[senador][gastos{ano}]) e soma no total
@@ -392,7 +394,7 @@ for senador in range(len(dados)):
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
         total, auxilio, pessoal, gastos = infoSenador(
             dados[senador]['codigo'], ano=ano, intervalo=0.5)
-        gastosSenadores[dados[senador]['codigo']].append(gastos)
+        gastosSenadores[senador]['gastos'].append(gastos)
         if total != gastos['total']:
             print(f"Erro de totalização: {dados[senador]['codigo']} - {ano} - {total} - {gastos['total']}")
         dados[senador][f"gastos{ano}"] = total
