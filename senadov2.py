@@ -38,7 +38,7 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-versao = '0.2.19'
+versao = '0.2.20'
 
 
 def reais(x, pos=None):
@@ -417,7 +417,7 @@ if not os.path.exists('json'):
     os.makedirs('json')
 
 with open('json/gastosSenadores.json', 'w', encoding='utf-8') as saida:
-    json.dump(gastosSenadores, saida, ensure_ascii=False)
+    json.dump(gastosSenadores, saida, ensure_ascii=False, indent=2, separators=(',', ':'))
 
 # Acrescenta zeros (int) em colunas que não existem para alguns senadores
 # Por exemplo: um determinado senador não possui informação de Gabinete em 2015

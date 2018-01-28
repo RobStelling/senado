@@ -102,6 +102,96 @@ print('O gasto médio dos senadores, em exercício e fora de exercício, foi de 
 print('O montante de despesas parlamentares em {:d} anos foi de '.format(len(anos)) + reais(
     totalGasto) + ', com media anual de ' + reais(totalGasto / len(anos)))
 
+# Gera página HTML
+
+
+def geraModeloHTML(modeloHtml, saida):
+    """Gera página HTML a partir de um modelo (modeloHtml)
+    não retorna nenhum valor
+    """
+    def totalBeneficioMoradia(senador):
+        """Calcula o total do beneficio moradia de um senador
+        """
+        am = 'Auxílio-Moradia-'
+        im = 'Imóvel Funcional-'
+        total = 0
+        for ano in anos:
+            total += senador[am + str(ano)] + senador[im + str(ano)]
+        return total
+
+    def htmlRowsSenado(senadores, anoConsulta):
+        """Gera string com linhas da tabela html de uma lista de senadores
+        na rotina a identação é "hardcoded"... Poderia não haver identação.
+        """
+        i = 1
+        textoMes = {True: "mês", False: "meses"}
+        html = ""
+        for index, senador in senadores.iterrows():
+            html += "{:<12}<tr>\n".format('')
+            html += "{:<14}<td>{}</td>\n".format('', i)
+            html += "{:<14}<td align='middle'><a href='{}' target='_blank'><img src='fotos/senador{}.jpg' height='51' width='42'><span class='fototip'>Crédito foto: {}</span></a></td>\n".format(
+                '', f"http://www6g.senado.leg.br/transparencia/sen/{senador['codigo']}/?ano={anoConsulta}", senador['codigo'], listaCredito[senador['codigo']])
+            html += "{:<14}<td align='left'>{}</td>\n".format(
+                '', senador['nome'])
+            html += "{:<14}<td align='left' class='gastos' name='{}'>{}</td>\n".format(
+                '', senador['codigo'], reais(senador['gastos']))
+            html += "{:<14}<td align='left'>{}</td>\n".format(
+                '', senador['Participacao'])
+            html += "{:<14}<td align='middle'>{}</td>\n".format(
+                '', senador['UF'])
+            html += "{:<14}<td align='left'>{}</td>\n".format(
+                '', senador['partido'])
+            html += "{:<14}<td align='right'>{} pessoas</td>\n".format(
+                '', senador['TotalGabinete-2017'])
+            beneficioMoradia = totalBeneficioMoradia(senador)
+            html += "{:<14}<td align='right'>{} {}</td>\n".format(
+                '', beneficioMoradia, textoMes[beneficioMoradia == 1])
+            html += "{:<12}</tr>\n".format('')
+            i += 1
+        return html
+
+    def exercicio():
+        """Lista de senadores em exercício, em ordem alfabética de nome
+        """
+        return htmlRowsSenado(dadosSenado.query('status == "Exercicio"').sort_values(by='nomeSort'), 2017)
+
+    def foraExercicio():
+        """Lista de senadores fora de exercício, em ordem alfabética de nome
+        """
+        return htmlRowsSenado(dadosSenado.query('status == "ForaExercicio"').sort_values(by='nomeSort'), 2017)
+
+    # Dicionário de padrões a encontrar e função que será chamada para cada padrão
+    padrao = {"<!--Exercicio-->\n": exercicio,
+              "<!--ForaExercicio-->\n": foraExercicio}
+
+    # Le arquivo de entrada e inclui o texto gerado de acordo com o padrão encontrado
+    for linha in modeloHtml:
+        # a linha com o marcador de padrão é mantida (se assume que é um comentário html)
+        saida.write(linha)
+        if linha in padrao:
+            saida.write(f"{padrao[linha]()}")
+    modeloHtml.close()
+    saida.close()
+
+
+# Abre os arquivos e gera a página HTML
+try:
+    modeloHtml = open("index.tmpl", "r")
+    try:
+        # Se conseguiu abrir entrada, tenta abrir saída e gerar modelo
+        saida = open("index.html", "w")
+        geraModeloHTML(modeloHtml, saida)
+    except FileNotFoundError:
+        # trata erros na abertura do arquivo de saída
+        modeloHtml.close()
+        print("Erro no nome do arquivo de saída")
+    except IOError:
+        modeloHtml.close()
+        print("Não consigo criar index.html")
+except IOError:
+    # Trata erro na abertura do arquivo de entrada
+    print("Não consigo abrir index.tmpl")
+
 # Gera gráficos
 imagens = 'imagensV2'
 if not os.path.exists(imagens):

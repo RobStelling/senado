@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Gastos de Senadores</title>
+  </head>
+  <body>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+    <script src="js/senado.js"></script>
+    <div class="container">
+      <div class="row"><b class="SenadoTitle">BRASIL - 55ª Legislatura</b><br></div>
+      <div class="row"><b class="SenadoSubTitle">Informações de despesas de senadores</b><br></div>
+      <br>
+      <div class="tabelaSenado">
+        <table id="leg1">
+          <caption>Senadores em Exercício - 2015/2017</caption>
+          <thead>
+            <tr>
+              <th align="left">Nº</th>
+              <th align="middle">Foto</th>
+              <th onclick="ordenaTabela('asc',  'leg1', 2, 'texto')" align="left">Nome<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 3, 'reais')" align="left">Despesas no Mandato<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 4, 'participacao')" align="left">Participação<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 5, 'texto')" align="middle">UF<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 6, 'texto')" align="left">Partido<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 7, 'dados')" align="right">Escritório e Gabinete<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 8, 'dados')" align="right">Benefício Moradia<img src="imagens/sort.png"></th>
+            </tr>
+          </thead>
+          <tbody>
+<!--Exercicio-->
+          </tbody>
+        </table>
+      </div>
+      <br><br>
+      <div class="tabelaSenado">
+        <table id="leg2">
+          <caption>Senadores Fora de Exercício - 2015/2017</caption>
+          <thead>
+            <tr>
+              <th align="left">Nº</th>
+              <th align="middle">Foto</th>
+              <th onclick="ordenaTabela('asc',  'leg2', 2, 'texto')" align="left">Nome<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 3, 'reais')" align="left">Despesas no Mandato<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 4, 'participacao')" align="left">Participação<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 5, 'texto')" align="middle">UF<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 6, 'texto')" align="left">Partido<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 7, 'dados')" align="right">Escritório e Gabinete<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 8, 'dados')" align="right">Benefício Moradia<img src="imagens/sort.png"></th>
+            </tr>
+          </thead>
+          <tbody>
+<!--ForaExercicio-->
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <footer>
+          <center>
+            <br>Fonte de dados: <a href="https://dadosabertos.senado.leg.br/">Dados Abertos do Senado Federal</a> Copyright © 2018 <a href="http://stelling.cc">Roberto Stelling</a>
+          </center>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
