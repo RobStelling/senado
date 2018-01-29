@@ -21,12 +21,13 @@ O processo está separado em duas fases:
 ![Página HTML](https://github.com/RobStelling/senado/blob/master/imagensV2/telaWeb.png)
 
 A página lista todos os senadores, com suas despesas, informaçes de mandato, uso de pessoal em escritório e gabinete e número de meses de utilização de auxílio-moradia e imóvel funcinal.
-É possível reordenar as colunas por qualquer item, por exemplo, clicar em **Despesas no Mandato** ordena a lista de senadores pelos seus gastos, do maior gasto para o menor. Clicar uma segunda vez na mesma coluna, ordena a lista de senadoes do menor gasto para o maior.
+É possível reordenar as colunas marcadas com o ícone ![sort](https://raw.githubusercontent.com/RobStelling/senado/master/imagensV2/sort.png). Por exemplo, clicar em **Despesas no Mandato** ordena a lista de senadores pelos seus gastos, do maior gasto para o menor. Clicar uma segunda vez na mesma coluna, ordena a lista de senadores do menor gasto para o maior.
 
 Ao passar o mouse sobre a célula de gastos de um senador, abre-se uma janela mostrando os gastos daquele senador durante o mandato, como na imagem acima.
 
 ### Futuro
 Versões futuras devem:
+* Incluir mais informações sobre os gastos do senado
 * Melhorar tratamento de erros/exceções
 * Melhorar e expandir gráficos gerados
 * Coletar e agregar outras informações, como:
