@@ -42,8 +42,9 @@ with open('csv/anos.csv', newline='') as arquivoAnos:
     anosReader = csv.reader(arquivoAnos)
     for row in anosReader:
         # Ignora o header (se houver)
-        if maiorQue(row[0]) and maiorQue(row[1]):
-            anos = list(range(int(row[0]), int(row[1]) + 1))
+        if maiorQue(row[0]) and maiorQue(row[1]) and maiorQue(row[2]):
+            legislaturaAtual = int(row[0])
+            anos = list(range(int(row[1]), int(row[2]) + 1))
             break
 
 # Lê créditos das fotos
@@ -160,16 +161,33 @@ def geraModeloHTML(modeloHtml, saida):
         """
         return htmlRowsSenado(dadosSenado.query('status == "ForaExercicio"').sort_values(by='nomeSort'), 2017)
 
+    def caption(mensagem):
+        html = "{:<10}<caption>Senadores {} - {}/{}</caption>\n".format('', mensagem, anos[0], anos[len(anos) - 1])
+        return html
+
+    def captionExercicio():
+        return caption("em Exercício")
+
+    def captionForaExercicio():
+        return caption("fora de Exercício")
+
+    def tituloLegislatura():
+        html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format('', legislaturaAtual)
+        return html
+
     # Dicionário de padrões a encontrar e função que será chamada para cada padrão
-    padrao = {"<!--Exercicio-->\n": exercicio,
-              "<!--ForaExercicio-->\n": foraExercicio}
+    padrao = {"<!--Exercicio-->": exercicio,
+              "<!--ForaExercicio-->": foraExercicio,
+              "<!--CaptionExercicio-->": captionExercicio,
+              "<!--CaptionForaExercicio-->": captionForaExercicio,
+              "<!--TituloLegislatura-->": tituloLegislatura}
 
     # Le arquivo de entrada e inclui o texto gerado de acordo com o padrão encontrado
     for linha in modeloHtml:
         # a linha com o marcador de padrão é mantida (se assume que é um comentário html)
         saida.write(linha)
-        if linha in padrao:
-            saida.write(f"{padrao[linha]()}")
+        if linha.strip() in padrao:
+            saida.write(f"{padrao[linha.strip()]()}")
     modeloHtml.close()
     saida.close()
 
@@ -191,7 +209,7 @@ try:
 except IOError:
     # Trata erro na abertura do arquivo de entrada
     print("Não consigo abrir index.tmpl")
-
+"""
 # Gera gráficos
 imagens = 'imagensV2'
 if not os.path.exists(imagens):
@@ -239,3 +257,4 @@ beneficioMoradia = (gastoEstados['Auxílio-Moradia-2015'] + gastoEstados['Auxíl
 gBeneficio = beneficioMoradia.sort_values(ascending=False).plot(
     kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
 gBeneficio.get_figure().savefig(f"{imagens}/moradiaEstado.png")
+"""
