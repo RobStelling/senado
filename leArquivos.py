@@ -242,7 +242,10 @@ def tickReais(x, pos=None):
     """Retorna uma string no formato R$<numero>M para ser usada
     em gráficos
     """
-    return 'R$'+ locale.format('%d', x, grouping=True) + 'M'
+    if x == 0:
+        return ""
+    else:
+        return 'R$'+ locale.format('%d', x, grouping=True) + 'M'
 
 # Ordena os tipos de gasto pelo montante e cria os vetores
 # de título (caput), dados
