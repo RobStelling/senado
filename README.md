@@ -35,7 +35,7 @@ Um dado interessante, é que despesas com serviços de segurança privada neste 
 ### Futuro
 Considerações para versões futuras:
 * Gastos de combustíveis não são mais publicados na página do próprio senador. Desde 11/2016 os gastos são publicados mês a mês em pdfs na página de [gastos de combustível do senado](https://www12.senado.leg.br/transparencia/sen/gastos-com-combustivel). Para incluir estes gastos na aplicação é necessário baixar todos os arquivos, raspar os dados dos arquivos PDF e incluir na contabilização existente. Em janeiro de 2018 ainda faltava o relatório de dezembro de 2017.
-* De tempos em tempos o Senado Federal atualiza ou corrige alguns dos gastos dos senadores. No versão atual é possvel identificar estas diferenças por *diffs* entre os arquivos gerados por uma nova consulta aos serviços e páginas do senado. Pode ser interessante mudar a organização de dados para uma base de dados simples. O Djago OCR é uma das opções a considerar.
+* De tempos em tempos o Senado Federal atualiza ou corrige alguns dos gastos dos senadores. No versão atual é possvel identificar estas diferenças por *diffs* entre os arquivos gerados por uma nova consulta aos serviços e páginas do senado. Pode ser interessante mudar a organização de dados para uma base de dados simples. O Django OCR é uma das opções a considerar.
 * Incluir mais informações sobre os gastos do senado
 * Melhorar tratamento de erros/exceções
 * Melhorar e expandir gráficos gerados
