@@ -185,17 +185,6 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
                   'Participacao': parlamentar['Mandatos']['Mandato']['DescricaoParticipacao'],
                   'status': status})
 
-
-def s2float(dado):
-    """ Converte uma string numérica no formato brasileiro para float """
-    # Retira '.' e substitui ',' por '.' e converte para float
-    try:
-        valor = float(dado.replace('.', '').replace(',', '.'))
-        return valor
-    except ValueError:
-        return float('nan')
-
-
 def infoSenador(codigoSenador, ano=2017, intervalo=0):
     """Coleta informações de um ano de legislatura de um senador pelo seu código
     Retorna o total de gastos de um parlamentar, uma lista de meses de utilização
@@ -246,15 +235,15 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     valores = bloco.find_all('tfoot')
 
     # Extrai apenas o valor em string (strip().split()[1]),
-    # converte para float (s2float) e contabiliza o total
+    # converte para float (rtn.s2float) e contabiliza o total
     for i in range(len(valores)):
-        valores[i] = s2float(valores[i].text.strip().split()[1])
+        valores[i] = rtn.s2float(valores[i].text.strip().split()[1])
         # Só extrai os valores se a totalização for > 0
         if (valores[i] > 0):
             for linha in tabelas[i].find('tbody').find_all('tr', {'class': None}):
                 colunas = linha.find_all('td')
                 caput = colunas[0].text.strip().split('\xa0')[0]
-                montante = s2float(colunas[1].text.strip())
+                montante = rtn.s2float(colunas[1].text.strip())
                 if montante > 0:
                     gastos['lista'][caput] = montante
                     gastos['total'] += gastos['lista'][caput]
@@ -265,7 +254,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     correios = tabelas[1].find('tbody').find_all(
         'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
     correiosCaput = correios[0].text.strip()
-    correiosMontante = s2float(correios[1].text.strip())
+    correiosMontante = rtn.s2float(correios[1].text.strip())
     if correiosMontante > 0:
         gastos['lista'][correiosCaput] = correiosMontante
         gastos['total'] += gastos['lista'][correiosCaput]

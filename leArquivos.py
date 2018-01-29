@@ -19,27 +19,12 @@ gera gráficos, texto e páginas com o conteúdo
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
-
-def maiorQue(numero, menor=0):
-    """Retorna True se numero é um inteiro maior que 0
-    False caso contrário. O valor mínimo de referência 
-    pode ser alterado passando menor=<novoValor>
-    numero pode ser string ou qualquer outro tipo aceito
-    por int() 
-    """
-    try:
-        valor = int(str(numero))
-        return valor > menor
-    except ValueError:
-        return False
-
-
 # Lé legislatura e Lista de anos de mandato para contabilização
 with open('csv/anos.csv', newline='') as arquivoAnos:
     anosReader = csv.reader(arquivoAnos)
     for row in anosReader:
         # Ignora o header (se houver)
-        if maiorQue(row[0]) and maiorQue(row[1]) and maiorQue(row[2]):
+        if rtn.maiorQue(row[0]) and rtn.maiorQue(row[1]) and rtn.maiorQue(row[2]):
             legislaturaAtual = int(row[0])
             anos = list(range(int(row[1]), int(row[2]) + 1))
             break
@@ -119,11 +104,13 @@ print("Gastos do senado por tema:")
 totalizacaoGastosSenado = 0.0
 for caput in gastosSenado:
     totalizacaoGastosSenado += gastosSenado[caput]
-    print('{}: {}'.format(caput, rtn.reais(round(gastosSenado[caput],2))))
+    print('{}: {}'.format(caput, rtn.reais(round(gastosSenado[caput], 2))))
 
 print('Total de gastos: {}'.format(rtn.reais(round(totalizacaoGastosSenado, 2))))
 
 # Gera página HTML
+
+
 def geraModeloHTML(modeloHtml, saida):
     """Gera página HTML a partir de um modelo (modeloHtml)
     não retorna nenhum valor
@@ -238,6 +225,7 @@ if not os.path.exists(imagens):
 
 plt.style.use('seaborn-whitegrid')
 
+
 def tickReais(x, pos=None):
     """Retorna uma string no formato R$<numero>M para ser usada
     em gráficos
@@ -245,7 +233,8 @@ def tickReais(x, pos=None):
     if x == 0:
         return ""
     else:
-        return 'R$'+ locale.format('%d', x, grouping=True) + 'M'
+        return 'R$' + locale.format('%d', x, grouping=True) + 'M'
+
 
 # Ordena os tipos de gasto pelo montante e cria os vetores
 # de título (caput), dados
@@ -256,7 +245,7 @@ x = []
 i = 0
 for item in gS:
     caput.append(item[0])
-    x.append(item[1]/1000000)
+    x.append(item[1] / 1000000)
     y.append(i)
     i += 1
 
@@ -266,7 +255,8 @@ ax.barh(y, x, tick_label=caput)
 ax.set(xlabel='Valores em milhões de reais',
        title='Gastos de Senadores por tipo de despesa')
 ax.xaxis.set_major_formatter(FuncFormatter(tickReais))
-fig.savefig(f"{imagens}/gastosSenado.png", transparent=False, bbox_inches="tight")
+fig.savefig(f"{imagens}/gastosSenado.png",
+            transparent=False, bbox_inches="tight")
 
 gSexo = sexo.plot(kind='pie', figsize=(13, 13), fontsize=12,
                   subplots=True, legend=False, colormap='Paired')
