@@ -209,7 +209,7 @@ try:
 except IOError:
     # Trata erro na abertura do arquivo de entrada
     print("Não consigo abrir index.tmpl")
-"""
+
 # Gera gráficos
 imagens = 'imagensV2'
 if not os.path.exists(imagens):
@@ -257,4 +257,3 @@ beneficioMoradia = (gastoEstados['Auxílio-Moradia-2015'] + gastoEstados['Auxíl
 gBeneficio = beneficioMoradia.sort_values(ascending=False).plot(
     kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
 gBeneficio.get_figure().savefig(f"{imagens}/moradiaEstado.png")
-"""
