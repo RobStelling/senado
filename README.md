@@ -15,8 +15,15 @@ e gastos, por partido e por estado, além de lista de senadores com maiores gast
 
 Na versão atual são contabilizados apenas os gastos de cotas para exercício da atividade parlamentar e outros gastos (como viagens oficiais, diárias, passagens, combustível, correios etc.) de todos os senadores.
 O processo está separado em duas fases:
-* Baixar dados do senado e gerar arquivos (csv, json)
-* Ler arquivos de entrada e gerar arquivo html: [Versão atual da página](http://stelling.cc/senado)
+* Baixar dados do senado e gerar arquivos (csv, json, fotos etc.)
+* Ler arquivos de entrada e gerar página html: [Versão atual da página](http://stelling.cc/senado)
+
+![Página HTML](https://github.com/RobStelling/senado/blob/master/imagensV2/telaWeb.png)
+
+A página lista todos os senadores, com suas despesas, informaçes de mandato, uso de pessoal em escritório e gabinete e número de meses de utilização de auxílio-moradia e imóvel funcinal.
+É possível reordenar as colunas por qualquer item, por exemplo, clicar em **Despesas no Mandato** ordena a lista de senadores pelos seus gastos, do maior gasto para o menor. Clicar uma segunda vez na mesma coluna, ordena a lista de senadoes do menor gasto para o maior.
+
+Ao passar o mouse sobre a célula de gastos de um senador, abre-se uma janela mostrando os gastos daquele senador durante o mandato, como na imagem acima.
 
 ### Futuro
 Versões futuras devem:
