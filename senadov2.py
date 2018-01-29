@@ -13,6 +13,8 @@ import re
 import requests
 import time
 
+import rotinas as rtn
+
 """ Versão da aplicação, baseado em https://semver.org
 Dado um número de versão MAJOR.MINOR.PATCH, incremente:
 
@@ -39,13 +41,6 @@ Lista de ideias a fazer:
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 versao = '0.2.21'
-
-
-def reais(x, pos=None):
-    """Retorna o valor formatado em reais, o parâmetro pos é necessário
-    apenas quando a função é chamada pelo FuncFormatter do matplotlib.ticker
-    """
-    return 'R$ ' + locale.format('%.2f', x, grouping=True)
 
 
 def leDadosParlamentares(legislatura=55):
@@ -229,7 +224,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     total = 0
     infoAuxilio = []
     infoPessoal = []
-    gastos = {'ano': ano, 'total': 0.0, 'lista': {}};
+    gastos = {'ano': ano, 'total': 0.0, 'lista': {}}
     # Se houve um redirect então a página sobre aquele ano daquele senador não existe
     if requisicao.history:
         return total, infoAuxilio, infoPessoal, gastos
@@ -245,7 +240,6 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     # tabelas[2]: Uso de Outros Benefícios
     # tabelas[3]: Quantidade de funcionários por local e vínculo
     # tabelas[4]: Consulta de subsídios e aposentadoria
-
 
     # Primeiro computa o total de gastos do senador
     # Os totais de gastos estão nos dois rodapés das tabelas
@@ -266,9 +260,10 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
                     gastos['total'] += gastos['lista'][caput]
                 #print(linhas[campos].text.strip().split('\xa0')[0],'---', linhas[campos+1].text.strip())
         total += valores[i]
-    
-    #pega Correios em separado
-    correios = tabelas[1].find('tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
+
+    # pega Correios em separado
+    correios = tabelas[1].find('tbody').find_all(
+        'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
     correiosCaput = correios[0].text.strip()
     correiosMontante = s2float(correios[1].text.strip())
     if correiosMontante > 0:
@@ -310,7 +305,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
             {'titulo': quantidades[i].find('span').text.strip(),
              'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
 
-    #print(bloco)
+    # print(bloco)
     # Retorna o gasto total do senador para o ano pedido
     return round(total, 2), infoAuxilio, infoPessoal, gastos
 
@@ -396,7 +391,8 @@ for senador in range(len(dados)):
             dados[senador]['codigo'], ano=ano, intervalo=0.5)
         gastosSenadores[senador]['gastos'].append(gastos)
         if total != gastos['total']:
-            print(f"Erro de totalização: {dados[senador]['codigo']} - {ano} - {total} - {gastos['total']}")
+            print(
+                f"Erro de totalização: {dados[senador]['codigo']} - {ano} - {total} - {gastos['total']}")
         dados[senador][f"gastos{ano}"] = total
         dados[senador]['gastos'] += total
         dados[senador][f"TotalGabinete-{ano}"] = 0
@@ -417,7 +413,8 @@ if not os.path.exists('json'):
     os.makedirs('json')
 
 with open('json/gastosSenadores.json', 'w', encoding='utf-8') as saida:
-    json.dump(gastosSenadores, saida, ensure_ascii=False, indent=2, separators=(',', ':'))
+    json.dump(gastosSenadores, saida, ensure_ascii=False,
+              indent=2, separators=(',', ':'))
 
 # Acrescenta zeros (int) em colunas que não existem para alguns senadores
 # Por exemplo: um determinado senador não possui informação de Gabinete em 2015
@@ -473,13 +470,13 @@ print('Há {:d} senadores em exercício, destes {:d} são mulheres'.format(
 print('As mulheres representam ' + locale.format('%.2f',
                                                  totalMulheresExercicio / totalExercicio * 100) + '% deste total')
 print('O gasto médio de senadores homens em exercício foi de ' +
-      reais(mediaGastosHomensExercicio))
+      rtn.reais(mediaGastosHomensExercicio))
 print('O gasto médio de senadores mulheres em exercício foi de ' +
-      reais(mediaGastosMulheresExercicio))
+      rtn.reais(mediaGastosMulheresExercicio))
 print('O gasto médio dos senadores, em exercício e fora de exercício, foi de ' +
-      reais(gastoMedioSenadores))
-print('O montante de despesas parlamentares em {:d} anos foi de '.format(len(anos)) + reais(
-    totalGasto) + ', com media anual de ' + reais(totalGasto / len(anos)))
+      rtn.reais(gastoMedioSenadores))
+print('O montante de despesas parlamentares em {:d} anos foi de '.format(len(anos)) + rtn.reais(
+    totalGasto) + ', com media anual de ' + rtn.reais(totalGasto / len(anos)))
 
 # Salva arquivos
 if not os.path.exists('csv'):

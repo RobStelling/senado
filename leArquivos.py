@@ -4,23 +4,20 @@ from bs4 import BeautifulSoup
 from matplotlib.ticker import FuncFormatter
 import csv
 import errno
+import json
 import locale
 import matplotlib.pyplot as plt
+import operator
 import os
 import pandas as pd
+
+import rotinas as rtn
 
 """Lê dados de parlamentares de arquivos CSV e
 gera gráficos, texto e páginas com o conteúdo
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-
-
-def reais(x, pos=None):
-    """Retorna o valor formatado em reais, o parâmetro pos é necessário
-    apenas quando a função é chamada pelo FuncFormatter do matplotlib.ticker
-    """
-    return 'R$ ' + locale.format('%.2f', x, grouping=True)
 
 
 def maiorQue(numero, menor=0):
@@ -37,7 +34,7 @@ def maiorQue(numero, menor=0):
         return False
 
 
-# Lista de anos de mandato para contabilização
+# Lé legislatura e Lista de anos de mandato para contabilização
 with open('csv/anos.csv', newline='') as arquivoAnos:
     anosReader = csv.reader(arquivoAnos)
     for row in anosReader:
@@ -56,6 +53,7 @@ with open('csv/creditos.csv', newline='') as creditos:
     for row in creditosReader:
         listaCredito[int(row[0].split('.')[0].replace('senador', ''))] = row[1]
 
+# Lê DataFrames
 dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8')
 top = pd.read_csv('csv/top.csv', encoding='utf-8')
 gastoPartidos = pd.read_csv('csv/gastoPartidos.csv',
@@ -66,6 +64,10 @@ gastoEstados = pd.read_csv('csv/gastoEstados.csv',
 sexo = dadosSenado.rename(columns={'Participacao': '(Sexo, Situação)'}).groupby(
     ['sexo', 'status'])['(Sexo, Situação)'].count()
 sexoT = pd.read_csv('csv/sexoT.csv', encoding='utf-8', index_col=0)
+
+# Lê arquivo json
+with open('json/gastosSenadores.json', 'r', encoding='utf-8') as entrada:
+    gastosSenadores = json.load(entrada)
 
 # Calcula dados importantes
 totalSenadores = len(dadosSenado)
@@ -95,17 +97,33 @@ print('Há {:d} senadores em exercício, destes {:d} são mulheres'.format(
 print('As mulheres representam ' + locale.format('%.2f',
                                                  totalMulheresExercicio / totalExercicio * 100) + '% deste total')
 print('O gasto médio de senadores homens em exercício foi de ' +
-      reais(mediaGastosHomensExercicio))
+      rtn.reais(mediaGastosHomensExercicio))
 print('O gasto médio de senadores mulheres em exercício foi de ' +
-      reais(mediaGastosMulheresExercicio))
+      rtn.reais(mediaGastosMulheresExercicio))
 print('O gasto médio dos senadores, em exercício e fora de exercício, foi de ' +
-      reais(gastoMedioSenadores))
-print('O montante de despesas parlamentares em {:d} anos foi de '.format(len(anos)) + reais(
-    totalGasto) + ', com media anual de ' + reais(totalGasto / len(anos)))
+      rtn.reais(gastoMedioSenadores))
+print('O montante de despesas parlamentares em {:d} anos foi de {}, com media anual de {}\n'.format(
+    len(anos), rtn.reais(totalGasto), rtn.reais(totalGasto / len(anos))))
+
+# Totaliza os gastos do senado por tipo de gasto
+gastosSenado = {}
+for senador in gastosSenadores:
+    for gastos in senador['gastos']:
+        for caput in gastos['lista']:
+            if not caput in gastosSenado:
+                gastosSenado[caput] = gastos['lista'][caput]
+            else:
+                gastosSenado[caput] += gastos['lista'][caput]
+
+print("Gastos do senado por tema:")
+totalizacaoGastosSenado = 0.0
+for caput in gastosSenado:
+    totalizacaoGastosSenado += gastosSenado[caput]
+    print('{}: {}'.format(caput, rtn.reais(round(gastosSenado[caput],2))))
+
+print('Total de gastos: {}'.format(rtn.reais(round(totalizacaoGastosSenado, 2))))
 
 # Gera página HTML
-
-
 def geraModeloHTML(modeloHtml, saida):
     """Gera página HTML a partir de um modelo (modeloHtml)
     não retorna nenhum valor
@@ -135,7 +153,7 @@ def geraModeloHTML(modeloHtml, saida):
             html += "{:<14}<td align='left'>{}</td>\n".format(
                 '', senador['nome'])
             html += "{:<14}<td align='left' class='gastos' name='{}'>{}</td>\n".format(
-                '', senador['codigo'], reais(senador['gastos']))
+                '', senador['codigo'], rtn.reais(senador['gastos']))
             html += "{:<14}<td align='left'>{}</td>\n".format(
                 '', senador['Participacao'])
             html += "{:<14}<td align='middle'>{}</td>\n".format(
@@ -162,7 +180,8 @@ def geraModeloHTML(modeloHtml, saida):
         return htmlRowsSenado(dadosSenado.query('status == "ForaExercicio"').sort_values(by='nomeSort'), 2017)
 
     def caption(mensagem):
-        html = "{:<10}<caption>Senadores {} - {}/{}</caption>\n".format('', mensagem, anos[0], anos[len(anos) - 1])
+        html = "{:<10}<caption>Senadores {} - {}/{}</caption>\n".format(
+            '', mensagem, anos[0], anos[len(anos) - 1])
         return html
 
     def captionExercicio():
@@ -172,7 +191,8 @@ def geraModeloHTML(modeloHtml, saida):
         return caption("fora de Exercício")
 
     def tituloLegislatura():
-        html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format('', legislaturaAtual)
+        html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format(
+            '', legislaturaAtual)
         return html
 
     # Dicionário de padrões a encontrar e função que será chamada para cada padrão
@@ -215,7 +235,35 @@ imagens = 'imagensV2'
 if not os.path.exists(imagens):
     os.makedirs(imagens)
 
+
 plt.style.use('seaborn-whitegrid')
+
+def tickReais(x, pos=None):
+    """Retorna uma string no formato R$<numero>M para ser usada
+    em gráficos
+    """
+    return 'R$'+ locale.format('%d', x, grouping=True) + 'M'
+
+# Ordena os tipos de gasto pelo montante e cria os vetores
+# de título (caput), dados
+gS = sorted(gastosSenado.items(), key=operator.itemgetter(1))
+caput = []
+y = []
+x = []
+i = 0
+for item in gS:
+    caput.append(item[0])
+    x.append(item[1]/1000000)
+    y.append(i)
+    i += 1
+
+plt.style.use('seaborn-whitegrid')
+fig, ax = plt.subplots()
+ax.barh(y, x, tick_label=caput)
+ax.set(xlabel='Valores em milhões de reais',
+       title='Gastos de Senadores por tipo de despesa')
+ax.xaxis.set_major_formatter(FuncFormatter(tickReais))
+fig.savefig(f"{imagens}/gastosSenado.png", transparent=False, bbox_inches="tight")
 
 gSexo = sexo.plot(kind='pie', figsize=(13, 13), fontsize=12,
                   subplots=True, legend=False, colormap='Paired')
@@ -227,7 +275,7 @@ gSexoT[0].get_figure().savefig(f"{imagens}/distSexoT.png")
 
 gEstados = gastoEstados[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
     kind='bar', rot=0, title='Gastos por unidade da federação', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
-gEstados.yaxis.set_major_formatter(FuncFormatter(reais))
+gEstados.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
 gEstados.get_figure().savefig(f"{imagens}/gastoEstados.png")
 
 gabineteEstados = gastoEstados.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(
@@ -237,7 +285,7 @@ gabineteEstados.get_figure().savefig(
 
 gPartidos = gastoPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
     kind='bar', rot=0, title='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
-gPartidos.yaxis.set_major_formatter(FuncFormatter(reais))
+gPartidos.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
 gPartidos.get_figure().savefig(f"{imagens}/gastoPartidos.png")
 
 gabinetePartidos = gastoPartidos.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(
@@ -247,7 +295,7 @@ gabinetePartidos.get_figure().savefig(
 
 gTop = top[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
     kind='bar', rot=20, title='Senadores com maiores gastos', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
-gTop.yaxis.set_major_formatter(FuncFormatter(reais))
+gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
 gTop.get_figure().savefig(f"{imagens}/maiores.png")
 
 beneficioMoradia = (gastoEstados['Auxílio-Moradia-2015'] + gastoEstados['Auxílio-Moradia-2016'] + gastoEstados['Auxílio-Moradia-2017'] +
