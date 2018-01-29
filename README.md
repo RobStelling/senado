@@ -25,6 +25,13 @@ A página lista todos os senadores, com suas despesas, informaçes de mandato, u
 
 Ao passar o mouse sobre a célula de gastos de um senador, abre-se uma janela mostrando os gastos daquele senador durante o mandato, como na imagem acima.
 
+Os gráficos gerados serão incluídos na página HTML mas ainda falta decidir a forma de narrativa.
+
+Por exemplo, o gráfico abaixo mostra os gastos de senadores, de 2015 a 2017 durante o exercício da sua legislatura.
+![Gastos do Senado](https://github.com/RobStelling/senado/blob/master/imagensV2/gastosSenado.png)
+
+Um dado interessante, é que despesas com serviços de segurança privada neste período somam R$ 1.419.945,91. O Senador Fernando Collor é responsável por  62% deste montante, com despesas de segurança somando R$ 879.672,41.
+
 ### Futuro
 Versões futuras devem:
 * Incluir mais informações sobre os gastos do senado
