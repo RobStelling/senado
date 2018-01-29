@@ -33,7 +33,8 @@ Por exemplo, o gráfico abaixo mostra os gastos de senadores, de 2015 a 2017 dur
 Um dado interessante, é que despesas com serviços de segurança privada neste período somam R$ 1.419.945,91. O Senador Fernando Collor é responsável por  62% deste montante, com despesas de segurança somando R$ 879.672,41.
 
 ### Futuro
-Versões futuras devem:
+Considerações para versões futuras:
+* Gastos de combustíveis não são mais publicados na página do próprio senador. Desde 11/2016 os gastos são publicados mês a mês em pdfs na página de [gastos de combustível do senado](https://www12.senado.leg.br/transparencia/sen/gastos-com-combustivel). Para incluir estes gastos na aplicação é necessário baixar todos os arquivos, raspar os dados dos arquivos PDF e incluir na contabilização existente. Em janeiro de 2017 só haviam relatórios de abastecimento até novembro 2017.
 * Incluir mais informações sobre os gastos do senado
 * Melhorar tratamento de erros/exceções
 * Melhorar e expandir gráficos gerados
