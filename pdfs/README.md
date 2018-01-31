@@ -16,3 +16,12 @@ Dificuldades: Os dados estão em arquivos .pdf separados por mês. Em alguns mes
 5. O programa de leitura (*leArquivos.py* - no momento) lerá os *.csv* de cada ano e agregará os valores lidos aos dataframes gerados na etapa anterior.
 
 Depois disto as páginas HTML, os textos de comentário e os gráficos poderão ser gerados.
+
+### Segunda atualização em 31/01/2018
+Ao analisar todos os arquivos desde novembro de 2016 até novembro de 2017, verificamos que há vários formatos de arquivo *PDF*, com tabelas distintas, colunas de nomes diferentes, erros de grafia entre outras inconsistências.
+
+Não se justifica construir uma solução automatizada em função da miríade de alternativas e problemas a resolver. Portanto o método adotado será:
+1. Inicialmente baixar todos os *PDFs* de cada ano
+2. Para cada ano, converter *PDFs* para *.csv* utilizando o [tabula](https://github.com/tabulapdf/tabula). *Massagear* manualmente os arquivos para garantir a coerência das colunas de identificação do senador e gasto com combustíveis, ignorar as outras colunas.
+3. Usar um procedimento parcialmente manual (em Jypiter notebook) para unificar os dados e gerar o arquivo *.csv* para cada ano.
+4. A cada relatório mensal, analisar o arquivo e definir o procedimento a seguir.
