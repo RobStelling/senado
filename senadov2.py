@@ -185,6 +185,7 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
                   'Participacao': parlamentar['Mandatos']['Mandato']['DescricaoParticipacao'],
                   'status': status})
 
+
 def infoSenador(codigoSenador, ano=2017, intervalo=0):
     """Coleta informações de um ano de legislatura de um senador pelo seu código
     Retorna o total de gastos de um parlamentar, uma lista de meses de utilização

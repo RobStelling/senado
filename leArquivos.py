@@ -19,7 +19,7 @@ gera gráficos, texto e páginas com o conteúdo
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
-# Lé legislatura e Lista de anos de mandato para contabilização
+# Lê legislatura e Lista de anos de mandato para contabilização
 with open('csv/anos.csv', newline='') as arquivoAnos:
     anosReader = csv.reader(arquivoAnos)
     for row in anosReader:
@@ -227,13 +227,14 @@ plt.style.use('seaborn-whitegrid')
 
 
 def tickReais(x, pos=None):
-    """Retorna uma string no formato R$<numero>M para ser usada
+    """Retorna uma string no formato <numero>M para ser usada
     em gráficos
     """
-    if x == 0:
-        return ""
+    if x == int(x):
+        formato = '%d'
     else:
-        return 'R$' + locale.format('%d', x, grouping=True) + 'M'
+        formato = '%.1f'
+    return locale.format(formato, x, grouping=True) + 'M'
 
 
 # Ordena os tipos de gasto pelo montante e cria os vetores
