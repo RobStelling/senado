@@ -1,10 +1,15 @@
 import locale
 
+"""Rotinas de uso comum entre os módulos da aplicação
+"""
+
+
 def reais(x, pos=None):
     """Retorna o valor formatado em reais, o parâmetro pos é necessário
     apenas quando a função é chamada pelo FuncFormatter do matplotlib.ticker
     """
     return 'R$ ' + locale.format('%.2f', x, grouping=True)
+
 
 def maiorQue(numero, menor=0):
     """Retorna True se numero é um inteiro maior que 0
@@ -18,6 +23,7 @@ def maiorQue(numero, menor=0):
         return valor > menor
     except ValueError:
         return False
+
 
 def s2float(dado):
     """ Converte uma string numérica no formato brasileiro para float """

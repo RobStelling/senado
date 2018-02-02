@@ -139,15 +139,10 @@ def leDadosParlamentares(legislatura=55):
         else:
             i = i + 1
 
-    parlamentaresAtuais = []
-    parlamentaresForaExercicio = []
-
     hoje = datetime.today()
-    for parlamentar in parlamentares:
-        if ativo(parlamentar, hoje):
-            parlamentaresAtuais.append(parlamentar)
-        else:
-            parlamentaresForaExercicio.append(parlamentar)
+    parlamentaresAtuais = [x for x in parlamentares if ativo(x, hoje)]
+    parlamentaresForaExercicio = [
+        x for x in parlamentares if not x in parlamentaresAtuais]
 
     return parlamentaresAtuais, parlamentaresForaExercicio
 
