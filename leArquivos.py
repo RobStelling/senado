@@ -218,7 +218,7 @@ except IOError:
     print("Não consigo abrir index.tmpl")
 
 # Gera gráficos
-imagens = 'imagensV2'
+imagens = 'imagens'
 if not os.path.exists(imagens):
     os.makedirs(imagens)
 
