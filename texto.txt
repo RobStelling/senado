@@ -1,15 +1,23 @@
-Lendo dados de parlamentares...
-Fim leitura...
-Organizando informações de parlamentares...
-Fim de organização de operações...
-Recuperando informações de gastos parlamentares...
-..........................................................................................................................................................................................................................................................................................................................................................................................
-Fim de recuperação de informações de gastos parlamentares...
-Há no senado 123 senadores, distribuidos entre 108 homens e 15 mulheres
-As mulheres representam 12.20% do total
+Há no senado 118 senadores, distribuidos entre 104 homens e 14 mulheres
+As mulheres representam 11,86% do total
 Há 81 senadores em exercício, destes 13 são mulheres
-As mulheres representam 16.05% deste total
-O gasto médio de senadores homens em exercício foi de R$ 1017514.08
-O gasto médio de senadores mulheres em exercício foi de R$ 978254.92
-O gasto médio dos senadores, em exercício e afastados, foi de R$ 814331.88
-O montante de despesas parlamentares em 3 anos foi de R$ 99348488.96, com media anual de R$ 33116162.99
+As mulheres representam 16,05% deste total
+O gasto médio de senadores homens em exercício foi de R$ 1.022.648,48
+O gasto médio de senadores mulheres em exercício foi de R$ 980.328,72
+O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ 858.125,59
+O montante de despesas parlamentares em 3 anos foi de R$ 89.245.061,08, com media anual de R$ 29.748.353,69
+
+Gastos do senado por tema:
+Aluguel de imóveis para escritório político: R$ 14.622.637,41
+Aquisição de material de consumo: R$ 2.684.876,80
+Locomoção, hospedagem, alimentação, combustíveis e: R$ 17.053.851,18
+Divulgação da atividade parlamentar: R$ 10.224.987,27
+Passagens aéreas, aquáticas e terrestres nacionais: R$ 19.496.527,15
+Diárias: R$ 1.917.341,92
+Combustíveis: R$ 1.012.498,01
+Outros materiais: R$ 1.120.436,39
+Correios: R$ 9.096.779,89
+Contratação de serviços de apoio ao parlamentar: R$ 9.814.257,18
+Ressarcimento de Passagens: R$ 780.921,97
+Serviços de Segurança Privada: R$ 1.419.945,91
+Total de gastos: R$ 89.245.061,08
