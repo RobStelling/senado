@@ -13,17 +13,17 @@ O processo está separado em duas fases:
 * Baixar dados do senado e gerar arquivos (csv, json, fotos etc.)
 * Ler arquivos de entrada e gerar página html: [Versão atual da página](http://stelling.cc/senado)
 
-![Página HTML](../master/imagensV2/telaWeb.png)
+![Página HTML](../master/imagens/telaWeb.png)
 
 A página lista todos os senadores, com suas despesas, informaçes de mandato, uso de pessoal em escritório e gabinete e número de meses de utilização de auxílio-moradia e imóvel funcinal.
-É possível reordenar as colunas marcadas com o ícone ![sort](../master/imagensV2/sort.png). Por exemplo, clicar em **Despesas no Mandato** ordena a lista de senadores pelos seus gastos, do maior gasto para o menor. Clicar uma segunda vez na mesma coluna, ordena a lista de senadores do menor gasto para o maior.
+É possível reordenar as colunas marcadas com o ícone ![sort](../master/imagens/sort.png). Por exemplo, clicar em **Despesas no Mandato** ordena a lista de senadores pelos seus gastos, do maior gasto para o menor. Clicar uma segunda vez na mesma coluna, ordena a lista de senadores do menor gasto para o maior.
 
 Ao passar o mouse sobre a célula de gastos de um senador, abre-se uma janela mostrando os gastos daquele senador durante o mandato, como na imagem acima.
 
 Os gráficos gerados serão incluídos na página HTML mas ainda falta decidir a forma de narrativa.
 
 Por exemplo, o gráfico abaixo mostra os gastos de senadores, de 2015 a 2017 durante o exercício da sua legislatura.
-![Gastos do Senado](../master/imagensV2/gastosSenado.png)
+![Gastos do Senado](../master/imagens/gastosSenado.png)
 
 Um dado interessante, é que despesas com serviços de segurança privada neste período somam R$ 1.419.945,91. O Senador Fernando Collor é responsável por  62% deste montante, com despesas de segurança somando R$ 879.672,41.
 
