@@ -40,7 +40,7 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-versao = '0.2.21'
+versao = '0.2.22'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -271,7 +271,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
         # em função destes valores
         meses = 0
         if (uso != 'Não utilizou'):
-            if not re.match(r'Informações disponíveis.*', uso):
+            if not re.match(r'Informações disponíveis.*', uso) and not re.match(r'Informações não disponíveis.*', uso):
                 meses = int(uso.replace('Utilizou (', '').replace(
                     ' meses)', '').replace(' mês)', ''))
 
@@ -356,6 +356,56 @@ print('Fim de organização de informações...')
 
 print('Recuperando informações de gastos parlamentares...')
 
+# Lê o arquivo de gastos de combustível a partir de 2016
+def leGastosCombustiveis(anos):
+    anoInicial = max(2016, anos[0])
+    anoFinal = anos[len(anos)-1]+1
+    gastosCombustiveis = {}
+    # Formato arquivos:
+    # senador(nome),codigo(inteiro),gastos(reais/float)
+    for ano in range(anoInicial, anoFinal):
+        gastosCombustiveis[ano] = {}
+        arquivo = f"csv/{ano}C.csv"
+        with open(arquivo, newline='') as gCombustiveis:
+            gCReader = csv.reader(gCombustiveis)
+            header = next(gCReader)
+            for registro in gCReader:
+                gastosCombustiveis[ano][registro[1]] = float(registro[2])
+    return gastosCombustiveis
+
+combustiveis = leGastosCombustiveis(anos)
+
+def gastosCombustiveis(listaGastos, senador, ano):
+    try:
+        return listaGastos[ano][senador]
+    except KeyError:
+        return 0.0
+
+def consolidaGastosCombustiveis(senadores, combustiveis):
+    caputCombustiveis = "Combustíveis"
+    for senador in range(len(senadores)):
+        for gastos in range(len(senadores[senador]['gastos'])):
+            gastosCSenador = gastosCombustiveis(combustiveis, senadores[senador]['senador'], senadores[senador]['gastos'][gastos]['ano'])
+            if gastosCSenador > 0:
+                if caputCombustiveis in senadores[senador]['gastos'][gastos]['lista']:
+                    senadores[senador]['gastos'][gastos]['lista'][caputCombustiveis] += gastosCSenador
+                else:
+                    senadores[senador]['gastos'][gastos]['lista'][caputCombustiveis] = gastosCSenador
+                senadores[senador]['gastos'][gastos]['total'] += gastosCSenador
+    return
+
+def consolidaDadosCombustiveisSenadores(dados, combustiveis):
+    for senador in range(len(dados)):
+        codigo = dados[senador]['codigo']
+        anoInicial = max(2016, anos[0])
+        anoFinal = anos[len(anos)-1]+1
+        for ano in range(anoInicial, anoFinal):
+            gastosCombustiveisSenador = gastosCombustiveis(combustiveis, codigo, ano)
+            if gastosCombustiveisSenador > 0:
+                dados[senador]['gastos'] += gastosCombustiveisSenador
+                dados[senador][f"gastos{ano}"] += gastosCombustiveisSenador
+    return
+
 # Para cada senador coleta os gastos de cada ano da legislatura
 # e soma os gastos em 'gastos'
 colunaInteiro = set()
@@ -373,7 +423,7 @@ for senador in range(len(dados)):
     for ano in anos:
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
         total, auxilio, pessoal, gastos = infoSenador(
-            dados[senador]['codigo'], ano=ano, intervalo=0.5)
+            dados[senador]['codigo'], ano=ano, intervalo=0.1)
         gastosSenadores[senador]['gastos'].append(gastos)
         if total != gastos['total']:
             print(
@@ -392,6 +442,9 @@ for senador in range(len(dados)):
             colunaInteiro.add(coluna)
             meses = auxilio[beneficio]['meses']
             dados[senador][coluna] = meses
+
+consolidaGastosCombustiveis(gastosSenadores, combustiveis)
+consolidaDadosCombustiveisSenadores(dados, combustiveis)
 
 # Salva arquivo json
 if not os.path.exists('json'):

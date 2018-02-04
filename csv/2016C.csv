@@ -1,78 +1,78 @@
-nomeC,gastos
-acir gurgacz,1377.47
-aecio neves,951.58
-aloysio nunes,1004.11
-alvaro dias,2319.88
-ana amelia,1413.70
-angela portela,1155.65
-antonio anastasia,820.57
-antonio carlos valadares,1387.03
-armando monteiro,741.06
-ataides oliveira,1906.31
-benedito de lira,1694.57
-cassio cunha lima,2028.35
-cidinho santos,1354.77
-ciro nogueira,910.94
-dalirio beber,1864.82
-dario berger,1188.77
-davi alcolumbre,1290.94
-edison lobao,1825.56
-eduardo amorim,1029.62
-eduardo braga,1785.72
-eduardo lopes,1581.38
-elmano ferrer,1752.76
-eunicio oliveira,549.64
-fatima bezerra,328.5
-fernando bezerra coelho,567.77
-fernando collor,650.62
-flexa ribeiro,2057.29
-garibaldi alves filho,1260.32
-gladson cameli,1044.26
-gleisi hoffmann,1330.09
-helio jose,1982.77
-humberto costa,1676.33
-ivo cassol,694.75
-joao alberto souza,1048.07
-jorge viana,879.08
-jose agripino,2063.13
-jose anibal,1117.12
-jose maranhao,816.63
-jose medeiros,873.40
-jose pimentel,349.8
-katia abreu,1659.30
-lasier martins,1215.42
-lidice da mata,1415.04
-lindberg farias,1038.7
-lucia vania,1549.64
-magno malta,1792.82
-maria do carmo alves,787.73
-marta suplicy,724.8
-omar aziz,919.61
-otto alencar,818.2
-paulo bauer,525.29
-paulo paim,2089.18
-paulo rocha,391.49
-pedro chaves,1287.27
-raimundo lira,581.94
-randolfe rodrigues,1719.21
-regina sousa,1016.85
-renan calheiros,2015.2
-ricardo ferraco,644.13
-roberto muniz,830.52
-roberto requiao,2066.77
-roberto rocha,1587.04
-romario,750.01
-romero juca,1315.16
-ronaldo caiado,654.34
-rose de freitas,1535.20
-sergio petecao,920.21
-simone tebet,1052.09
-tasso jereissati,853.03
-teomario mota,1578.16
-valdir raupp,1849.27
-vanessa grazziotin,1528.55
-vicentinho alves,1879.99
-waldemir moka,667.64
-wellington fagundes,913.95
-wilder morais,756.61
-zeze perrella,343.4
+senador,codigo,gastos
+acir gurgacz,4981,1377.47
+aecio neves,391,951.58
+aloysio nunes,846,1004.11
+alvaro dias,945,2319.88
+ana amelia,4988,1413.70
+angela portela,4697,1155.65
+antonio anastasia,5529,820.57
+antonio carlos valadares,3,1387.03
+armando monteiro,715,741.06
+ataides oliveira,5164,1906.31
+benedito de lira,3823,1694.57
+cassio cunha lima,5197,2028.35
+cidinho santos,5108,1354.77
+ciro nogueira,739,910.94
+dalirio beber,5132,1864.82
+dario berger,5537,1188.77
+davi alcolumbre,3830,1290.94
+edison lobao,16,1825.56
+eduardo amorim,4821,1029.62
+eduardo braga,4994,1785.72
+eduardo lopes,4767,1581.38
+elmano ferrer,5531,1752.76
+eunicio oliveira,612,549.64
+fatima bezerra,3713,328.5
+fernando bezerra coelho,5540,567.77
+fernando collor,4225,650.62
+flexa ribeiro,3634,2057.29
+garibaldi alves filho,87,1260.32
+gladson cameli,4558,1044.26
+gleisi hoffmann,5006,1330.09
+helio jose,5100,1982.77
+humberto costa,5008,1676.33
+ivo cassol,5004,694.75
+joao alberto souza,950,1048.07
+jorge viana,4990,879.08
+jose agripino,40,2063.13
+jose anibal,878,1117.12
+jose maranhao,3361,816.63
+jose medeiros,5112,873.40
+jose pimentel,615,349.8
+katia abreu,1249,1659.30
+lasier martins,5533,1215.42
+lidice da mata,4575,1415.04
+lindberg farias,3695,1038.7
+lucia vania,643,1549.64
+magno malta,631,1792.82
+maria do carmo alves,1023,787.73
+marta suplicy,5000,724.8
+omar aziz,5525,919.61
+otto alencar,5523,818.2
+paulo bauer,3741,525.29
+paulo paim,825,2089.18
+paulo rocha,374,391.49
+pedro chaves,5116,1287.27
+raimundo lira,2207,581.94
+randolfe rodrigues,5012,1719.21
+regina sousa,5182,1016.85
+renan calheiros,70,2015.2
+ricardo ferraco,635,644.13
+roberto muniz,5052,830.52
+roberto requiao,72,2066.77
+roberto rocha,677,1587.04
+romario,5322,750.01
+romero juca,73,1315.16
+ronaldo caiado,456,654.34
+rose de freitas,2331,1535.20
+sergio petecao,4560,920.21
+simone tebet,5527,1052.09
+tasso jereissati,3396,853.03
+telmario mota,5535,1578.16
+valdir raupp,3372,1849.27
+vanessa grazziotin,558,1528.55
+vicentinho alves,4763,1879.99
+waldemir moka,1176,667.64
+wellington fagundes,1173,913.95
+wilder morais,5070,756.61
+zeze perrella,5144,343.4
