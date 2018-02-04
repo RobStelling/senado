@@ -357,9 +357,11 @@ print('Fim de organização de informações...')
 print('Recuperando informações de gastos parlamentares...')
 
 # Lê o arquivo de gastos de combustível a partir de 2016
+
+
 def leGastosCombustiveis(anos):
     anoInicial = max(2016, anos[0])
-    anoFinal = anos[len(anos)-1]+1
+    anoFinal = anos[len(anos) - 1] + 1
     gastosCombustiveis = {}
     # Formato arquivos:
     # senador(nome),codigo(inteiro),gastos(reais/float)
@@ -373,7 +375,9 @@ def leGastosCombustiveis(anos):
                 gastosCombustiveis[ano][registro[1]] = float(registro[2])
     return gastosCombustiveis
 
+
 combustiveis = leGastosCombustiveis(anos)
+
 
 def gastosCombustiveis(listaGastos, senador, ano):
     try:
@@ -381,11 +385,13 @@ def gastosCombustiveis(listaGastos, senador, ano):
     except KeyError:
         return 0.0
 
+
 def consolidaGastosCombustiveis(senadores, combustiveis):
     caputCombustiveis = "Combustíveis"
     for senador in range(len(senadores)):
         for gastos in range(len(senadores[senador]['gastos'])):
-            gastosCSenador = gastosCombustiveis(combustiveis, senadores[senador]['senador'], senadores[senador]['gastos'][gastos]['ano'])
+            gastosCSenador = gastosCombustiveis(
+                combustiveis, senadores[senador]['senador'], senadores[senador]['gastos'][gastos]['ano'])
             if gastosCSenador > 0:
                 if caputCombustiveis in senadores[senador]['gastos'][gastos]['lista']:
                     senadores[senador]['gastos'][gastos]['lista'][caputCombustiveis] += gastosCSenador
@@ -394,17 +400,20 @@ def consolidaGastosCombustiveis(senadores, combustiveis):
                 senadores[senador]['gastos'][gastos]['total'] += gastosCSenador
     return
 
+
 def consolidaDadosCombustiveisSenadores(dados, combustiveis):
     for senador in range(len(dados)):
         codigo = dados[senador]['codigo']
         anoInicial = max(2016, anos[0])
-        anoFinal = anos[len(anos)-1]+1
+        anoFinal = anos[len(anos) - 1] + 1
         for ano in range(anoInicial, anoFinal):
-            gastosCombustiveisSenador = gastosCombustiveis(combustiveis, codigo, ano)
+            gastosCombustiveisSenador = gastosCombustiveis(
+                combustiveis, codigo, ano)
             if gastosCombustiveisSenador > 0:
                 dados[senador]['gastos'] += gastosCombustiveisSenador
                 dados[senador][f"gastos{ano}"] += gastosCombustiveisSenador
     return
+
 
 # Para cada senador coleta os gastos de cada ano da legislatura
 # e soma os gastos em 'gastos'
