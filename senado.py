@@ -432,7 +432,7 @@ for senador in range(len(dados)):
     for ano in anos:
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
         total, auxilio, pessoal, gastos = infoSenador(
-            dados[senador]['codigo'], ano=ano, intervalo=0.1)
+            dados[senador]['codigo'], ano=ano, intervalo=0.5)
         gastosSenadores[senador]['gastos'].append(gastos)
         if total != gastos['total']:
             print(
