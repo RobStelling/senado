@@ -27,6 +27,10 @@ with open('csv/anos.csv', newline='') as arquivoAnos:
         if rtn.maiorQue(row[0]) and rtn.maiorQue(row[1]) and rtn.maiorQue(row[2]):
             legislaturaAtual = int(row[0])
             anos = list(range(int(row[1]), int(row[2]) + 1))
+            # Coleta está no formato aaaa-mm-dd
+            coleta = row[3].split(' ')[0].split('-')
+            # dataColeta = dd/mm/aaaa
+            dataColeta = coleta[2] + '/' + coleta[1] + '/' + coleta[0]
             break
 
 # Lê créditos das fotos
@@ -177,6 +181,9 @@ def geraModeloHTML(modeloHtml, saida):
     def captionForaExercicio():
         return caption("fora de Exercício")
 
+    def dataDaColeta():
+        return dataColeta
+
     def tituloLegislatura():
         html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format(
             '', legislaturaAtual)
@@ -186,6 +193,7 @@ def geraModeloHTML(modeloHtml, saida):
     padrao = {"<!--Exercicio-->": exercicio,
               "<!--ForaExercicio-->": foraExercicio,
               "<!--CaptionExercicio-->": captionExercicio,
+              "<!--Data-->": dataDaColeta,
               "<!--CaptionForaExercicio-->": captionForaExercicio,
               "<!--TituloLegislatura-->": tituloLegislatura}
 
@@ -251,6 +259,7 @@ for item in gS:
     i += 1
 
 plt.style.use('seaborn-whitegrid')
+
 fig, ax = plt.subplots()
 ax.barh(y, x, tick_label=caput)
 ax.set(xlabel='Valores em milhões de reais',
