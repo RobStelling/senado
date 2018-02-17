@@ -40,7 +40,7 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-versao = '0.2.23'
+versao = '0.2.24'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -538,13 +538,13 @@ if not os.path.exists('csv'):
     os.makedirs('csv')
 
 dadosSenado.to_csv('csv/senado.csv', na_rep='', header=True, index=False,
-                   mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
+                   mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
 top.to_csv('csv/top.csv', na_rep='', header=True, index=False,
-           mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
+           mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
 gastoPartidos.to_csv('csv/gastoPartidos.csv', na_rep='', header=True,
-                     index=True, mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
+                     index=True, mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
 gastoEstados.to_csv('csv/gastoEstados.csv', na_rep='', header=True, index=True,
-                    mode='w', encoding='utf-8', line_terminator='\n', decimal='.')
+                    mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
 sexo.to_csv('csv/sexo.csv', index=True, na_rep='', header=True,
             index_label=None, mode='w', encoding='utf-8', decimal='.')
 sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
