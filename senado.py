@@ -40,7 +40,7 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-versao = '0.2.24'
+versao = '0.2.25'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -139,7 +139,9 @@ def leDadosParlamentares(legislatura=55):
             i = i + 1
 
     hoje = datetime.today()
+    # Se for ativo, é atual
     parlamentaresAtuais = [x for x in parlamentares if ativo(x, hoje)]
+    # Se não for atual, está Fora de Exercício
     parlamentaresForaExercicio = [
         x for x in parlamentares if not x in parlamentaresAtuais]
 
@@ -180,7 +182,7 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
                   'status': status})
 
 
-def infoSenador(codigoSenador, ano=2017, intervalo=0):
+def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     """Coleta informações de um ano de legislatura de um senador pelo seu código
     Retorna o total de gastos de um parlamentar, uma lista de meses de utilização
     de auxílio moradia e apartamento funcional e uma lista de utilização de pessoal
@@ -209,12 +211,28 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
     infoAuxilio = []
     infoPessoal = []
     gastos = {'ano': ano, 'total': 0.0, 'lista': {}}
+    sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
+    if nascimento:
+        dadosPessoais = sopaSenador.find('div', {'class': 'dadosPessoais'}).find_all('dd')
+        dataNascimento = dadosPessoais[1].text.strip()
+        if len(dadosPessoais) >= 3:
+            cidadeEstado = dadosPessoais[2].text.strip().split('\n')
+            cidade = cidadeEstado[0].strip()
+            if len(cidadeEstado) == 2:
+                estado = cidadeEstado[1].strip()[1:3]
+            else:
+                estado = ""
+        else:
+            cidade, estado = ["", ""]
+        nascimentoSenador = [dataNascimento, cidade, estado]
+    else:
+        nascimentoSenador = None
     # Se houve um redirect então a página sobre aquele ano daquele senador não existe
     if requisicao.history:
-        return total, infoAuxilio, infoPessoal, gastos
+        return total, infoAuxilio, infoPessoal, gastos, nascimentoSenador
 
     # E gera a sopa
-    sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
+
 
     # Seleciona a área onde estão os dados desejados
     bloco = sopaSenador.find('div', {'class': 'sen-conteudo-interno'})
@@ -291,7 +309,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0):
 
     # print(bloco)
     # Retorna o gasto total do senador para o ano pedido
-    return round(total, 2), infoAuxilio, infoPessoal, gastos
+    return round(total, 2), infoAuxilio, infoPessoal, gastos, nascimentoSenador
 
 
 def infoLegislaturaAtual():
@@ -328,7 +346,9 @@ anoAtual = datetime.today().year
 Devemos incluir ano atual se for parcial?
 Por exemplo, se estivermos em julho de 2018, devemos incluir também os dados de 2018?
 Resposta: É preciso esperar um pouco para ver em quanto tempo o senado atualiza as inforamções
-de gastos do ano corrente, dependendo da frequência pode ser interessante incluir o ano corrente ou não
+de gastos do ano corrente, dependendo da frequência pode ser interessante incluir o ano corrente ou não.
+Por outro lado verificamos que o senado atualiza e inclui novos gastos do ano anterio até pelo menos
+fevereiro do ano seguinte.
 """
 i = 0
 while i < len(anos):
@@ -396,8 +416,12 @@ for senador in range(len(dados)):
     # pessoal
     for ano in anos:
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
-        total, auxilio, pessoal, gastos = infoSenador(
-            dados[senador]['codigo'], ano=ano, intervalo=0.5)
+        total, auxilio, pessoal, gastos, nascimento = infoSenador(
+            dados[senador]['codigo'], ano=ano, intervalo=0.5, nascimento=ano==anos[0])
+        if nascimento != None:
+            dados[senador]['nascimentoData'] = nascimento[0]
+            dados[senador]['naturalCidade'] = nascimento[1]
+            dados[senador]['naturalEstado'] = nascimento[2]
         gastosSenadores[senador]['gastos'].append(gastos)
         if total != gastos['total']:
             print(
