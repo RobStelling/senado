@@ -40,7 +40,7 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-versao = '0.2.22'
+versao = '0.2.23'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -552,8 +552,8 @@ sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
 
 with open('csv/anos.csv', 'w') as arquivoAnos:
     anosWriter = csv.writer(arquivoAnos)
-    anosWriter.writerow(["Legislatura", "Inicial", "Final"])
-    anosWriter.writerow([legislaturaAtual, anos[0], anos[-1]])
+    anosWriter.writerow(["Legislatura", "Inicial", "Final", "Coleta"])
+    anosWriter.writerow([legislaturaAtual, anos[0], anos[-1], datetime.today()])
     arquivoAnos.close()
 
 # Coleta fotos que estejam faltando
