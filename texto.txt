@@ -2,22 +2,22 @@ Há no senado 118 senadores, distribuidos entre 104 homens e 14 mulheres
 As mulheres representam 11,86% do total
 Há 81 senadores em exercício, destes 13 são mulheres
 As mulheres representam 16,05% deste total
-O gasto médio de senadores homens em exercício foi de R$ 1.022.648,48
-O gasto médio de senadores mulheres em exercício foi de R$ 980.328,72
-O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ 858.125,59
-O montante de despesas parlamentares em 3 anos foi de R$ 89.245.061,08, com media anual de R$ 29.748.353,69
+O gasto médio de senadores homens em exercício foi de R$ 1.022.433,03
+O gasto médio de senadores mulheres em exercício foi de R$ 995.379,48
+O gasto médio dos senadores, em exercício e fora de exercício, foi de R$ 861.747,77
+O montante de despesas parlamentares em 3 anos foi de R$ 90.483.516,04, com media anual de R$ 30.161.172,01
 
 Gastos do senado por tema:
-Aluguel de imóveis para escritório político: R$ 14.622.637,41
-Aquisição de material de consumo: R$ 2.684.876,80
-Locomoção, hospedagem, alimentação, combustíveis e: R$ 17.053.851,18
-Divulgação da atividade parlamentar: R$ 10.224.987,27
-Passagens aéreas, aquáticas e terrestres nacionais: R$ 19.496.527,15
+Aluguel de imóveis para escritório político: R$ 14.712.740,66
+Aquisição de material de consumo: R$ 2.701.082,06
+Locomoção, hospedagem, alimentação, combustíveis e: R$ 17.177.242,71
+Divulgação da atividade parlamentar: R$ 10.272.087,27
+Passagens aéreas, aquáticas e terrestres nacionais: R$ 19.547.860,92
 Diárias: R$ 1.917.341,92
-Combustíveis: R$ 1.012.498,01
+Combustíveis: R$ 1.644.514,97
 Outros materiais: R$ 1.120.436,39
 Correios: R$ 9.096.779,89
-Contratação de serviços de apoio ao parlamentar: R$ 9.814.257,18
-Ressarcimento de Passagens: R$ 780.921,97
-Serviços de Segurança Privada: R$ 1.419.945,91
-Total de gastos: R$ 89.245.061,08
+Contratação de serviços de apoio ao parlamentar: R$ 9.917.613,71
+Ressarcimento de Passagens: R$ 955.766,61
+Serviços de Segurança Privada: R$ 1.420.048,93
+Total de gastos: R$ 90.483.516,04
