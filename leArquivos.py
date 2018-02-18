@@ -28,9 +28,11 @@ with open('csv/anos.csv', newline='') as arquivoAnos:
             legislaturaAtual = int(row[0])
             anos = list(range(int(row[1]), int(row[2]) + 1))
             # Coleta está no formato aaaa-mm-dd
-            coleta = row[3].split(' ')[0].split('-')
+            dataHoraColeta = row[3].split(' ')
+            coleta = dataHoraColeta[0].split('-')
             # dataColeta = dd/mm/aaaa
             dataColeta = coleta[2] + '/' + coleta[1] + '/' + coleta[0]
+            horaColeta = dataHoraColeta[1].split('.')[0]
             break
 
 # Lê créditos das fotos
@@ -182,7 +184,7 @@ def geraModeloHTML(modeloHtml, saida):
         return caption("fora de Exercício")
 
     def dataDaColeta():
-        return dataColeta
+        return dataColeta + ' ' + horaColeta
 
     def tituloLegislatura():
         html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format(
