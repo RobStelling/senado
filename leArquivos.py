@@ -184,7 +184,7 @@ def geraModeloHTML(modeloHtml, saida):
         return caption("fora de Exercício")
 
     def dataDaColeta():
-        return dataColeta + ' ' + horaColeta
+        return dataColeta + ' às ' + horaColeta
 
     def tituloLegislatura():
         html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format(
