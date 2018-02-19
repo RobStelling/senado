@@ -28,11 +28,12 @@ with open('csv/anos.csv', newline='') as arquivoAnos:
             legislaturaAtual = int(row[0])
             anos = list(range(int(row[1]), int(row[2]) + 1))
             # Quarto campo está no formato aaaa-mm-dd hh:mm:ss.dcmm
-            # Primeiro separa data de hora 
+            # Primeiro separa data de hora
             dataColeta, horaColeta = row[3].split(' ')
             # Muda data coleta de aaaa-mm-dd para dd/mm/aaaa
             dataColeta = dataColeta.split('-')
-            dataColeta = dataColeta[2] + '/' + dataColeta[1] + '/' + dataColeta[0]
+            dataColeta = dataColeta[2] + '/' + \
+                dataColeta[1] + '/' + dataColeta[0]
             # Descarta os décimos de segundo
             horaColeta = horaColeta.split('.')[0]
             break

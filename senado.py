@@ -40,7 +40,8 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-versao = '0.2.25'
+verbose = False
+versao = '0.2.26'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -213,18 +214,40 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     gastos = {'ano': ano, 'total': 0.0, 'lista': {}}
     sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
     if nascimento:
-        dadosPessoais = sopaSenador.find('div', {'class': 'dadosPessoais'}).find_all('dd')
-        dataNascimento = dadosPessoais[1].text.strip()
-        if len(dadosPessoais) >= 3:
-            cidadeEstado = dadosPessoais[2].text.strip().split('\n')
-            cidade = cidadeEstado[0].strip()
-            if len(cidadeEstado) == 2:
-                estado = cidadeEstado[1].strip()[1:3]
-            else:
-                estado = ""
+        dadosPessoais = sopaSenador.find(
+            'div', {'class': 'dadosPessoais'}).find_all('dd')
+        labelDadosPessoais = sopaSenador.find(
+            'div', {'class': 'dadosPessoais'}).find_all('dt')
+
+        dataNascimento, cidade, estado = ["", "", ""]
+
+        for index, label in enumerate(labelDadosPessoais):
+            if label.text == 'Data de Nascimento:':
+                dataNascimento = dadosPessoais[index].text.strip()
+            if label.text == 'Naturalidade:':
+                cidadeEstado = dadosPessoais[index].text.strip().split('\n')
+                cidade = cidadeEstado[0].strip()
+                if len(cidadeEstado) == 2:
+                    estado = cidadeEstado[1].strip()[1:3]
+
+        if cidade == "":
+            listaMunicipios = []
+        elif estado == "":
+            listaMunicipios = municipios.query(
+                'NM_MUN_2016 == "{}"'.format(cidade.upper())).values
         else:
-            cidade, estado = ["", ""]
-        nascimentoSenador = [dataNascimento, cidade, estado]
+            listaMunicipios = municipios.query(
+                'NM_MUN_2016 == "{}" and NM_UF_SIGLA == "{}"'.format(cidade.upper(), estado.upper())).values
+
+        if len(listaMunicipios) != 1:
+            codMunicipio = -1
+            if verbose:
+                print("Senador {}, erro de municipio: {} {}".format(
+                    codigoSenador, cidade, estado))
+        else:
+            codMunicipio = listaMunicipios[0][4]
+
+        nascimentoSenador = [dataNascimento, codMunicipio]
     else:
         nascimentoSenador = None
     # Se houve um redirect então a página sobre aquele ano daquele senador não existe
@@ -232,7 +255,6 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         return total, infoAuxilio, infoPessoal, gastos, nascimentoSenador
 
     # E gera a sopa
-
 
     # Seleciona a área onde estão os dados desejados
     bloco = sopaSenador.find('div', {'class': 'sen-conteudo-interno'})
@@ -404,6 +426,10 @@ combustiveis = leGastosCombustiveis(anos)
 # e soma os gastos em 'gastos'
 colunaInteiro = set()
 gastosSenadores = []
+# Abre o arquivo de municípios, para inclusão do código do município de nascimento
+# do senador
+municipios = pd.read_csv('csv/AR_BR_MUN_2016.csv',
+                         encoding='utf-8')
 # A variável senador serve de índice para dados e para gastosSenadores,
 # porque sempre aponta para o senador atual.
 for senador in range(len(dados)):
@@ -417,11 +443,10 @@ for senador in range(len(dados)):
     for ano in anos:
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
         total, auxilio, pessoal, gastos, nascimento = infoSenador(
-            dados[senador]['codigo'], ano=ano, intervalo=0.5, nascimento=ano==anos[0])
+            dados[senador]['codigo'], ano=ano, intervalo=0.5, nascimento=ano == anos[0])
         if nascimento != None:
             dados[senador]['nascimentoData'] = nascimento[0]
-            dados[senador]['naturalCidade'] = nascimento[1]
-            dados[senador]['naturalEstado'] = nascimento[2]
+            dados[senador]['naturalMunicipio'] = nascimento[1]
         gastosSenadores[senador]['gastos'].append(gastos)
         if total != gastos['total']:
             print(
@@ -440,6 +465,7 @@ for senador in range(len(dados)):
             colunaInteiro.add(coluna)
             meses = auxilio[beneficio]['meses']
             dados[senador][coluna] = meses
+
 
 def gastosCombustiveis(listaGastos, senador, ano):
     """ Retorna o gasto de combustíveis de um senador
@@ -577,7 +603,8 @@ sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
 with open('csv/anos.csv', 'w') as arquivoAnos:
     anosWriter = csv.writer(arquivoAnos)
     anosWriter.writerow(["Legislatura", "Inicial", "Final", "Coleta"])
-    anosWriter.writerow([legislaturaAtual, anos[0], anos[-1], datetime.today()])
+    anosWriter.writerow(
+        [legislaturaAtual, anos[0], anos[-1], datetime.today()])
     arquivoAnos.close()
 
 # Coleta fotos que estejam faltando
