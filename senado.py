@@ -41,7 +41,7 @@ Lista de ideias a fazer:
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 verbose = False
-versao = '0.2.26'
+versao = '0.2.27'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -557,9 +557,12 @@ mediaGastosMulheresExercicio = dadosSenado.query(
 top = dadosSenado.sort_values(by=['gastos'], ascending=[False]).head(15)
 
 # Dataframes de gastos por estado e por partidos
-gastoEstados = dadosSenado.groupby('UF').sum().sort_values(
+listaColunas = list(dadosSenado.columns)
+# Exclui a coluna naturalMunicipio, que é inteira mas não entra no cálculo de soma
+listaColunas.remove('naturalMunicipio')
+gastoEstados = dadosSenado.groupby('UF')[listaColunas].sum().sort_values(
     by=['gastos'], ascending=[False])
-gastoPartidos = dadosSenado.groupby('partido').sum().sort_values(
+gastoPartidos = dadosSenado.groupby('partido')[listaColunas].sum().sort_values(
     by=['gastos'], ascending=[False])
 sexo = dadosSenado.rename(columns={'Participacao': '(Sexo, Situação)'}).groupby(
     ['sexo', 'status'])['(Sexo, Situação)'].count()
