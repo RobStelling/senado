@@ -47,6 +47,13 @@ caption {
 	font-weight:normal;
 	font-size:2em;
 }
+
+.TextoImagem {
+	color:black;
+	font-weight:normal;
+	font-size:2em;
+}
+
 /* Tooltips */
 a span.fototip {
 	display:none;
