@@ -302,7 +302,7 @@ plt.close()
 gabineteEstados = gastoEstados.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(
     kind='bar', title='Tamanho do gabinete em 2017 por unidade da federação', figsize=(10, 10), fontsize=12, legend=False)
 gabineteEstados.get_figure().savefig(
-    f"{imagens}/gastoGabineteEstados-2017.png")
+    f"{imagens}/gastoGabineteEstados2017.png")
 plt.close()
 gPartidos = gastoPartidos[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
     kind='bar', rot=0, title='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
@@ -312,7 +312,7 @@ plt.close()
 gabinetePartidos = gastoPartidos.sort_values(by=['TotalGabinete-2017'], ascending=False)[['TotalGabinete-2017']].plot(
     kind='bar', title='Tamanho do gabinete em 2017 por partido', figsize=(10, 10), fontsize=12, legend=False)
 gabinetePartidos.get_figure().savefig(
-    f"{imagens}/gastoGabinetePartidos-2017.png")
+    f"{imagens}/gastoGabinetePartidos2017.png")
 plt.close()
 gTop = top[['gastos', 'gastos2015', 'gastos2016', 'gastos2017']].plot(
     kind='bar', rot=20, title='Senadores com maiores gastos', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
