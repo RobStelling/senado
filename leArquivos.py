@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import operator
 import os
 import pandas as pd
+import re
 
 import rotinas as rtn
 
@@ -165,12 +166,12 @@ def geraModeloHTML(modeloHtml, saida):
             i += 1
         return html
 
-    def exercicio():
+    def exercicio(_):
         """Lista de senadores em exercício, em ordem alfabética de nome
         """
         return htmlRowsSenado(dadosSenado.query('status == "Exercicio"').sort_values(by='nomeSort'), 2017)
 
-    def foraExercicio():
+    def foraExercicio(_):
         """Lista de senadores fora de exercício, em ordem alfabética de nome
         """
         return htmlRowsSenado(dadosSenado.query('status == "ForaExercicio"').sort_values(by='nomeSort'), 2017)
@@ -180,25 +181,30 @@ def geraModeloHTML(modeloHtml, saida):
             '', mensagem, anos[0], anos[len(anos) - 1])
         return html
 
-    def captionExercicio():
+    def captionExercicio(_):
         return caption("em Exercício")
 
-    def captionForaExercicio():
+    def captionForaExercicio(_):
         return caption("fora de Exercício")
 
-    def dataDaColeta():
+    def dataDaColeta(_):
         return dataColeta
 
-    def horaDaColeta():
+    def horaDaColeta(_):
         return horaColeta
+    
+    def imagem(imgTxt):
+        particao = imgTxt.split('-')
+        return '<img src="imagens/{}.png" width="{}%"></img>\n'.format(particao[4], particao[6])
 
-    def tituloLegislatura():
+    def tituloLegislatura(_):
         html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format(
             '', legislaturaAtual)
         return html
 
     # Dicionário de padrões a encontrar e função que será chamada para cada padrão
     padrao = {"<!--Exercicio-->": exercicio,
+              "<!--Imagem--[A-Za-z0-9]+--[0-9]+-->": imagem,
               "<!--ForaExercicio-->": foraExercicio,
               "<!--CaptionExercicio-->": captionExercicio,
               "<!--Data-->": dataDaColeta,
@@ -210,8 +216,11 @@ def geraModeloHTML(modeloHtml, saida):
     for linha in modeloHtml:
         # a linha com o marcador de padrão é mantida (se assume que é um comentário html)
         saida.write(linha)
-        if linha.strip() in padrao:
-            saida.write(f"{padrao[linha.strip()]()}")
+        linhaLimpa = linha.strip()
+        for index, p in enumerate(padrao):
+            if re.match(p, linhaLimpa):
+                saida.write(f"{padrao[p](linhaLimpa)}")
+
     modeloHtml.close()
     saida.close()
 
