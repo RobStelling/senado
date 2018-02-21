@@ -192,7 +192,7 @@ def geraModeloHTML(modeloHtml, saida):
 
     def horaDaColeta(_):
         return horaColeta
-    
+
     def imagem(imgTxt):
         particao = imgTxt.split('-')
         return '<img src="imagens/{}.png" width="{}%"></img>\n'.format(particao[4], particao[6])
@@ -295,7 +295,8 @@ gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(
 gSexoT[0].get_figure().savefig(f"{imagens}/distSexoT.png")
 plt.close()
 
-listaGastos = [x for x in list(gastoEstados.columns) if re.match(r'gastos[0-9]*$',x)]
+listaGastos = [x for x in list(
+    gastoEstados.columns) if re.match(r'gastos[0-9]*$', x)]
 
 gEstados = gastoEstados[listaGastos].plot(
     kind='bar', rot=0, title='Gastos por unidade da federação', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
@@ -323,7 +324,8 @@ gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
 gTop.get_figure().savefig(f"{imagens}/maiores.png")
 plt.close()
 
-listaBeneficioMoradia = [x for x in gastoEstados.columns if re.match(r'Auxílio-Moradia-[0-9]+$', x) or re.match(r'Imóvel Funcional-[0-9]+$', x)]
+listaBeneficioMoradia = [x for x in gastoEstados.columns if re.match(
+    r'Auxílio-Moradia-[0-9]+$', x) or re.match(r'Imóvel Funcional-[0-9]+$', x)]
 beneficioMoradia = 0
 for beneficio in listaBeneficioMoradia:
     beneficioMoradia += gastoEstados[beneficio]
