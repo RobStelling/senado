@@ -325,7 +325,7 @@ gTop.get_figure().savefig(f"{imagens}/maiores.png")
 plt.close()
 
 listaBeneficioMoradia = [x for x in gastoEstados.columns if re.match(
-    r'Auxílio-Moradia-[0-9]+$', x) or re.match(r'Imóvel Funcional-[0-9]+$', x)]
+    r'(Auxílio-Moradia|Imóvel Funcional)-[0-9]+$', x)]
 beneficioMoradia = 0
 for beneficio in listaBeneficioMoradia:
     beneficioMoradia += gastoEstados[beneficio]
