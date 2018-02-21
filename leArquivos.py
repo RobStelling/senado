@@ -295,8 +295,8 @@ gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(
 gSexoT[0].get_figure().savefig(f"{imagens}/distSexoT.png")
 plt.close()
 
-listaGastos = [x for x in list(
-    gastoEstados.columns) if re.match(r'gastos[0-9]*$', x)]
+listaGastos = [
+    x for x in gastoEstados.columns if re.match(r'gastos[0-9]*$', x)]
 
 gEstados = gastoEstados[listaGastos].plot(
     kind='bar', rot=0, title='Gastos por unidade da federação', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
