@@ -41,7 +41,7 @@ Lista de ideias a fazer:
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 verbose = False
-versao = '0.2.27'
+versao = '0.2.28'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -52,20 +52,23 @@ def leDadosParlamentares(legislatura=55):
     """
 
     def ativo(parlamentar, data):
-        """Verifica se um parlamentar está ativo no momento
+        """Verifica se um parlamentar está ativo em uma data
         Retorna True se estiver ativo, False se estiver inativo
         """
 
-        # Teoricamente pode haver múltiplas legislaturas de um mandato
-        # mas nos exemplos encontrados só vimos casos até segunda.
+        # Um senador é eleito por 8 anos em duas legislaturas consecutivas
+        # de 4 anos, com trocas de 1/3 do senado em uma eleição e 2/3 na seguinte.
+        # Os testes de 'Terceira' em diante são para acomodar possíveis mudanças.
         ordemLegislatura = ['Primeira', 'Segunda', 'Terceira',
                             'Quarta', 'Quinta', 'Sexta', 'Setima', 'Oitava', 'Nona']
         for ordinal in ordemLegislatura:
             # Se não encontrou legislatura então não é senador atual
             if parlamentar['Mandatos']['Mandato'].get(f"{ordinal}LegislaturaDoMandato", '') == '':
                 return False
+
             ordemLegislatura = parlamentar['Mandatos'][
                 'Mandato'][f"{ordinal}LegislaturaDoMandato"]
+            # Datas estão no formato aaaa-mm-dd
             inicio = [int(x)
                       for x in ordemLegislatura['DataInicio'].split('-')]
             fim = [int(x) for x in ordemLegislatura['DataFim'].split('-')]
@@ -83,6 +86,8 @@ def leDadosParlamentares(legislatura=55):
                 for ex in exercicios:
                     if ex.get('DataFim', '') == '':
                         return True
+        # Se não encontrou nenhum mandado ou exercício
+        # então não está ativo
         return False
 
     # Define que aceita JSON
@@ -108,16 +113,20 @@ def leDadosParlamentares(legislatura=55):
     AP,30,gilvamborges@senador.leg.br,Gilvam Borges,Gilvam Pinheiro Borges,PMDB,Masculino
     PA,4998,marinorbrito@senadora.leg.br,Marinor Brito,Marinor Jorge Brito,PSOL,Feminino
     PB,3811,wilson.santiago@senador.leg.br,Wilson Santiago,José Wilson Santiago,PMDB,Masculino
-    Os parlamentares acima não aparecem nas listas de Vacantes do Senado, os senadores abaixo também
+
+    Os tres parlamentares acima não aparecem nas listas de Vacantes do Senado, os senadores abaixo também
     não foram eleitos na legislatura atual mas aparecem na lista de vacantes do senado:
+
     Demóstenes Torres, que teve seu mandato cassado pelo Senado por quebra de decoro parlamentar:
     - Demóstenes Torres:
     GO,3399,demostenes.torres@senador.leg.br,Demóstenes Torres,Demóstenes Lazaro Xavier Torres,S/Partido,Masculino
+
     2 senadores que faleceram antes da legislatura atual
     - Itamar Franco: 02/07/2011
     - João Ribeiro: 18/12/2013
     MG,1754,itamar.franco@senador.leg.br,Itamar Franco,Itamar Augusto Cautiero Franco,,Masculino
     TO,916,joaoribeiro@senador.leg.br,João Ribeiro,João Batista de Jesus Ribeiro,PR,Masculino
+
     E os que renunciaram em legislatura anterior:
     - Vital do Rego
     - Wellington Dias
@@ -129,6 +138,7 @@ def leDadosParlamentares(legislatura=55):
                    "Marinor Brito", "Vital do Rêgo", "Wellington Dias", "Wilson Santiago"]
     i = 0
     # Retira da lista os parlamentares que nunca exerceram mandato
+    # ou que estão na "listaNegada"
     while i < len(parlamentares):
         if parlamentares[i]['Mandatos']['Mandato'].get('Exercicios', '') == '':
             parlamentares.pop(i)
@@ -137,7 +147,7 @@ def leDadosParlamentares(legislatura=55):
                 parlamentares[i]['IdentificacaoParlamentar']['NomeParlamentar'])
             parlamentares.pop(i)
         else:
-            i = i + 1
+            i += 1
 
     hoje = datetime.today()
     # Se for ativo, é atual
