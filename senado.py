@@ -2,6 +2,7 @@
 # Imports
 from bs4 import BeautifulSoup
 from datetime import datetime
+import argparse
 import csv
 import errno
 import json
@@ -40,8 +41,22 @@ Lista de ideias a fazer:
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-verbose = False
-versao = '0.2.28'
+
+parser = argparse.ArgumentParser(
+    description='Coleta dados de gastos de Senadores brasileiros.')
+
+parser.add_argument('-v', '--verbose', dest='verbose', action='store_true',
+                    help='Informa estado da coleta enquanto o programa é executado')
+
+parser.add_argument('-d', '--debug', dest='debug', action='store_true',
+                    help='Mostra informações para depuração')
+
+parser.add_argument('-i', '--intervalo', dest='intervalo', type=float, default=0.5,
+                    help='Intervalo em segundos entre coletas de páginas, default: 0.5')
+
+args = parser.parse_args()
+
+versao = '0.2.29'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -203,7 +218,10 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     Página exemplo: Senador Itamar Franco, 2011
     http://www6g.senado.leg.br/transparencia/sen/1754/?ano=2011
     """
-    print('.', end='', flush=True)            # Indicador de atividade
+    if args.debug:
+        print('Senador: {} Ano: {}'.format(codigoSenador, ano))
+    if args.verbose:
+        print('.', end='', flush=True)            # Indicador de atividade
     # Intervalo, em segundos, antes de carregar a página
     if intervalo > 0:
         time.sleep(intervalo)
@@ -251,7 +269,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
 
         if len(listaMunicipios) != 1:
             codMunicipio = -1
-            if verbose:
+            if args.debug:
                 print("Senador {}, erro de municipio: {} {}".format(
                     codigoSenador, cidade, estado))
         else:
@@ -389,13 +407,16 @@ while i < len(anos):
     else:
         i += 1
 
-print('Lendo dados de parlamentares da legislatura {}...'.format(legislaturaAtual))
+if args.verbose:
+    print('Lendo dados de parlamentares da legislatura {}...'.format(legislaturaAtual))
 parlamentares, parlamentaresForaExercicio = leDadosParlamentares(
     legislaturaAtual)
-print('Fim de leitura...')
+if args.verbose:
+    print('Fim de leitura...')
 
 dados = []
-print('Organizando informações de parlamentares...')
+if args.verbose:
+    print('Organizando informações de parlamentares...')
 # Adiciona informações dos parlamentares em exercício e fora de exercício
 # à lista 'dados'
 for senador in parlamentares:
@@ -404,9 +425,9 @@ for senador in parlamentares:
 for senador in parlamentaresForaExercicio:
     adicionaDados(dados, senador, status='ForaExercicio')
 
-print('Fim de organização de informações...')
-
-print('Recuperando informações de gastos parlamentares...')
+if args.verbose:
+    print('Fim de organização de informações...')
+    print('Recuperando informações de gastos parlamentares...')
 
 # Lê o arquivo de gastos de combustível a partir de 2016
 
@@ -453,7 +474,7 @@ for senador in range(len(dados)):
     for ano in anos:
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
         total, auxilio, pessoal, gastos, nascimento = infoSenador(
-            dados[senador]['codigo'], ano=ano, intervalo=0.5, nascimento=ano == anos[0])
+            dados[senador]['codigo'], ano=ano, intervalo=args.intervalo, nascimento=ano == anos[0])
         if nascimento != None:
             dados[senador]['nascimentoData'] = nascimento[0]
             dados[senador]['naturalMunicipio'] = nascimento[1]
@@ -537,8 +558,8 @@ for coluna in colunaInteiro:
     for senador in range(len(dados)):
         if dados[senador].get(coluna, 'Não tem') == 'Não tem':
             dados[senador][coluna] = 0
-
-print('\nFim de recuperação de informações de gastos parlamentares...')
+if args.verbose:
+    print('\nFim de recuperação de informações de gastos parlamentares...\n')
 
 
 # Cria DataFrame dos dados do senado
