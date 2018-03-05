@@ -2,6 +2,7 @@
 # Imports
 from bs4 import BeautifulSoup
 from matplotlib.ticker import FuncFormatter
+import argparse
 import csv
 import errno
 import json
@@ -19,6 +20,17 @@ gera gráficos, texto e páginas com o conteúdo
 """
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+
+parser = argparse.ArgumentParser(
+    description='Coleta dados de gastos de Senadores brasileiros.')
+
+parser.add_argument('-G', '--nograph', dest='nograph', action='store_true',
+                    help='Não gera gráficos')
+
+parser.add_argument('-P', '--nopage', dest='nopage', action='store_true',
+                    help='Não gera a página html')
+
+args = parser.parse_args()
 
 # Lê legislatura e Lista de anos de mandato para contabilização
 with open('csv/anos.csv', newline='') as arquivoAnos:
@@ -121,7 +133,7 @@ print('Total de gastos: {}'.format(rtn.reais(round(totalizacaoGastosSenado, 2)))
 # Gera página HTML
 
 
-def geraModeloHTML(modeloHtml, saida):
+def geraHTML(modeloHtml, saida):
     """Gera página HTML a partir de um modelo (modeloHtml)
     não retorna nenhum valor
     """
@@ -224,33 +236,24 @@ def geraModeloHTML(modeloHtml, saida):
     modeloHtml.close()
     saida.close()
 
-
-# Abre os arquivos e gera a página HTML
-try:
-    modeloHtml = open("index.tmpl", "r")
+if not args.nopage:
+    # Abre os arquivos e gera a página HTML
     try:
-        # Se conseguiu abrir entrada, tenta abrir saída e gerar modelo
-        saida = open("index.html", "w")
-        geraModeloHTML(modeloHtml, saida)
-    except FileNotFoundError:
-        # trata erros na abertura do arquivo de saída
-        modeloHtml.close()
-        print("Erro no nome do arquivo de saída")
+        modeloHtml = open("index.tmpl", "r")
+        try:
+            # Se conseguiu abrir entrada, tenta abrir saída e gerar modelo
+            saida = open("index.html", "w")
+            geraHTML(modeloHtml, saida)
+        except FileNotFoundError:
+            # trata erros na abertura do arquivo de saída
+            modeloHtml.close()
+            print("Erro no nome do arquivo de saída")
+        except IOError:
+            modeloHtml.close()
+            print("Não consigo criar index.html")
     except IOError:
-        modeloHtml.close()
-        print("Não consigo criar index.html")
-except IOError:
-    # Trata erro na abertura do arquivo de entrada
-    print("Não consigo abrir index.tmpl")
-
-# Gera gráficos
-imagens = 'imagens'
-if not os.path.exists(imagens):
-    os.makedirs(imagens)
-
-
-plt.style.use('seaborn-whitegrid')
-
+        # Trata erro na abertura do arquivo de entrada
+        print("Não consigo abrir index.tmpl")
 
 def tickReais(x, pos=None):
     """Retorna uma string no formato <numero>M para ser usada
@@ -263,75 +266,83 @@ def tickReais(x, pos=None):
     return locale.format(formato, x, grouping=True) + 'M'
 
 
-# Ordena os tipos de gasto pelo montante e cria os vetores
-# de título (caput), dados
-gS = sorted(gastosSenado.items(), key=operator.itemgetter(1))
-caput = []
-y = []
-x = []
-i = 0
-for item in gS:
-    caput.append(item[0])
-    x.append(item[1] / 1000000)
-    y.append(i)
-    i += 1
 
-plt.style.use('seaborn-whitegrid')
 
-fig, ax = plt.subplots()
-ax.barh(y, x, tick_label=caput)
-ax.set(xlabel='Valores em milhões de reais',
-       title='Gastos de Senadores por tipo de despesa')
-ax.xaxis.set_major_formatter(FuncFormatter(tickReais))
-fig.savefig(f"{imagens}/gastosSenado.png",
-            transparent=False, bbox_inches="tight")
-plt.close()
-gSexo = sexo.plot(kind='pie', figsize=(13, 13), fontsize=12,
-                  subplots=True, legend=False, colormap='Paired')
-gSexo[0].get_figure().savefig(f"{imagens}/distSexo.png")
-plt.close()
-gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(
-    5, 5), subplots=True, legend=False, fontsize=12, colormap='Paired')
-gSexoT[0].get_figure().savefig(f"{imagens}/distSexoT.png")
-plt.close()
+if not args.nograph:
+    # Gera gráficos
+    imagens = 'imagens'
+    if not os.path.exists(imagens):
+        os.makedirs(imagens)
 
-listaGastos = [
-    x for x in gastoEstados.columns if re.match(r'gastos[0-9]*$', x)]
+    # Ordena os tipos de gasto pelo montante e cria os vetores
+    # de título (caput), dados
+    gS = sorted(gastosSenado.items(), key=operator.itemgetter(1))
+    caput = []
+    y = []
+    x = []
+    i = 0
+    for item in gS:
+        caput.append(item[0])
+        x.append(item[1] / 1000000)
+        y.append(i)
+        i += 1
 
-gEstados = gastoEstados[listaGastos].plot(
-    kind='bar', rot=0, title='Gastos por unidade da federação', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
-gEstados.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-gEstados.get_figure().savefig(f"{imagens}/gastoEstados.png")
-plt.close()
-gabineteEstados = gastoEstados.sort_values(by=['TotalGabinete-{}'.format(anos[-1])], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
-    kind='bar', title='Tamanho do gabinete em {} por unidade da federação'.format(anos[-1]), figsize=(10, 10), fontsize=12, legend=False)
-gabineteEstados.get_figure().savefig(
-    f"{imagens}/gastoGabineteEstados{anos[-1]}.png")
-plt.close()
-gPartidos = gastoPartidos[listaGastos].plot(
-    kind='bar', rot=0, title='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
-gPartidos.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-gPartidos.get_figure().savefig(f"{imagens}/gastoPartidos.png")
-plt.close()
-gabinetePartidos = gastoPartidos.sort_values(by=['TotalGabinete-{}'.format(anos[-1])], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
-    kind='bar', title='Tamanho do gabinete em {} por partido'.format(anos[-1]), figsize=(10, 10), fontsize=12, legend=False)
-gabinetePartidos.get_figure().savefig(
-    f"{imagens}/gastoGabinetePartidos{anos[-1]}.png")
-plt.close()
-gTop = top[listaGastos].plot(
-    kind='bar', rot=20, title='Senadores com maiores gastos', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
-gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-gTop.get_figure().savefig(f"{imagens}/maiores.png")
-plt.close()
+    plt.style.use('seaborn-whitegrid')
 
-listaBeneficioMoradia = [x for x in gastoEstados.columns if re.match(
-    r'(Auxílio-Moradia|Imóvel Funcional)-[0-9]+$', x)]
-beneficioMoradia = 0
-for beneficio in listaBeneficioMoradia:
-    beneficioMoradia += gastoEstados[beneficio]
-beneficioMoradia /= len(anos)
+    fig, ax = plt.subplots()
+    ax.barh(y, x, tick_label=caput)
+    ax.set(xlabel='Valores em milhões de reais',
+           title='Gastos de Senadores por tipo de despesa')
+    ax.xaxis.set_major_formatter(FuncFormatter(tickReais))
+    fig.savefig(f"{imagens}/gastosSenado.png",
+                transparent=False, bbox_inches="tight")
+    plt.close()
+    gSexo = sexo.plot(kind='pie', figsize=(13, 13), fontsize=12,
+                      subplots=True, legend=False, colormap='Paired')
+    gSexo[0].get_figure().savefig(f"{imagens}/distSexo.png")
+    plt.close()
+    gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(
+        5, 5), subplots=True, legend=False, fontsize=12, colormap='Paired')
+    gSexoT[0].get_figure().savefig(f"{imagens}/distSexoT.png")
+    plt.close()
 
-gBeneficio = beneficioMoradia.sort_values(ascending=False).plot(
-    kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
-gBeneficio.get_figure().savefig(f"{imagens}/moradiaEstado.png")
-plt.close()
+    listaGastos = [
+        x for x in gastoEstados.columns if re.match(r'gastos[0-9]*$', x)]
+
+    gEstados = gastoEstados[listaGastos].plot(
+        kind='bar', rot=0, title='Gastos por unidade da federação', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
+    gEstados.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
+    gEstados.get_figure().savefig(f"{imagens}/gastoEstados.png")
+    plt.close()
+    gabineteEstados = gastoEstados.sort_values(by=['TotalGabinete-{}'.format(anos[-1])], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
+        kind='bar', title='Tamanho do gabinete em {} por unidade da federação'.format(anos[-1]), figsize=(10, 10), fontsize=12, legend=False)
+    gabineteEstados.get_figure().savefig(
+        f"{imagens}/gastoGabineteEstados{anos[-1]}.png")
+    plt.close()
+    gPartidos = gastoPartidos[listaGastos].plot(
+        kind='bar', rot=0, title='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
+    gPartidos.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
+    gPartidos.get_figure().savefig(f"{imagens}/gastoPartidos.png")
+    plt.close()
+    gabinetePartidos = gastoPartidos.sort_values(by=['TotalGabinete-{}'.format(anos[-1])], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
+        kind='bar', title='Tamanho do gabinete em {} por partido'.format(anos[-1]), figsize=(10, 10), fontsize=12, legend=False)
+    gabinetePartidos.get_figure().savefig(
+        f"{imagens}/gastoGabinetePartidos{anos[-1]}.png")
+    plt.close()
+    gTop = top[listaGastos].plot(
+        kind='bar', rot=20, title='Senadores com maiores gastos', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
+    gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
+    gTop.get_figure().savefig(f"{imagens}/maiores.png")
+    plt.close()
+
+    listaBeneficioMoradia = [x for x in gastoEstados.columns if re.match(
+        r'(Auxílio-Moradia|Imóvel Funcional)-[0-9]+$', x)]
+    beneficioMoradia = 0
+    for beneficio in listaBeneficioMoradia:
+        beneficioMoradia += gastoEstados[beneficio]
+    beneficioMoradia /= len(anos)
+
+    gBeneficio = beneficioMoradia.sort_values(ascending=False).plot(
+        kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
+    gBeneficio.get_figure().savefig(f"{imagens}/moradiaEstado.png")
+    plt.close()
