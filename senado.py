@@ -65,6 +65,8 @@ def leDadosParlamentares(legislatura=55):
     Documentação da API do Senado Federal:
     http://legis.senado.leg.br/dadosabertos/docs/resource_ListaSenadorService.html
     """
+    if args.verbose:
+        print('Lendo dados de parlamentares da legislatura {}...'.format(legislaturaAtual), flush=True)
 
     def ativo(parlamentar, data):
         """Verifica se um parlamentar está ativo em uma data
@@ -170,6 +172,9 @@ def leDadosParlamentares(legislatura=55):
     # Se não for atual, está Fora de Exercício
     parlamentaresForaExercicio = [
         x for x in parlamentares if not x in parlamentaresAtuais]
+
+    if args.verbose:
+        print('Fim de leitura de dados de parlamentares...')
 
     return parlamentaresAtuais, parlamentaresForaExercicio
 
@@ -363,6 +368,8 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
 
 
 def infoLegislaturaAtual():
+    if args.verbose:
+        print("Verificando legislatura atual...")
     """Retorna a legislatura atual e os anos de exercício a partir
     da página de senadores em exercício do senado
     """
@@ -389,7 +396,6 @@ def infoLegislaturaAtual():
 
     return numeroLegislatura, anos
 
-
 legislaturaAtual, anos = infoLegislaturaAtual()
 anoAtual = datetime.today().year
 """ Só contabiliza até o ano anterior
@@ -407,12 +413,8 @@ while i < len(anos):
     else:
         i += 1
 
-if args.verbose:
-    print('Lendo dados de parlamentares da legislatura {}...'.format(legislaturaAtual))
 parlamentares, parlamentaresForaExercicio = leDadosParlamentares(
     legislaturaAtual)
-if args.verbose:
-    print('Fim de leitura...')
 
 dados = []
 if args.verbose:
@@ -617,6 +619,8 @@ print('O gasto médio dos senadores, em exercício e fora de exercício, foi de 
 print('O montante de despesas parlamentares em {:d} anos foi de '.format(len(anos)) + rtn.reais(
     totalGasto) + ', com media anual de ' + rtn.reais(totalGasto / len(anos)))
 
+if args.verbose:
+    print("Gravando arquivos...")
 # Salva arquivos
 if not os.path.exists('csv'):
     os.makedirs('csv')
@@ -641,6 +645,8 @@ with open('csv/anos.csv', 'w') as arquivoAnos:
         [legislaturaAtual, anos[0], anos[-1], datetime.today()])
     arquivoAnos.close()
 
+if args.verbose:
+    print("Verificando fotos...")
 # Coleta fotos que estejam faltando
 # Créditos devem ser extraídos do
 # EXIF de cada foto
