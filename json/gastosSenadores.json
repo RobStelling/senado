@@ -2815,6 +2815,57 @@
     ]
   },
   {
+    "senador":"635",
+    "gastos":[
+      {
+        "ano":2015,
+        "total":341104.43,
+        "lista":{
+          "Aluguel de imóveis para escritório político":72646.49,
+          "Aquisição de material de consumo":11323.2,
+          "Locomoção, hospedagem, alimentação, combustíveis e":88178.6,
+          "Contratação de serviços de apoio ao parlamentar":56127.75,
+          "Divulgação da atividade parlamentar":6905.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":77882.23,
+          "Combustíveis":5610.38,
+          "Outros materiais":5503.35,
+          "Correios":16927.43
+        }
+      },
+      {
+        "ano":2016,
+        "total":301471.61,
+        "lista":{
+          "Aluguel de imóveis para escritório político":63896.55,
+          "Aquisição de material de consumo":4965.32,
+          "Locomoção, hospedagem, alimentação, combustíveis e":65510.67,
+          "Contratação de serviços de apoio ao parlamentar":820.0,
+          "Divulgação da atividade parlamentar":63810.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":80504.37,
+          "Diárias":9322.56,
+          "Combustíveis":4799.33,
+          "Outros materiais":4024.84,
+          "Correios":3817.97
+        }
+      },
+      {
+        "ano":2017,
+        "total":355877.25,
+        "lista":{
+          "Aluguel de imóveis para escritório político":73579.45,
+          "Aquisição de material de consumo":3181.98,
+          "Locomoção, hospedagem, alimentação, combustíveis e":88584.44,
+          "Contratação de serviços de apoio ao parlamentar":85848.69,
+          "Divulgação da atividade parlamentar":9682.17,
+          "Passagens aéreas, aquáticas e terrestres nacionais":78130.48,
+          "Outros materiais":4736.28,
+          "Correios":8043.19,
+          "Combustíveis":4090.57
+        }
+      }
+    ]
+  },
+  {
     "senador":"5052",
     "gastos":[
       {
@@ -3262,34 +3313,6 @@
           "Outros materiais":3270.68,
           "Correios":5409.47,
           "Combustíveis":6977.25
-        }
-      }
-    ]
-  },
-  {
-    "senador":"5106",
-    "gastos":[
-      {
-        "ano":2015,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2016,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2017,
-        "total":59450.71,
-        "lista":{
-          "Aluguel de imóveis para escritório político":15858.04,
-          "Aquisição de material de consumo":220.48,
-          "Locomoção, hospedagem, alimentação, combustíveis e":15724.89,
-          "Contratação de serviços de apoio ao parlamentar":16865.62,
-          "Passagens aéreas, aquáticas e terrestres nacionais":9942.98,
-          "Outros materiais":559.85,
-          "Correios":278.85
         }
       }
     ]
@@ -4591,57 +4614,6 @@
     ]
   },
   {
-    "senador":"635",
-    "gastos":[
-      {
-        "ano":2015,
-        "total":341104.43,
-        "lista":{
-          "Aluguel de imóveis para escritório político":72646.49,
-          "Aquisição de material de consumo":11323.2,
-          "Locomoção, hospedagem, alimentação, combustíveis e":88178.6,
-          "Contratação de serviços de apoio ao parlamentar":56127.75,
-          "Divulgação da atividade parlamentar":6905.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":77882.23,
-          "Combustíveis":5610.38,
-          "Outros materiais":5503.35,
-          "Correios":16927.43
-        }
-      },
-      {
-        "ano":2016,
-        "total":301471.61,
-        "lista":{
-          "Aluguel de imóveis para escritório político":63896.55,
-          "Aquisição de material de consumo":4965.32,
-          "Locomoção, hospedagem, alimentação, combustíveis e":65510.67,
-          "Contratação de serviços de apoio ao parlamentar":820.0,
-          "Divulgação da atividade parlamentar":63810.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":80504.37,
-          "Diárias":9322.56,
-          "Combustíveis":4799.33,
-          "Outros materiais":4024.84,
-          "Correios":3817.97
-        }
-      },
-      {
-        "ano":2017,
-        "total":355877.25,
-        "lista":{
-          "Aluguel de imóveis para escritório político":73579.45,
-          "Aquisição de material de consumo":3181.98,
-          "Locomoção, hospedagem, alimentação, combustíveis e":88584.44,
-          "Contratação de serviços de apoio ao parlamentar":85848.69,
-          "Divulgação da atividade parlamentar":9682.17,
-          "Passagens aéreas, aquáticas e terrestres nacionais":78130.48,
-          "Outros materiais":4736.28,
-          "Correios":8043.19,
-          "Combustíveis":4090.57
-        }
-      }
-    ]
-  },
-  {
     "senador":"5635",
     "gastos":[
       {
@@ -4750,6 +4722,34 @@
         "ano":2017,
         "total":0.0,
         "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"5106",
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":59450.71,
+        "lista":{
+          "Aluguel de imóveis para escritório político":15858.04,
+          "Aquisição de material de consumo":220.48,
+          "Locomoção, hospedagem, alimentação, combustíveis e":15724.89,
+          "Contratação de serviços de apoio ao parlamentar":16865.62,
+          "Passagens aéreas, aquáticas e terrestres nacionais":9942.98,
+          "Outros materiais":559.85,
+          "Correios":278.85
+        }
       }
     ]
   },
