@@ -12,6 +12,7 @@ import os
 import pandas as pd
 import re
 import requests
+import sys
 import time
 
 import rotinas as rtn
