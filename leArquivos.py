@@ -267,7 +267,6 @@ def tickReais(x, pos=None):
 
 
 
-
 if not args.nograph:
     # Gera gráficos
     imagens = 'imagens'
@@ -314,8 +313,8 @@ if not args.nograph:
     gEstados.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
     gEstados.get_figure().savefig(f"{imagens}/gastoEstados.png")
     plt.close()
-    gabineteEstados = gastoEstados.sort_values(by=['TotalGabinete-{}'.format(anos[-1])], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
-        kind='bar', title='Tamanho do gabinete em {} por unidade da federação'.format(anos[-1]), figsize=(10, 10), fontsize=12, legend=False)
+    gabineteEstados = gastoEstados.sort_values(by=[f'TotalGabinete-{anos[-1]}'], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
+        kind='bar', title=f'Tamanho do gabinete em {anos[-1]} por unidade da federação', figsize=(10, 10), fontsize=12, legend=False)
     gabineteEstados.get_figure().savefig(
         f"{imagens}/gastoGabineteEstados{anos[-1]}.png")
     plt.close()
@@ -324,13 +323,13 @@ if not args.nograph:
     gPartidos.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
     gPartidos.get_figure().savefig(f"{imagens}/gastoPartidos.png")
     plt.close()
-    gabinetePartidos = gastoPartidos.sort_values(by=['TotalGabinete-{}'.format(anos[-1])], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
-        kind='bar', title='Tamanho do gabinete em {} por partido'.format(anos[-1]), figsize=(10, 10), fontsize=12, legend=False)
+    gabinetePartidos = gastoPartidos.sort_values(by=[f'TotalGabinete-{anos[-1]}'], ascending=False)[[f'TotalGabinete-{anos[-1]}']].plot(
+        kind='bar', title=f'Tamanho do gabinete em {anos[-1]} por partido', figsize=(10, 10), fontsize=12, legend=False)
     gabinetePartidos.get_figure().savefig(
         f"{imagens}/gastoGabinetePartidos{anos[-1]}.png")
     plt.close()
     gTop = top[listaGastos].plot(
-        kind='bar', rot=20, title='Senadores com maiores gastos', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
+        kind='bar', rot=20, title='Senadores com maiores gastos na legislatura atual', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
     gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
     gTop.get_figure().savefig(f"{imagens}/maiores.png")
     plt.close()
