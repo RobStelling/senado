@@ -409,7 +409,7 @@ fevereiro do ano seguinte.
 """
 i = 0
 while i < len(anos):
-    if anos[i] >= anoAtual:
+    if anos[i] > anoAtual:
         anos.pop(i)
     else:
         i += 1
