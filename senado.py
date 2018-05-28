@@ -67,7 +67,8 @@ def leDadosParlamentares(legislatura=55):
     http://legis.senado.leg.br/dadosabertos/docs/resource_ListaSenadorService.html
     """
     if args.verbose:
-        print('Lendo dados de parlamentares da legislatura {}...'.format(legislaturaAtual), flush=True)
+        print('Lendo dados de parlamentares da legislatura {}...'.format(
+            legislaturaAtual), flush=True)
 
     def ativo(parlamentar, data):
         """Verifica se um parlamentar está ativo em uma data
@@ -397,6 +398,7 @@ def infoLegislaturaAtual():
 
     return numeroLegislatura, anos
 
+
 legislaturaAtual, anos = infoLegislaturaAtual()
 anoAtual = datetime.today().year
 """ Só contabiliza até o ano anterior
@@ -467,7 +469,8 @@ municipios = pd.read_csv('csv/AR_BR_MUN_2016.csv',
 # A variável senador serve de índice para dados e para gastosSenadores,
 # porque sempre aponta para o senador atual.
 for senador in range(len(dados)):
-    gastosSenadores.append({'senador': int(dados[senador]['codigo']), 'gastos': []})
+    gastosSenadores.append(
+        {'senador': int(dados[senador]['codigo']), 'gastos': []})
     dados[senador]['gastos'] = 0
     # Para cada ano, recupera as informações do senador
     # Guarda o total daquele ano (dados[senador][gastos{ano}]) e soma no total
