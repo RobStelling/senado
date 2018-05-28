@@ -57,7 +57,7 @@ parser.add_argument('-i', '--intervalo', dest='intervalo', type=float, default=0
 
 args = parser.parse_args()
 
-versao = '0.2.30'
+versao = '0.2.31'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -467,7 +467,7 @@ municipios = pd.read_csv('csv/AR_BR_MUN_2016.csv',
 # A variável senador serve de índice para dados e para gastosSenadores,
 # porque sempre aponta para o senador atual.
 for senador in range(len(dados)):
-    gastosSenadores.append({'senador': dados[senador]['codigo'], 'gastos': []})
+    gastosSenadores.append({'senador': int(dados[senador]['codigo']), 'gastos': []})
     dados[senador]['gastos'] = 0
     # Para cada ano, recupera as informações do senador
     # Guarda o total daquele ano (dados[senador][gastos{ano}]) e soma no total
