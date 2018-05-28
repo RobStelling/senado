@@ -129,6 +129,14 @@ for caput in gastosSenado:
 
 print('Total de gastos: {}'.format(rtn.reais(round(totalizacaoGastosSenado, 2))))
 
+# Salva arquivo JSON com gastos totalizados
+if not os.path.exists('json'):
+    os.makedirs('json')
+
+with open('json/gastosSenado.json', 'w', encoding='utf-8') as saida:
+    json.dump(gastosSenado, saida, ensure_ascii=False,
+              indent=2, separators=(',', ':'))
+
 # Gera página HTML
 
 
