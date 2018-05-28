@@ -97,8 +97,7 @@ mediaGastosMulheresExercicio = dadosSenado.query(
 
 
 # Imprime algumas informações do senado, pelos dados coletados
-print('Há no senado {:d} senadores, distribuidos entre {:d} homens e {:d} mulheres'.format(
-    totalSenadores, totalHomens, totalMulheres))
+print(f'Há no senado {totalSenadores:d} senadores, distribuidos entre {totalHomens:d} homens e {totalMulheres:d} mulheres')
 print('As mulheres representam ' + locale.format('%.2f',
                                                  totalMulheres / totalSenadores * 100) + '% do total')
 print('Há {:d} senadores em exercício, destes {:d} são mulheres'.format(
@@ -124,8 +123,7 @@ for senador in gastosSenadores:
             else:
                 gastosSenado[caput] += gastos['lista'][caput]
 
-for caput in gastosSenado:
-    gastosSenado[caput] = round(gastosSenado[caput], 2)
+gastosSenado = {caput: round(gastosSenado[caput], 2) for caput in gastosSenado}
 
 print("Gastos do senado por tema:")
 totalizacaoGastosSenado = 0.0
@@ -250,6 +248,7 @@ def geraHTML(modeloHtml, saida):
     modeloHtml.close()
     saida.close()
 
+
 if not args.nopage:
     # Abre os arquivos e gera a página HTML
     try:
@@ -271,6 +270,7 @@ if not args.nopage:
         # Trata erro na abertura do arquivo de entrada
         print("Não consigo abrir index.tmpl")
 
+
 def tickReais(x, pos=None):
     """Retorna uma string no formato <numero>M para ser usada
     em gráficos
@@ -280,7 +280,6 @@ def tickReais(x, pos=None):
     else:
         formato = '%.1f'
     return locale.format(formato, x, grouping=True) + 'M'
-
 
 
 if not args.nograph:
