@@ -50,6 +50,7 @@ with open('csv/anos.csv', newline='') as arquivoAnos:
             # Descarta os décimos de segundo
             horaColeta = horaColeta.split('.')[0]
             break
+arquivoAnos.close()
 
 # Lê créditos das fotos
 with open('csv/creditos.csv', newline='') as creditos:
@@ -58,6 +59,7 @@ with open('csv/creditos.csv', newline='') as creditos:
     listaCredito = {}
     for row in creditosReader:
         listaCredito[int(row[0].split('.')[0].replace('senador', ''))] = row[1]
+creditos.close()
 
 # Lê DataFrames
 dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8', index_col=0)
@@ -74,6 +76,7 @@ sexoT = pd.read_csv('csv/sexoT.csv', encoding='utf-8', index_col=0)
 # Lê arquivo json
 with open('json/gastosSenadores.json', 'r', encoding='utf-8') as entrada:
     gastosSenadores = json.load(entrada)
+entrada.close()
 
 # Calcula dados importantes
 totalSenadores = len(dadosSenado)
@@ -139,6 +142,7 @@ if not os.path.exists('json'):
 with open('json/gastosSenado.json', 'w', encoding='utf-8') as saida:
     json.dump(gastosSenado, saida, ensure_ascii=False,
               indent=2, separators=(',', ':'))
+saida.close()
 
 # Gera página HTML
 
@@ -254,6 +258,8 @@ if not args.nopage:
             # Se conseguiu abrir entrada, tenta abrir saída e gerar modelo
             saida = open("index.html", "w")
             geraHTML(modeloHtml, saida)
+            saida.close()
+            modeloHtml.close()
         except FileNotFoundError:
             # trata erros na abertura do arquivo de saída
             modeloHtml.close()
