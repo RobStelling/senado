@@ -57,7 +57,7 @@ parser.add_argument('-i', '--intervalo', dest='intervalo', type=float, default=0
 
 args = parser.parse_args()
 
-versao = '0.2.29'
+versao = '0.2.30'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -567,6 +567,7 @@ if args.verbose:
 
 # Cria DataFrame dos dados do senado
 dadosSenado = pd.DataFrame(dados)
+dadosSenado.set_index('codigo', inplace=True)
 
 # Exclui quem tem gastos == 0 e status == 'Afastado'
 #dadosSenado = dadosSenado.query('gastos != 0 or status != "Afastado"')
@@ -626,7 +627,7 @@ if args.verbose:
 if not os.path.exists('csv'):
     os.makedirs('csv')
 
-dadosSenado.to_csv('csv/senado.csv', na_rep='', header=True, index=False,
+dadosSenado.to_csv('csv/senado.csv', na_rep='', header=True, index=True,
                    mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
 top.to_csv('csv/top.csv', na_rep='', header=True, index=False,
            mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')

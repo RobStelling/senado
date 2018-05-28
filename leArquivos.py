@@ -61,7 +61,7 @@ with open('csv/creditos.csv', newline='') as creditos:
         listaCredito[int(row[0].split('.')[0].replace('senador', ''))] = row[1]
 
 # Lê DataFrames
-dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8')
+dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8', index_col=0)
 top = pd.read_csv('csv/top.csv', encoding='utf-8')
 gastoPartidos = pd.read_csv('csv/gastoPartidos.csv',
                             encoding='utf-8', index_col=0)
@@ -158,11 +158,11 @@ def geraHTML(modeloHtml, saida):
             html += "{:<12}<tr>\n".format('')
             html += "{:<14}<td>{}</td>\n".format('', i)
             html += "{:<14}<td align='middle'><a href='{}' target='_blank'><img src='fotos/senador{}.jpg' height='51' width='42'><span class='fototip'>Crédito foto: {}</span></a></td>\n".format(
-                '', f"http://www6g.senado.leg.br/transparencia/sen/{senador['codigo']}/?ano={anoConsulta}", senador['codigo'], listaCredito[senador['codigo']])
+                '', f"http://www6g.senado.leg.br/transparencia/sen/{index}/?ano={anoConsulta}", index, listaCredito[index])
             html += "{:<14}<td align='left'>{}</td>\n".format(
                 '', senador['nome'])
             html += "{:<14}<td align='left' class='gastos' name='{}'>{}</td>\n".format(
-                '', senador['codigo'], rtn.reais(senador['gastos']))
+                '', index, rtn.reais(senador['gastos']))
             html += "{:<14}<td align='left'>{}</td>\n".format(
                 '', senador['Participacao'])
             html += "{:<14}<td align='middle'>{}</td>\n".format(
