@@ -52,7 +52,6 @@ with open('csv/anos.csv', newline='') as arquivoAnos:
             break
 
 # Lê créditos das fotos
-# Ao fim, listaCredito[codigo] = credito para senador[codigo]
 with open('csv/creditos.csv', newline='') as creditos:
     creditosReader = csv.reader(creditos)
     header = next(creditosReader)
