@@ -121,6 +121,9 @@ for senador in gastosSenadores:
             else:
                 gastosSenado[caput] += gastos['lista'][caput]
 
+for caput in gastosSenado:
+    gastosSenado[caput] = round(gastosSenado[caput], 2)
+
 print("Gastos do senado por tema:")
 totalizacaoGastosSenado = 0.0
 for caput in gastosSenado:
