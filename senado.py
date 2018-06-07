@@ -12,6 +12,7 @@ import os
 import pandas as pd
 import re
 import requests
+import shutil
 import sys
 import time
 
@@ -321,10 +322,15 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         total += valores[i]
 
     # pega Correios em separado
-    correios = tabelas[1].find('tbody').find_all(
-        'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
-    correiosCaput = correios[0].text.strip()
-    correiosMontante = rtn.s2float(correios[1].text.strip())
+    corpoCorreios = tabelas[1].find('tbody')
+    if corpoCorreios != None:
+        correios = corpoCorreios.find_all(
+            'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
+        correiosCaput = correios[0].text.strip()
+        correiosMontante = rtn.s2float(correios[1].text.strip())
+    else:
+        correiosMontante = 0
+
     if correiosMontante > 0:
         gastos['lista'][correiosCaput] = correiosMontante
         gastos['total'] += gastos['lista'][correiosCaput]
@@ -355,14 +361,15 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
 
     # Recupera dados de pessoal
     # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
-    quantidades = bloco.find('div', {'id': 'accordion-pessoal'}).find(
-        'tbody').find_all('tr', {'class': 'sen_tabela_linha_grupo'})
+    corpoQuantidade = bloco.find('div', {'id': 'accordion-pessoal'}).find('tbody')
+    if corpoQuantidade != None:
+        quantidades = corpoQuantidade.find_all('tr', {'class': 'sen_tabela_linha_grupo'})
 
-    # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
-    for i in range(len(quantidades)):
-        infoPessoal.append(
-            {'titulo': quantidades[i].find('span').text.strip(),
-             'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
+        # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
+        for i in range(len(quantidades)):
+            infoPessoal.append(
+                {'titulo': quantidades[i].find('span').text.strip(),
+                'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
 
     # print(bloco)
     # Retorna o gasto total do senador para o ano pedido
@@ -675,3 +682,8 @@ for url in dadosSenado['urlFoto']:
             arquivo.close()
         else:
             print(f"Erro {requisicao.status_code} na recuperação de {url}")
+            print(f"Criando arquivo {nomeArquivo} com foto vazia...")
+            fotoBranco = f"{dirFotos}/branco.jpg"
+            shutil.copyfile(fotoBranco, nomeArquivo)
+            #
+            # Falta incluir informação de crédito da foto...
