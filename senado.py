@@ -663,6 +663,8 @@ if args.verbose:
 # Créditos devem ser extraídos do
 # EXIF de cada foto
 dirFotos = 'fotos'
+creditosFotos = 'creditos.csv'
+
 if not os.path.exists(dirFotos):
     os.makedirs(dirFotos)
 
