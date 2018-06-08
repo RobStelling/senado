@@ -58,7 +58,7 @@ parser.add_argument('-i', '--intervalo', dest='intervalo', type=float, default=0
 
 args = parser.parse_args()
 
-versao = '0.2.31'
+versao = '0.2.32'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -83,11 +83,11 @@ def leDadosParlamentares(legislatura=55):
                             'Quarta', 'Quinta', 'Sexta', 'Setima', 'Oitava', 'Nona']
         for ordinal in ordemLegislatura:
             # Se não encontrou legislatura então não é senador atual
-            if parlamentar['Mandatos']['Mandato'].get(f"{ordinal}LegislaturaDoMandato", '') == '':
+            if parlamentar['Mandatos']['Mandato'].get(f'{ordinal}LegislaturaDoMandato', '') == '':
                 return False
 
             ordemLegislatura = parlamentar['Mandatos'][
-                'Mandato'][f"{ordinal}LegislaturaDoMandato"]
+                'Mandato'][f'{ordinal}LegislaturaDoMandato']
             # Datas estão no formato aaaa-mm-dd
             inicio = [int(x)
                       for x in ordemLegislatura['DataInicio'].split('-')]
@@ -113,8 +113,8 @@ def leDadosParlamentares(legislatura=55):
     # Define que aceita JSON
     # Resposta padrão da API é XML
     header = {'Accept': 'application/json',
-              'user-agent': f"senadoInfo/{versao}"}
-    url = f"http://legis.senado.leg.br/dadosabertos/senador/lista/legislatura/{legislatura}"
+              'user-agent': f'senadoInfo/{versao}'}
+    url = f'http://legis.senado.leg.br/dadosabertos/senador/lista/legislatura/{legislatura}'
 
     try:
         senadores = requests.get(url, headers=header)
@@ -154,8 +154,8 @@ def leDadosParlamentares(legislatura=55):
     PI,5016,wellington.dias@senador.leg.br,Wellington Dias,José Wellington Barroso de Araujo Dias,PT,Masculino
     Os dados destes senadores não serão incluídos nos cálculos de estatísticas
     """
-    listaNegada = ["Demóstenes Torres", "Gilvam Borges", "Itamar Franco", "João Ribeiro",
-                   "Marinor Brito", "Vital do Rêgo", "Wellington Dias", "Wilson Santiago"]
+    listaNegada = ['Demóstenes Torres', 'Gilvam Borges', 'Itamar Franco', 'João Ribeiro',
+                   'Marinor Brito', 'Vital do Rêgo', 'Wellington Dias', 'Wilson Santiago']
     i = 0
     # Retira da lista os parlamentares que nunca exerceram mandato
     # ou que estão na "listaNegada"
@@ -234,9 +234,9 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     if intervalo > 0:
         time.sleep(intervalo)
 
-    header = {'user-agent': f"senadoInfo/{versao}"}
+    header = {'user-agent': f'senadoInfo/{versao}'}
     # Coleta a página
-    url = f"http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}"
+    url = f'http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}'
 
     try:
         requisicao = requests.get(url, headers=header)
@@ -255,7 +255,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         labelDadosPessoais = sopaSenador.find(
             'div', {'class': 'dadosPessoais'}).find_all('dt')
 
-        dataNascimento, cidade, estado = ["", "", ""]
+        dataNascimento, cidade, estado = ['', '', '']
 
         for index, label in enumerate(labelDadosPessoais):
             if label.text == 'Data de Nascimento:':
@@ -266,9 +266,9 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
                 if len(cidadeEstado) == 2:
                     estado = cidadeEstado[1].strip()[1:3]
 
-        if cidade == "":
+        if cidade == '':
             listaMunicipios = []
-        elif estado == "":
+        elif estado == '':
             listaMunicipios = municipios.query(
                 'NM_MUN_2016 == "{}"'.format(cidade.upper())).values
         else:
@@ -278,7 +278,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         if len(listaMunicipios) != 1:
             codMunicipio = -1
             if args.debug:
-                print("Senador {}, erro de municipio: {} {}".format(
+                print('Senador {}, erro de municipio: {} {}'.format(
                     codigoSenador, cidade, estado))
         else:
             codMunicipio = listaMunicipios[0][4]
@@ -361,15 +361,17 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
 
     # Recupera dados de pessoal
     # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
-    corpoQuantidade = bloco.find('div', {'id': 'accordion-pessoal'}).find('tbody')
+    corpoQuantidade = bloco.find(
+        'div', {'id': 'accordion-pessoal'}).find('tbody')
     if corpoQuantidade != None:
-        quantidades = corpoQuantidade.find_all('tr', {'class': 'sen_tabela_linha_grupo'})
+        quantidades = corpoQuantidade.find_all(
+            'tr', {'class': 'sen_tabela_linha_grupo'})
 
         # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
         for i in range(len(quantidades)):
             infoPessoal.append(
                 {'titulo': quantidades[i].find('span').text.strip(),
-                'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
+                 'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
 
     # print(bloco)
     # Retorna o gasto total do senador para o ano pedido
@@ -378,12 +380,12 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
 
 def infoLegislaturaAtual():
     if args.verbose:
-        print("Verificando legislatura atual...")
+        print('Verificando legislatura atual...')
     """Retorna a legislatura atual e os anos de exercício a partir
     da página de senadores em exercício do senado
     """
-    url = "https://www25.senado.leg.br/web/senadores/em-exercicio"
-    header = {'user-agent': f"senadoInfo/{versao}"}
+    url = 'https://www25.senado.leg.br/web/senadores/em-exercicio'
+    header = {'user-agent': f'senadoInfo/{versao}'}
     try:
         requisicao = requests.get(url, headers=header)
     except requests.exceptions.RequestException as erro:
@@ -454,7 +456,7 @@ def leGastosCombustiveis(anos):
     # senador(nome),codigo(inteiro),gastos(reais/float)
     for ano in range(anoInicial, anoFinal):
         dadosGastosCombustiveis[ano] = {}
-        arquivo = f"csv/{ano}C.csv"
+        arquivo = f'csv/{ano}C.csv'
         with open(arquivo, newline='') as gCombustiveis:
             gCReader = csv.reader(gCombustiveis)
             header = next(gCReader)
@@ -494,18 +496,18 @@ for senador in range(len(dados)):
         gastosSenadores[senador]['gastos'].append(gastos)
         if total != gastos['total']:
             print(
-                f"Erro de totalização: {dados[senador]['codigo']} - {ano} - {total} - {gastos['total']}")
-        dados[senador][f"gastos{ano}"] = total
+                f'Erro de totalização: {dados[senador]["codigo"]} - {ano} - {total} - {gastos["total"]}')
+        dados[senador][f'gastos{ano}'] = total
         dados[senador]['gastos'] += total
-        dados[senador][f"TotalGabinete-{ano}"] = 0
+        dados[senador][f'TotalGabinete-{ano}'] = 0
         for tipo in range(len(pessoal)):
-            coluna = f"{pessoal[tipo]['titulo']}-{ano}"
+            coluna = f'{pessoal[tipo]["titulo"]}-{ano}'
             colunaInteiro.add(coluna)
             quantidade = pessoal[tipo]['quantidade']
             dados[senador][coluna] = quantidade
-            dados[senador][f"TotalGabinete-{ano}"] += quantidade
+            dados[senador][f'TotalGabinete-{ano}'] += quantidade
         for beneficio in range(len(auxilio)):
-            coluna = f"{auxilio[beneficio]['beneficio']}-{ano}"
+            coluna = f'{auxilio[beneficio]["beneficio"]}-{ano}'
             colunaInteiro.add(coluna)
             meses = auxilio[beneficio]['meses']
             dados[senador][coluna] = meses
@@ -524,7 +526,7 @@ def consolidaGastosCombustiveis(senadores, combustiveis):
     """ Consolida o total gasto em combustíveis nos gastos dos senadores
     dados serão salvos em JSON
     """
-    caputCombustiveis = "Combustíveis"
+    caputCombustiveis = 'Combustíveis'
     for senador in range(len(senadores)):
         for gastos in range(len(senadores[senador]['gastos'])):
             gastosCSenador = gastosCombustiveis(
@@ -550,7 +552,7 @@ def consolidaDadosCombustiveisSenadores(dados, combustiveis):
                 combustiveis, codigo, ano)
             if gastosCombustiveisSenador > 0:
                 dados[senador]['gastos'] += gastosCombustiveisSenador
-                dados[senador][f"gastos{ano}"] += gastosCombustiveisSenador
+                dados[senador][f'gastos{ano}'] += gastosCombustiveisSenador
     return
 
 
@@ -632,7 +634,7 @@ print('O montante de despesas parlamentares em {:d} anos foi de '.format(len(ano
     totalGasto) + ', com media anual de ' + rtn.reais(totalGasto / len(anos)))
 
 if args.verbose:
-    print("Gravando arquivos...")
+    print('Gravando arquivos...')
 # Salva arquivos
 if not os.path.exists('csv'):
     os.makedirs('csv')
@@ -652,40 +654,48 @@ sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
 
 with open('csv/anos.csv', 'w') as arquivoAnos:
     anosWriter = csv.writer(arquivoAnos)
-    anosWriter.writerow(["Legislatura", "Inicial", "Final", "Coleta"])
+    anosWriter.writerow(['Legislatura', 'Inicial', 'Final', 'Coleta'])
     anosWriter.writerow(
         [legislaturaAtual, anos[0], anos[-1], datetime.today()])
     arquivoAnos.close()
 
 if args.verbose:
-    print("Verificando fotos...")
+    print('Verificando fotos...')
 # Coleta fotos que estejam faltando
 # Créditos devem ser extraídos do
 # EXIF de cada foto
 dirFotos = 'fotos'
-creditosFotos = 'creditos.csv'
 
 if not os.path.exists(dirFotos):
     os.makedirs(dirFotos)
 
+
+def credita(fotoSenador, credito):
+    creditosFotos = 'creditos.csv'
+    with open(f'csv/{creditosFotos}', 'a') as creditos:
+        creditos.write(f'{fotoSenador},{credito}\n')
+
+
 for url in dadosSenado['urlFoto']:
-    nomeArquivo = f"{dirFotos}/{url.split('/')[-1]}"
+    fotoSenador = url.split('/')[-1]
+    nomeArquivo = f'{dirFotos}/{fotoSenador}'
     if not os.path.exists(nomeArquivo):
-        header = {'user-agent': f"senadoInfo/{versao}", 'Accept': 'image/jpeg'}
+        header = {'user-agent': f'senadoInfo/{versao}', 'Accept': 'image/jpeg'}
         try:
             requisicao = requests.get(url, headers=header, stream=True)
         except requests.exceptions.RequestException as erro:
             print(erro)
             sys.exit(1)
         if requisicao.status_code == 200:
-            print(f"Criando arquivo {nomeArquivo}...")
-            arquivo = open(nomeArquivo, 'wb')
-            arquivo.write(requisicao.content)
-            arquivo.close()
+            print(f'Criando arquivo {nomeArquivo}...')
+            with open(nomeArquivo, 'wb') as arquivo:
+                arquivo.write(requisicao.content)
+            credita(fotoSenador, 'A definir')
         else:
-            print(f"Erro {requisicao.status_code} na recuperação de {url}")
-            print(f"Criando arquivo {nomeArquivo} com foto vazia...")
-            fotoBranco = f"{dirFotos}/branco.jpg"
+            print(f'Erro {requisicao.status_code} na recuperação de {url}')
+            print(f'Criando arquivo {nomeArquivo} com foto vazia...')
+            fotoBranco = f'{dirFotos}/branco.jpg'
             shutil.copyfile(fotoBranco, nomeArquivo)
+            credita(fotoSenador, 'Nenhum')
             #
             # Falta incluir informação de crédito da foto...
