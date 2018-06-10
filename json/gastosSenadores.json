@@ -5028,6 +5028,31 @@
     ]
   },
   {
+    "senador":3399,
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
     "senador":5637,
     "gastos":[
       {
@@ -5272,6 +5297,56 @@
     ]
   },
   {
+    "senador":30,
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":1754,
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
     "senador":878,
     "gastos":[
       {
@@ -5315,6 +5390,31 @@
   },
   {
     "senador":5166,
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":916,
     "gastos":[
       {
         "ano":2015,
@@ -5482,6 +5582,31 @@
           "Outros materiais":1691.17,
           "Correios":22553.65
         }
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":4998,
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
       },
       {
         "ano":2017,
@@ -6043,6 +6168,31 @@
     ]
   },
   {
+    "senador":4645,
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
     "senador":604,
     "gastos":[
       {
@@ -6083,6 +6233,56 @@
         "lista":{
           "Passagens aéreas, aquáticas e terrestres nacionais":3322.58
         }
+      },
+      {
+        "ano":2018,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":5016,
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":3811,
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
       },
       {
         "ano":2018,

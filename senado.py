@@ -56,6 +56,9 @@ parser.add_argument('-d', '--debug', dest='debug', action='store_true',
 parser.add_argument('-i', '--intervalo', dest='intervalo', type=float, default=0.5,
                     help='Intervalo em segundos entre coletas de páginas, default: 0.5')
 
+parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=-1,
+                    help='Legislatura de coleta de dados, default: legislatura atual')
+
 args = parser.parse_args()
 
 versao = '0.2.32'
@@ -154,8 +157,9 @@ def leDadosParlamentares(legislatura=55):
     PI,5016,wellington.dias@senador.leg.br,Wellington Dias,José Wellington Barroso de Araujo Dias,PT,Masculino
     Os dados destes senadores não serão incluídos nos cálculos de estatísticas
     """
-    listaNegada = ['Demóstenes Torres', 'Gilvam Borges', 'Itamar Franco', 'João Ribeiro',
-                   'Marinor Brito', 'Vital do Rêgo', 'Wellington Dias', 'Wilson Santiago']
+    #listaNegada = ['Demóstenes Torres', 'Gilvam Borges', 'Itamar Franco', 'João Ribeiro',
+    #               'Marinor Brito', 'Vital do Rêgo', 'Wellington Dias', 'Wilson Santiago']
+    listaNegada = []
     i = 0
     # Retira da lista os parlamentares que nunca exerceram mandato
     # ou que estão na "listaNegada"
@@ -207,7 +211,7 @@ def adicionaDados(lista, parlamentar, status='Exercicio'):
                   'email': parlamentar['IdentificacaoParlamentar'].get('EmailParlamentar', ''),
                   'sexo': parlamentar['IdentificacaoParlamentar']['SexoParlamentar'],
                   # Se for falecido não há sigla do partito
-                  'partido': parlamentar['IdentificacaoParlamentar'].get('SiglaPartidoParlamentar', ''),
+                  'partido': parlamentar['IdentificacaoParlamentar'].get('SiglaPartidoParlamentar', 'S/Partido'),
                   'urlFoto': parlamentar['IdentificacaoParlamentar']['UrlFotoParlamentar'],
                   'urlPagina': parlamentar['IdentificacaoParlamentar']['UrlPaginaParlamentar'],
                   # Se for afastado então a UF está em Mandato
