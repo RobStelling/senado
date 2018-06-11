@@ -56,12 +56,12 @@ parser.add_argument('-d', '--debug', dest='debug', action='store_true',
 parser.add_argument('-i', '--intervalo', dest='intervalo', type=float, default=0.5,
                     help='Intervalo em segundos entre coletas de páginas, default: 0.5')
 
-parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=-1,
+parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=0,
                     help='Legislatura de coleta de dados, default: legislatura atual')
 
 args = parser.parse_args()
 
-versao = '0.2.32'
+versao = '0.2.33'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -72,7 +72,7 @@ def leDadosParlamentares(legislatura=55):
     """
     if args.verbose:
         print('Lendo dados de parlamentares da legislatura {}...'.format(
-            legislaturaAtual), flush=True)
+            legislatura), flush=True)
 
     def ativo(parlamentar, data):
         """Verifica se um parlamentar está ativo em uma data
@@ -384,7 +384,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
 
 def infoLegislaturaAtual():
     if args.verbose:
-        print('Verificando legislatura atual...')
+        print('Verificando número da legislatura atual...')
     """Retorna a legislatura atual e os anos de exercício a partir
     da página de senadores em exercício do senado
     """
@@ -400,19 +400,36 @@ def infoLegislaturaAtual():
     # Exemplo de texto:
     # 55ª Legislatura (2015 - 2019)
     numeroLegislatura = int(textoLegislatura.split('ª')[0])
+    return numeroLegislatura
 
-    # Recupera as strings dos anos iniciais e finais
-    anos = textoLegislatura.split('(')[1].split(')')[0].split('-')
-    # Converte os anos para inteiro
-    for i in range(len(anos)):
-        anos[i] = int(anos[i].strip())
-    # Reconstroi a lista como um range do ano inicial para o final
-    anos = list(range(anos[0], anos[1] + 1))
+def infoLegislatura(numLegislatura):
+    if args.verbose:
+        print(f'Verificando legislatura: {numLegislatura}...')
+    # Define que aceita JSON
+    # Resposta padrão da API é XML
+    header = {'Accept': 'application/json',
+              'user-agent': f'senadoInfo/{versao}'}
+    url = f'http://legis.senado.gov.br/dadosabertos/plenario/lista/legislaturas'
 
-    return numeroLegislatura, anos
+    try:
+        infoLegis = requests.get(url, headers=header)
+    except requests.exceptions.RequestException as erro:
+        print(erro)
+        sys.exit(1)
+    legislaturas = infoLegis.json()
 
+    for legislatura in legislaturas['ListaLegislatura']['Legislatura']['Legislatura']:
+        numLegis = int(legislatura['@id'])
+        if numLegis == numLegislatura:
+            inicio = int(legislatura['DataInicio'].split('-')[0])
+            fim = int(legislatura['DataFim'].split('-')[0])
+            anos = list(range(inicio, fim+1))
+            return numLegislatura, anos
+# Se não informou qual legislatura, assume a atual
+if args.legislatura == 0:
+    args.legislatura = infoLegislaturaAtual()
 
-legislaturaAtual, anos = infoLegislaturaAtual()
+legislaturaLevantamento, anos = infoLegislatura(args.legislatura)
 anoAtual = datetime.today().year
 """ Só contabiliza até o ano anterior
 Devemos incluir ano atual se for parcial?
@@ -430,7 +447,7 @@ while i < len(anos):
         i += 1
 
 parlamentares, parlamentaresForaExercicio = leDadosParlamentares(
-    legislaturaAtual)
+    legislaturaLevantamento)
 
 dados = []
 if args.verbose:
@@ -660,7 +677,7 @@ with open('csv/anos.csv', 'w') as arquivoAnos:
     anosWriter = csv.writer(arquivoAnos)
     anosWriter.writerow(['Legislatura', 'Inicial', 'Final', 'Coleta'])
     anosWriter.writerow(
-        [legislaturaAtual, anos[0], anos[-1], datetime.today()])
+        [legislaturaLevantamento, anos[0], anos[-1], datetime.today()])
     arquivoAnos.close()
 
 if args.verbose:
