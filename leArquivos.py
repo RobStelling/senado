@@ -30,6 +30,9 @@ parser.add_argument('-G', '--nograph', dest='nograph', action='store_true',
 parser.add_argument('-P', '--nopage', dest='nopage', action='store_true',
                     help='Não gera a página html')
 
+parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=-1,
+                    help='Legislatura de coleta de dados, default: legislatura atual')
+
 args = parser.parse_args()
 
 # Lê legislatura e Lista de anos de mandato para contabilização
