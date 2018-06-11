@@ -400,7 +400,14 @@ def infoLegislaturaAtual():
     # Exemplo de texto:
     # 55ª Legislatura (2015 - 2019)
     numeroLegislatura = int(textoLegislatura.split('ª')[0])
-    return numeroLegislatura
+    # Recupera as strings dos anos iniciais e finais
+    anos = textoLegislatura.split('(')[1].split(')')[0].split('-')
+    # Converte os anos para inteiro
+    for i in range(len(anos)):
+        anos[i] = int(anos[i].strip())
+    # Reconstroi a lista como um range do ano inicial para o final
+    anos = list(range(anos[0], anos[1] + 1))
+    return numeroLegislatura, anos
 
 def infoLegislatura(numLegislatura):
     if args.verbose:
@@ -425,11 +432,15 @@ def infoLegislatura(numLegislatura):
             fim = int(legislatura['DataFim'].split('-')[0])
             anos = list(range(inicio, fim+1))
             return numLegislatura, anos
+
+# Recupera dados da legislatura atual
+legislaturaAtual, anosAtual = infoLegislaturaAtual()
 # Se não informou qual legislatura, assume a atual
 if args.legislatura == 0:
-    args.legislatura = infoLegislaturaAtual()
+    legislaturaLevantamento, anos = (legislaturaAtual, anosAtual)
+else:
+    legislaturaLevantamento, anos = infoLegislatura(args.legislatura)
 
-legislaturaLevantamento, anos = infoLegislatura(args.legislatura)
 anoAtual = datetime.today().year
 """ Só contabiliza até o ano anterior
 Devemos incluir ano atual se for parcial?
