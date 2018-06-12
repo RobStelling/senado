@@ -437,7 +437,7 @@ def infoLegislatura(numLegislatura):
 legislaturaAtual, anosAtual = infoLegislaturaAtual()
 # Se não informou qual legislatura, assume a atual
 if args.legislatura == 0:
-    legislaturaLevantamento, anos = (legislaturaAtual, anosAtual)
+    legislaturaLevantamento, anos = legislaturaAtual, anosAtual
 else:
     legislaturaLevantamento, anos = infoLegislatura(args.legislatura)
 
