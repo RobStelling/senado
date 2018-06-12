@@ -61,7 +61,7 @@ parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default
 
 args = parser.parse_args()
 
-versao = '0.2.33'
+versao = '0.3.01'
 
 
 def leDadosParlamentares(legislatura=55):
@@ -237,6 +237,21 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     # Intervalo, em segundos, antes de carregar a página
     if intervalo > 0:
         time.sleep(intervalo)
+    """ As páginas de senadores não discriminam a legislatura em que as
+        despesas foram efetuadas, assim adotamos o seguinte critério:
+        - No último ano da legislatura é considerado apenas um mês
+        - No primeiro ano da legislatura, são considerados 11 meses
+        - Nos outros anos são considerados todos os meses
+        Ainda é necessário ajudar a correção para a legislatura atual,
+        que deve considerar o mês que o relatório foi extraído se for
+        o último ano da legislatura atual
+    """
+    if ano == anos[-1]:
+        fator = 1/12
+    elif ano == anos[0]:
+        fator = 11/12
+    else:
+        fator = 1
 
     header = {'user-agent': f'senadoInfo/{versao}'}
     # Coleta a página
@@ -312,13 +327,13 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     # Extrai apenas o valor em string (strip().split()[1]),
     # converte para float (rtn.s2float) e contabiliza o total
     for i in range(len(valores)):
-        valores[i] = rtn.s2float(valores[i].text.strip().split()[1])
+        valores[i] = rtn.s2float(valores[i].text.strip().split()[1])*fator
         # Só extrai os valores se a totalização for > 0
         if (valores[i] > 0):
             for linha in tabelas[i].find('tbody').find_all('tr', {'class': None}):
                 colunas = linha.find_all('td')
                 caput = colunas[0].text.strip().split('\xa0')[0]
-                montante = rtn.s2float(colunas[1].text.strip())
+                montante = rtn.s2float(colunas[1].text.strip())*fator
                 if montante > 0:
                     gastos['lista'][caput] = montante
                     gastos['total'] += gastos['lista'][caput]
@@ -331,7 +346,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         correios = corpoCorreios.find_all(
             'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
         correiosCaput = correios[0].text.strip()
-        correiosMontante = rtn.s2float(correios[1].text.strip())
+        correiosMontante = rtn.s2float(correios[1].text.strip())*fator
     else:
         correiosMontante = 0
 
@@ -357,7 +372,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         if (uso != 'Não utilizou'):
             if not re.match(r'Informações disponíveis.*', uso) and not re.match(r'Informações não disponíveis.*', uso):
                 meses = int(uso.replace('Utilizou (', '').replace(
-                    ' meses)', '').replace(' mês)', ''))
+                    ' meses)', '').replace(' mês)', ''))*fator
 
         infoAuxilio.append({'beneficio': auxilio, 'meses': meses})
 
@@ -442,7 +457,9 @@ else:
     legislaturaLevantamento, anos = infoLegislatura(args.legislatura)
 
 anoAtual = datetime.today().year
-""" Só contabiliza até o ano anterior
+anosLegislatura = [ano for ano in anos if ano <= anoAtual]
+
+""" Só contabiliza até o ano anterior ?
 Devemos incluir ano atual se for parcial?
 Por exemplo, se estivermos em julho de 2018, devemos incluir também os dados de 2018?
 Resposta: É preciso esperar um pouco para ver em quanto tempo o senado atualiza as inforamções
@@ -450,17 +467,15 @@ de gastos do ano corrente, dependendo da frequência pode ser interessante inclu
 Por outro lado verificamos que o senado atualiza e inclui novos gastos do ano anterio até pelo menos
 fevereiro do ano seguinte.
 """
-i = 0
-while i < len(anos):
-    if anos[i] > anoAtual:
-        anos.pop(i)
-    else:
-        i += 1
 
+# Recupera dados de parlamentares, em exercício e fora de exercício.
 parlamentares, parlamentaresForaExercicio = leDadosParlamentares(
     legislaturaLevantamento)
 
+# Acrescenta os senadores no vetor dados, primeiro os que estão em
+# exercício e depois os fora de exercício
 dados = []
+
 if args.verbose:
     print('Organizando informações de parlamentares...')
 # Adiciona informações dos parlamentares em exercício e fora de exercício
@@ -477,12 +492,11 @@ if args.verbose:
 
 # Lê o arquivo de gastos de combustível a partir de 2016
 
-
 def leGastosCombustiveis(anos):
     # Senado passou a contabilizar gastos de combustíveis em separado
     # a partir de 2016
     anoInicial = max(2016, anos[0])
-    anoFinal = anos[len(anos) - 1] + 1
+    anoFinal = anos[-1] + 1
     dadosGastosCombustiveis = {}
     # Formato arquivos:
     # senador(nome),codigo(inteiro),gastos(reais/float)
@@ -497,7 +511,7 @@ def leGastosCombustiveis(anos):
     return dadosGastosCombustiveis
 
 
-combustiveis = leGastosCombustiveis(anos)
+combustiveis = leGastosCombustiveis(anosLegislatura)
 
 # Para cada senador coleta os gastos de cada ano da legislatura
 # e soma os gastos em 'gastos'
@@ -518,7 +532,9 @@ for senador in range(len(dados)):
     # de gastos (gastos).
     # Cria uma coluna para cada tipo de uso de
     # pessoal
-    for ano in anos:
+
+    # Só contabiliza até o ano atual
+    for ano in anosLegislatura:
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
         total, auxilio, pessoal, gastos, nascimento = infoSenador(
             dados[senador]['codigo'], ano=ano, intervalo=args.intervalo, nascimento=ano == anos[0])
@@ -595,7 +611,7 @@ consolidaDadosCombustiveisSenadores(dados, combustiveis)
 if not os.path.exists('json'):
     os.makedirs('json')
 
-with open('json/gastosSenadores.json', 'w', encoding='utf-8') as saida:
+with open(f'json/{legislaturaLevantamento}_gastosSenadores.json', 'w', encoding='utf-8') as saida:
     json.dump(gastosSenadores, saida, ensure_ascii=False,
               indent=2, separators=(',', ':'))
 
@@ -671,20 +687,20 @@ if args.verbose:
 if not os.path.exists('csv'):
     os.makedirs('csv')
 
-dadosSenado.to_csv('csv/senado.csv', na_rep='', header=True, index=True,
+dadosSenado.to_csv(f'csv/{legislaturaLevantamento}_senado.csv', na_rep='', header=True, index=True,
                    mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
-top.to_csv('csv/top.csv', na_rep='', header=True, index=False,
+top.to_csv(f'csv/{legislaturaLevantamento}_top.csv', na_rep='', header=True, index=False,
            mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
-gastoPartidos.to_csv('csv/gastoPartidos.csv', na_rep='', header=True,
+gastoPartidos.to_csv(f'csv/{legislaturaLevantamento}_gastoPartidos.csv', na_rep='', header=True,
                      index=True, mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
-gastoEstados.to_csv('csv/gastoEstados.csv', na_rep='', header=True, index=True,
+gastoEstados.to_csv(f'csv/{legislaturaLevantamento}_gastoEstados.csv', na_rep='', header=True, index=True,
                     mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
-sexo.to_csv('csv/sexo.csv', index=True, na_rep='', header=True,
+sexo.to_csv(f'csv/{legislaturaLevantamento}_sexo.csv', index=True, na_rep='', header=True,
             index_label=None, mode='w', encoding='utf-8', decimal='.')
-sexoT.to_csv('csv/sexoT.csv', index=True, na_rep='', header=True,
+sexoT.to_csv(f'csv/{legislaturaLevantamento}_sexoT.csv', index=True, na_rep='', header=True,
              index_label=None, mode='w', encoding='utf-8', decimal='.')
 
-with open('csv/anos.csv', 'w') as arquivoAnos:
+with open(f'csv/{legislaturaLevantamento}_anos.csv', 'w') as arquivoAnos:
     anosWriter = csv.writer(arquivoAnos)
     anosWriter.writerow(['Legislatura', 'Inicial', 'Final', 'Coleta'])
     anosWriter.writerow(

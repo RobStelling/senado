@@ -1,6 +1,7 @@
 # coding='utf-8'
 # Imports
 from bs4 import BeautifulSoup
+from datetime import datetime
 from matplotlib.ticker import FuncFormatter
 import argparse
 import csv
@@ -56,6 +57,9 @@ with open(f'csv/{legislaturaLevantamento}_anos.csv', newline='') as arquivoAnos:
             horaColeta = horaColeta.split('.')[0]
             break
 arquivoAnos.close()
+
+anoAtual = datetime.today().year
+anos = [ano for ano in anos if ano <= anoAtual]
 
 # Lê créditos das fotos
 with open('csv/creditos.csv', newline='') as creditos:
