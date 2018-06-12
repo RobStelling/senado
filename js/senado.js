@@ -2,7 +2,7 @@ var temDados = false,
   dadosSenadores;
 
 d3.queue()
-  .defer(d3.json, "./json/gastosSenadores.json")
+  .defer(d3.json, "./json/{leg}_gastosSenadores.json".replace("{leg}", legislaturaLevantamento))
   .await(ready);
 
 function ready(error, dados) {

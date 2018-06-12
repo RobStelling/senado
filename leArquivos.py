@@ -30,13 +30,15 @@ parser.add_argument('-G', '--nograph', dest='nograph', action='store_true',
 parser.add_argument('-P', '--nopage', dest='nopage', action='store_true',
                     help='Não gera a página html')
 
-parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=-1,
+parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=55,
                     help='Legislatura de coleta de dados, default: legislatura atual')
 
 args = parser.parse_args()
 
+legislaturaLevantamento = args.legislatura
+
 # Lê legislatura e Lista de anos de mandato para contabilização
-with open('csv/anos.csv', newline='') as arquivoAnos:
+with open(f'csv/{legislaturaLevantamento}_anos.csv', newline='') as arquivoAnos:
     anosReader = csv.reader(arquivoAnos)
     for row in anosReader:
         # Ignora o header (se houver)
@@ -65,19 +67,19 @@ with open('csv/creditos.csv', newline='') as creditos:
 creditos.close()
 
 # Lê DataFrames
-dadosSenado = pd.read_csv('csv/senado.csv', encoding='utf-8', index_col=0)
-top = pd.read_csv('csv/top.csv', encoding='utf-8')
-gastoPartidos = pd.read_csv('csv/gastoPartidos.csv',
+dadosSenado = pd.read_csv(f'csv/{legislaturaLevantamento}_senado.csv', encoding='utf-8', index_col=0)
+top = pd.read_csv(f'csv/{legislaturaLevantamento}_top.csv', encoding='utf-8')
+gastoPartidos = pd.read_csv(f'csv/{legislaturaLevantamento}_gastoPartidos.csv',
                             encoding='utf-8', index_col=0)
-gastoEstados = pd.read_csv('csv/gastoEstados.csv',
+gastoEstados = pd.read_csv(f'csv/{legislaturaLevantamento}_gastoEstados.csv',
                            encoding='utf-8', index_col=0)
 #sexo = pd.read_csv('csv/sexo.csv', encoding='utf-8')
 sexo = dadosSenado.rename(columns={'Participacao': '(Sexo, Situação)'}).groupby(
     ['sexo', 'status'])['(Sexo, Situação)'].count()
-sexoT = pd.read_csv('csv/sexoT.csv', encoding='utf-8', index_col=0)
+sexoT = pd.read_csv(f'csv/{legislaturaLevantamento}_sexoT.csv', encoding='utf-8', index_col=0)
 
 # Lê arquivo json
-with open('json/gastosSenadores.json', 'r', encoding='utf-8') as entrada:
+with open(f'json/{legislaturaLevantamento}_gastosSenadores.json', 'r', encoding='utf-8') as entrada:
     gastosSenadores = json.load(entrada)
 entrada.close()
 
@@ -140,7 +142,7 @@ print('Total de gastos: {}'.format(rtn.reais(round(totalizacaoGastosSenado, 2)))
 if not os.path.exists('json'):
     os.makedirs('json')
 
-with open('json/gastosSenado.json', 'w', encoding='utf-8') as saida:
+with open(f'json/{legislaturaLevantamento}_gastosSenado.json', 'w', encoding='utf-8') as saida:
     json.dump(gastosSenado, saida, ensure_ascii=False,
               indent=2, separators=(',', ':'))
 saida.close()
@@ -222,11 +224,14 @@ def geraHTML(modeloHtml, saida):
 
     def imagem(imgTxt):
         particao = imgTxt.split('-')
-        return '<img src="imagens/{}.png" width="{}%"></img>\n'.format(particao[4], particao[6])
+        return f'<img src="imagens/{legislaturaLevantamento}_{particao[4]}.png" width="{particao[6]}%"></img>\n'
 
     def tituloLegislatura(_):
         html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format(
             '', legislaturaAtual)
+        return html
+    def legislatura(_):
+        html = '{:<4}<script>\n{:<6}legislaturaLevantamento = {};\n{:<4}</script>\n'.format('', '', legislaturaLevantamento, '')
         return html
 
     # Dicionário de padrões a encontrar e função que será chamada para cada padrão
@@ -237,7 +242,8 @@ def geraHTML(modeloHtml, saida):
               "<!--Data-->": dataDaColeta,
               "<!--Hora-->": horaDaColeta,
               "<!--CaptionForaExercicio-->": captionForaExercicio,
-              "<!--TituloLegislatura-->": tituloLegislatura}
+              "<!--TituloLegislatura-->": tituloLegislatura,
+              "<!--LegislaturaLevantamento-->": legislatura}
 
     # Le arquivo de entrada e inclui o texto gerado de acordo com o padrão encontrado
     for linha in modeloHtml:
@@ -255,10 +261,10 @@ def geraHTML(modeloHtml, saida):
 if not args.nopage:
     # Abre os arquivos e gera a página HTML
     try:
-        modeloHtml = open("index.tmpl", "r")
+        modeloHtml = open(f'{legislaturaLevantamento}_index.tmpl', "r")
         try:
             # Se conseguiu abrir entrada, tenta abrir saída e gerar modelo
-            saida = open("index.html", "w")
+            saida = open(f'{legislaturaLevantamento}_index.html', "w")
             geraHTML(modeloHtml, saida)
             saida.close()
             modeloHtml.close()
@@ -311,16 +317,16 @@ if not args.nograph:
     ax.set(xlabel='Valores em milhões de reais',
            title='Gastos de Senadores por tipo de despesa')
     ax.xaxis.set_major_formatter(FuncFormatter(tickReais))
-    fig.savefig(f"{imagens}/gastosSenado.png",
+    fig.savefig(f'{imagens}/{legislaturaLevantamento}_gastosSenado.png',
                 transparent=False, bbox_inches="tight")
     plt.close()
     gSexo = sexo.plot(kind='pie', figsize=(13, 13), fontsize=12,
                       subplots=True, legend=False, colormap='Paired')
-    gSexo[0].get_figure().savefig(f"{imagens}/distSexo.png")
+    gSexo[0].get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_distSexo.png')
     plt.close()
     gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(
         5, 5), subplots=True, legend=False, fontsize=12, colormap='Paired')
-    gSexoT[0].get_figure().savefig(f"{imagens}/distSexoT.png")
+    gSexoT[0].get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_distSexoT.png')
     plt.close()
 
     listaGastos = [
@@ -329,27 +335,27 @@ if not args.nograph:
     gEstados = gastoEstados[listaGastos].plot(
         kind='bar', rot=0, title='Gastos por unidade da federação', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
     gEstados.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-    gEstados.get_figure().savefig(f"{imagens}/gastoEstados.png")
+    gEstados.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_gastoEstados.png')
     plt.close()
     gabineteEstados = gastoEstados.sort_values(by=[f'TotalGabinete-{anos[-1]}'], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
         kind='bar', title=f'Tamanho do gabinete em {anos[-1]} por unidade da federação', figsize=(10, 10), fontsize=12, legend=False)
     gabineteEstados.get_figure().savefig(
-        f"{imagens}/gastoGabineteEstados{anos[-1]}.png")
+        f'{imagens}/{legislaturaLevantamento}_gastoGabineteEstados{anos[-1]}.png')
     plt.close()
     gPartidos = gastoPartidos[listaGastos].plot(
         kind='bar', rot=0, title='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
     gPartidos.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-    gPartidos.get_figure().savefig(f"{imagens}/gastoPartidos.png")
+    gPartidos.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_gastoPartidos.png')
     plt.close()
     gabinetePartidos = gastoPartidos.sort_values(by=[f'TotalGabinete-{anos[-1]}'], ascending=False)[[f'TotalGabinete-{anos[-1]}']].plot(
         kind='bar', title=f'Tamanho do gabinete em {anos[-1]} por partido', figsize=(10, 10), fontsize=12, legend=False)
     gabinetePartidos.get_figure().savefig(
-        f"{imagens}/gastoGabinetePartidos{anos[-1]}.png")
+        f'{imagens}/{legislaturaLevantamento}_gastoGabinetePartidos{anos[-1]}.png')
     plt.close()
     gTop = top[listaGastos].plot(
         kind='bar', rot=20, title='Senadores com maiores gastos na legislatura atual', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
     gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-    gTop.get_figure().savefig(f"{imagens}/maiores.png")
+    gTop.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_maiores.png')
     plt.close()
 
     listaBeneficioMoradia = [x for x in gastoEstados.columns if re.match(
@@ -361,5 +367,5 @@ if not args.nograph:
 
     gBeneficio = beneficioMoradia.sort_values(ascending=False).plot(
         kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
-    gBeneficio.get_figure().savefig(f"{imagens}/moradiaEstado.png")
+    gBeneficio.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_moradiaEstado.png')
     plt.close()
