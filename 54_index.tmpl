@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Gastos de Senadores</title>
+  </head>
+  <body>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+<!--LegislaturaLevantamento-->
+    <script src="js/senado.js"></script>
+    <div class="container">
+<!--TituloLegislatura-->
+      <div class="row"><b class="SenadoSubTitle">Informações de despesas de senadores</b><br></div>
+      <div class="row"><b class="SenadoSubTitle">Dados coletados em 
+<!--Data-->       
+ às 
+<!--Hora-->
+      </b><br></div>
+      <br>
+      <div class="TextoImagem">
+        <center>
+        <text>Os 15 senadores com maiores despesas gastam diretamente cerca de R$ 500.000,00 ao ano.</text>
+        <br>
+<!--Imagem--maiores--90-->
+        </center>
+      </div>
+      <br>
+      <br>
+      <div class="TextoImagem">
+        <center>
+        <text>Os maiores gastos são relativos a viagens, locomoção e aluguel de imóveis.</text>
+        <br>
+<!--Imagem--gastosSenado--50-->
+        </center>
+      </div>
+      <div class="TextoImagem">
+        <center>
+          <text>Praticamente todas as despesas estão centralizadas em 3 partidos: MDB, PSDB e PT.</text>
+          <br>
+<!--Imagem--gastoPartidos--90-->
+        </center>
+      </div>
+      <div class="TextoImagem">
+        <center>
+          <text>Mas há diferenças em como os senadores de cada unidade da federação gastam os recursos da união.</text>
+          <br>
+<!--Imagem--gastoEstados--90-->
+        </center>
+      </div>
+      <div class="TextoImagem">
+        <center>
+          <text>Há também custos indiretos, como o tamanho do gabinete. O MDB tem mais de 750 pessoas nos gabinetes dos seus senadores, enquanto o PSDB tem pouco mais de 400 pessoas.</text>
+        </center>
+        <center>
+<!--Imagem--gastoGabinetePartidos2015--50-->
+        </center>
+      </div>
+      <br>
+      <center>
+        <text class="TextoImagem">As duas tabelas abaixo mostram todos os senadores e seus gastos, as colunas marcadas com <img src="imagens/sort.png"> podem ser reordenadas com um clique. As despesas de um senador são detalhadas quando se passa o mouse sobre o montante.</text>
+      </center>
+      <br><br><br>
+      <div class="tabelaSenado">
+        <table id="leg1">
+<!--CaptionExercicio-->
+          <thead>
+            <tr>
+              <th align="left">Nº</th>
+              <th align="middle">Foto</th>
+              <th onclick="ordenaTabela('asc',  'leg1', 2, 'texto')" align="left">Nome<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 3, 'reais')" align="left">Despesas no Mandato<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 4, 'participacao')" align="left">Participação<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 5, 'texto')" align="middle">UF<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg1', 6, 'texto')" align="left">Partido<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 7, 'dados')" align="right">Escritório e Gabinete<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg1', 8, 'dados')" align="right">Benefício Moradia<img src="imagens/sort.png"></th>
+            </tr>
+          </thead>
+          <tbody>
+<!--Exercicio-->
+          </tbody>
+        </table>
+      </div>
+      <br><br>
+      <div class="tabelaSenado">
+        <table id="leg2">
+<!--CaptionForaExercicio-->
+          <thead>
+            <tr>
+              <th align="left">Nº</th>
+              <th align="middle">Foto</th>
+              <th onclick="ordenaTabela('asc',  'leg2', 2, 'texto')" align="left">Nome<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 3, 'reais')" align="left">Despesas no Mandato<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 4, 'participacao')" align="left">Participação<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 5, 'texto')" align="middle">UF<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 6, 'texto')" align="left">Partido<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 7, 'dados')" align="right">Escritório e Gabinete<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 8, 'dados')" align="right">Benefício Moradia<img src="imagens/sort.png"></th>
+            </tr>
+          </thead>
+          <tbody>
+<!--ForaExercicio-->
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <footer>
+          <center>
+            <br>Fonte de dados: <a href="https://dadosabertos.senado.leg.br/">Dados Abertos do Senado Federal</a> Dataset: <a href="./json/gastosSenadores.json">JSON</a>, 
+            <a href="./csv/senado.csv">CSV</a> Copyright © 2018 <a href="http://stelling.cc">Roberto Stelling</a>
+          </center>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
