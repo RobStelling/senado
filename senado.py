@@ -32,9 +32,10 @@ MAJOR = 0 indica que o estado atual é de desenvolvimento inicial, qualquer func
 """
 """
 Lista de ideias a fazer:
-- Gerar página HTML (já tempos todo o conteúdo)
-  - Yattag? Django?
-- Passar parâmetros para aplicação(Ex: número de legislatura, intervalo de polling, etc.)
+- Tratar último ano de legislatura, dinstinguindo senador que continua na legislatura seguinte do
+  que não continua (se não continua, todos os gastos do último ano são contabilizados, se continua,
+  apenas 1/12 dos gastos são contabilizados). Outro tratamento é necessário se o ano atual é o último
+  da legislatura contabilizada.
 - Armazenar dados em base de dados (Django ORM?)
 - Gastos dos senadores com passagens aéreas são bem "interessantes", talvez valha a pena
   pensar em uma estrutura hieráquica para os dados e coletar alguns (senão todos) tipos de gastos
@@ -157,8 +158,9 @@ def leDadosParlamentares(legislatura=55):
     PI,5016,wellington.dias@senador.leg.br,Wellington Dias,José Wellington Barroso de Araujo Dias,PT,Masculino
     Os dados destes senadores não serão incluídos nos cálculos de estatísticas
     """
-    #listaNegada = ['Demóstenes Torres', 'Gilvam Borges', 'Itamar Franco', 'João Ribeiro',
-    #               'Marinor Brito', 'Vital do Rêgo', 'Wellington Dias', 'Wilson Santiago']
+    """listaNegada = ['Demóstenes Torres', 'Gilvam Borges', 'Itamar Franco', 'João Ribeiro',
+                      'Marinor Brito', 'Vital do Rêgo', 'Wellington Dias', 'Wilson Santiago']
+    """
     listaNegada = []
     i = 0
     # Retira da lista os parlamentares que nunca exerceram mandato
@@ -178,7 +180,7 @@ def leDadosParlamentares(legislatura=55):
     parlamentaresAtuais = [x for x in parlamentares if ativo(x, hoje)]
     # Se não for atual, está Fora de Exercício
     parlamentaresForaExercicio = [
-        x for x in parlamentares if not x in parlamentaresAtuais]
+        x for x in parlamentares if x not in parlamentaresAtuais]
 
     if args.verbose:
         print('Fim de leitura de dados de parlamentares...')
@@ -337,12 +339,11 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
                 if montante > 0:
                     gastos['lista'][caput] = montante
                     gastos['total'] += gastos['lista'][caput]
-                #print(linhas[campos].text.strip().split('\xa0')[0],'---', linhas[campos+1].text.strip())
         total += valores[i]
 
     # pega Correios em separado
     corpoCorreios = tabelas[1].find('tbody')
-    if corpoCorreios != None:
+    if corpoCorreios is not None:
         correios = corpoCorreios.find_all(
             'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
         correiosCaput = correios[0].text.strip()
@@ -382,7 +383,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
     corpoQuantidade = bloco.find(
         'div', {'id': 'accordion-pessoal'}).find('tbody')
-    if corpoQuantidade != None:
+    if corpoQuantidade is not None:
         quantidades = corpoQuantidade.find_all(
             'tr', {'class': 'sen_tabela_linha_grupo'})
 
@@ -423,6 +424,7 @@ def infoLegislaturaAtual():
     # Reconstroi a lista como um range do ano inicial para o final
     anos = list(range(anos[0], anos[1] + 1))
     return numeroLegislatura, anos
+
 
 def infoLegislatura(numLegislatura):
     if args.verbose:
@@ -490,8 +492,8 @@ if args.verbose:
     print('Fim de organização de informações...')
     print('Recuperando informações de gastos parlamentares...')
 
-# Lê o arquivo de gastos de combustível a partir de 2016
 
+# Lê o arquivo de gastos de combustível a partir de 2016
 def leGastosCombustiveis(anos):
     # Senado passou a contabilizar gastos de combustíveis em separado
     # a partir de 2016
@@ -538,7 +540,7 @@ for senador in range(len(dados)):
         # Total gasto, utilização de auxílio moradia e apartamento funcional e uso de pessoal
         total, auxilio, pessoal, gastos, nascimento = infoSenador(
             dados[senador]['codigo'], ano=ano, intervalo=args.intervalo, nascimento=ano == anos[0])
-        if nascimento != None:
+        if nascimento is not None:
             dados[senador]['nascimentoData'] = nascimento[0]
             dados[senador]['naturalMunicipio'] = nascimento[1]
         gastosSenadores[senador]['gastos'].append(gastos)
@@ -629,8 +631,9 @@ if args.verbose:
 dadosSenado = pd.DataFrame(dados)
 dadosSenado.set_index('codigo', inplace=True)
 
-# Exclui quem tem gastos == 0 e status == 'Afastado'
-#dadosSenado = dadosSenado.query('gastos != 0 or status != "Afastado"')
+"""Exclui quem tem gastos == 0 e status == 'Afastado'
+   dadosSenado = dadosSenado.query('gastos != 0 or status != "Afastado"')
+"""
 
 # Calcula dados importantes
 totalSenadores = len(dadosSenado)
