@@ -65,7 +65,7 @@ args = parser.parse_args()
 versao = '0.3.01'
 
 
-def leDadosParlamentares(legislatura=55):
+def leDadosParlamentares(legislatura):
     """Lê dados de parlamentares das páginas de dados abertos do Senado
     Retorna parlamentares em exercício e fora de exercício
     Documentação da API do Senado Federal:
@@ -527,7 +527,7 @@ municipios = pd.read_csv('csv/AR_BR_MUN_2016.csv',
 # porque sempre aponta para o senador atual.
 for senador in range(len(dados)):
     gastosSenadores.append(
-        {'senador': int(dados[senador]['codigo']), 'gastos': []})
+        {'senador': dados[senador]['codigo'], 'gastos': []})
     dados[senador]['gastos'] = 0
     # Para cada ano, recupera as informações do senador
     # Guarda o total daquele ano (dados[senador][gastos{ano}]) e soma no total
