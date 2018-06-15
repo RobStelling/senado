@@ -44,7 +44,7 @@ with open(f'csv/{legislaturaLevantamento}_anos.csv', newline='') as arquivoAnos:
     for row in anosReader:
         # Ignora o header (se houver)
         if rtn.maiorQue(row[0]) and rtn.maiorQue(row[1]) and rtn.maiorQue(row[2]):
-            legislaturaAtual = int(row[0])
+            # legislaturaAtual = int(row[0])
             anos = list(range(int(row[1]), int(row[2]) + 1))
             # Quarto campo está no formato aaaa-mm-dd hh:mm:ss.dcmm
             # Primeiro separa data de hora
@@ -232,7 +232,7 @@ def geraHTML(modeloHtml, saida):
 
     def tituloLegislatura(_):
         html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format(
-            '', legislaturaAtual)
+            '', legislaturaLevantamento)
         return html
     def legislatura(_):
         html = '{:<4}<script>\n{:<6}legislaturaLevantamento = {};\n{:<4}</script>\n'.format('', '', legislaturaLevantamento, '')

@@ -397,35 +397,6 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     # Retorna o gasto total do senador para o ano pedido
     return round(total, 2), infoAuxilio, infoPessoal, gastos, nascimentoSenador
 
-
-def infoLegislaturaAtual():
-    if args.verbose:
-        print('Verificando número da legislatura atual...')
-    """Retorna a legislatura atual e os anos de exercício a partir
-    da página de senadores em exercício do senado
-    """
-    url = 'https://www25.senado.leg.br/web/senadores/em-exercicio'
-    header = {'user-agent': f'senadoInfo/{versao}'}
-    try:
-        requisicao = requests.get(url, headers=header)
-    except requests.exceptions.RequestException as erro:
-        print(erro)
-        sys.exit(1)
-    sopa = BeautifulSoup(requisicao.content, 'html.parser')
-    textoLegislatura = sopa.find('h2').text.strip()
-    # Exemplo de texto:
-    # 55ª Legislatura (2015 - 2019)
-    numeroLegislatura = int(textoLegislatura.split('ª')[0])
-    # Recupera as strings dos anos iniciais e finais
-    anos = textoLegislatura.split('(')[1].split(')')[0].split('-')
-    # Converte os anos para inteiro
-    for i in range(len(anos)):
-        anos[i] = int(anos[i].strip())
-    # Reconstroi a lista como um range do ano inicial para o final
-    anos = list(range(anos[0], anos[1] + 1))
-    return numeroLegislatura, anos
-
-
 def infoLegislatura(numLegislatura):
     if args.verbose:
         print(f'Verificando legislatura: {numLegislatura}...')
@@ -451,7 +422,9 @@ def infoLegislatura(numLegislatura):
             return numLegislatura, anos
 
 # Recupera dados da legislatura atual
-legislaturaAtual, anosAtual = infoLegislaturaAtual()
+if args.verbose:
+    print('Verificando número da legislatura atual...')
+legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(versao)
 # Se não informou qual legislatura, assume a atual
 if args.legislatura == 0:
     legislaturaLevantamento, anos = legislaturaAtual, anosAtual
