@@ -62,8 +62,6 @@ parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default
 
 args = parser.parse_args()
 
-versao = '0.3.01'
-
 
 def leDadosParlamentares(legislatura):
     """Lê dados de parlamentares das páginas de dados abertos do Senado

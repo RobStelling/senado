@@ -37,6 +37,7 @@ parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default
 args = parser.parse_args()
 
 legislaturaLevantamento = args.legislatura
+legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual()
 
 # Lê legislatura e Lista de anos de mandato para contabilização
 with open(f'csv/{legislaturaLevantamento}_anos.csv', newline='') as arquivoAnos:
@@ -264,11 +265,15 @@ def geraHTML(modeloHtml, saida):
 
 if not args.nopage:
     # Abre os arquivos e gera a página HTML
+    if legislaturaAtual == legislaturaLevantamento:
+        arquivoSaida = 'index.html'
+    else:
+        arquivoSaida = f'{legislaturaLevantamento}_index.html'
     try:
         modeloHtml = open(f'{legislaturaLevantamento}_index.tmpl', "r")
         try:
             # Se conseguiu abrir entrada, tenta abrir saída e gerar modelo
-            saida = open(f'{legislaturaLevantamento}_index.html', "w")
+            saida = open(arquivoSaida, "w")
             geraHTML(modeloHtml, saida)
             saida.close()
             modeloHtml.close()

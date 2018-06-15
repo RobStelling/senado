@@ -2,10 +2,10 @@ from bs4 import BeautifulSoup
 import locale
 import requests
 
+
+versao = '0.3.01'
 """Rotinas de uso comum entre os módulos da aplicação
 """
-
-
 def reais(x, pos=None):
     """Retorna o valor formatado em reais, o parâmetro pos é necessário
     apenas quando a função é chamada pelo FuncFormatter do matplotlib.ticker
@@ -36,7 +36,7 @@ def s2float(dado):
     except ValueError:
         return float('nan')
 
-def infoLegislaturaAtual(versao="unknown"):
+def infoLegislaturaAtual(versao=versao):
     """Retorna a legislatura atual e os anos de exercício a partir
     da página de senadores em exercício do senado
     """
