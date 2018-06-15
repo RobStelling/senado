@@ -199,6 +199,27 @@ def geraHTML(modeloHtml, saida):
             html += "{:<12}</tr>\n".format('')
             i += 1
         return html
+        """
+      <center>
+      <div class="row">Legislaturas: <a href='index.html'>55</a></div>
+      </center>
+      """
+    def header(_):
+        html = '{:<12}<center>\n'.format('')
+        html += '{:<14}<dif class="row">Legislaturas: '.format('')
+        i = legislaturaAtual
+        while True:
+            if i == legislaturaAtual:
+                arquivo = 'index.html'
+            else:
+                if os.path.isfile(f'{i}_index.html'):
+                    arquivo = f'{i}_index.html'
+                else:
+                    break
+            html += f'<a href={arquivo}>{i}</a> '
+            i -= 1
+        html += '\n{:<12}</center>\n'.format('')
+        return html;
 
     def exercicio(_):
         """Lista de senadores em exercício, em ordem alfabética de nome
@@ -235,6 +256,7 @@ def geraHTML(modeloHtml, saida):
         html = '{:<6}<div class="row"><b class="SenadoTitle">BRASIL - {}ª Legislatura</b><br></div>\n'.format(
             '', legislaturaLevantamento)
         return html
+
     def legislatura(_):
         html = '{:<4}<script>\n{:<6}legislaturaLevantamento = {};\n{:<4}</script>\n'.format('', '', legislaturaLevantamento, '')
         return html
@@ -248,7 +270,8 @@ def geraHTML(modeloHtml, saida):
               "<!--Hora-->": horaDaColeta,
               "<!--CaptionForaExercicio-->": captionForaExercicio,
               "<!--TituloLegislatura-->": tituloLegislatura,
-              "<!--LegislaturaLevantamento-->": legislatura}
+              "<!--LegislaturaLevantamento-->": legislatura,
+              "<!--Cabecalho-->": header}
 
     # Le arquivo de entrada e inclui o texto gerado de acordo com o padrão encontrado
     for linha in modeloHtml:
