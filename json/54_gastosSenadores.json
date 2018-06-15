@@ -1,6 +1,6 @@
 [
   {
-    "senador":5140,
+    "senador":"5140",
     "gastos":[
       {
         "ano":2011,
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "senador":4988,
+    "senador":"4988",
     "gastos":[
       {
         "ano":2011,
@@ -105,7 +105,7 @@
     ]
   },
   {
-    "senador":3,
+    "senador":"3",
     "gastos":[
       {
         "ano":2011,
@@ -178,7 +178,7 @@
     ]
   },
   {
-    "senador":715,
+    "senador":"715",
     "gastos":[
       {
         "ano":2011,
@@ -241,7 +241,7 @@
     ]
   },
   {
-    "senador":5164,
+    "senador":"5164",
     "gastos":[
       {
         "ano":2011,
@@ -298,7 +298,7 @@
     ]
   },
   {
-    "senador":391,
+    "senador":"391",
     "gastos":[
       {
         "ano":2011,
@@ -360,7 +360,7 @@
     ]
   },
   {
-    "senador":3823,
+    "senador":"3823",
     "gastos":[
       {
         "ano":2011,
@@ -426,7 +426,7 @@
     ]
   },
   {
-    "senador":739,
+    "senador":"739",
     "gastos":[
       {
         "ano":2011,
@@ -495,7 +495,7 @@
     ]
   },
   {
-    "senador":3398,
+    "senador":"3398",
     "gastos":[
       {
         "ano":2011,
@@ -533,7 +533,7 @@
     ]
   },
   {
-    "senador":5197,
+    "senador":"5197",
     "gastos":[
       {
         "ano":2011,
@@ -603,7 +603,7 @@
     ]
   },
   {
-    "senador":5132,
+    "senador":"5132",
     "gastos":[
       {
         "ano":2011,
@@ -643,7 +643,7 @@
     ]
   },
   {
-    "senador":16,
+    "senador":"16",
     "gastos":[
       {
         "ano":2011,
@@ -684,7 +684,7 @@
     ]
   },
   {
-    "senador":4721,
+    "senador":"4721",
     "gastos":[
       {
         "ano":2011,
@@ -757,7 +757,7 @@
     ]
   },
   {
-    "senador":4994,
+    "senador":"4994",
     "gastos":[
       {
         "ano":2011,
@@ -805,7 +805,7 @@
     ]
   },
   {
-    "senador":4767,
+    "senador":"4767",
     "gastos":[
       {
         "ano":2011,
@@ -856,7 +856,7 @@
     ]
   },
   {
-    "senador":612,
+    "senador":"612",
     "gastos":[
       {
         "ano":2011,
@@ -894,7 +894,7 @@
     ]
   },
   {
-    "senador":3634,
+    "senador":"3634",
     "gastos":[
       {
         "ano":2011,
@@ -970,7 +970,7 @@
     ]
   },
   {
-    "senador":87,
+    "senador":"87",
     "gastos":[
       {
         "ano":2011,
@@ -1010,7 +1010,7 @@
     ]
   },
   {
-    "senador":5006,
+    "senador":"5006",
     "gastos":[
       {
         "ano":2011,
@@ -1067,7 +1067,7 @@
     ]
   },
   {
-    "senador":5008,
+    "senador":"5008",
     "gastos":[
       {
         "ano":2011,
@@ -1144,7 +1144,7 @@
     ]
   },
   {
-    "senador":5100,
+    "senador":"5100",
     "gastos":[
       {
         "ano":2011,
@@ -1184,78 +1184,7 @@
     ]
   },
   {
-    "senador":5004,
-    "gastos":[
-      {
-        "ano":2011,
-        "total":189601.67,
-        "lista":{
-          "Aluguel de imóveis para escritório político":12585.796666666665,
-          "Locomoção, hospedagem, alimentação, combustíveis e":57617.532499999994,
-          "Contratação de serviços de apoio ao parlamentar":3666.6666666666665,
-          "Divulgação da atividade parlamentar":103013.03833333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":12718.630833333333
-        }
-      },
-      {
-        "ano":2012,
-        "total":416055.18,
-        "lista":{
-          "Aluguel de imóveis para escritório político":31187.06,
-          "Aquisição de material de consumo":1243.42,
-          "Locomoção, hospedagem, alimentação, combustíveis e":145224.34,
-          "Contratação de serviços de apoio ao parlamentar":19193.49,
-          "Divulgação da atividade parlamentar":167493.82,
-          "Passagens aéreas, aquáticas e terrestres nacionais":51032.6,
-          "Diárias":680.45
-        }
-      },
-      {
-        "ano":2013,
-        "total":416062.85,
-        "lista":{
-          "Aluguel de imóveis para escritório político":37173.43,
-          "Aquisição de material de consumo":2966.67,
-          "Locomoção, hospedagem, alimentação, combustíveis e":138289.59,
-          "Contratação de serviços de apoio ao parlamentar":140.0,
-          "Divulgação da atividade parlamentar":168140.53,
-          "Passagens aéreas, aquáticas e terrestres nacionais":68672.18,
-          "Diárias":680.45
-        }
-      },
-      {
-        "ano":2014,
-        "total":297062.4,
-        "lista":{
-          "Aluguel de imóveis para escritório político":34285.9,
-          "Aquisição de material de consumo":1164.42,
-          "Locomoção, hospedagem, alimentação, combustíveis e":112458.63,
-          "Contratação de serviços de apoio ao parlamentar":52294.0,
-          "Divulgação da atividade parlamentar":55544.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":38482.25,
-          "Combustíveis":1250.12,
-          "Outros materiais":1563.41,
-          "Correios (Consolidado a partir de Setembro/2014.  Ver relatórios de Abril/2013 a Agosto/2014)":19.67
-        }
-      },
-      {
-        "ano":2015,
-        "total":37217.58,
-        "lista":{
-          "Aluguel de imóveis para escritório político":3541.255833333333,
-          "Aquisição de material de consumo":81.71249999999999,
-          "Locomoção, hospedagem, alimentação, combustíveis e":18150.794166666667,
-          "Divulgação da atividade parlamentar":6825.166666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":6016.270833333333,
-          "Combustíveis":425.23333333333335,
-          "Outros materiais":245.58499999999998,
-          "Correios":1931.5583333333334
-        }
-      }
-    ]
-  },
-  {
-    "senador":35,
+    "senador":"35",
     "gastos":[
       {
         "ano":2011,
@@ -1306,7 +1235,7 @@
     ]
   },
   {
-    "senador":4990,
+    "senador":"4990",
     "gastos":[
       {
         "ano":2011,
@@ -1383,7 +1312,7 @@
     ]
   },
   {
-    "senador":40,
+    "senador":"40",
     "gastos":[
       {
         "ano":2011,
@@ -1459,7 +1388,7 @@
     ]
   },
   {
-    "senador":5112,
+    "senador":"5112",
     "gastos":[
       {
         "ano":2011,
@@ -1500,7 +1429,7 @@
     ]
   },
   {
-    "senador":615,
+    "senador":"615",
     "gastos":[
       {
         "ano":2011,
@@ -1569,7 +1498,7 @@
     ]
   },
   {
-    "senador":950,
+    "senador":"950",
     "gastos":[
       {
         "ano":2011,
@@ -1634,7 +1563,7 @@
     ]
   },
   {
-    "senador":3394,
+    "senador":"3394",
     "gastos":[
       {
         "ano":2011,
@@ -1707,7 +1636,7 @@
     ]
   },
   {
-    "senador":3695,
+    "senador":"3695",
     "gastos":[
       {
         "ano":2011,
@@ -1767,7 +1696,7 @@
     ]
   },
   {
-    "senador":4575,
+    "senador":"4575",
     "gastos":[
       {
         "ano":2011,
@@ -1842,7 +1771,7 @@
     ]
   },
   {
-    "senador":643,
+    "senador":"643",
     "gastos":[
       {
         "ano":2011,
@@ -1915,7 +1844,7 @@
     ]
   },
   {
-    "senador":631,
+    "senador":"631",
     "gastos":[
       {
         "ano":2011,
@@ -1985,7 +1914,7 @@
     ]
   },
   {
-    "senador":5000,
+    "senador":"5000",
     "gastos":[
       {
         "ano":2011,
@@ -2046,7 +1975,7 @@
     ]
   },
   {
-    "senador":3741,
+    "senador":"3741",
     "gastos":[
       {
         "ano":2011,
@@ -2121,7 +2050,7 @@
     ]
   },
   {
-    "senador":825,
+    "senador":"825",
     "gastos":[
       {
         "ano":2011,
@@ -2194,7 +2123,7 @@
     ]
   },
   {
-    "senador":5116,
+    "senador":"5116",
     "gastos":[
       {
         "ano":2011,
@@ -2224,7 +2153,7 @@
     ]
   },
   {
-    "senador":2207,
+    "senador":"2207",
     "gastos":[
       {
         "ano":2011,
@@ -2262,7 +2191,7 @@
     ]
   },
   {
-    "senador":5012,
+    "senador":"5012",
     "gastos":[
       {
         "ano":2011,
@@ -2335,7 +2264,43 @@
     ]
   },
   {
-    "senador":5182,
+    "senador":"5072",
+    "gastos":[
+      {
+        "ano":2011,
+        "total":122035.86,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6342.105,
+          "Locomoção, hospedagem, alimentação, combustíveis e":19219.759166666663,
+          "Contratação de serviços de apoio ao parlamentar":3983.6133333333332,
+          "Divulgação da atividade parlamentar":84428.77666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":8061.606666666666
+        }
+      },
+      {
+        "ano":2012,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2013,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2014,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"5182",
     "gastos":[
       {
         "ano":2011,
@@ -2376,7 +2341,7 @@
     ]
   },
   {
-    "senador":70,
+    "senador":"70",
     "gastos":[
       {
         "ano":2011,
@@ -2443,7 +2408,7 @@
     ]
   },
   {
-    "senador":635,
+    "senador":"635",
     "gastos":[
       {
         "ano":2011,
@@ -2518,7 +2483,7 @@
     ]
   },
   {
-    "senador":5052,
+    "senador":"5052",
     "gastos":[
       {
         "ano":2011,
@@ -2548,7 +2513,7 @@
     ]
   },
   {
-    "senador":72,
+    "senador":"72",
     "gastos":[
       {
         "ano":2011,
@@ -2630,7 +2595,7 @@
     ]
   },
   {
-    "senador":5110,
+    "senador":"5110",
     "gastos":[
       {
         "ano":2011,
@@ -2660,7 +2625,7 @@
     ]
   },
   {
-    "senador":73,
+    "senador":"73",
     "gastos":[
       {
         "ano":2011,
@@ -2734,7 +2699,7 @@
     ]
   },
   {
-    "senador":4560,
+    "senador":"4560",
     "gastos":[
       {
         "ano":2011,
@@ -2809,7 +2774,7 @@
     ]
   },
   {
-    "senador":3372,
+    "senador":"3372",
     "gastos":[
       {
         "ano":2011,
@@ -2875,7 +2840,7 @@
     ]
   },
   {
-    "senador":558,
+    "senador":"558",
     "gastos":[
       {
         "ano":2011,
@@ -2952,7 +2917,7 @@
     ]
   },
   {
-    "senador":4763,
+    "senador":"4763",
     "gastos":[
       {
         "ano":2011,
@@ -3021,7 +2986,7 @@
     ]
   },
   {
-    "senador":1176,
+    "senador":"1176",
     "gastos":[
       {
         "ano":2011,
@@ -3093,7 +3058,7 @@
     ]
   },
   {
-    "senador":5070,
+    "senador":"5070",
     "gastos":[
       {
         "ano":2011,
@@ -3155,7 +3120,7 @@
     ]
   },
   {
-    "senador":5144,
+    "senador":"5144",
     "gastos":[
       {
         "ano":2011,
@@ -3220,7 +3185,7 @@
     ]
   },
   {
-    "senador":4697,
+    "senador":"4697",
     "gastos":[
       {
         "ano":2011,
@@ -3291,7 +3256,7 @@
     ]
   },
   {
-    "senador":4981,
+    "senador":"4981",
     "gastos":[
       {
         "ano":2011,
@@ -3362,7 +3327,7 @@
     ]
   },
   {
-    "senador":4815,
+    "senador":"4815",
     "gastos":[
       {
         "ano":2011,
@@ -3392,7 +3357,7 @@
     ]
   },
   {
-    "senador":4527,
+    "senador":"4527",
     "gastos":[
       {
         "ano":2011,
@@ -3449,7 +3414,7 @@
     ]
   },
   {
-    "senador":846,
+    "senador":"846",
     "gastos":[
       {
         "ano":2011,
@@ -3526,7 +3491,7 @@
     ]
   },
   {
-    "senador":945,
+    "senador":"945",
     "gastos":[
       {
         "ano":2011,
@@ -3574,7 +3539,7 @@
     ]
   },
   {
-    "senador":4869,
+    "senador":"4869",
     "gastos":[
       {
         "ano":2011,
@@ -3647,7 +3612,7 @@
     ]
   },
   {
-    "senador":4837,
+    "senador":"4837",
     "gastos":[
       {
         "ano":2011,
@@ -3720,7 +3685,7 @@
     ]
   },
   {
-    "senador":4897,
+    "senador":"4897",
     "gastos":[
       {
         "ano":2011,
@@ -3762,7 +3727,7 @@
     ]
   },
   {
-    "senador":5150,
+    "senador":"5150",
     "gastos":[
       {
         "ano":2011,
@@ -3813,7 +3778,7 @@
     ]
   },
   {
-    "senador":4891,
+    "senador":"4891",
     "gastos":[
       {
         "ano":2011,
@@ -3863,7 +3828,7 @@
     ]
   },
   {
-    "senador":4983,
+    "senador":"4983",
     "gastos":[
       {
         "ano":2011,
@@ -3898,7 +3863,7 @@
     ]
   },
   {
-    "senador":111,
+    "senador":"111",
     "gastos":[
       {
         "ano":2011,
@@ -3969,7 +3934,7 @@
     ]
   },
   {
-    "senador":704,
+    "senador":"704",
     "gastos":[
       {
         "ano":2011,
@@ -3999,7 +3964,7 @@
     ]
   },
   {
-    "senador":13,
+    "senador":"13",
     "gastos":[
       {
         "ano":2011,
@@ -4073,7 +4038,7 @@
     ]
   },
   {
-    "senador":5108,
+    "senador":"5108",
     "gastos":[
       {
         "ano":2011,
@@ -4116,7 +4081,7 @@
     ]
   },
   {
-    "senador":3881,
+    "senador":"3881",
     "gastos":[
       {
         "ano":2011,
@@ -4157,7 +4122,7 @@
     ]
   },
   {
-    "senador":4895,
+    "senador":"4895",
     "gastos":[
       {
         "ano":2011,
@@ -4211,7 +4176,7 @@
     ]
   },
   {
-    "senador":4877,
+    "senador":"4877",
     "gastos":[
       {
         "ano":2011,
@@ -4285,7 +4250,7 @@
     ]
   },
   {
-    "senador":4529,
+    "senador":"4529",
     "gastos":[
       {
         "ano":2011,
@@ -4348,7 +4313,7 @@
     ]
   },
   {
-    "senador":5199,
+    "senador":"5199",
     "gastos":[
       {
         "ano":2011,
@@ -4378,7 +4343,7 @@
     ]
   },
   {
-    "senador":3360,
+    "senador":"3360",
     "gastos":[
       {
         "ano":2011,
@@ -4444,7 +4409,7 @@
     ]
   },
   {
-    "senador":3399,
+    "senador":"3399",
     "gastos":[
       {
         "ano":2011,
@@ -4489,7 +4454,7 @@
     ]
   },
   {
-    "senador":5178,
+    "senador":"5178",
     "gastos":[
       {
         "ano":2011,
@@ -4536,7 +4501,7 @@
     ]
   },
   {
-    "senador":17,
+    "senador":"17",
     "gastos":[
       {
         "ano":2011,
@@ -4602,7 +4567,7 @@
     ]
   },
   {
-    "senador":4969,
+    "senador":"4969",
     "gastos":[
       {
         "ano":2011,
@@ -4632,7 +4597,7 @@
     ]
   },
   {
-    "senador":394,
+    "senador":"394",
     "gastos":[
       {
         "ano":2011,
@@ -4662,7 +4627,7 @@
     ]
   },
   {
-    "senador":20,
+    "senador":"20",
     "gastos":[
       {
         "ano":2011,
@@ -4716,7 +4681,7 @@
     ]
   },
   {
-    "senador":4780,
+    "senador":"4780",
     "gastos":[
       {
         "ano":2011,
@@ -4746,7 +4711,7 @@
     ]
   },
   {
-    "senador":1189,
+    "senador":"1189",
     "gastos":[
       {
         "ano":2011,
@@ -4776,7 +4741,7 @@
     ]
   },
   {
-    "senador":4525,
+    "senador":"4525",
     "gastos":[
       {
         "ano":2011,
@@ -4837,7 +4802,7 @@
     ]
   },
   {
-    "senador":2632,
+    "senador":"2632",
     "gastos":[
       {
         "ano":2011,
@@ -4875,7 +4840,7 @@
     ]
   },
   {
-    "senador":4873,
+    "senador":"4873",
     "gastos":[
       {
         "ano":2011,
@@ -4913,7 +4878,7 @@
     ]
   },
   {
-    "senador":765,
+    "senador":"765",
     "gastos":[
       {
         "ano":2011,
@@ -4969,7 +4934,7 @@
     ]
   },
   {
-    "senador":4935,
+    "senador":"4935",
     "gastos":[
       {
         "ano":2011,
@@ -5015,7 +4980,7 @@
     ]
   },
   {
-    "senador":4522,
+    "senador":"4522",
     "gastos":[
       {
         "ano":2011,
@@ -5049,7 +5014,7 @@
     ]
   },
   {
-    "senador":30,
+    "senador":"30",
     "gastos":[
       {
         "ano":2011,
@@ -5083,7 +5048,7 @@
     ]
   },
   {
-    "senador":613,
+    "senador":"613",
     "gastos":[
       {
         "ano":2011,
@@ -5157,7 +5122,7 @@
     ]
   },
   {
-    "senador":1754,
+    "senador":"1754",
     "gastos":[
       {
         "ano":2011,
@@ -5187,7 +5152,78 @@
     ]
   },
   {
-    "senador":4937,
+    "senador":"5004",
+    "gastos":[
+      {
+        "ano":2011,
+        "total":189601.67,
+        "lista":{
+          "Aluguel de imóveis para escritório político":12585.796666666665,
+          "Locomoção, hospedagem, alimentação, combustíveis e":57617.532499999994,
+          "Contratação de serviços de apoio ao parlamentar":3666.6666666666665,
+          "Divulgação da atividade parlamentar":103013.03833333333,
+          "Passagens aéreas, aquáticas e terrestres nacionais":12718.630833333333
+        }
+      },
+      {
+        "ano":2012,
+        "total":416055.18,
+        "lista":{
+          "Aluguel de imóveis para escritório político":31187.06,
+          "Aquisição de material de consumo":1243.42,
+          "Locomoção, hospedagem, alimentação, combustíveis e":145224.34,
+          "Contratação de serviços de apoio ao parlamentar":19193.49,
+          "Divulgação da atividade parlamentar":167493.82,
+          "Passagens aéreas, aquáticas e terrestres nacionais":51032.6,
+          "Diárias":680.45
+        }
+      },
+      {
+        "ano":2013,
+        "total":416062.85,
+        "lista":{
+          "Aluguel de imóveis para escritório político":37173.43,
+          "Aquisição de material de consumo":2966.67,
+          "Locomoção, hospedagem, alimentação, combustíveis e":138289.59,
+          "Contratação de serviços de apoio ao parlamentar":140.0,
+          "Divulgação da atividade parlamentar":168140.53,
+          "Passagens aéreas, aquáticas e terrestres nacionais":68672.18,
+          "Diárias":680.45
+        }
+      },
+      {
+        "ano":2014,
+        "total":297062.4,
+        "lista":{
+          "Aluguel de imóveis para escritório político":34285.9,
+          "Aquisição de material de consumo":1164.42,
+          "Locomoção, hospedagem, alimentação, combustíveis e":112458.63,
+          "Contratação de serviços de apoio ao parlamentar":52294.0,
+          "Divulgação da atividade parlamentar":55544.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":38482.25,
+          "Combustíveis":1250.12,
+          "Outros materiais":1563.41,
+          "Correios (Consolidado a partir de Setembro/2014.  Ver relatórios de Abril/2013 a Agosto/2014)":19.67
+        }
+      },
+      {
+        "ano":2015,
+        "total":37217.58,
+        "lista":{
+          "Aluguel de imóveis para escritório político":3541.255833333333,
+          "Aquisição de material de consumo":81.71249999999999,
+          "Locomoção, hospedagem, alimentação, combustíveis e":18150.794166666667,
+          "Divulgação da atividade parlamentar":6825.166666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":6016.270833333333,
+          "Combustíveis":425.23333333333335,
+          "Outros materiais":245.58499999999998,
+          "Correios":1931.5583333333334
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4937",
     "gastos":[
       {
         "ano":2011,
@@ -5240,7 +5276,7 @@
     ]
   },
   {
-    "senador":4545,
+    "senador":"4545",
     "gastos":[
       {
         "ano":2011,
@@ -5311,7 +5347,7 @@
     ]
   },
   {
-    "senador":4531,
+    "senador":"4531",
     "gastos":[
       {
         "ano":2011,
@@ -5374,7 +5410,7 @@
     ]
   },
   {
-    "senador":4533,
+    "senador":"4533",
     "gastos":[
       {
         "ano":2011,
@@ -5404,7 +5440,7 @@
     ]
   },
   {
-    "senador":4776,
+    "senador":"4776",
     "gastos":[
       {
         "ano":2011,
@@ -5458,7 +5494,7 @@
     ]
   },
   {
-    "senador":47,
+    "senador":"47",
     "gastos":[
       {
         "ano":2011,
@@ -5504,7 +5540,7 @@
     ]
   },
   {
-    "senador":5166,
+    "senador":"5166",
     "gastos":[
       {
         "ano":2011,
@@ -5546,7 +5582,7 @@
     ]
   },
   {
-    "senador":4537,
+    "senador":"4537",
     "gastos":[
       {
         "ano":2011,
@@ -5614,7 +5650,7 @@
     ]
   },
   {
-    "senador":4774,
+    "senador":"4774",
     "gastos":[
       {
         "ano":2011,
@@ -5651,7 +5687,7 @@
     ]
   },
   {
-    "senador":916,
+    "senador":"916",
     "gastos":[
       {
         "ano":2011,
@@ -5693,7 +5729,7 @@
     ]
   },
   {
-    "senador":4541,
+    "senador":"4541",
     "gastos":[
       {
         "ano":2011,
@@ -5763,7 +5799,7 @@
     ]
   },
   {
-    "senador":5158,
+    "senador":"5158",
     "gastos":[
       {
         "ano":2011,
@@ -5802,7 +5838,7 @@
     ]
   },
   {
-    "senador":1249,
+    "senador":"1249",
     "gastos":[
       {
         "ano":2011,
@@ -5869,7 +5905,7 @@
     ]
   },
   {
-    "senador":5156,
+    "senador":"5156",
     "gastos":[
       {
         "ano":2011,
@@ -5908,7 +5944,7 @@
     ]
   },
   {
-    "senador":3579,
+    "senador":"3579",
     "gastos":[
       {
         "ano":2011,
@@ -5959,7 +5995,7 @@
     ]
   },
   {
-    "senador":5002,
+    "senador":"5002",
     "gastos":[
       {
         "ano":2011,
@@ -6034,7 +6070,7 @@
     ]
   },
   {
-    "senador":3366,
+    "senador":"3366",
     "gastos":[
       {
         "ano":2011,
@@ -6097,7 +6133,7 @@
     ]
   },
   {
-    "senador":4788,
+    "senador":"4788",
     "gastos":[
       {
         "ano":2011,
@@ -6142,7 +6178,7 @@
     ]
   },
   {
-    "senador":4535,
+    "senador":"4535",
     "gastos":[
       {
         "ano":2011,
@@ -6172,7 +6208,7 @@
     ]
   },
   {
-    "senador":1023,
+    "senador":"1023",
     "gastos":[
       {
         "ano":2011,
@@ -6229,7 +6265,7 @@
     ]
   },
   {
-    "senador":4998,
+    "senador":"4998",
     "gastos":[
       {
         "ano":2011,
@@ -6268,7 +6304,7 @@
     ]
   },
   {
-    "senador":527,
+    "senador":"527",
     "gastos":[
       {
         "ano":2011,
@@ -6304,7 +6340,7 @@
     ]
   },
   {
-    "senador":952,
+    "senador":"952",
     "gastos":[
       {
         "ano":2011,
@@ -6370,7 +6406,7 @@
     ]
   },
   {
-    "senador":4539,
+    "senador":"4539",
     "gastos":[
       {
         "ano":2011,
@@ -6432,7 +6468,7 @@
     ]
   },
   {
-    "senador":4961,
+    "senador":"4961",
     "gastos":[
       {
         "ano":2011,
@@ -6462,7 +6498,7 @@
     ]
   },
   {
-    "senador":64,
+    "senador":"64",
     "gastos":[
       {
         "ano":2011,
@@ -6502,7 +6538,7 @@
     ]
   },
   {
-    "senador":1210,
+    "senador":"1210",
     "gastos":[
       {
         "ano":2011,
@@ -6540,7 +6576,7 @@
     ]
   },
   {
-    "senador":5018,
+    "senador":"5018",
     "gastos":[
       {
         "ano":2011,
@@ -6570,7 +6606,7 @@
     ]
   },
   {
-    "senador":5020,
+    "senador":"5020",
     "gastos":[
       {
         "ano":2011,
@@ -6633,7 +6669,7 @@
     ]
   },
   {
-    "senador":68,
+    "senador":"68",
     "gastos":[
       {
         "ano":2011,
@@ -6682,7 +6718,7 @@
     ]
   },
   {
-    "senador":5010,
+    "senador":"5010",
     "gastos":[
       {
         "ano":2011,
@@ -6743,7 +6779,7 @@
     ]
   },
   {
-    "senador":4927,
+    "senador":"4927",
     "gastos":[
       {
         "ano":2011,
@@ -6773,7 +6809,7 @@
     ]
   },
   {
-    "senador":1206,
+    "senador":"1206",
     "gastos":[
       {
         "ano":2011,
@@ -6803,43 +6839,7 @@
     ]
   },
   {
-    "senador":5072,
-    "gastos":[
-      {
-        "ano":2011,
-        "total":122035.86,
-        "lista":{
-          "Aluguel de imóveis para escritório político":6342.105,
-          "Locomoção, hospedagem, alimentação, combustíveis e":19219.759166666663,
-          "Contratação de serviços de apoio ao parlamentar":3983.6133333333332,
-          "Divulgação da atividade parlamentar":84428.77666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":8061.606666666666
-        }
-      },
-      {
-        "ano":2012,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2013,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2014,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2015,
-        "total":0.0,
-        "lista":{}
-      }
-    ]
-  },
-  {
-    "senador":3868,
+    "senador":"3868",
     "gastos":[
       {
         "ano":2011,
@@ -6869,7 +6869,7 @@
     ]
   },
   {
-    "senador":4593,
+    "senador":"4593",
     "gastos":[
       {
         "ano":2011,
@@ -6910,7 +6910,7 @@
     ]
   },
   {
-    "senador":4543,
+    "senador":"4543",
     "gastos":[
       {
         "ano":2011,
@@ -6940,7 +6940,7 @@
     ]
   },
   {
-    "senador":4893,
+    "senador":"4893",
     "gastos":[
       {
         "ano":2011,
@@ -6996,7 +6996,7 @@
     ]
   },
   {
-    "senador":5038,
+    "senador":"5038",
     "gastos":[
       {
         "ano":2011,
@@ -7035,7 +7035,7 @@
     ]
   },
   {
-    "senador":5048,
+    "senador":"5048",
     "gastos":[
       {
         "ano":2011,
@@ -7099,7 +7099,7 @@
     ]
   },
   {
-    "senador":4957,
+    "senador":"4957",
     "gastos":[
       {
         "ano":2011,
@@ -7149,7 +7149,7 @@
     ]
   },
   {
-    "senador":5106,
+    "senador":"5106",
     "gastos":[
       {
         "ano":2011,
@@ -7179,7 +7179,7 @@
     ]
   },
   {
-    "senador":982,
+    "senador":"982",
     "gastos":[
       {
         "ano":2011,
@@ -7209,7 +7209,7 @@
     ]
   },
   {
-    "senador":4949,
+    "senador":"4949",
     "gastos":[
       {
         "ano":2011,
@@ -7243,7 +7243,7 @@
     ]
   },
   {
-    "senador":4786,
+    "senador":"4786",
     "gastos":[
       {
         "ano":2011,
@@ -7273,7 +7273,7 @@
     ]
   },
   {
-    "senador":4645,
+    "senador":"4645",
     "gastos":[
       {
         "ano":2011,
@@ -7333,7 +7333,7 @@
     ]
   },
   {
-    "senador":604,
+    "senador":"604",
     "gastos":[
       {
         "ano":2011,
@@ -7406,7 +7406,7 @@
     ]
   },
   {
-    "senador":5016,
+    "senador":"5016",
     "gastos":[
       {
         "ano":2011,
@@ -7465,7 +7465,7 @@
     ]
   },
   {
-    "senador":4772,
+    "senador":"4772",
     "gastos":[
       {
         "ano":2011,
@@ -7499,7 +7499,7 @@
     ]
   },
   {
-    "senador":3811,
+    "senador":"3811",
     "gastos":[
       {
         "ano":2011,
@@ -7536,7 +7536,7 @@
     ]
   },
   {
-    "senador":3597,
+    "senador":"3597",
     "gastos":[
       {
         "ano":2011,
