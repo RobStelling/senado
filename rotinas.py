@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import locale
 import requests
 
+import configuracao
+
 """Rotinas de uso comum entre os módulos da aplicação
 """
 def reais(x, pos=None):
@@ -34,12 +36,34 @@ def s2float(dado):
     except ValueError:
         return float('nan')
 
+def infoLegislatura(numLegislatura):
+    # Define que aceita JSON
+    # Resposta padrão da API é XML
+    header = {'Accept': 'application/json',
+              'user-agent': f'senadoInfo/{configuracao.versao}'}
+    url = f'http://legis.senado.gov.br/dadosabertos/plenario/lista/legislaturas'
+
+    try:
+        infoLegis = requests.get(url, headers=header)
+    except requests.exceptions.RequestException as erro:
+        print(erro)
+        sys.exit(1)
+    legislaturas = infoLegis.json()
+
+    for legislatura in legislaturas['ListaLegislatura']['Legislatura']['Legislatura']:
+        numLegis = int(legislatura['@id'])
+        if numLegis == numLegislatura:
+            inicio = int(legislatura['DataInicio'].split('-')[0])
+            fim = int(legislatura['DataFim'].split('-')[0])
+            anos = list(range(inicio, fim+1))
+            return numLegislatura, anos
+
 def infoLegislaturaAtual(versao):
     """Retorna a legislatura atual e os anos de exercício a partir
     da página de senadores em exercício do senado
     """
     url = 'https://www25.senado.leg.br/web/senadores/em-exercicio'
-    header = {'user-agent': f'senadoInfo/{versao}'}
+    header = {'user-agent': f'senadoInfo/{configuracao.versao}'}
     try:
         requisicao = requests.get(url, headers=header)
     except requests.exceptions.RequestException as erro:

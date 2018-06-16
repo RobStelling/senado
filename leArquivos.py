@@ -33,24 +33,25 @@ parser.add_argument('-G', '--nograph', dest='nograph', action='store_true',
 parser.add_argument('-P', '--nopage', dest='nopage', action='store_true',
                     help='Não gera a página html')
 
-parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=55,
+parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=0,
                     help='Legislatura de coleta de dados, default: legislatura atual')
 
 args = parser.parse_args()
 
-legislaturaLevantamento = args.legislatura
 legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(configuracao.versao)
+# Se não informou qual legislatura, assume a atual
+if args.legislatura == 0:
+    legislaturaLevantamento, anos = legislaturaAtual, anosAtual
+else:
+    legislaturaLevantamento, anos = rtn.infoLegislatura(args.legislatura)
 
-# Lê legislatura e Lista de anos de mandato para contabilização
+# Lê data da coleta
 with open(f'csv/{legislaturaLevantamento}_anos.csv', newline='') as arquivoAnos:
     anosReader = csv.reader(arquivoAnos)
     for row in anosReader:
         # Ignora o header (se houver)
         if rtn.maiorQue(row[0]) and rtn.maiorQue(row[1]) and rtn.maiorQue(row[2]):
             # legislaturaAtual = int(row[0])
-            anos = list(range(int(row[1]), int(row[2]) + 1))
-            # Quarto campo está no formato aaaa-mm-dd hh:mm:ss.dcmm
-            # Primeiro separa data de hora
             dataColeta, horaColeta = row[3].split(' ')
             # Muda data coleta de aaaa-mm-dd para dd/mm/aaaa
             dataColeta = dataColeta.split('-')

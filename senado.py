@@ -400,30 +400,6 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     # Retorna o gasto total do senador para o ano pedido
     return round(total, 2), infoAuxilio, infoPessoal, gastos, nascimentoSenador
 
-def infoLegislatura(numLegislatura):
-    if args.verbose:
-        print(f'Verificando legislatura: {numLegislatura}...')
-    # Define que aceita JSON
-    # Resposta padrão da API é XML
-    header = {'Accept': 'application/json',
-              'user-agent': f'senadoInfo/{configuracao.versao}'}
-    url = f'http://legis.senado.gov.br/dadosabertos/plenario/lista/legislaturas'
-
-    try:
-        infoLegis = requests.get(url, headers=header)
-    except requests.exceptions.RequestException as erro:
-        print(erro)
-        sys.exit(1)
-    legislaturas = infoLegis.json()
-
-    for legislatura in legislaturas['ListaLegislatura']['Legislatura']['Legislatura']:
-        numLegis = int(legislatura['@id'])
-        if numLegis == numLegislatura:
-            inicio = int(legislatura['DataInicio'].split('-')[0])
-            fim = int(legislatura['DataFim'].split('-')[0])
-            anos = list(range(inicio, fim+1))
-            return numLegislatura, anos
-
 # Recupera dados da legislatura atual
 if args.verbose:
     print('Verificando número da legislatura atual...')
@@ -432,7 +408,9 @@ legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(configuracao.versao)
 if args.legislatura == 0:
     legislaturaLevantamento, anos = legislaturaAtual, anosAtual
 else:
-    legislaturaLevantamento, anos = infoLegislatura(args.legislatura)
+    if args.verbose:
+        print(f'Verificando legislatura: {numLegislatura}...')
+    legislaturaLevantamento, anos = rtn.infoLegislatura(args.legislatura)
 
 anoAtual = datetime.today().year
 anosLegislatura = [ano for ano in anos if ano <= anoAtual]
