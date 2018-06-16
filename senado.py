@@ -62,6 +62,7 @@ parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default
 
 args = parser.parse_args()
 
+versao = '0.3.01'
 
 def leDadosParlamentares(legislatura):
     """Lê dados de parlamentares das páginas de dados abertos do Senado
@@ -340,14 +341,17 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         total += valores[i]
 
     # pega Correios em separado
-    corpoCorreios = tabelas[1].find('tbody')
-    if corpoCorreios is not None:
-        correios = corpoCorreios.find_all(
-            'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
-        correiosCaput = correios[0].text.strip()
-        correiosMontante = rtn.s2float(correios[1].text.strip())*fator
-    else:
+    if len(tabelas) == 0:
         correiosMontante = 0
+    else:
+        corpoCorreios = tabelas[1].find('tbody')
+        if corpoCorreios is not None:
+            correios = corpoCorreios.find_all(
+                'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
+            correiosCaput = correios[0].text.strip()
+            correiosMontante = rtn.s2float(correios[1].text.strip())*fator
+        else:
+            correiosMontante = 0
 
     if correiosMontante > 0:
         gastos['lista'][correiosCaput] = correiosMontante
@@ -356,40 +360,41 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     # Depois recupera utilização de auxílio-moradia e imóvel funcional
     # Auxílios estão em #accordion-outros
     outros = bloco.find('div', {'id': 'accordion-outros'})
-    # e os dados estão em td's
-    tdOutros = outros.find_all('td')
+    if outros != None:
+        # e os dados estão em td's
+        tdOutros = outros.find_all('td')
 
-    # Se tudo estiver correto, no td[i] teremos o nome do auxício
-    # e no td[i+1] sua utilização em meses
-    for i in range(0, len(tdOutros), 2):
-        auxilio = tdOutros[i].text.strip()
-        uso = tdOutros[i + 1].text.strip()
-        # Uso pode ser "Não utilizou", "Informações disponíveis depois..." ou
-        # "Utilizou (X) meses" ou "Utilizou (1) mês", calcula o uso em meses
-        # em função destes valores
-        meses = 0
-        if (uso != 'Não utilizou'):
-            if not re.match(r'Informações disponíveis.*', uso) and not re.match(r'Informações não disponíveis.*', uso):
-                meses = int(uso.replace('Utilizou (', '').replace(
-                    ' meses)', '').replace(' mês)', ''))*fator
+        # Se tudo estiver correto, no td[i] teremos o nome do auxício
+        # e no td[i+1] sua utilização em meses
+        for i in range(0, len(tdOutros), 2):
+            auxilio = tdOutros[i].text.strip()
+            uso = tdOutros[i + 1].text.strip()
+            # Uso pode ser "Não utilizou", "Informações disponíveis depois..." ou
+            # "Utilizou (X) meses" ou "Utilizou (1) mês", calcula o uso em meses
+            # em função destes valores
+            meses = 0
+            if (uso != 'Não utilizou'):
+                if not re.match(r'Informações disponíveis.*', uso) and not re.match(r'Informações não disponíveis.*', uso):
+                    meses = int(uso.replace('Utilizou (', '').replace(
+                        ' meses)', '').replace(' mês)', ''))*fator
 
-        infoAuxilio.append({'beneficio': auxilio, 'meses': meses})
+            infoAuxilio.append({'beneficio': auxilio, 'meses': meses})
 
-    # Ao fim, recupera as informações de uso de pessoal
+        # Ao fim, recupera as informações de uso de pessoal
 
-    # Recupera dados de pessoal
-    # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
-    corpoQuantidade = bloco.find(
-        'div', {'id': 'accordion-pessoal'}).find('tbody')
-    if corpoQuantidade is not None:
-        quantidades = corpoQuantidade.find_all(
-            'tr', {'class': 'sen_tabela_linha_grupo'})
+        # Recupera dados de pessoal
+        # bloco->div(#accordion-pessoal)->tbody->ALL tr(.sen_tabela_linha_grupo)
+        corpoQuantidade = bloco.find(
+            'div', {'id': 'accordion-pessoal'}).find('tbody')
+        if corpoQuantidade is not None:
+            quantidades = corpoQuantidade.find_all(
+                'tr', {'class': 'sen_tabela_linha_grupo'})
 
-        # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
-        for i in range(len(quantidades)):
-            infoPessoal.append(
-                {'titulo': quantidades[i].find('span').text.strip(),
-                 'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
+            # O título da utilização de pessoal está no elemento <span> e quantidades no elemento <a>
+            for i in range(len(quantidades)):
+                infoPessoal.append(
+                    {'titulo': quantidades[i].find('span').text.strip(),
+                     'quantidade': int(quantidades[i].find('a').text.strip().split()[0])})
 
     # print(bloco)
     # Retorna o gasto total do senador para o ano pedido

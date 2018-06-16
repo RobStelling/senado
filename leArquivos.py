@@ -159,6 +159,12 @@ def geraHTML(modeloHtml, saida):
     """Gera página HTML a partir de um modelo (modeloHtml)
     não retorna nenhum valor
     """
+    def valor(vetor, chave, default=0.0):
+        try:
+            return vetor[chave]
+        except KeyError:
+            return default
+
     def totalBeneficioMoradia(senador):
         """Calcula o total do beneficio moradia de um senador
         """
@@ -166,7 +172,7 @@ def geraHTML(modeloHtml, saida):
         im = 'Imóvel Funcional-'
         total = 0
         for ano in anos:
-            total += senador[am + str(ano)] + senador[im + str(ano)]
+            total += valor(senador, am + str(ano)) + valor(senador, im + str(ano))
         return total
 
     def htmlRowsSenado(senadores, anoConsulta):
@@ -205,20 +211,22 @@ def geraHTML(modeloHtml, saida):
       </center>
       """
     def header(_):
-        html = '{:<12}<center>\n'.format('')
-        html += '{:<14}<dif class="row">Legislaturas: '.format('')
+        html = '{:<6}<center>\n'.format('')
+        html += '{:<8}<div class="row">Legislaturas:'.format('')
         i = legislaturaAtual
         while True:
             if i == legislaturaAtual:
                 arquivo = 'index.html'
             else:
-                if os.path.isfile(f'{i}_index.html'):
+                # Se existe o template para uma legislatura então gera o link
+                # Senão interrompe o loop
+                if os.path.isfile(f'{i}_index.tmpl'):
                     arquivo = f'{i}_index.html'
                 else:
                     break
-            html += f'<a href={arquivo}>{i}</a> '
+            html += f' <a href={arquivo}>{i}</a>'
             i -= 1
-        html += '\n{:<12}</center>\n'.format('')
+        html += '</div>\n{:<6}</center>\n'.format('')
         return html;
 
     def exercicio(_):
@@ -385,7 +393,7 @@ if not args.nograph:
         f'{imagens}/{legislaturaLevantamento}_gastoGabinetePartidos{anos[-1]}.png')
     plt.close()
     gTop = top[listaGastos].plot(
-        kind='bar', rot=20, title='Senadores com maiores gastos na legislatura atual', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
+        kind='bar', rot=20, title=f'Senadores com maiores gastos na legislatura {legislaturaLevantamento}', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
     gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
     gTop.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_maiores.png')
     plt.close()
