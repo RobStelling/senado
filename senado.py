@@ -16,6 +16,7 @@ import shutil
 import sys
 import time
 
+import configuracao
 import rotinas as rtn
 
 """ Versão da aplicação, baseado em https://semver.org
@@ -62,7 +63,6 @@ parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default
 
 args = parser.parse_args()
 
-versao = '0.3.01'
 
 def leDadosParlamentares(legislatura):
     """Lê dados de parlamentares das páginas de dados abertos do Senado
@@ -116,7 +116,7 @@ def leDadosParlamentares(legislatura):
     # Define que aceita JSON
     # Resposta padrão da API é XML
     header = {'Accept': 'application/json',
-              'user-agent': f'senadoInfo/{versao}'}
+              'user-agent': f'senadoInfo/{configuracao.versao}'}
     url = f'http://legis.senado.leg.br/dadosabertos/senador/lista/legislatura/{legislatura}'
 
     try:
@@ -254,7 +254,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     else:
         fator = 1
 
-    header = {'user-agent': f'senadoInfo/{versao}'}
+    header = {'user-agent': f'senadoInfo/{configuracao.versao}'}
     # Coleta a página
     url = f'http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}'
 
@@ -406,7 +406,7 @@ def infoLegislatura(numLegislatura):
     # Define que aceita JSON
     # Resposta padrão da API é XML
     header = {'Accept': 'application/json',
-              'user-agent': f'senadoInfo/{versao}'}
+              'user-agent': f'senadoInfo/{configuracao.versao}'}
     url = f'http://legis.senado.gov.br/dadosabertos/plenario/lista/legislaturas'
 
     try:
@@ -427,7 +427,7 @@ def infoLegislatura(numLegislatura):
 # Recupera dados da legislatura atual
 if args.verbose:
     print('Verificando número da legislatura atual...')
-legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(versao)
+legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(configuracao.versao)
 # Se não informou qual legislatura, assume a atual
 if args.legislatura == 0:
     legislaturaLevantamento, anos = legislaturaAtual, anosAtual
@@ -707,7 +707,7 @@ for url in dadosSenado['urlFoto']:
     fotoSenador = url.split('/')[-1]
     nomeArquivo = f'{dirFotos}/{fotoSenador}'
     if not os.path.exists(nomeArquivo):
-        header = {'user-agent': f'senadoInfo/{versao}', 'Accept': 'image/jpeg'}
+        header = {'user-agent': f'senadoInfo/{configuracao.versao}', 'Accept': 'image/jpeg'}
         try:
             requisicao = requests.get(url, headers=header, stream=True)
         except requests.exceptions.RequestException as erro:

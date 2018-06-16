@@ -14,11 +14,13 @@ import os
 import pandas as pd
 import re
 
+import configuracao
 import rotinas as rtn
 
 """Lê dados de parlamentares de arquivos CSV e
 gera gráficos, texto e páginas com o conteúdo
 """
+
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
@@ -37,7 +39,7 @@ parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default
 args = parser.parse_args()
 
 legislaturaLevantamento = args.legislatura
-legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual()
+legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(configuracao.versao)
 
 # Lê legislatura e Lista de anos de mandato para contabilização
 with open(f'csv/{legislaturaLevantamento}_anos.csv', newline='') as arquivoAnos:

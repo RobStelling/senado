@@ -2,8 +2,6 @@ from bs4 import BeautifulSoup
 import locale
 import requests
 
-
-versao = '0.3.01'
 """Rotinas de uso comum entre os módulos da aplicação
 """
 def reais(x, pos=None):
@@ -36,7 +34,7 @@ def s2float(dado):
     except ValueError:
         return float('nan')
 
-def infoLegislaturaAtual(versao=versao):
+def infoLegislaturaAtual(versao):
     """Retorna a legislatura atual e os anos de exercício a partir
     da página de senadores em exercício do senado
     """
