@@ -40,7 +40,7 @@ def infoLegislatura(numLegislatura):
     # Define que aceita JSON
     # Resposta padrão da API é XML
     header = {'Accept': 'application/json',
-              'user-agent': f'senadoInfo/{configuracao.versao}'}
+              'user-agent': f'senadoInfo/{configuracao.VERSAO}'}
     url = f'http://legis.senado.gov.br/dadosabertos/plenario/lista/legislaturas'
 
     try:
@@ -63,7 +63,7 @@ def infoLegislaturaAtual(versao):
     da página de senadores em exercício do senado
     """
     url = 'https://www25.senado.leg.br/web/senadores/em-exercicio'
-    header = {'user-agent': f'senadoInfo/{configuracao.versao}'}
+    header = {'user-agent': f'senadoInfo/{configuracao.VERSAO}'}
     try:
         requisicao = requests.get(url, headers=header)
     except requests.exceptions.RequestException as erro:

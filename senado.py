@@ -116,7 +116,7 @@ def leDadosParlamentares(legislatura):
     # Define que aceita JSON
     # Resposta padrão da API é XML
     header = {'Accept': 'application/json',
-              'user-agent': f'senadoInfo/{configuracao.versao}'}
+              'user-agent': f'senadoInfo/{configuracao.VERSAO}'}
     url = f'http://legis.senado.leg.br/dadosabertos/senador/lista/legislatura/{legislatura}'
 
     try:
@@ -230,6 +230,11 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     se definido, espera "intervalo" segundos antes de fazer a requisição
     Página exemplo: Senador Itamar Franco, 2011
     http://www6g.senado.leg.br/transparencia/sen/1754/?ano=2011
+
+    codigoSenador: Código do senador (Ex: '2612')
+    ano: Ano da informação (Ex: 2017)
+    intervalo: Intervalo de polling entre requerimentos de página
+    nascimento: Flag que indica se deve recuperar a data de nascimento do senador
     """
     if args.debug:
         print('Senador: {} Ano: {}'.format(codigoSenador, ano))
@@ -247,14 +252,8 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         que deve considerar o mês que o relatório foi extraído se for
         o último ano da legislatura atual
     """
-    if ano == anos[-1]:
-        fator = 1/12
-    elif ano == anos[0]:
-        fator = 11/12
-    else:
-        fator = 1
 
-    header = {'user-agent': f'senadoInfo/{configuracao.versao}'}
+    header = {'user-agent': f'senadoInfo/{configuracao.VERSAO}'}
     # Coleta a página
     url = f'http://www6g.senado.leg.br/transparencia/sen/{codigoSenador}/?ano={ano}'
 
@@ -269,6 +268,30 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     infoPessoal = []
     gastos = {'ano': ano, 'total': 0.0, 'lista': {}}
     sopaSenador = BeautifulSoup(requisicao.content, 'html.parser')
+
+    anosInformacao = sopaSenador.find('div', {'class': 'btn-group'})
+    if anosInformacao != None:
+        anosInformacao = anosInformacao.find_all('li')
+
+    def presente(anosPagina, ano):
+        if anosPagina == None:
+            return False
+        for aInfo in anosPagina:
+            if int(aInfo.text) == ano:
+                return True
+        return False
+
+    fator = 1
+    # Se for o último ano da legislatura, a legislatura não é a atual e o senador
+    # está presente no ano seguinte então só considera o primeiro mes de despesas
+    if ano == anos[-1] and legislaturaLevantamento != legislaturaAtual and presente(anosInformacao, int(ano)+1):
+        fator = 1/12
+    # Se for o primeiro ano da legislatura, não é a primeira legislatura de coleta
+    # e o senador estava presente no ano anterior então só considera os 11 últimos
+    # meses do ano
+    elif ano == anos[0] and legislaturaLevantamento != configuracao.LEGISLATURAINICIAL and presente(anosInformacao, int(ano)-1):
+        fator = 11/12
+
     if nascimento:
         dadosPessoais = sopaSenador.find(
             'div', {'class': 'dadosPessoais'}).find_all('dd')
@@ -403,13 +426,13 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
 # Recupera dados da legislatura atual
 if args.verbose:
     print('Verificando número da legislatura atual...')
-legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(configuracao.versao)
+legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(configuracao.VERSAO)
 # Se não informou qual legislatura, assume a atual
 if args.legislatura == 0:
     legislaturaLevantamento, anos = legislaturaAtual, anosAtual
 else:
     if args.verbose:
-        print(f'Verificando legislatura: {numLegislatura}...')
+        print(f'Verificando legislatura: {args.legislatura}...')
     legislaturaLevantamento, anos = rtn.infoLegislatura(args.legislatura)
 
 anoAtual = datetime.today().year
@@ -685,7 +708,7 @@ for url in dadosSenado['urlFoto']:
     fotoSenador = url.split('/')[-1]
     nomeArquivo = f'{dirFotos}/{fotoSenador}'
     if not os.path.exists(nomeArquivo):
-        header = {'user-agent': f'senadoInfo/{configuracao.versao}', 'Accept': 'image/jpeg'}
+        header = {'user-agent': f'senadoInfo/{configuracao.VERSAO}', 'Accept': 'image/jpeg'}
         try:
             requisicao = requests.get(url, headers=header, stream=True)
         except requests.exceptions.RequestException as erro:

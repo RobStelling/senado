@@ -34,15 +34,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":104309.3,
+        "total":113791.96,
         "lista":{
-          "Aluguel de imóveis para escritório político":19774.37,
-          "Aquisição de material de consumo":5060.33,
-          "Locomoção, hospedagem, alimentação, combustíveis e":37140.235,
-          "Contratação de serviços de apoio ao parlamentar":8738.885833333334,
-          "Divulgação da atividade parlamentar":539.9166666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":28298.884166666663,
-          "Diárias":4756.675
+          "Aluguel de imóveis para escritório político":21572.04,
+          "Aquisição de material de consumo":5520.36,
+          "Locomoção, hospedagem, alimentação, combustíveis e":40516.62,
+          "Contratação de serviços de apoio ao parlamentar":9533.33,
+          "Divulgação da atividade parlamentar":589.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":30871.51,
+          "Diárias":5189.1
         }
       },
       {
@@ -182,14 +182,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":262859.58,
+        "total":286755.9,
         "lista":{
-          "Aluguel de imóveis para escritório político":58909.565,
-          "Aquisição de material de consumo":32204.571666666667,
-          "Locomoção, hospedagem, alimentação, combustíveis e":25485.184999999998,
-          "Contratação de serviços de apoio ao parlamentar":82316.66666666666,
-          "Divulgação da atividade parlamentar":29773.333333333332,
-          "Passagens aéreas, aquáticas e terrestres nacionais":34170.253333333334
+          "Aluguel de imóveis para escritório político":64264.98,
+          "Aquisição de material de consumo":35132.26,
+          "Locomoção, hospedagem, alimentação, combustíveis e":27802.02,
+          "Contratação de serviços de apoio ao parlamentar":89800.0,
+          "Divulgação da atividade parlamentar":32480.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":37276.64
         }
       },
       {
@@ -245,11 +245,11 @@
     "gastos":[
       {
         "ano":2011,
-        "total":97082.9,
+        "total":105908.62,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":68230.12166666666,
-          "Divulgação da atividade parlamentar":15163.5,
-          "Passagens aéreas, aquáticas e terrestres nacionais":13689.279999999999
+          "Locomoção, hospedagem, alimentação, combustíveis e":74432.86,
+          "Divulgação da atividade parlamentar":16542.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":14933.76
         }
       },
       {
@@ -302,12 +302,12 @@
     "gastos":[
       {
         "ano":2011,
-        "total":165907.88,
+        "total":180990.41,
         "lista":{
-          "Aluguel de imóveis para escritório político":139217.20083333334,
-          "Aquisição de material de consumo":3064.0041666666666,
-          "Locomoção, hospedagem, alimentação, combustíveis e":1243.8433333333332,
-          "Passagens aéreas, aquáticas e terrestres nacionais":22382.8275
+          "Aluguel de imóveis para escritório político":151873.31,
+          "Aquisição de material de consumo":3342.55,
+          "Locomoção, hospedagem, alimentação, combustíveis e":1356.92,
+          "Passagens aéreas, aquáticas e terrestres nacionais":24417.63
         }
       },
       {
@@ -364,14 +364,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":150187.26,
+        "total":163840.65,
         "lista":{
-          "Aluguel de imóveis para escritório político":33876.113333333335,
-          "Aquisição de material de consumo":14.565833333333334,
-          "Locomoção, hospedagem, alimentação, combustíveis e":71736.48166666666,
-          "Contratação de serviços de apoio ao parlamentar":7993.59,
-          "Divulgação da atividade parlamentar":8687.25,
-          "Passagens aéreas, aquáticas e terrestres nacionais":27879.261666666665
+          "Aluguel de imóveis para escritório político":36955.76,
+          "Aquisição de material de consumo":15.89,
+          "Locomoção, hospedagem, alimentação, combustíveis e":78257.98,
+          "Contratação de serviços de apoio ao parlamentar":8720.28,
+          "Divulgação da atividade parlamentar":9477.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":30413.74
         }
       },
       {
@@ -430,12 +430,12 @@
     "gastos":[
       {
         "ano":2011,
-        "total":339141.35,
+        "total":369972.38,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":156471.48,
-          "Contratação de serviços de apoio ao parlamentar":98083.33333333333,
-          "Divulgação da atividade parlamentar":53166.666666666664,
-          "Passagens aéreas, aquáticas e terrestres nacionais":31419.868333333332
+          "Locomoção, hospedagem, alimentação, combustíveis e":170696.16,
+          "Contratação de serviços de apoio ao parlamentar":107000.0,
+          "Divulgação da atividade parlamentar":58000.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":34276.22
         }
       },
       {
@@ -537,10 +537,10 @@
     "gastos":[
       {
         "ano":2011,
-        "total":11758.58,
+        "total":12827.54,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":1516.0016666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":10242.576666666666
+          "Locomoção, hospedagem, alimentação, combustíveis e":1653.82,
+          "Passagens aéreas, aquáticas e terrestres nacionais":11173.72
         }
       },
       {
@@ -688,14 +688,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":159871.51,
+        "total":174405.28,
         "lista":{
-          "Aluguel de imóveis para escritório político":3644.620833333333,
-          "Aquisição de material de consumo":1028.9583333333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":133237.53666666668,
-          "Contratação de serviços de apoio ao parlamentar":2497.9166666666665,
-          "Passagens aéreas, aquáticas e terrestres nacionais":17003.240833333333,
-          "Diárias":2459.2333333333336
+          "Aluguel de imóveis para escritório político":3975.95,
+          "Aquisição de material de consumo":1122.5,
+          "Locomoção, hospedagem, alimentação, combustíveis e":145350.04,
+          "Contratação de serviços de apoio ao parlamentar":2725.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":18548.99,
+          "Diárias":2682.8
         }
       },
       {
@@ -761,10 +761,10 @@
     "gastos":[
       {
         "ano":2011,
-        "total":46028.5,
+        "total":50212.91,
         "lista":{
-          "Passagens aéreas, aquáticas e terrestres nacionais":45560.68916666666,
-          "Diárias":467.8116666666666
+          "Passagens aéreas, aquáticas e terrestres nacionais":49702.57,
+          "Diárias":510.34
         }
       },
       {
@@ -1014,14 +1014,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":58997.27,
+        "total":64360.66,
         "lista":{
-          "Aluguel de imóveis para escritório político":14405.6,
-          "Aquisição de material de consumo":3273.4166666666665,
-          "Locomoção, hospedagem, alimentação, combustíveis e":19119.191666666666,
-          "Contratação de serviços de apoio ao parlamentar":13753.254166666666,
-          "Divulgação da atividade parlamentar":7271.449166666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":1174.36
+          "Aluguel de imóveis para escritório político":15715.2,
+          "Aquisição de material de consumo":3571.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":20857.3,
+          "Contratação de serviços de apoio ao parlamentar":15003.55,
+          "Divulgação da atividade parlamentar":7932.49,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1281.12
         }
       },
       {
@@ -1071,14 +1071,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":263245.82,
+        "total":287177.26,
         "lista":{
-          "Aluguel de imóveis para escritório político":57769.56166666666,
-          "Aquisição de material de consumo":2686.4566666666665,
-          "Locomoção, hospedagem, alimentação, combustíveis e":74993.4625,
-          "Contratação de serviços de apoio ao parlamentar":61846.49166666666,
-          "Divulgação da atividade parlamentar":3556.6666666666665,
-          "Passagens aéreas, aquáticas e terrestres nacionais":62393.18249999999
+          "Aluguel de imóveis para escritório político":63021.34,
+          "Aquisição de material de consumo":2930.68,
+          "Locomoção, hospedagem, alimentação, combustíveis e":81811.05,
+          "Contratação de serviços de apoio ao parlamentar":67468.9,
+          "Divulgação da atividade parlamentar":3880.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":68065.29
         }
       },
       {
@@ -1239,15 +1239,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":210447.16,
+        "total":229578.72,
         "lista":{
-          "Aluguel de imóveis para escritório político":59519.441666666666,
-          "Aquisição de material de consumo":9394.256666666666,
-          "Locomoção, hospedagem, alimentação, combustíveis e":87731.49,
-          "Contratação de serviços de apoio ao parlamentar":7067.005,
-          "Divulgação da atividade parlamentar":6664.166666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":33950.87666666666,
-          "Diárias":6119.923333333333
+          "Aluguel de imóveis para escritório político":64930.3,
+          "Aquisição de material de consumo":10248.28,
+          "Locomoção, hospedagem, alimentação, combustíveis e":95707.08,
+          "Contratação de serviços de apoio ao parlamentar":7709.46,
+          "Divulgação da atividade parlamentar":7270.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":37037.32,
+          "Diárias":6676.28
         }
       },
       {
@@ -1433,14 +1433,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":230939.77,
+        "total":251934.29,
         "lista":{
-          "Aluguel de imóveis para escritório político":45498.20916666667,
-          "Aquisição de material de consumo":20392.91833333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":29374.5375,
-          "Contratação de serviços de apoio ao parlamentar":54865.323333333334,
-          "Divulgação da atividade parlamentar":4152.5,
-          "Passagens aéreas, aquáticas e terrestres nacionais":76656.2775
+          "Aluguel de imóveis para escritório político":49634.41,
+          "Aquisição de material de consumo":22246.82,
+          "Locomoção, hospedagem, alimentação, combustíveis e":32044.95,
+          "Contratação de serviços de apoio ao parlamentar":59853.08,
+          "Divulgação da atividade parlamentar":4530.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":83625.03
         }
       },
       {
@@ -1640,13 +1640,13 @@
     "gastos":[
       {
         "ano":2011,
-        "total":248400.46,
+        "total":270982.32,
         "lista":{
-          "Aluguel de imóveis para escritório político":62015.1675,
-          "Aquisição de material de consumo":238.33333333333331,
-          "Contratação de serviços de apoio ao parlamentar":13750.0,
-          "Divulgação da atividade parlamentar":2678.9216666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":169718.0375
+          "Aluguel de imóveis para escritório político":67652.91,
+          "Aquisição de material de consumo":260.0,
+          "Contratação de serviços de apoio ao parlamentar":15000.0,
+          "Divulgação da atividade parlamentar":2922.46,
+          "Passagens aéreas, aquáticas e terrestres nacionais":185146.95
         }
       },
       {
@@ -1700,15 +1700,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":265539.98,
+        "total":289679.98,
         "lista":{
-          "Aluguel de imóveis para escritório político":94746.025,
-          "Aquisição de material de consumo":32846.72416666667,
-          "Locomoção, hospedagem, alimentação, combustíveis e":61411.285833333335,
-          "Contratação de serviços de apoio ao parlamentar":2559.333333333333,
-          "Divulgação da atividade parlamentar":10596.666666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":58733.363333333335,
-          "Diárias":4646.583333333333
+          "Aluguel de imóveis para escritório político":103359.3,
+          "Aquisição de material de consumo":35832.79,
+          "Locomoção, hospedagem, alimentação, combustíveis e":66994.13,
+          "Contratação de serviços de apoio ao parlamentar":2792.0,
+          "Divulgação da atividade parlamentar":11560.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":64072.76,
+          "Diárias":5069.0
         }
       },
       {
@@ -1918,15 +1918,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":115109.5,
+        "total":125574.0,
         "lista":{
-          "Aluguel de imóveis para escritório político":47362.22333333333,
-          "Aquisição de material de consumo":7088.95,
-          "Locomoção, hospedagem, alimentação, combustíveis e":9976.56,
-          "Contratação de serviços de apoio ao parlamentar":20012.3,
-          "Divulgação da atividade parlamentar":5500.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":19251.173333333332,
-          "Diárias":5918.293333333333
+          "Aluguel de imóveis para escritório político":51667.88,
+          "Aquisição de material de consumo":7733.4,
+          "Locomoção, hospedagem, alimentação, combustíveis e":10883.52,
+          "Contratação de serviços de apoio ao parlamentar":21831.6,
+          "Divulgação da atividade parlamentar":6000.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":21001.28,
+          "Diárias":6456.32
         }
       },
       {
@@ -1979,15 +1979,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":239432.23,
+        "total":261198.8,
         "lista":{
-          "Aluguel de imóveis para escritório político":91330.525,
-          "Aquisição de material de consumo":9639.9875,
-          "Locomoção, hospedagem, alimentação, combustíveis e":72893.51666666666,
-          "Contratação de serviços de apoio ao parlamentar":14039.666666666666,
-          "Divulgação da atividade parlamentar":4922.5,
-          "Passagens aéreas, aquáticas e terrestres nacionais":45369.949166666665,
-          "Diárias":1236.0883333333334
+          "Aluguel de imóveis para escritório político":99633.3,
+          "Aquisição de material de consumo":10516.35,
+          "Locomoção, hospedagem, alimentação, combustíveis e":79520.2,
+          "Contratação de serviços de apoio ao parlamentar":15316.0,
+          "Divulgação da atividade parlamentar":5370.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":49494.49,
+          "Diárias":1348.46
         }
       },
       {
@@ -2195,15 +2195,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":277614.95,
+        "total":302852.67,
         "lista":{
-          "Aluguel de imóveis para escritório político":28319.4725,
-          "Aquisição de material de consumo":10941.699999999999,
-          "Locomoção, hospedagem, alimentação, combustíveis e":76904.56583333333,
-          "Contratação de serviços de apoio ao parlamentar":22641.666666666664,
-          "Divulgação da atividade parlamentar":62411.25,
-          "Passagens aéreas, aquáticas e terrestres nacionais":73862.91916666666,
-          "Diárias":2533.373333333333
+          "Aluguel de imóveis para escritório político":30893.97,
+          "Aquisição de material de consumo":11936.4,
+          "Locomoção, hospedagem, alimentação, combustíveis e":83895.89,
+          "Contratação de serviços de apoio ao parlamentar":24700.0,
+          "Divulgação da atividade parlamentar":68085.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":80577.73,
+          "Diárias":2763.68
         }
       },
       {
@@ -2268,13 +2268,13 @@
     "gastos":[
       {
         "ano":2011,
-        "total":122035.86,
+        "total":133130.03,
         "lista":{
-          "Aluguel de imóveis para escritório político":6342.105,
-          "Locomoção, hospedagem, alimentação, combustíveis e":19219.759166666663,
-          "Contratação de serviços de apoio ao parlamentar":3983.6133333333332,
-          "Divulgação da atividade parlamentar":84428.77666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":8061.606666666666
+          "Aluguel de imóveis para escritório político":6918.66,
+          "Locomoção, hospedagem, alimentação, combustíveis e":20967.01,
+          "Contratação de serviços de apoio ao parlamentar":4345.76,
+          "Divulgação da atividade parlamentar":92104.12,
+          "Passagens aéreas, aquáticas e terrestres nacionais":8794.48
         }
       },
       {
@@ -2412,15 +2412,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":148617.01,
+        "total":162127.65,
         "lista":{
-          "Aluguel de imóveis para escritório político":44996.004166666666,
-          "Aquisição de material de consumo":38581.30833333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":26269.558333333334,
-          "Contratação de serviços de apoio ao parlamentar":366.66666666666663,
-          "Divulgação da atividade parlamentar":1283.3333333333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":32872.08833333333,
-          "Diárias":4248.053333333333
+          "Aluguel de imóveis para escritório político":49086.55,
+          "Aquisição de material de consumo":42088.7,
+          "Locomoção, hospedagem, alimentação, combustíveis e":28657.7,
+          "Contratação de serviços de apoio ao parlamentar":400.0,
+          "Divulgação da atividade parlamentar":1400.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":35860.46,
+          "Diárias":4634.24
         }
       },
       {
@@ -2703,15 +2703,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":348888.17,
+        "total":380605.28,
         "lista":{
-          "Aluguel de imóveis para escritório político":40046.215,
-          "Aquisição de material de consumo":12715.330833333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":71951.23833333333,
-          "Contratação de serviços de apoio ao parlamentar":65358.33333333333,
-          "Divulgação da atividade parlamentar":105600.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":43897.269166666665,
-          "Diárias":9319.786666666667
+          "Aluguel de imóveis para escritório político":43686.78,
+          "Aquisição de material de consumo":13871.27,
+          "Locomoção, hospedagem, alimentação, combustíveis e":78492.26,
+          "Contratação de serviços de apoio ao parlamentar":71300.0,
+          "Divulgação da atividade parlamentar":115200.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":47887.93,
+          "Diárias":10167.04
         }
       },
       {
@@ -2844,15 +2844,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":370722.99,
+        "total":404425.08,
         "lista":{
-          "Aluguel de imóveis para escritório político":24704.038333333334,
-          "Aquisição de material de consumo":3158.2466666666664,
-          "Locomoção, hospedagem, alimentação, combustíveis e":145556.06083333332,
-          "Contratação de serviços de apoio ao parlamentar":19143.4375,
-          "Divulgação da atividade parlamentar":106342.57333333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":56702.43333333333,
-          "Diárias":15116.2
+          "Aluguel de imóveis para escritório político":26949.86,
+          "Aquisição de material de consumo":3445.36,
+          "Locomoção, hospedagem, alimentação, combustíveis e":158788.43,
+          "Contratação de serviços de apoio ao parlamentar":20883.75,
+          "Divulgação da atividade parlamentar":116010.08,
+          "Passagens aéreas, aquáticas e terrestres nacionais":61857.2,
+          "Diárias":16490.4
         }
       },
       {
@@ -2921,13 +2921,13 @@
     "gastos":[
       {
         "ano":2011,
-        "total":234591.38,
+        "total":255917.87,
         "lista":{
-          "Aluguel de imóveis para escritório político":1662.8333333333333,
-          "Aquisição de material de consumo":236.6833333333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":124241.93833333332,
-          "Divulgação da atividade parlamentar":96891.66666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":11558.259166666667
+          "Aluguel de imóveis para escritório político":1814.0,
+          "Aquisição de material de consumo":258.2,
+          "Locomoção, hospedagem, alimentação, combustíveis e":135536.66,
+          "Divulgação da atividade parlamentar":105700.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":12609.01
         }
       },
       {
@@ -2990,14 +2990,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":241989.88,
+        "total":263988.96,
         "lista":{
-          "Aluguel de imóveis para escritório político":34567.5825,
-          "Aquisição de material de consumo":549.0833333333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":54023.9975,
-          "Contratação de serviços de apoio ao parlamentar":24875.216666666664,
-          "Divulgação da atividade parlamentar":94926.32416666667,
-          "Passagens aéreas, aquáticas e terrestres nacionais":33047.675833333335
+          "Aluguel de imóveis para escritório político":37710.09,
+          "Aquisição de material de consumo":599.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":58935.27,
+          "Contratação de serviços de apoio ao parlamentar":27136.6,
+          "Divulgação da atividade parlamentar":103555.99,
+          "Passagens aéreas, aquáticas e terrestres nacionais":36052.01
         }
       },
       {
@@ -3124,12 +3124,12 @@
     "gastos":[
       {
         "ano":2011,
-        "total":148447.72,
+        "total":161942.97,
         "lista":{
-          "Aluguel de imóveis para escritório político":2200.0,
-          "Locomoção, hospedagem, alimentação, combustíveis e":41880.5475,
-          "Contratação de serviços de apoio ao parlamentar":99581.03833333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":4786.136666666666
+          "Aluguel de imóveis para escritório político":2400.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":45687.87,
+          "Contratação de serviços de apoio ao parlamentar":108633.86,
+          "Passagens aéreas, aquáticas e terrestres nacionais":5221.24
         }
       },
       {
@@ -3189,14 +3189,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":349038.41,
+        "total":380769.17,
         "lista":{
-          "Aluguel de imóveis para escritório político":24212.631666666664,
-          "Aquisição de material de consumo":8008.916666666666,
-          "Locomoção, hospedagem, alimentação, combustíveis e":88453.70416666666,
-          "Contratação de serviços de apoio ao parlamentar":33458.33333333333,
-          "Divulgação da atividade parlamentar":159939.78,
-          "Passagens aéreas, aquáticas e terrestres nacionais":34965.04
+          "Aluguel de imóveis para escritório político":26413.78,
+          "Aquisição de material de consumo":8737.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":96494.95,
+          "Contratação de serviços de apoio ao parlamentar":36500.0,
+          "Divulgação da atividade parlamentar":174479.76,
+          "Passagens aéreas, aquáticas e terrestres nacionais":38143.68
         }
       },
       {
@@ -3402,13 +3402,13 @@
       },
       {
         "ano":2015,
-        "total":3387.08,
+        "total":40644.96,
         "lista":{
-          "Aluguel de imóveis para escritório político":310.645,
-          "Passagens aéreas, aquáticas e terrestres nacionais":1362.9908333333333,
-          "Combustíveis":74.52,
-          "Outros materiais":1.3966666666666667,
-          "Correios":1637.5275000000001
+          "Aluguel de imóveis para escritório político":3727.74,
+          "Passagens aéreas, aquáticas e terrestres nacionais":16355.89,
+          "Combustíveis":894.24,
+          "Outros materiais":16.76,
+          "Correios":19650.33
         }
       }
     ]
@@ -3418,15 +3418,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":172716.39,
+        "total":188417.88,
         "lista":{
-          "Aluguel de imóveis para escritório político":108739.7025,
-          "Aquisição de material de consumo":5989.316666666667,
-          "Locomoção, hospedagem, alimentação, combustíveis e":6931.98,
-          "Contratação de serviços de apoio ao parlamentar":1204.3991666666668,
-          "Divulgação da atividade parlamentar":2517.5791666666664,
-          "Passagens aéreas, aquáticas e terrestres nacionais":46865.60083333333,
-          "Diárias":467.8116666666666
+          "Aluguel de imóveis para escritório político":118625.13,
+          "Aquisição de material de consumo":6533.8,
+          "Locomoção, hospedagem, alimentação, combustíveis e":7562.16,
+          "Contratação de serviços de apoio ao parlamentar":1313.89,
+          "Divulgação da atividade parlamentar":2746.45,
+          "Passagens aéreas, aquáticas e terrestres nacionais":51126.11,
+          "Diárias":510.34
         }
       },
       {
@@ -3543,15 +3543,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":229054.81,
+        "total":249877.97,
         "lista":{
-          "Aluguel de imóveis para escritório político":72342.92083333334,
-          "Aquisição de material de consumo":60373.60999999999,
-          "Locomoção, hospedagem, alimentação, combustíveis e":38040.6675,
-          "Contratação de serviços de apoio ao parlamentar":8133.583333333333,
-          "Divulgação da atividade parlamentar":7311.333333333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":42531.8575,
-          "Serviços de Segurança Privada":320.8333333333333
+          "Aluguel de imóveis para escritório político":78919.55,
+          "Aquisição de material de consumo":65862.12,
+          "Locomoção, hospedagem, alimentação, combustíveis e":41498.91,
+          "Contratação de serviços de apoio ao parlamentar":8873.0,
+          "Divulgação da atividade parlamentar":7976.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":46398.39,
+          "Serviços de Segurança Privada":350.0
         }
       },
       {
@@ -3598,15 +3598,15 @@
       },
       {
         "ano":2015,
-        "total":1953.53,
+        "total":23442.38,
         "lista":{
-          "Aluguel de imóveis para escritório político":89.56166666666667,
-          "Aquisição de material de consumo":9.226666666666667,
-          "Passagens aéreas, aquáticas e terrestres nacionais":666.9991666666666,
-          "Diárias":59.030833333333334,
-          "Combustíveis":25.560000000000002,
-          "Outros materiais":4.949166666666667,
-          "Correios":1098.2041666666667
+          "Aluguel de imóveis para escritório político":1074.74,
+          "Aquisição de material de consumo":110.72,
+          "Passagens aéreas, aquáticas e terrestres nacionais":8003.99,
+          "Diárias":708.37,
+          "Combustíveis":306.72,
+          "Outros materiais":59.39,
+          "Correios":13178.45
         }
       }
     ]
@@ -3671,15 +3671,15 @@
       },
       {
         "ano":2015,
-        "total":1773.1,
+        "total":21277.2,
         "lista":{
-          "Aluguel de imóveis para escritório político":264.12833333333333,
-          "Aquisição de material de consumo":47.049166666666665,
-          "Locomoção, hospedagem, alimentação, combustíveis e":584.4233333333333,
-          "Contratação de serviços de apoio ao parlamentar":22.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":845.77,
-          "Combustíveis":7.7,
-          "Correios":2.029166666666667
+          "Aluguel de imóveis para escritório político":3169.54,
+          "Aquisição de material de consumo":564.59,
+          "Locomoção, hospedagem, alimentação, combustíveis e":7013.08,
+          "Contratação de serviços de apoio ao parlamentar":264.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":10149.24,
+          "Combustíveis":92.4,
+          "Correios":24.35
         }
       }
     ]
@@ -3717,11 +3717,11 @@
       },
       {
         "ano":2015,
-        "total":133.03,
+        "total":1596.31,
         "lista":{
-          "Combustíveis":34.39333333333333,
-          "Outros materiais":27.4675,
-          "Correios":71.16499999999999
+          "Combustíveis":412.72,
+          "Outros materiais":329.61,
+          "Correios":853.98
         }
       }
     ]
@@ -3782,14 +3782,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":142559.39,
+        "total":155519.33,
         "lista":{
-          "Aluguel de imóveis para escritório político":11772.933333333334,
-          "Aquisição de material de consumo":8165.465,
-          "Locomoção, hospedagem, alimentação, combustíveis e":10646.185,
-          "Contratação de serviços de apoio ao parlamentar":47365.49583333333,
-          "Divulgação da atividade parlamentar":44564.52,
-          "Passagens aéreas, aquáticas e terrestres nacionais":20044.786666666667
+          "Aluguel de imóveis para escritório político":12843.2,
+          "Aquisição de material de consumo":8907.78,
+          "Locomoção, hospedagem, alimentação, combustíveis e":11614.02,
+          "Contratação de serviços de apoio ao parlamentar":51671.45,
+          "Divulgação da atividade parlamentar":48615.84,
+          "Passagens aéreas, aquáticas e terrestres nacionais":21867.04
         }
       },
       {
@@ -4023,16 +4023,16 @@
       },
       {
         "ano":2015,
-        "total":1563.36,
+        "total":18760.38,
         "lista":{
-          "Aluguel de imóveis para escritório político":273.11833333333334,
-          "Aquisição de material de consumo":190.32999999999998,
-          "Locomoção, hospedagem, alimentação, combustíveis e":576.9283333333333,
-          "Contratação de serviços de apoio ao parlamentar":77.08333333333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":99.88583333333334,
-          "Combustíveis":23.271666666666665,
-          "Outros materiais":24.98083333333333,
-          "Correios":297.76666666666665
+          "Aluguel de imóveis para escritório político":3277.42,
+          "Aquisição de material de consumo":2283.96,
+          "Locomoção, hospedagem, alimentação, combustíveis e":6923.14,
+          "Contratação de serviços de apoio ao parlamentar":925.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1198.63,
+          "Combustíveis":279.26,
+          "Outros materiais":299.77,
+          "Correios":3573.2
         }
       }
     ]
@@ -4085,13 +4085,13 @@
     "gastos":[
       {
         "ano":2011,
-        "total":86773.56,
+        "total":94662.07,
         "lista":{
-          "Aluguel de imóveis para escritório político":2200.0,
-          "Aquisição de material de consumo":13520.833333333332,
-          "Locomoção, hospedagem, alimentação, combustíveis e":21385.805833333332,
-          "Contratação de serviços de apoio ao parlamentar":47705.166666666664,
-          "Passagens aéreas, aquáticas e terrestres nacionais":1961.7583333333332
+          "Aluguel de imóveis para escritório político":2400.0,
+          "Aquisição de material de consumo":14750.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":23329.97,
+          "Contratação de serviços de apoio ao parlamentar":52042.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":2140.1
         }
       },
       {
@@ -4126,12 +4126,12 @@
     "gastos":[
       {
         "ano":2011,
-        "total":91744.83,
+        "total":100085.27,
         "lista":{
-          "Aluguel de imóveis para escritório político":56026.153333333335,
-          "Aquisição de material de consumo":27507.19583333333,
-          "Divulgação da atividade parlamentar":5591.666666666666,
-          "Serviços de Segurança Privada":2619.815
+          "Aluguel de imóveis para escritório político":61119.44,
+          "Aquisição de material de consumo":30007.85,
+          "Divulgação da atividade parlamentar":6100.0,
+          "Serviços de Segurança Privada":2857.98
         }
       },
       {
@@ -4237,14 +4237,14 @@
       },
       {
         "ano":2015,
-        "total":2137.38,
+        "total":25648.53,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":1065.5833333333333,
-          "Contratação de serviços de apoio ao parlamentar":129.85,
-          "Divulgação da atividade parlamentar":558.3333333333333,
-          "Combustíveis":2.3666666666666663,
-          "Outros materiais":3.644166666666666,
-          "Correios":377.59999999999997
+          "Locomoção, hospedagem, alimentação, combustíveis e":12787.0,
+          "Contratação de serviços de apoio ao parlamentar":1558.2,
+          "Divulgação da atividade parlamentar":6700.0,
+          "Combustíveis":28.4,
+          "Outros materiais":43.73,
+          "Correios":4531.2
         }
       }
     ]
@@ -4301,13 +4301,13 @@
       },
       {
         "ano":2015,
-        "total":1747.13,
+        "total":20965.57,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":708.3333333333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":272.33416666666665,
-          "Combustíveis":33.324999999999996,
-          "Outros materiais":15.534999999999998,
-          "Correios":717.6033333333332
+          "Locomoção, hospedagem, alimentação, combustíveis e":8500.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3268.01,
+          "Combustíveis":399.9,
+          "Outros materiais":186.42,
+          "Correios":8611.24
         }
       }
     ]
@@ -4556,12 +4556,12 @@
       },
       {
         "ano":2015,
-        "total":1798.78,
+        "total":21585.37,
         "lista":{
-          "Divulgação da atividade parlamentar":1250.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":442.0191666666666,
-          "Outros materiais":1.7458333333333331,
-          "Correios":105.01583333333333
+          "Divulgação da atividade parlamentar":15000.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":5304.23,
+          "Outros materiais":20.95,
+          "Correios":1260.19
         }
       }
     ]
@@ -4670,12 +4670,12 @@
       },
       {
         "ano":2015,
-        "total":275.5,
+        "total":3306.01,
         "lista":{
-          "Aluguel de imóveis para escritório político":155.49583333333334,
-          "Combustíveis":22.80833333333333,
-          "Outros materiais":24.08583333333333,
-          "Correios":73.11083333333333
+          "Aluguel de imóveis para escritório político":1865.95,
+          "Combustíveis":273.7,
+          "Outros materiais":289.03,
+          "Correios":877.33
         }
       }
     ]
@@ -4826,15 +4826,15 @@
       },
       {
         "ano":2015,
-        "total":2815.86,
+        "total":33790.27,
         "lista":{
-          "Aluguel de imóveis para escritório político":13.328333333333333,
-          "Aquisição de material de consumo":4.1499999999999995,
-          "Locomoção, hospedagem, alimentação, combustíveis e":426.7791666666667,
-          "Passagens aéreas, aquáticas e terrestres nacionais":2195.429166666667,
-          "Diárias":115.15333333333332,
-          "Outros materiais":48.905833333333334,
-          "Correios":12.11
+          "Aluguel de imóveis para escritório político":159.94,
+          "Aquisição de material de consumo":49.8,
+          "Locomoção, hospedagem, alimentação, combustíveis e":5121.35,
+          "Passagens aéreas, aquáticas e terrestres nacionais":26345.15,
+          "Diárias":1381.84,
+          "Outros materiais":586.87,
+          "Correios":145.32
         }
       }
     ]
@@ -4938,11 +4938,11 @@
     "gastos":[
       {
         "ano":2011,
-        "total":60069.39,
+        "total":65530.24,
         "lista":{
-          "Aluguel de imóveis para escritório político":8284.906666666666,
-          "Locomoção, hospedagem, alimentação, combustíveis e":4757.105833333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":47027.37416666666
+          "Aluguel de imóveis para escritório político":9038.08,
+          "Locomoção, hospedagem, alimentação, combustíveis e":5189.57,
+          "Passagens aéreas, aquáticas e terrestres nacionais":51302.59
         }
       },
       {
@@ -5107,16 +5107,16 @@
       },
       {
         "ano":2015,
-        "total":3035.58,
+        "total":36426.95,
         "lista":{
-          "Aluguel de imóveis para escritório político":355.1525,
-          "Aquisição de material de consumo":95.6825,
-          "Locomoção, hospedagem, alimentação, combustíveis e":755.0716666666667,
-          "Divulgação da atividade parlamentar":212.5,
-          "Passagens aéreas, aquáticas e terrestres nacionais":1298.6091666666666,
-          "Combustíveis":19.365,
-          "Outros materiais":4.075833333333333,
-          "Correios":295.12249999999995
+          "Aluguel de imóveis para escritório político":4261.83,
+          "Aquisição de material de consumo":1148.19,
+          "Locomoção, hospedagem, alimentação, combustíveis e":9060.86,
+          "Divulgação da atividade parlamentar":2550.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":15583.31,
+          "Combustíveis":232.38,
+          "Outros materiais":48.91,
+          "Correios":3541.47
         }
       }
     ]
@@ -5156,13 +5156,13 @@
     "gastos":[
       {
         "ano":2011,
-        "total":189601.67,
+        "total":206838.18,
         "lista":{
-          "Aluguel de imóveis para escritório político":12585.796666666665,
-          "Locomoção, hospedagem, alimentação, combustíveis e":57617.532499999994,
-          "Contratação de serviços de apoio ao parlamentar":3666.6666666666665,
-          "Divulgação da atividade parlamentar":103013.03833333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":12718.630833333333
+          "Aluguel de imóveis para escritório político":13729.96,
+          "Locomoção, hospedagem, alimentação, combustíveis e":62855.49,
+          "Contratação de serviços de apoio ao parlamentar":4000.0,
+          "Divulgação da atividade parlamentar":112377.86,
+          "Passagens aéreas, aquáticas e terrestres nacionais":13874.87
         }
       },
       {
@@ -5227,11 +5227,11 @@
     "gastos":[
       {
         "ano":2011,
-        "total":10205.42,
+        "total":11133.19,
         "lista":{
-          "Aluguel de imóveis para escritório político":807.6475,
-          "Locomoção, hospedagem, alimentação, combustíveis e":4338.940833333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":5058.835833333333
+          "Aluguel de imóveis para escritório político":881.07,
+          "Locomoção, hospedagem, alimentação, combustíveis e":4733.39,
+          "Passagens aéreas, aquáticas e terrestres nacionais":5518.73
         }
       },
       {
@@ -5263,14 +5263,14 @@
       },
       {
         "ano":2015,
-        "total":1751.34,
+        "total":21016.03,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":90.25666666666666,
-          "Contratação de serviços de apoio ao parlamentar":916.6666666666666,
-          "Divulgação da atividade parlamentar":246.33333333333331,
-          "Passagens aéreas, aquáticas e terrestres nacionais":285.04499999999996,
-          "Outros materiais":10.183333333333334,
-          "Correios":202.85083333333333
+          "Locomoção, hospedagem, alimentação, combustíveis e":1083.08,
+          "Contratação de serviços de apoio ao parlamentar":11000.0,
+          "Divulgação da atividade parlamentar":2956.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3420.54,
+          "Outros materiais":122.2,
+          "Correios":2434.21
         }
       }
     ]
@@ -5333,15 +5333,15 @@
       },
       {
         "ano":2015,
-        "total":3171.72,
+        "total":38060.65,
         "lista":{
-          "Aluguel de imóveis para escritório político":362.80583333333334,
-          "Aquisição de material de consumo":153.22833333333332,
-          "Locomoção, hospedagem, alimentação, combustíveis e":524.6633333333333,
-          "Contratação de serviços de apoio ao parlamentar":770.0,
-          "Serviços de Segurança Privada":3.9633333333333334,
-          "Outros materiais":1.9608333333333334,
-          "Correios":1355.0991666666666
+          "Aluguel de imóveis para escritório político":4353.67,
+          "Aquisição de material de consumo":1838.74,
+          "Locomoção, hospedagem, alimentação, combustíveis e":6295.96,
+          "Contratação de serviços de apoio ao parlamentar":9240.0,
+          "Serviços de Segurança Privada":47.56,
+          "Outros materiais":23.53,
+          "Correios":16261.19
         }
       }
     ]
@@ -5398,13 +5398,13 @@
       },
       {
         "ano":2015,
-        "total":4246.73,
+        "total":50960.81,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":1268.3066666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":31.829166666666666,
-          "Combustíveis":17.513333333333332,
-          "Outros materiais":7.883333333333333,
-          "Correios":2921.2016666666664
+          "Locomoção, hospedagem, alimentação, combustíveis e":15219.68,
+          "Passagens aéreas, aquáticas e terrestres nacionais":381.95,
+          "Combustíveis":210.16,
+          "Outros materiais":94.6,
+          "Correios":35054.42
         }
       }
     ]
@@ -5484,11 +5484,11 @@
       },
       {
         "ano":2015,
-        "total":456.59,
+        "total":5479.06,
         "lista":{
-          "Combustíveis":35.93333333333333,
-          "Outros materiais":36.22416666666666,
-          "Correios":384.43083333333334
+          "Combustíveis":431.2,
+          "Outros materiais":434.69,
+          "Correios":4613.17
         }
       }
     ]
@@ -5530,11 +5530,11 @@
       },
       {
         "ano":2015,
-        "total":217.48,
+        "total":2609.76,
         "lista":{
-          "Combustíveis":62.57583333333333,
-          "Outros materiais":21.41,
-          "Correios":133.49416666666667
+          "Combustíveis":750.91,
+          "Outros materiais":256.92,
+          "Correios":1601.93
         }
       }
     ]
@@ -5637,14 +5637,14 @@
       },
       {
         "ano":2015,
-        "total":1555.58,
+        "total":18666.92,
         "lista":{
-          "Aluguel de imóveis para escritório político":149.78166666666667,
-          "Locomoção, hospedagem, alimentação, combustíveis e":516.7716666666666,
-          "Divulgação da atividade parlamentar":833.3333333333333,
-          "Combustíveis":17.191666666666666,
-          "Outros materiais":19.03333333333333,
-          "Correios":19.465
+          "Aluguel de imóveis para escritório político":1797.38,
+          "Locomoção, hospedagem, alimentação, combustíveis e":6201.26,
+          "Divulgação da atividade parlamentar":10000.0,
+          "Combustíveis":206.3,
+          "Outros materiais":228.4,
+          "Correios":233.58
         }
       }
     ]
@@ -5784,16 +5784,16 @@
       },
       {
         "ano":2015,
-        "total":3289.9,
+        "total":39478.77,
         "lista":{
-          "Aluguel de imóveis para escritório político":144.6508333333333,
-          "Aquisição de material de consumo":333.3333333333333,
-          "Contratação de serviços de apoio ao parlamentar":541.6666666666666,
-          "Divulgação da atividade parlamentar":1531.1325,
-          "Passagens aéreas, aquáticas e terrestres nacionais":685.4208333333332,
-          "Combustíveis":45.31166666666667,
-          "Outros materiais":4.291666666666666,
-          "Correios":4.09
+          "Aluguel de imóveis para escritório político":1735.81,
+          "Aquisição de material de consumo":4000.0,
+          "Contratação de serviços de apoio ao parlamentar":6500.0,
+          "Divulgação da atividade parlamentar":18373.59,
+          "Passagens aéreas, aquáticas e terrestres nacionais":8225.05,
+          "Combustíveis":543.74,
+          "Outros materiais":51.5,
+          "Correios":49.08
         }
       }
     ]
@@ -5909,10 +5909,10 @@
     "gastos":[
       {
         "ano":2011,
-        "total":17733.47,
+        "total":19345.6,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":11432.666666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":6300.8
+          "Locomoção, hospedagem, alimentação, combustíveis e":12472.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":6873.6
         }
       },
       {
@@ -5999,14 +5999,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":195697.14,
+        "total":213487.79,
         "lista":{
-          "Aluguel de imóveis para escritório político":25772.899166666666,
-          "Aquisição de material de consumo":10481.111666666668,
-          "Locomoção, hospedagem, alimentação, combustíveis e":92439.37083333332,
-          "Contratação de serviços de apoio ao parlamentar":8878.329166666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":52542.71,
-          "Diárias":5582.719999999999
+          "Aluguel de imóveis para escritório político":28115.89,
+          "Aquisição de material de consumo":11433.94,
+          "Locomoção, hospedagem, alimentação, combustíveis e":100842.95,
+          "Contratação de serviços de apoio ao parlamentar":9685.45,
+          "Passagens aéreas, aquáticas e terrestres nacionais":57319.32,
+          "Diárias":6090.24
         }
       },
       {
@@ -6053,18 +6053,18 @@
       },
       {
         "ano":2015,
-        "total":11795.1,
+        "total":141541.22,
         "lista":{
-          "Aluguel de imóveis para escritório político":1994.3533333333335,
-          "Aquisição de material de consumo":1052.7833333333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":3467.270833333333,
-          "Contratação de serviços de apoio ao parlamentar":47.199999999999996,
-          "Divulgação da atividade parlamentar":566.4,
-          "Passagens aéreas, aquáticas e terrestres nacionais":2409.0375,
-          "Diárias":1742.52,
-          "Combustíveis":133.91333333333333,
-          "Outros materiais":127.06083333333333,
-          "Correios":254.5625
+          "Aluguel de imóveis para escritório político":23932.24,
+          "Aquisição de material de consumo":12633.4,
+          "Locomoção, hospedagem, alimentação, combustíveis e":41607.25,
+          "Contratação de serviços de apoio ao parlamentar":566.4,
+          "Divulgação da atividade parlamentar":6796.8,
+          "Passagens aéreas, aquáticas e terrestres nacionais":28908.45,
+          "Diárias":20910.24,
+          "Combustíveis":1606.96,
+          "Outros materiais":1524.73,
+          "Correios":3054.75
         }
       }
     ]
@@ -6168,11 +6168,11 @@
       },
       {
         "ano":2015,
-        "total":291.86,
+        "total":3502.29,
         "lista":{
-          "Passagens aéreas, aquáticas e terrestres nacionais":228.87916666666666,
-          "Combustíveis":57.3425,
-          "Outros materiais":5.635833333333332
+          "Passagens aéreas, aquáticas e terrestres nacionais":2746.55,
+          "Combustíveis":688.11,
+          "Outros materiais":67.63
         }
       }
     ]
@@ -6269,16 +6269,16 @@
     "gastos":[
       {
         "ano":2011,
-        "total":308140.09,
+        "total":336152.82,
         "lista":{
-          "Aluguel de imóveis para escritório político":45417.799166666664,
-          "Aquisição de material de consumo":4086.380833333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":95736.63916666666,
-          "Contratação de serviços de apoio ao parlamentar":8898.413333333334,
-          "Divulgação da atividade parlamentar":29554.479166666664,
-          "Passagens aéreas, aquáticas e terrestres nacionais":120418.66833333333,
-          "Serviços de Segurança Privada":825.0,
-          "Diárias":3202.705
+          "Aluguel de imóveis para escritório político":49546.69,
+          "Aquisição de material de consumo":4457.87,
+          "Locomoção, hospedagem, alimentação, combustíveis e":104439.97,
+          "Contratação de serviços de apoio ao parlamentar":9707.36,
+          "Divulgação da atividade parlamentar":32241.25,
+          "Passagens aéreas, aquáticas e terrestres nacionais":131365.82,
+          "Serviços de Segurança Privada":900.0,
+          "Diárias":3493.86
         }
       },
       {
@@ -6457,12 +6457,12 @@
       },
       {
         "ano":2015,
-        "total":376.45,
+        "total":4517.39,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":35.416666666666664,
-          "Passagens aéreas, aquáticas e terrestres nacionais":299.29999999999995,
-          "Outros materiais":4.484999999999999,
-          "Correios":37.2475
+          "Locomoção, hospedagem, alimentação, combustíveis e":425.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3591.6,
+          "Outros materiais":53.82,
+          "Correios":446.97
         }
       }
     ]
@@ -6610,15 +6610,15 @@
     "gastos":[
       {
         "ano":2011,
-        "total":180527.65,
+        "total":196939.25,
         "lista":{
-          "Aluguel de imóveis para escritório político":23463.678333333333,
-          "Aquisição de material de consumo":9628.5475,
-          "Locomoção, hospedagem, alimentação, combustíveis e":42229.229166666664,
-          "Contratação de serviços de apoio ao parlamentar":50966.666666666664,
-          "Divulgação da atividade parlamentar":16545.833333333332,
-          "Passagens aéreas, aquáticas e terrestres nacionais":36959.5875,
-          "Diárias":734.1033333333334
+          "Aluguel de imóveis para escritório político":25596.74,
+          "Aquisição de material de consumo":10503.87,
+          "Locomoção, hospedagem, alimentação, combustíveis e":46068.25,
+          "Contratação de serviços de apoio ao parlamentar":55600.0,
+          "Divulgação da atividade parlamentar":18050.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":40319.55,
+          "Diárias":800.84
         }
       },
       {
@@ -6707,12 +6707,12 @@
       },
       {
         "ano":2015,
-        "total":1104.03,
+        "total":13248.34,
         "lista":{
-          "Passagens aéreas, aquáticas e terrestres nacionais":730.5833333333333,
-          "Combustíveis":52.125,
-          "Outros materiais":9.305,
-          "Correios":312.015
+          "Passagens aéreas, aquáticas e terrestres nacionais":8767.0,
+          "Combustíveis":625.5,
+          "Outros materiais":111.66,
+          "Correios":3744.18
         }
       }
     ]
@@ -6722,14 +6722,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":194237.24,
+        "total":211895.17,
         "lista":{
-          "Aluguel de imóveis para escritório político":77169.79416666666,
-          "Aquisição de material de consumo":15225.21,
-          "Locomoção, hospedagem, alimentação, combustíveis e":26761.35,
-          "Contratação de serviços de apoio ao parlamentar":30627.446666666667,
-          "Passagens aéreas, aquáticas e terrestres nacionais":35259.49166666667,
-          "Diárias":9193.946666666667
+          "Aluguel de imóveis para escritório político":84185.23,
+          "Aquisição de material de consumo":16609.32,
+          "Locomoção, hospedagem, alimentação, combustíveis e":29194.2,
+          "Contratação de serviços de apoio ao parlamentar":33411.76,
+          "Passagens aéreas, aquáticas e terrestres nacionais":38464.9,
+          "Diárias":10029.76
         }
       },
       {
@@ -6771,9 +6771,9 @@
       },
       {
         "ano":2015,
-        "total":2.38,
+        "total":28.59,
         "lista":{
-          "Correios":2.3825
+          "Correios":28.59
         }
       }
     ]
@@ -6873,9 +6873,9 @@
     "gastos":[
       {
         "ano":2011,
-        "total":2559.76,
+        "total":2792.47,
         "lista":{
-          "Diárias":2559.7641666666664
+          "Diárias":2792.47
         }
       },
       {
@@ -6902,9 +6902,9 @@
       },
       {
         "ano":2015,
-        "total":3.81,
+        "total":45.75,
         "lista":{
-          "Outros materiais":3.8125
+          "Outros materiais":45.75
         }
       }
     ]
@@ -6981,16 +6981,16 @@
       },
       {
         "ano":2015,
-        "total":2324.41,
+        "total":27892.95,
         "lista":{
-          "Aluguel de imóveis para escritório político":731.2016666666666,
-          "Aquisição de material de consumo":264.3375,
-          "Locomoção, hospedagem, alimentação, combustíveis e":373.71166666666664,
-          "Contratação de serviços de apoio ao parlamentar":443.86583333333334,
-          "Passagens aéreas, aquáticas e terrestres nacionais":144.62666666666667,
-          "Combustíveis":11.123333333333331,
-          "Outros materiais":32.262499999999996,
-          "Correios":323.2833333333333
+          "Aluguel de imóveis para escritório político":8774.42,
+          "Aquisição de material de consumo":3172.05,
+          "Locomoção, hospedagem, alimentação, combustíveis e":4484.54,
+          "Contratação de serviços de apoio ao parlamentar":5326.39,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1735.52,
+          "Combustíveis":133.48,
+          "Outros materiais":387.15,
+          "Correios":3879.4
         }
       }
     ]
@@ -7039,16 +7039,16 @@
     "gastos":[
       {
         "ano":2011,
-        "total":139105.14,
+        "total":151751.06,
         "lista":{
-          "Aluguel de imóveis para escritório político":22999.047499999997,
-          "Aquisição de material de consumo":13024.724166666667,
-          "Locomoção, hospedagem, alimentação, combustíveis e":25664.851666666666,
-          "Contratação de serviços de apoio ao parlamentar":2322.1916666666666,
-          "Divulgação da atividade parlamentar":12191.666666666666,
-          "Passagens aéreas, aquáticas e terrestres nacionais":61358.36666666666,
-          "Serviços de Segurança Privada":76.08333333333333,
-          "Diárias":1468.2066666666667
+          "Aluguel de imóveis para escritório político":25089.87,
+          "Aquisição de material de consumo":14208.79,
+          "Locomoção, hospedagem, alimentação, combustíveis e":27998.02,
+          "Contratação de serviços de apoio ao parlamentar":2533.3,
+          "Divulgação da atividade parlamentar":13300.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":66936.4,
+          "Serviços de Segurança Privada":83.0,
+          "Diárias":1601.68
         }
       },
       {
@@ -7137,13 +7137,13 @@
       },
       {
         "ano":2015,
-        "total":4096.09,
+        "total":49153.09,
         "lista":{
-          "Locomoção, hospedagem, alimentação, combustíveis e":336.68416666666667,
-          "Contratação de serviços de apoio ao parlamentar":2916.6666666666665,
-          "Passagens aéreas, aquáticas e terrestres nacionais":140.35333333333332,
-          "Combustíveis":10.972499999999998,
-          "Correios":691.4141666666666
+          "Locomoção, hospedagem, alimentação, combustíveis e":4040.21,
+          "Contratação de serviços de apoio ao parlamentar":35000.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1684.24,
+          "Combustíveis":131.67,
+          "Correios":8296.97
         }
       }
     ]
@@ -7277,14 +7277,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":205953.82,
+        "total":224676.89,
         "lista":{
-          "Aluguel de imóveis para escritório político":16133.333333333332,
-          "Locomoção, hospedagem, alimentação, combustíveis e":54089.346666666665,
-          "Contratação de serviços de apoio ao parlamentar":2750.0,
-          "Divulgação da atividade parlamentar":80841.75,
-          "Passagens aéreas, aquáticas e terrestres nacionais":44091.1625,
-          "Diárias":8048.223333333332
+          "Aluguel de imóveis para escritório político":17600.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":59006.56,
+          "Contratação de serviços de apoio ao parlamentar":3000.0,
+          "Divulgação da atividade parlamentar":88191.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":48099.45,
+          "Diárias":8779.88
         }
       },
       {
@@ -7337,14 +7337,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":188707.55,
+        "total":205862.78,
         "lista":{
-          "Aluguel de imóveis para escritório político":69587.98916666667,
-          "Aquisição de material de consumo":5510.468333333333,
-          "Locomoção, hospedagem, alimentação, combustíveis e":42023.74916666666,
-          "Divulgação da atividade parlamentar":21340.091666666664,
-          "Passagens aéreas, aquáticas e terrestres nacionais":39367.67999999999,
-          "Diárias":10877.57
+          "Aluguel de imóveis para escritório político":75914.17,
+          "Aquisição de material de consumo":6011.42,
+          "Locomoção, hospedagem, alimentação, combustíveis e":45844.09,
+          "Divulgação da atividade parlamentar":23280.1,
+          "Passagens aéreas, aquáticas e terrestres nacionais":42946.56,
+          "Diárias":11866.44
         }
       },
       {
@@ -7410,14 +7410,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":306529.13,
+        "total":334395.41,
         "lista":{
-          "Aluguel de imóveis para escritório político":28304.549166666664,
-          "Aquisição de material de consumo":869.6325,
-          "Locomoção, hospedagem, alimentação, combustíveis e":156451.38666666666,
-          "Contratação de serviços de apoio ao parlamentar":6839.9925,
-          "Passagens aéreas, aquáticas e terrestres nacionais":108572.36499999999,
-          "Diárias":5491.2
+          "Aluguel de imóveis para escritório político":30877.69,
+          "Aquisição de material de consumo":948.69,
+          "Locomoção, hospedagem, alimentação, combustíveis e":170674.24,
+          "Contratação de serviços de apoio ao parlamentar":7461.81,
+          "Passagens aéreas, aquáticas e terrestres nacionais":118442.58,
+          "Diárias":5990.4
         }
       },
       {
@@ -7503,14 +7503,14 @@
     "gastos":[
       {
         "ano":2011,
-        "total":259195.08,
+        "total":282758.27,
         "lista":{
-          "Aluguel de imóveis para escritório político":18651.499166666665,
-          "Aquisição de material de consumo":8495.8225,
-          "Locomoção, hospedagem, alimentação, combustíveis e":96179.82916666666,
-          "Contratação de serviços de apoio ao parlamentar":23845.1125,
-          "Divulgação da atividade parlamentar":105508.33333333333,
-          "Passagens aéreas, aquáticas e terrestres nacionais":6514.484166666666
+          "Aluguel de imóveis para escritório político":20347.09,
+          "Aquisição de material de consumo":9268.17,
+          "Locomoção, hospedagem, alimentação, combustíveis e":104923.45,
+          "Contratação de serviços de apoio ao parlamentar":26012.85,
+          "Divulgação da atividade parlamentar":115100.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":7106.71
         }
       },
       {

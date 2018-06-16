@@ -1,3 +1,4 @@
 # Configurações globais
 
-versao = '0.3.01'
+VERSAO = '0.4.01'
+LEGISLATURAINICIAL = 53

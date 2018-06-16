@@ -38,7 +38,7 @@ parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default
 
 args = parser.parse_args()
 
-legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(configuracao.versao)
+legislaturaAtual, anosAtual = rtn.infoLegislaturaAtual(configuracao.VERSAO)
 # Se não informou qual legislatura, assume a atual
 if args.legislatura == 0:
     legislaturaLevantamento, anos = legislaturaAtual, anosAtual
