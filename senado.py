@@ -274,23 +274,22 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
         anosInformacao = anosInformacao.find_all('li')
 
     def presente(anosPagina, ano):
-        if anosPagina == None:
-            return False
-        for aInfo in anosPagina:
-            if int(aInfo.text) == ano:
-                return True
+        if anosPagina != None:
+            for aInfo in anosPagina:
+                if int(aInfo.text) == ano:
+                    return True
         return False
 
     fator = 1
     # Se for o último ano da legislatura, a legislatura não é a atual e o senador
     # está presente no ano seguinte então só considera o primeiro mes de despesas
-    if ano == anos[-1] and legislaturaLevantamento != legislaturaAtual and presente(anosInformacao, int(ano)+1):
-        fator = 1/12
+    if ano == anos[-1] and legislaturaLevantamento != legislaturaAtual and presente(anosInformacao, int(ano) + 1):
+        fator = 1 / 12
     # Se for o primeiro ano da legislatura, não é a primeira legislatura de coleta
     # e o senador estava presente no ano anterior então só considera os 11 últimos
     # meses do ano
-    elif ano == anos[0] and legislaturaLevantamento != configuracao.LEGISLATURAINICIAL and presente(anosInformacao, int(ano)-1):
-        fator = 11/12
+    elif ano == anos[0] and legislaturaLevantamento != configuracao.LEGISLATURAINICIAL and presente(anosInformacao, int(ano) - 1):
+        fator = 11 / 12
 
     if nascimento:
         dadosPessoais = sopaSenador.find(
@@ -351,13 +350,13 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     # Extrai apenas o valor em string (strip().split()[1]),
     # converte para float (rtn.s2float) e contabiliza o total
     for i in range(len(valores)):
-        valores[i] = rtn.s2float(valores[i].text.strip().split()[1])*fator
+        valores[i] = rtn.s2float(valores[i].text.strip().split()[1]) * fator
         # Só extrai os valores se a totalização for > 0
         if (valores[i] > 0):
             for linha in tabelas[i].find('tbody').find_all('tr', {'class': None}):
                 colunas = linha.find_all('td')
                 caput = colunas[0].text.strip().split('\xa0')[0]
-                montante = rtn.s2float(colunas[1].text.strip())*fator
+                montante = rtn.s2float(colunas[1].text.strip()) * fator
                 if montante > 0:
                     gastos['lista'][caput] = montante
                     gastos['total'] += gastos['lista'][caput]
@@ -372,7 +371,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
             correios = corpoCorreios.find_all(
                 'tr', {'class': 'sen_tabela_linha_grupo'})[2].find_all('td')
             correiosCaput = correios[0].text.strip()
-            correiosMontante = rtn.s2float(correios[1].text.strip())*fator
+            correiosMontante = rtn.s2float(correios[1].text.strip()) * fator
         else:
             correiosMontante = 0
 
@@ -399,7 +398,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
             if (uso != 'Não utilizou'):
                 if not re.match(r'Informações disponíveis.*', uso) and not re.match(r'Informações não disponíveis.*', uso):
                     meses = int(uso.replace('Utilizou (', '').replace(
-                        ' meses)', '').replace(' mês)', ''))*fator
+                        ' meses)', '').replace(' mês)', '')) * fator
 
             infoAuxilio.append({'beneficio': auxilio, 'meses': meses})
 
@@ -422,6 +421,7 @@ def infoSenador(codigoSenador, ano=2017, intervalo=0, nascimento=False):
     # print(bloco)
     # Retorna o gasto total do senador para o ano pedido
     return round(total, 2), infoAuxilio, infoPessoal, gastos, nascimentoSenador
+
 
 # Recupera dados da legislatura atual
 if args.verbose:
@@ -708,7 +708,8 @@ for url in dadosSenado['urlFoto']:
     fotoSenador = url.split('/')[-1]
     nomeArquivo = f'{dirFotos}/{fotoSenador}'
     if not os.path.exists(nomeArquivo):
-        header = {'user-agent': f'senadoInfo/{configuracao.VERSAO}', 'Accept': 'image/jpeg'}
+        header = {'user-agent': f'senadoInfo/{configuracao.VERSAO}',
+                  'Accept': 'image/jpeg'}
         try:
             requisicao = requests.get(url, headers=header, stream=True)
         except requests.exceptions.RequestException as erro:

@@ -6,6 +6,8 @@ import configuracao
 
 """Rotinas de uso comum entre os módulos da aplicação
 """
+
+
 def reais(x, pos=None):
     """Retorna o valor formatado em reais, o parâmetro pos é necessário
     apenas quando a função é chamada pelo FuncFormatter do matplotlib.ticker
@@ -36,6 +38,7 @@ def s2float(dado):
     except ValueError:
         return float('nan')
 
+
 def infoLegislatura(numLegislatura):
     # Define que aceita JSON
     # Resposta padrão da API é XML
@@ -55,8 +58,9 @@ def infoLegislatura(numLegislatura):
         if numLegis == numLegislatura:
             inicio = int(legislatura['DataInicio'].split('-')[0])
             fim = int(legislatura['DataFim'].split('-')[0])
-            anos = list(range(inicio, fim+1))
+            anos = list(range(inicio, fim + 1))
             return numLegislatura, anos
+
 
 def infoLegislaturaAtual(versao):
     """Retorna a legislatura atual e os anos de exercício a partir

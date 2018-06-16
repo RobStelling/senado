@@ -75,7 +75,8 @@ with open('csv/creditos.csv', newline='') as creditos:
 creditos.close()
 
 # Lê DataFrames
-dadosSenado = pd.read_csv(f'csv/{legislaturaLevantamento}_senado.csv', encoding='utf-8', index_col=0)
+dadosSenado = pd.read_csv(
+    f'csv/{legislaturaLevantamento}_senado.csv', encoding='utf-8', index_col=0)
 top = pd.read_csv(f'csv/{legislaturaLevantamento}_top.csv', encoding='utf-8')
 gastoPartidos = pd.read_csv(f'csv/{legislaturaLevantamento}_gastoPartidos.csv',
                             encoding='utf-8', index_col=0)
@@ -84,7 +85,8 @@ gastoEstados = pd.read_csv(f'csv/{legislaturaLevantamento}_gastoEstados.csv',
 #sexo = pd.read_csv('csv/sexo.csv', encoding='utf-8')
 sexo = dadosSenado.rename(columns={'Participacao': '(Sexo, Situação)'}).groupby(
     ['sexo', 'status'])['(Sexo, Situação)'].count()
-sexoT = pd.read_csv(f'csv/{legislaturaLevantamento}_sexoT.csv', encoding='utf-8', index_col=0)
+sexoT = pd.read_csv(
+    f'csv/{legislaturaLevantamento}_sexoT.csv', encoding='utf-8', index_col=0)
 
 # Lê arquivo json
 with open(f'json/{legislaturaLevantamento}_gastosSenadores.json', 'r', encoding='utf-8') as entrada:
@@ -175,7 +177,8 @@ def geraHTML(modeloHtml, saida):
         im = 'Imóvel Funcional-'
         total = 0
         for ano in anos:
-            total += valor(senador, am + str(ano)) + valor(senador, im + str(ano))
+            total += valor(senador, am + str(ano)) + \
+                valor(senador, im + str(ano))
         return total
 
     def htmlRowsSenado(senadores, anoConsulta):
@@ -230,7 +233,7 @@ def geraHTML(modeloHtml, saida):
             html += f' <a href={arquivo}>{i}</a>'
             i -= 1
         html += '</div>\n{:<6}</center>\n'.format('')
-        return html;
+        return html
 
     def exercicio(_):
         """Lista de senadores em exercício, em ordem alfabética de nome
@@ -269,7 +272,8 @@ def geraHTML(modeloHtml, saida):
         return html
 
     def legislatura(_):
-        html = '{:<4}<script>\n{:<6}legislaturaLevantamento = {};\n{:<4}</script>\n'.format('', '', legislaturaLevantamento, '')
+        html = '{:<4}<script>\n{:<6}legislaturaLevantamento = {};\n{:<4}</script>\n'.format(
+            '', '', legislaturaLevantamento, '')
         return html
 
     # Dicionário de padrões a encontrar e função que será chamada para cada padrão
@@ -365,11 +369,13 @@ if not args.nograph:
     plt.close()
     gSexo = sexo.plot(kind='pie', figsize=(13, 13), fontsize=12,
                       subplots=True, legend=False, colormap='Paired')
-    gSexo[0].get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_distSexo.png')
+    gSexo[0].get_figure().savefig(
+        f'{imagens}/{legislaturaLevantamento}_distSexo.png')
     plt.close()
     gSexoT = sexoT[['Participacao']].plot(kind='pie', figsize=(
         5, 5), subplots=True, legend=False, fontsize=12, colormap='Paired')
-    gSexoT[0].get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_distSexoT.png')
+    gSexoT[0].get_figure().savefig(
+        f'{imagens}/{legislaturaLevantamento}_distSexoT.png')
     plt.close()
 
     listaGastos = [
@@ -378,7 +384,8 @@ if not args.nograph:
     gEstados = gastoEstados[listaGastos].plot(
         kind='bar', rot=0, title='Gastos por unidade da federação', figsize=(15, 5), legend=True, fontsize=12, colormap='Paired')
     gEstados.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-    gEstados.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_gastoEstados.png')
+    gEstados.get_figure().savefig(
+        f'{imagens}/{legislaturaLevantamento}_gastoEstados.png')
     plt.close()
     gabineteEstados = gastoEstados.sort_values(by=[f'TotalGabinete-{anos[-1]}'], ascending=False)[['TotalGabinete-{}'.format(anos[-1])]].plot(
         kind='bar', title=f'Tamanho do gabinete em {anos[-1]} por unidade da federação', figsize=(10, 10), fontsize=12, legend=False)
@@ -388,7 +395,8 @@ if not args.nograph:
     gPartidos = gastoPartidos[listaGastos].plot(
         kind='bar', rot=0, title='Gastos por Partido', figsize=(15, 5), legend=True, fontsize=10, colormap='Paired')
     gPartidos.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-    gPartidos.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_gastoPartidos.png')
+    gPartidos.get_figure().savefig(
+        f'{imagens}/{legislaturaLevantamento}_gastoPartidos.png')
     plt.close()
     gabinetePartidos = gastoPartidos.sort_values(by=[f'TotalGabinete-{anos[-1]}'], ascending=False)[[f'TotalGabinete-{anos[-1]}']].plot(
         kind='bar', title=f'Tamanho do gabinete em {anos[-1]} por partido', figsize=(10, 10), fontsize=12, legend=False)
@@ -398,7 +406,8 @@ if not args.nograph:
     gTop = top[listaGastos].plot(
         kind='bar', rot=20, title=f'Senadores com maiores gastos na legislatura {legislaturaLevantamento}', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
     gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-    gTop.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_maiores.png')
+    gTop.get_figure().savefig(
+        f'{imagens}/{legislaturaLevantamento}_maiores.png')
     plt.close()
 
     listaBeneficioMoradia = [x for x in gastoEstados.columns if re.match(
@@ -410,5 +419,6 @@ if not args.nograph:
 
     gBeneficio = beneficioMoradia.sort_values(ascending=False).plot(
         kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
-    gBeneficio.get_figure().savefig(f'{imagens}/{legislaturaLevantamento}_moradiaEstado.png')
+    gBeneficio.get_figure().savefig(
+        f'{imagens}/{legislaturaLevantamento}_moradiaEstado.png')
     plt.close()
