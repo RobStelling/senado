@@ -201,7 +201,7 @@ def geraHTML(modeloHtml, saida):
                 '', senador['partido'])
             html += "{:<14}<td align='right'>{} pessoas</td>\n".format(
                 '', senador['TotalGabinete-{}'.format(anos[-1])])
-            beneficioMoradia = totalBeneficioMoradia(senador)
+            beneficioMoradia = int(round(totalBeneficioMoradia(senador)))
             html += "{:<14}<td align='right'>{} {}</td>\n".format(
                 '', beneficioMoradia, textoMes[beneficioMoradia == 1])
             html += "{:<12}</tr>\n".format('')
