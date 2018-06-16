@@ -1,0 +1,5621 @@
+[
+  {
+    "senador":"4981",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":17620.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":5000.0,
+          "Divulgação da atividade parlamentar":12620.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":179510.03,
+        "lista":{
+          "Aluguel de imóveis para escritório político":65620.29,
+          "Aquisição de material de consumo":4793.01,
+          "Locomoção, hospedagem, alimentação, combustíveis e":73546.73,
+          "Divulgação da atividade parlamentar":35550.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":26311.14,
+        "lista":{
+          "Aluguel de imóveis para escritório político":5712.115833333333,
+          "Aquisição de material de consumo":461.2166666666667,
+          "Locomoção, hospedagem, alimentação, combustíveis e":6962.563333333333,
+          "Divulgação da atividade parlamentar":8589.583333333332,
+          "Passagens aéreas, aquáticas e terrestres nacionais":4585.659166666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4815",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3622",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":19002.88,
+        "lista":{
+          "Diárias":19002.88
+        }
+      },
+      {
+        "ano":2009,
+        "total":139849.35,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":3224.35,
+          "Contratação de serviços de apoio ao parlamentar":121775.0,
+          "Divulgação da atividade parlamentar":14850.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":188008.0,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":180000.0,
+          "Diárias":8008.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":1250.0,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":1250.0
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3651",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":39581.16,
+        "lista":{
+          "Aquisição de material de consumo":7.39,
+          "Locomoção, hospedagem, alimentação, combustíveis e":11525.25,
+          "Contratação de serviços de apoio ao parlamentar":18000.0,
+          "Diárias":10048.52
+        }
+      },
+      {
+        "ano":2011,
+        "total":1250.0,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":501.9875,
+          "Contratação de serviços de apoio ao parlamentar":748.0124999999999
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4527",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":10756.98,
+        "lista":{
+          "Aluguel de imóveis para escritório político":10756.98
+        }
+      },
+      {
+        "ano":2011,
+        "total":5534.2,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1181.9099999999999,
+          "Passagens aéreas, aquáticas e terrestres nacionais":4352.2891666666665
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3433",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":135582.5,
+        "lista":{
+          "Aluguel de imóveis para escritório político":11075.76,
+          "Aquisição de material de consumo":722.2,
+          "Locomoção, hospedagem, alimentação, combustíveis e":104816.37,
+          "Contratação de serviços de apoio ao parlamentar":18968.17
+        }
+      },
+      {
+        "ano":2010,
+        "total":179960.65,
+        "lista":{
+          "Aluguel de imóveis para escritório político":14366.76,
+          "Aquisição de material de consumo":2217.86,
+          "Locomoção, hospedagem, alimentação, combustíveis e":159585.57,
+          "Contratação de serviços de apoio ao parlamentar":1290.46,
+          "Divulgação da atividade parlamentar":2500.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":1250.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":141.66666666666666,
+          "Locomoção, hospedagem, alimentação, combustíveis e":1108.3333333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"845",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":7352.99,
+        "lista":{
+          "Diárias":7352.99
+        }
+      },
+      {
+        "ano":2009,
+        "total":109416.67,
+        "lista":{
+          "Aluguel de imóveis para escritório político":75284.81,
+          "Aquisição de material de consumo":5432.09,
+          "Locomoção, hospedagem, alimentação, combustíveis e":12989.44,
+          "Contratação de serviços de apoio ao parlamentar":954.46,
+          "Diárias":14755.87
+        }
+      },
+      {
+        "ano":2010,
+        "total":126055.16,
+        "lista":{
+          "Aluguel de imóveis para escritório político":103662.56,
+          "Aquisição de material de consumo":6788.28,
+          "Locomoção, hospedagem, alimentação, combustíveis e":6658.14,
+          "Contratação de serviços de apoio ao parlamentar":3884.16,
+          "Diárias":5062.02
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"945",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":2030.08,
+        "lista":{
+          "Diárias":2030.08
+        }
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":4372.2,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":366.6341666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":4005.570833333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3363",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4869",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":20823.16,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6576.629166666667,
+          "Aquisição de material de consumo":5488.509999999999,
+          "Locomoção, hospedagem, alimentação, combustíveis e":3458.2425000000003,
+          "Contratação de serviços de apoio ao parlamentar":739.4166666666666,
+          "Divulgação da atividade parlamentar":664.6666666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3866.5325,
+          "Serviços de Segurança Privada":29.166666666666664
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4837",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":22834.77,
+        "lista":{
+          "Aluguel de imóveis para escritório político":4215.595833333333,
+          "Aquisição de material de consumo":637.9158333333332,
+          "Locomoção, hospedagem, alimentação, combustíveis e":8550.984166666665,
+          "Contratação de serviços de apoio ao parlamentar":3842.4166666666665,
+          "Divulgação da atividade parlamentar":137.5,
+          "Passagens aéreas, aquáticas e terrestres nacionais":5435.353333333333,
+          "Serviços de Segurança Privada":15.0
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4897",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"118",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":136805.7,
+        "lista":{
+          "Aluguel de imóveis para escritório político":66515.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":47640.7,
+          "Contratação de serviços de apoio ao parlamentar":22650.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":180471.69,
+        "lista":{
+          "Aluguel de imóveis para escritório político":135376.36,
+          "Aquisição de material de consumo":87.5,
+          "Locomoção, hospedagem, alimentação, combustíveis e":16376.05,
+          "Contratação de serviços de apoio ao parlamentar":25725.28,
+          "Divulgação da atividade parlamentar":362.66,
+          "Diárias":2543.84
+        }
+      },
+      {
+        "ano":2011,
+        "total":1245.12,
+        "lista":{
+          "Aluguel de imóveis para escritório político":894.5008333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":350.62166666666667
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":13478.4,
+        "lista":{
+          "Diárias":13478.4
+        }
+      },
+      {
+        "ano":2009,
+        "total":141564.8,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":43916.0,
+          "Contratação de serviços de apoio ao parlamentar":1620.0,
+          "Divulgação da atividade parlamentar":85400.0,
+          "Diárias":10628.8
+        }
+      },
+      {
+        "ano":2010,
+        "total":78892.28,
+        "lista":{
+          "Aluguel de imóveis para escritório político":4350.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":68685.0,
+          "Diárias":5857.28
+        }
+      },
+      {
+        "ano":2011,
+        "total":14929.01,
+        "lista":{
+          "Aluguel de imóveis para escritório político":725.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":8062.916666666666,
+          "Contratação de serviços de apoio ao parlamentar":33.33333333333333,
+          "Divulgação da atividade parlamentar":2391.6666666666665,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3147.510833333333,
+          "Diárias":568.585
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4516",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4891",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":12959.94,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1070.2666666666667,
+          "Aquisição de material de consumo":742.315,
+          "Locomoção, hospedagem, alimentação, combustíveis e":967.835,
+          "Contratação de serviços de apoio ao parlamentar":4305.954166666666,
+          "Divulgação da atividade parlamentar":4051.3199999999997,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1822.2533333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"551",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":7008.0,
+        "lista":{
+          "Diárias":7008.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":152380.0,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":152380.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":95865.6,
+        "lista":{
+          "Aluguel de imóveis para escritório político":26474.36,
+          "Locomoção, hospedagem, alimentação, combustíveis e":64648.84,
+          "Diárias":4742.4
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4983",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3432",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":456.0,
+        "lista":{
+          "Diárias":456.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":141998.4,
+        "lista":{
+          "Aluguel de imóveis para escritório político":5636.13,
+          "Locomoção, hospedagem, alimentação, combustíveis e":91232.27,
+          "Contratação de serviços de apoio ao parlamentar":1500.0,
+          "Divulgação da atividade parlamentar":40864.0,
+          "Diárias":2766.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":187540.09,
+        "lista":{
+          "Aluguel de imóveis para escritório político":4515.42,
+          "Aquisição de material de consumo":223.9,
+          "Locomoção, hospedagem, alimentação, combustíveis e":137079.77,
+          "Contratação de serviços de apoio ao parlamentar":5360.0,
+          "Divulgação da atividade parlamentar":31625.0,
+          "Diárias":8736.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":1225.0,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":958.3333333333333,
+          "Divulgação da atividade parlamentar":266.66666666666663
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3642",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":24180.2,
+        "lista":{
+          "Aluguel de imóveis para escritório político":9448.06,
+          "Aquisição de material de consumo":1910.68,
+          "Locomoção, hospedagem, alimentação, combustíveis e":9137.83,
+          "Contratação de serviços de apoio ao parlamentar":3683.63
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"704",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"13",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":2862.08,
+        "lista":{
+          "Diárias":2862.08
+        }
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":19098.7,
+        "lista":{
+          "Aluguel de imóveis para escritório político":2356.9991666666665,
+          "Aquisição de material de consumo":3520.109166666666,
+          "Locomoção, hospedagem, alimentação, combustíveis e":7506.094999999999,
+          "Contratação de serviços de apoio ao parlamentar":676.5,
+          "Divulgação da atividade parlamentar":750.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":4112.9991666666665,
+          "Diárias":176.00166666666667
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4895",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":8340.44,
+        "lista":{
+          "Aluguel de imóveis para escritório político":5093.286666666667,
+          "Aquisição de material de consumo":2500.6541666666662,
+          "Divulgação da atividade parlamentar":508.3333333333333,
+          "Serviços de Segurança Privada":238.165
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3398",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":5344.42,
+        "lista":{
+          "Diárias":5344.42
+        }
+      },
+      {
+        "ano":2009,
+        "total":79793.29,
+        "lista":{
+          "Aluguel de imóveis para escritório político":15038.76,
+          "Aquisição de material de consumo":1625.4,
+          "Locomoção, hospedagem, alimentação, combustíveis e":3732.18,
+          "Contratação de serviços de apoio ao parlamentar":19041.6,
+          "Divulgação da atividade parlamentar":40355.35
+        }
+      },
+      {
+        "ano":2010,
+        "total":22001.18,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":15696.6,
+          "Diárias":6304.58
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4877",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":20041.6,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6537.074999999999,
+          "Aquisição de material de consumo":558.3858333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":2998.110833333333,
+          "Contratação de serviços de apoio ao parlamentar":2296.6208333333334,
+          "Divulgação da atividade parlamentar":4833.333333333333,
+          "Passagens aéreas, aquáticas e terrestres nacionais":2049.5166666666664,
+          "Serviços de Segurança Privada":15.416666666666666,
+          "Diárias":753.1366666666665
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3395",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":2912.0,
+        "lista":{
+          "Diárias":2912.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":137849.18,
+        "lista":{
+          "Aluguel de imóveis para escritório político":64993.25,
+          "Aquisição de material de consumo":10829.65,
+          "Locomoção, hospedagem, alimentação, combustíveis e":47565.77,
+          "Contratação de serviços de apoio ao parlamentar":150.0,
+          "Divulgação da atividade parlamentar":14310.51
+        }
+      },
+      {
+        "ano":2010,
+        "total":172653.34,
+        "lista":{
+          "Aluguel de imóveis para escritório político":102173.3,
+          "Aquisição de material de consumo":13643.66,
+          "Locomoção, hospedagem, alimentação, combustíveis e":51676.38,
+          "Contratação de serviços de apoio ao parlamentar":480.0,
+          "Divulgação da atividade parlamentar":4680.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4529",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":13981.52,
+        "lista":{
+          "Diárias":13981.52
+        }
+      },
+      {
+        "ano":2009,
+        "total":152160.72,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":110411.68,
+          "Contratação de serviços de apoio ao parlamentar":24290.0,
+          "Diárias":17459.04
+        }
+      },
+      {
+        "ano":2010,
+        "total":180294.22,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":146208.22,
+          "Contratação de serviços de apoio ao parlamentar":33300.0,
+          "Diárias":786.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":30176.59,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":11995.909166666666,
+          "Contratação de serviços de apoio ao parlamentar":10775.0,
+          "Divulgação da atividade parlamentar":3166.6666666666665,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3572.7741666666666,
+          "Diárias":666.2416666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3637",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":1220.8,
+        "lista":{
+          "Aluguel de imóveis para escritório político":337.9158333333333,
+          "Aquisição de material de consumo":107.88666666666667,
+          "Locomoção, hospedagem, alimentação, combustíveis e":772.0816666666666,
+          "Contratação de serviços de apoio ao parlamentar":2.9166666666666665
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3360",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":3222.0,
+        "lista":{
+          "Diárias":3222.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":134615.22,
+        "lista":{
+          "Aluguel de imóveis para escritório político":85354.16,
+          "Aquisição de material de consumo":1636.3,
+          "Locomoção, hospedagem, alimentação, combustíveis e":44103.68,
+          "Divulgação da atividade parlamentar":3521.08
+        }
+      },
+      {
+        "ano":2010,
+        "total":147766.22,
+        "lista":{
+          "Aluguel de imóveis para escritório político":103808.54,
+          "Aquisição de material de consumo":1924.43,
+          "Locomoção, hospedagem, alimentação, combustíveis e":39692.25,
+          "Divulgação da atividade parlamentar":2341.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":20908.81,
+        "lista":{
+          "Aluguel de imóveis para escritório político":11258.3275,
+          "Aquisição de material de consumo":707.8083333333334,
+          "Locomoção, hospedagem, alimentação, combustíveis e":4907.616666666667,
+          "Divulgação da atividade parlamentar":250.23333333333335,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3718.088333333333,
+          "Diárias":66.73666666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3399",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":10936.0,
+        "lista":{
+          "Diárias":10936.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":143856.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":21874.66,
+          "Aquisição de material de consumo":669.2,
+          "Locomoção, hospedagem, alimentação, combustíveis e":23559.02,
+          "Contratação de serviços de apoio ao parlamentar":78897.12,
+          "Divulgação da atividade parlamentar":10000.0,
+          "Diárias":8856.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":188008.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":32294.52,
+          "Aquisição de material de consumo":24490.35,
+          "Locomoção, hospedagem, alimentação, combustíveis e":37212.73,
+          "Contratação de serviços de apoio ao parlamentar":86002.4,
+          "Diárias":8008.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":21345.2,
+        "lista":{
+          "Aluguel de imóveis para escritório político":3110.3516666666665,
+          "Aquisição de material de consumo":925.4233333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":6547.450833333333,
+          "Contratação de serviços de apoio ao parlamentar":9308.333333333332,
+          "Passagens aéreas, aquáticas e terrestres nacionais":697.8866666666665,
+          "Serviços de Segurança Privada":23.598333333333333,
+          "Diárias":732.16
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3412",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"16",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3400",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":30031.58,
+        "lista":{
+          "Diárias":30031.58
+        }
+      },
+      {
+        "ano":2009,
+        "total":150597.58,
+        "lista":{
+          "Aluguel de imóveis para escritório político":70494.94,
+          "Aquisição de material de consumo":11358.42,
+          "Locomoção, hospedagem, alimentação, combustíveis e":53714.2,
+          "Contratação de serviços de apoio ao parlamentar":250.96,
+          "Diárias":14779.06
+        }
+      },
+      {
+        "ano":2010,
+        "total":203063.04,
+        "lista":{
+          "Aluguel de imóveis para escritório político":89960.64,
+          "Aquisição de material de consumo":10867.44,
+          "Locomoção, hospedagem, alimentação, combustíveis e":79171.92,
+          "Diárias":23063.04
+        }
+      },
+      {
+        "ano":2011,
+        "total":1250.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":762.8266666666666,
+          "Aquisição de material de consumo":74.50833333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":412.66499999999996
+        }
+      }
+    ]
+  },
+  {
+    "senador":"17",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":13636.48,
+        "lista":{
+          "Diárias":13636.48
+        }
+      },
+      {
+        "ano":2009,
+        "total":31475.24,
+        "lista":{
+          "Aquisição de material de consumo":14052.14,
+          "Locomoção, hospedagem, alimentação, combustíveis e":8063.35,
+          "Contratação de serviços de apoio ao parlamentar":1019.9,
+          "Diárias":8339.85
+        }
+      },
+      {
+        "ano":2010,
+        "total":55326.85,
+        "lista":{
+          "Aluguel de imóveis para escritório político":35.15,
+          "Aquisição de material de consumo":26671.27,
+          "Locomoção, hospedagem, alimentação, combustíveis e":19070.93,
+          "Contratação de serviços de apoio ao parlamentar":2019.9,
+          "Diárias":7529.6
+        }
+      },
+      {
+        "ano":2011,
+        "total":7516.94,
+        "lista":{
+          "Aluguel de imóveis para escritório político":282.775,
+          "Aquisição de material de consumo":1906.0933333333332,
+          "Locomoção, hospedagem, alimentação, combustíveis e":750.0533333333333,
+          "Contratação de serviços de apoio ao parlamentar":1026.2833333333333,
+          "Passagens aéreas, aquáticas e terrestres nacionais":2955.258333333333,
+          "Diárias":596.4749999999999
+        }
+      }
+    ]
+  },
+  {
+    "senador":"707",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":6452.69,
+        "lista":{
+          "Diárias":6452.69
+        }
+      },
+      {
+        "ano":2009,
+        "total":138979.19,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":44342.58,
+          "Contratação de serviços de apoio ao parlamentar":9000.0,
+          "Divulgação da atividade parlamentar":81685.0,
+          "Diárias":3951.61
+        }
+      },
+      {
+        "ano":2010,
+        "total":186936.48,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":34596.5,
+          "Contratação de serviços de apoio ao parlamentar":111000.0,
+          "Divulgação da atividade parlamentar":34400.0,
+          "Diárias":6939.98
+        }
+      },
+      {
+        "ano":2011,
+        "total":1249.75,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":435.0,
+          "Divulgação da atividade parlamentar":814.75
+        }
+      }
+    ]
+  },
+  {
+    "senador":"394",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":139290.51,
+        "lista":{
+          "Aluguel de imóveis para escritório político":20917.2,
+          "Aquisição de material de consumo":5936.2,
+          "Locomoção, hospedagem, alimentação, combustíveis e":100937.11,
+          "Divulgação da atividade parlamentar":11500.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":180000.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":25870.54,
+          "Aquisição de material de consumo":6231.35,
+          "Locomoção, hospedagem, alimentação, combustíveis e":130798.11,
+          "Divulgação da atividade parlamentar":17100.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"20",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":96392.23,
+        "lista":{
+          "Aluguel de imóveis para escritório político":12663.73,
+          "Locomoção, hospedagem, alimentação, combustíveis e":83728.5
+        }
+      },
+      {
+        "ano":2010,
+        "total":175997.74,
+        "lista":{
+          "Aluguel de imóveis para escritório político":19509.82,
+          "Locomoção, hospedagem, alimentação, combustíveis e":156487.92
+        }
+      },
+      {
+        "ano":2011,
+        "total":17458.43,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1549.1525000000001,
+          "Locomoção, hospedagem, alimentação, combustíveis e":15696.454166666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":212.82333333333332
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4780",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3552",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"1189",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":786.0,
+        "lista":{
+          "Diárias":786.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":116500.0,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":65741.55,
+          "Divulgação da atividade parlamentar":50758.45
+        }
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4525",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":135110.77,
+        "lista":{
+          "Aquisição de material de consumo":445.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":39882.81,
+          "Contratação de serviços de apoio ao parlamentar":94782.96
+        }
+      },
+      {
+        "ano":2010,
+        "total":179973.27,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":37788.58,
+          "Contratação de serviços de apoio ao parlamentar":142184.69
+        }
+      },
+      {
+        "ano":2011,
+        "total":33173.52,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":17053.470833333333,
+          "Contratação de serviços de apoio ao parlamentar":4319.354166666666,
+          "Divulgação da atividade parlamentar":2833.333333333333,
+          "Serviços de Segurança Privada":8967.361666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3634",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":15553.52,
+        "lista":{
+          "Diárias":15553.52
+        }
+      },
+      {
+        "ano":2009,
+        "total":135516.9,
+        "lista":{
+          "Aluguel de imóveis para escritório político":41491.5,
+          "Aquisição de material de consumo":3722.28,
+          "Locomoção, hospedagem, alimentação, combustíveis e":70535.5,
+          "Contratação de serviços de apoio ao parlamentar":19311.62,
+          "Diárias":456.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":134549.41,
+        "lista":{
+          "Aluguel de imóveis para escritório político":26689.88,
+          "Aquisição de material de consumo":2132.63,
+          "Locomoção, hospedagem, alimentação, combustíveis e":84562.73,
+          "Contratação de serviços de apoio ao parlamentar":21164.17
+        }
+      },
+      {
+        "ano":2011,
+        "total":28706.65,
+        "lista":{
+          "Aluguel de imóveis para escritório político":5006.743333333333,
+          "Aquisição de material de consumo":500.5566666666667,
+          "Locomoção, hospedagem, alimentação, combustíveis e":10859.2975,
+          "Contratação de serviços de apoio ao parlamentar":3231.5841666666665,
+          "Divulgação da atividade parlamentar":4162.5,
+          "Passagens aéreas, aquáticas e terrestres nacionais":4211.818333333333,
+          "Serviços de Segurança Privada":142.73499999999999,
+          "Diárias":591.4133333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"345",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":456.0,
+        "lista":{
+          "Diárias":456.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":129049.97,
+        "lista":{
+          "Aluguel de imóveis para escritório político":28449.28,
+          "Aquisição de material de consumo":16262.79,
+          "Locomoção, hospedagem, alimentação, combustíveis e":43738.24,
+          "Contratação de serviços de apoio ao parlamentar":34599.66,
+          "Divulgação da atividade parlamentar":6000.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":180000.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":44774.56,
+          "Aquisição de material de consumo":13744.46,
+          "Locomoção, hospedagem, alimentação, combustíveis e":112922.62,
+          "Contratação de serviços de apoio ao parlamentar":8558.36
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3619",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":48002.54,
+        "lista":{
+          "Aluguel de imóveis para escritório político":17076.31,
+          "Aquisição de material de consumo":529.61,
+          "Locomoção, hospedagem, alimentação, combustíveis e":27655.35,
+          "Contratação de serviços de apoio ao parlamentar":1177.11,
+          "Diárias":1564.16
+        }
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"765",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":6514.56,
+        "lista":{
+          "Diárias":6514.56
+        }
+      },
+      {
+        "ano":2009,
+        "total":130459.16,
+        "lista":{
+          "Aluguel de imóveis para escritório político":107175.02,
+          "Aquisição de material de consumo":1631.64,
+          "Locomoção, hospedagem, alimentação, combustíveis e":13655.5,
+          "Contratação de serviços de apoio ao parlamentar":4250.0,
+          "Divulgação da atividade parlamentar":3747.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":181888.21,
+        "lista":{
+          "Aluguel de imóveis para escritório político":158876.39,
+          "Aquisição de material de consumo":3135.95,
+          "Locomoção, hospedagem, alimentação, combustíveis e":14838.11,
+          "Diárias":5037.76
+        }
+      },
+      {
+        "ano":2011,
+        "total":24313.79,
+        "lista":{
+          "Aluguel de imóveis para escritório político":12155.517499999998,
+          "Aquisição de material de consumo":150.0075,
+          "Locomoção, hospedagem, alimentação, combustíveis e":2389.93,
+          "Contratação de serviços de apoio ao parlamentar":5075.676666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":4542.655
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3574",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3371",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":9231.04,
+        "lista":{
+          "Diárias":9231.04
+        }
+      },
+      {
+        "ano":2009,
+        "total":135530.26,
+        "lista":{
+          "Aquisição de material de consumo":43767.1,
+          "Locomoção, hospedagem, alimentação, combustíveis e":63796.72,
+          "Contratação de serviços de apoio ao parlamentar":11055.0,
+          "Divulgação da atividade parlamentar":8450.0,
+          "Diárias":8461.44
+        }
+      },
+      {
+        "ano":2010,
+        "total":139529.72,
+        "lista":{
+          "Aquisição de material de consumo":5547.24,
+          "Locomoção, hospedagem, alimentação, combustíveis e":77846.48,
+          "Contratação de serviços de apoio ao parlamentar":23530.0,
+          "Divulgação da atividade parlamentar":32606.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4935",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":5460.85,
+        "lista":{
+          "Aluguel de imóveis para escritório político":753.1733333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":432.46416666666664,
+          "Passagens aéreas, aquáticas e terrestres nacionais":4275.215833333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"87",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":139707.74,
+        "lista":{
+          "Aluguel de imóveis para escritório político":21032.87,
+          "Aquisição de material de consumo":5156.5,
+          "Locomoção, hospedagem, alimentação, combustíveis e":28149.03,
+          "Contratação de serviços de apoio ao parlamentar":3375.0,
+          "Divulgação da atividade parlamentar":81994.34
+        }
+      },
+      {
+        "ano":2010,
+        "total":127500.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":21252.82,
+          "Aquisição de material de consumo":5732.81,
+          "Locomoção, hospedagem, alimentação, combustíveis e":41340.45,
+          "Contratação de serviços de apoio ao parlamentar":4696.0,
+          "Divulgação da atividade parlamentar":54477.92
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4522",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":60000.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":60000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":26252.62,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":13223.407500000001,
+          "Divulgação da atividade parlamentar":10263.101666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":2766.109166666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3392",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":28074.92,
+        "lista":{
+          "Diárias":28074.92
+        }
+      },
+      {
+        "ano":2009,
+        "total":155384.51,
+        "lista":{
+          "Aluguel de imóveis para escritório político":23965.0,
+          "Aquisição de material de consumo":3162.17,
+          "Locomoção, hospedagem, alimentação, combustíveis e":74821.18,
+          "Contratação de serviços de apoio ao parlamentar":27022.9,
+          "Divulgação da atividade parlamentar":10300.0,
+          "Diárias":16113.26
+        }
+      },
+      {
+        "ano":2010,
+        "total":139967.28,
+        "lista":{
+          "Aluguel de imóveis para escritório político":25735.32,
+          "Aquisição de material de consumo":5492.98,
+          "Locomoção, hospedagem, alimentação, combustíveis e":76373.35,
+          "Contratação de serviços de apoio ao parlamentar":10486.79,
+          "Diárias":21878.84
+        }
+      },
+      {
+        "ano":2011,
+        "total":66.1,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":66.10416666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"28",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":2358.72,
+        "lista":{
+          "Diárias":2358.72
+        }
+      },
+      {
+        "ano":2009,
+        "total":57453.15,
+        "lista":{
+          "Aluguel de imóveis para escritório político":20441.87,
+          "Aquisição de material de consumo":1082.12,
+          "Locomoção, hospedagem, alimentação, combustíveis e":19373.6,
+          "Contratação de serviços de apoio ao parlamentar":14441.4,
+          "Divulgação da atividade parlamentar":550.0,
+          "Diárias":1564.16
+        }
+      },
+      {
+        "ano":2010,
+        "total":137423.66,
+        "lista":{
+          "Aluguel de imóveis para escritório político":17489.63,
+          "Aquisição de material de consumo":1617.3,
+          "Locomoção, hospedagem, alimentação, combustíveis e":27727.53,
+          "Contratação de serviços de apoio ao parlamentar":90589.2
+        }
+      },
+      {
+        "ano":2011,
+        "total":382.5,
+        "lista":{
+          "Aluguel de imóveis para escritório político":70.03166666666667,
+          "Aquisição de material de consumo":5.016666666666667,
+          "Locomoção, hospedagem, alimentação, combustíveis e":267.2491666666666,
+          "Contratação de serviços de apoio ao parlamentar":40.200833333333335
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3626",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":1572.0,
+        "lista":{
+          "Diárias":1572.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":138234.72,
+        "lista":{
+          "Aluguel de imóveis para escritório político":2540.01,
+          "Aquisição de material de consumo":3654.53,
+          "Locomoção, hospedagem, alimentação, combustíveis e":101058.18,
+          "Contratação de serviços de apoio ao parlamentar":30742.0,
+          "Divulgação da atividade parlamentar":240.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":117439.78,
+        "lista":{
+          "Aquisição de material de consumo":385.8,
+          "Locomoção, hospedagem, alimentação, combustíveis e":54716.36,
+          "Contratação de serviços de apoio ao parlamentar":62337.62
+        }
+      },
+      {
+        "ano":2011,
+        "total":447.57,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":447.5708333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"30",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":135000.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":135000.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":120000.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":120000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":3727.5,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1250.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":1744.1666666666665,
+          "Divulgação da atividade parlamentar":733.3333333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"740",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":27502.62,
+        "lista":{
+          "Diárias":27502.62
+        }
+      },
+      {
+        "ano":2009,
+        "total":128654.49,
+        "lista":{
+          "Aluguel de imóveis para escritório político":19207.88,
+          "Aquisição de material de consumo":7320.65,
+          "Locomoção, hospedagem, alimentação, combustíveis e":25727.94,
+          "Contratação de serviços de apoio ao parlamentar":35900.0,
+          "Divulgação da atividade parlamentar":33600.0,
+          "Diárias":6898.02
+        }
+      },
+      {
+        "ano":2010,
+        "total":145582.83,
+        "lista":{
+          "Aluguel de imóveis para escritório político":18267.53,
+          "Aquisição de material de consumo":6358.86,
+          "Locomoção, hospedagem, alimentação, combustíveis e":27366.51,
+          "Contratação de serviços de apoio ao parlamentar":70300.0,
+          "Divulgação da atividade parlamentar":13000.0,
+          "Diárias":10289.93
+        }
+      },
+      {
+        "ano":2011,
+        "total":1250.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":203.9825,
+          "Aquisição de material de consumo":113.75583333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":126.16333333333333,
+          "Contratação de serviços de apoio ao parlamentar":806.0983333333334
+        }
+      }
+    ]
+  },
+  {
+    "senador":"1179",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":88594.62,
+        "lista":{
+          "Aluguel de imóveis para escritório político":34550.56,
+          "Aquisição de material de consumo":7372.05,
+          "Locomoção, hospedagem, alimentação, combustíveis e":27554.67,
+          "Contratação de serviços de apoio ao parlamentar":19117.34
+        }
+      },
+      {
+        "ano":2011,
+        "total":1038.86,
+        "lista":{
+          "Aluguel de imóveis para escritório político":342.87166666666667,
+          "Aquisição de material de consumo":362.76166666666666,
+          "Locomoção, hospedagem, alimentação, combustíveis e":104.05666666666667,
+          "Contratação de serviços de apoio ao parlamentar":229.16666666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3373",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":4293.6,
+        "lista":{
+          "Diárias":4293.6
+        }
+      },
+      {
+        "ano":2009,
+        "total":142702.81,
+        "lista":{
+          "Aluguel de imóveis para escritório político":73361.32,
+          "Aquisição de material de consumo":28193.44,
+          "Locomoção, hospedagem, alimentação, combustíveis e":20366.05,
+          "Contratação de serviços de apoio ao parlamentar":10103.52,
+          "Diárias":10678.48
+        }
+      },
+      {
+        "ano":2010,
+        "total":132513.52,
+        "lista":{
+          "Aluguel de imóveis para escritório político":51926.83,
+          "Aquisição de material de consumo":27599.55,
+          "Locomoção, hospedagem, alimentação, combustíveis e":33419.69,
+          "Contratação de serviços de apoio ao parlamentar":11567.45,
+          "Divulgação da atividade parlamentar":8000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3578",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"613",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":23351.21,
+        "lista":{
+          "Diárias":23351.21
+        }
+      },
+      {
+        "ano":2009,
+        "total":162875.35,
+        "lista":{
+          "Aluguel de imóveis para escritório político":19218.32,
+          "Aquisição de material de consumo":11239.5,
+          "Locomoção, hospedagem, alimentação, combustíveis e":66142.79,
+          "Contratação de serviços de apoio ao parlamentar":8704.94,
+          "Divulgação da atividade parlamentar":40630.0,
+          "Diárias":16939.8
+        }
+      },
+      {
+        "ano":2010,
+        "total":164614.62,
+        "lista":{
+          "Aluguel de imóveis para escritório político":14312.4,
+          "Aquisição de material de consumo":10401.7,
+          "Locomoção, hospedagem, alimentação, combustíveis e":90480.2,
+          "Contratação de serviços de apoio ao parlamentar":13936.26,
+          "Divulgação da atividade parlamentar":23451.0,
+          "Diárias":12033.06
+        }
+      },
+      {
+        "ano":2011,
+        "total":25387.96,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1749.4641666666666,
+          "Aquisição de material de consumo":1221.9091666666666,
+          "Locomoção, hospedagem, alimentação, combustíveis e":9175.429166666665,
+          "Contratação de serviços de apoio ao parlamentar":1374.4216666666666,
+          "Divulgação da atividade parlamentar":3517.5,
+          "Passagens aéreas, aquáticas e terrestres nacionais":7486.574999999999,
+          "Diárias":862.6583333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4937",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":927.77,
+        "lista":{
+          "Aluguel de imóveis para escritório político":73.4225,
+          "Locomoção, hospedagem, alimentação, combustíveis e":394.44916666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":459.8941666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4545",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":127680.87,
+        "lista":{
+          "Aluguel de imóveis para escritório político":38619.95,
+          "Aquisição de material de consumo":15481.34,
+          "Locomoção, hospedagem, alimentação, combustíveis e":30271.48,
+          "Contratação de serviços de apoio ao parlamentar":43308.1
+        }
+      },
+      {
+        "ano":2010,
+        "total":170436.7,
+        "lista":{
+          "Aluguel de imóveis para escritório político":56253.8,
+          "Aquisição de material de consumo":18440.39,
+          "Locomoção, hospedagem, alimentação, combustíveis e":37452.52,
+          "Contratação de serviços de apoio ao parlamentar":58289.99
+        }
+      },
+      {
+        "ano":2011,
+        "total":21509.85,
+        "lista":{
+          "Aluguel de imóveis para escritório político":4746.795833333334,
+          "Aquisição de material de consumo":1271.9666666666667,
+          "Locomoção, hospedagem, alimentação, combustíveis e":4129.6525,
+          "Contratação de serviços de apoio ao parlamentar":6466.943333333334,
+          "Passagens aéreas, aquáticas e terrestres nacionais":2768.105833333333,
+          "Serviços de Segurança Privada":2126.383333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4531",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":2358.0,
+        "lista":{
+          "Diárias":2358.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":76181.07,
+        "lista":{
+          "Aluguel de imóveis para escritório político":3640.31,
+          "Aquisição de material de consumo":280.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":72260.76
+        }
+      },
+      {
+        "ano":2010,
+        "total":177897.89,
+        "lista":{
+          "Aluguel de imóveis para escritório político":13565.13,
+          "Aquisição de material de consumo":1802.77,
+          "Locomoção, hospedagem, alimentação, combustíveis e":136529.99,
+          "Divulgação da atividade parlamentar":26000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":15291.78,
+        "lista":{
+          "Aluguel de imóveis para escritório político":177.3383333333333,
+          "Aquisição de material de consumo":263.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":8093.159166666666,
+          "Contratação de serviços de apoio ao parlamentar":210.07083333333333,
+          "Divulgação da atividade parlamentar":4141.716666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":2406.4958333333334
+        }
+      }
+    ]
+  },
+  {
+    "senador":"36",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4792",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":390.0,
+        "lista":{
+          "Diárias":390.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":72111.4,
+        "lista":{
+          "Aluguel de imóveis para escritório político":8655.28,
+          "Aquisição de material de consumo":3035.19,
+          "Locomoção, hospedagem, alimentação, combustíveis e":20634.13,
+          "Contratação de serviços de apoio ao parlamentar":8226.0,
+          "Divulgação da atividade parlamentar":26282.0,
+          "Diárias":5278.8
+        }
+      },
+      {
+        "ano":2010,
+        "total":95731.4,
+        "lista":{
+          "Aluguel de imóveis para escritório político":41979.17,
+          "Aquisição de material de consumo":2050.75,
+          "Locomoção, hospedagem, alimentação, combustíveis e":32600.82,
+          "Contratação de serviços de apoio ao parlamentar":9198.0,
+          "Divulgação da atividade parlamentar":8060.0,
+          "Diárias":1842.66
+        }
+      },
+      {
+        "ano":2011,
+        "total":102.91,
+        "lista":{
+          "Aluguel de imóveis para escritório político":54.16,
+          "Locomoção, hospedagem, alimentação, combustíveis e":48.75
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4533",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"38",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4776",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":1855.36,
+        "lista":{
+          "Diárias":1855.36
+        }
+      },
+      {
+        "ano":2009,
+        "total":121000.0,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":12000.0,
+          "Contratação de serviços de apoio ao parlamentar":36000.0,
+          "Divulgação da atividade parlamentar":73000.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":176800.0,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":101300.0,
+          "Divulgação da atividade parlamentar":75500.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":20038.95,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":6357.5,
+          "Divulgação da atividade parlamentar":12583.333333333332,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1098.1191666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4885",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":59737.47,
+        "lista":{
+          "Aquisição de material de consumo":209.5,
+          "Locomoção, hospedagem, alimentação, combustíveis e":31027.97,
+          "Contratação de serviços de apoio ao parlamentar":28500.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"40",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":99059.8,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1350.38,
+          "Aquisição de material de consumo":4741.39,
+          "Locomoção, hospedagem, alimentação, combustíveis e":25953.19,
+          "Contratação de serviços de apoio ao parlamentar":6000.0,
+          "Divulgação da atividade parlamentar":55715.0,
+          "Diárias":5299.84
+        }
+      },
+      {
+        "ano":2010,
+        "total":63540.31,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":27420.31,
+          "Contratação de serviços de apoio ao parlamentar":19000.0,
+          "Divulgação da atividade parlamentar":17120.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":20416.8,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1000.0,
+          "Aquisição de material de consumo":19.5,
+          "Locomoção, hospedagem, alimentação, combustíveis e":8950.092499999999,
+          "Contratação de serviços de apoio ao parlamentar":1233.3333333333333,
+          "Divulgação da atividade parlamentar":2552.5,
+          "Passagens aéreas, aquáticas e terrestres nacionais":4972.368333333333,
+          "Serviços de Segurança Privada":1689.0091666666667
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3595",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":57240.5,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":34913.57,
+          "Contratação de serviços de apoio ao parlamentar":8750.0,
+          "Divulgação da atividade parlamentar":13576.93
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3361",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4547",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":16268.14,
+        "lista":{
+          "Diárias":16268.14
+        }
+      },
+      {
+        "ano":2009,
+        "total":159397.57,
+        "lista":{
+          "Aluguel de imóveis para escritório político":36013.79,
+          "Aquisição de material de consumo":6516.67,
+          "Locomoção, hospedagem, alimentação, combustíveis e":76875.4,
+          "Contratação de serviços de apoio ao parlamentar":136.92,
+          "Divulgação da atividade parlamentar":13541.35,
+          "Diárias":26313.44
+        }
+      },
+      {
+        "ano":2010,
+        "total":187924.09,
+        "lista":{
+          "Aluguel de imóveis para escritório político":49998.42,
+          "Aquisição de material de consumo":10889.19,
+          "Locomoção, hospedagem, alimentação, combustíveis e":97433.09,
+          "Contratação de serviços de apoio ao parlamentar":928.11,
+          "Divulgação da atividade parlamentar":16673.52,
+          "Diárias":12001.76
+        }
+      },
+      {
+        "ano":2011,
+        "total":1624.6,
+        "lista":{
+          "Aluguel de imóveis para escritório político":42.5,
+          "Aquisição de material de consumo":11.625,
+          "Locomoção, hospedagem, alimentação, combustíveis e":1005.0049999999999,
+          "Contratação de serviços de apoio ao parlamentar":25.50583333333333,
+          "Divulgação da atividade parlamentar":115.29333333333332,
+          "Diárias":424.66666666666663
+        }
+      }
+    ]
+  },
+  {
+    "senador":"47",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":43600.0,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":43600.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":20000.0,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":20000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":3500.0,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":2000.0,
+          "Divulgação da atividade parlamentar":1500.0
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3394",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":2992.57,
+        "lista":{
+          "Aquisição de material de consumo":48.44083333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":961.7783333333333,
+          "Contratação de serviços de apoio ao parlamentar":1500.0,
+          "Divulgação da atividade parlamentar":70.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":412.3458333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4537",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":109637.96,
+        "lista":{
+          "Aluguel de imóveis para escritório político":11513.0,
+          "Aquisição de material de consumo":6673.4,
+          "Locomoção, hospedagem, alimentação, combustíveis e":83456.38,
+          "Contratação de serviços de apoio ao parlamentar":5295.18,
+          "Divulgação da atividade parlamentar":2700.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":166351.9,
+        "lista":{
+          "Aluguel de imóveis para escritório político":17431.9,
+          "Aquisição de material de consumo":20433.37,
+          "Locomoção, hospedagem, alimentação, combustíveis e":122786.63,
+          "Contratação de serviços de apoio ao parlamentar":1800.0,
+          "Divulgação da atividade parlamentar":3900.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":25021.07,
+        "lista":{
+          "Aluguel de imóveis para escritório político":2070.2233333333334,
+          "Aquisição de material de consumo":588.1783333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":16284.259999999998,
+          "Contratação de serviços de apoio ao parlamentar":4666.666666666666,
+          "Divulgação da atividade parlamentar":245.83333333333331,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1165.9133333333332
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3593",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":36884.59,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6829.74,
+          "Locomoção, hospedagem, alimentação, combustíveis e":16297.41,
+          "Contratação de serviços de apoio ao parlamentar":5000.0,
+          "Divulgação da atividade parlamentar":3000.0,
+          "Diárias":5757.44
+        }
+      },
+      {
+        "ano":2011,
+        "total":787.32,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":287.31666666666666,
+          "Divulgação da atividade parlamentar":500.0
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4774",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":9762.84,
+        "lista":{
+          "Diárias":9762.84
+        }
+      },
+      {
+        "ano":2009,
+        "total":117030.52,
+        "lista":{
+          "Aluguel de imóveis para escritório político":39601.78,
+          "Aquisição de material de consumo":349.9,
+          "Locomoção, hospedagem, alimentação, combustíveis e":66470.88,
+          "Divulgação da atividade parlamentar":5262.6,
+          "Diárias":5345.36
+        }
+      },
+      {
+        "ano":2010,
+        "total":27705.51,
+        "lista":{
+          "Aluguel de imóveis para escritório político":12480.56,
+          "Locomoção, hospedagem, alimentação, combustíveis e":15224.95
+        }
+      },
+      {
+        "ano":2011,
+        "total":5441.52,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1464.7691666666665,
+          "Aquisição de material de consumo":175.7975,
+          "Locomoção, hospedagem, alimentação, combustíveis e":2233.7799999999997,
+          "Contratação de serviços de apoio ao parlamentar":133.33333333333331,
+          "Divulgação da atividade parlamentar":323.325,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1110.5158333333334
+        }
+      }
+    ]
+  },
+  {
+    "senador":"916",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":160000.0,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":10393.95,
+          "Contratação de serviços de apoio ao parlamentar":25019.85,
+          "Divulgação da atividade parlamentar":124586.2
+        }
+      },
+      {
+        "ano":2010,
+        "total":180000.0,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":65000.0,
+          "Contratação de serviços de apoio ao parlamentar":105000.0,
+          "Divulgação da atividade parlamentar":10000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":12851.48,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":5398.6224999999995,
+          "Contratação de serviços de apoio ao parlamentar":4166.666666666666,
+          "Divulgação da atividade parlamentar":1983.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1303.1924999999999
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3652",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":2221.44,
+        "lista":{
+          "Diárias":2221.44
+        }
+      },
+      {
+        "ano":2009,
+        "total":18830.53,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6470.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":9582.92,
+          "Contratação de serviços de apoio ao parlamentar":418.89,
+          "Diárias":2358.72
+        }
+      },
+      {
+        "ano":2010,
+        "total":53258.79,
+        "lista":{
+          "Aluguel de imóveis para escritório político":17523.32,
+          "Aquisição de material de consumo":432.91,
+          "Locomoção, hospedagem, alimentação, combustíveis e":23271.15,
+          "Contratação de serviços de apoio ao parlamentar":167.09,
+          "Diárias":11864.32
+        }
+      },
+      {
+        "ano":2011,
+        "total":258.66,
+        "lista":{
+          "Aluguel de imóveis para escritório político":110.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":148.65666666666667
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4541",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":138269.54,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6343.47,
+          "Aquisição de material de consumo":41926.07,
+          "Contratação de serviços de apoio ao parlamentar":55500.0,
+          "Divulgação da atividade parlamentar":34500.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":155813.11,
+        "lista":{
+          "Aluguel de imóveis para escritório político":13583.66,
+          "Aquisição de material de consumo":48029.45,
+          "Contratação de serviços de apoio ao parlamentar":54000.0,
+          "Divulgação da atividade parlamentar":40200.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":22502.84,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1539.7849999999999,
+          "Aquisição de material de consumo":3326.8433333333332,
+          "Locomoção, hospedagem, alimentação, combustíveis e":2348.333333333333,
+          "Contratação de serviços de apoio ao parlamentar":5693.028333333333,
+          "Divulgação da atividade parlamentar":6115.875,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3478.978333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"1249",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":131504.95,
+        "lista":{
+          "Aluguel de imóveis para escritório político":24764.58,
+          "Aquisição de material de consumo":3377.92,
+          "Locomoção, hospedagem, alimentação, combustíveis e":21499.79,
+          "Contratação de serviços de apoio ao parlamentar":81682.66,
+          "Divulgação da atividade parlamentar":180.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":152258.27,
+        "lista":{
+          "Aluguel de imóveis para escritório político":53784.2,
+          "Aquisição de material de consumo":18381.22,
+          "Locomoção, hospedagem, alimentação, combustíveis e":33086.42,
+          "Contratação de serviços de apoio ao parlamentar":38667.63,
+          "Divulgação da atividade parlamentar":8338.8
+        }
+      },
+      {
+        "ano":2011,
+        "total":20756.41,
+        "lista":{
+          "Aluguel de imóveis para escritório político":9391.526666666667,
+          "Aquisição de material de consumo":1361.1933333333332,
+          "Locomoção, hospedagem, alimentação, combustíveis e":3184.7999999999997,
+          "Contratação de serviços de apoio ao parlamentar":4147.8758333333335,
+          "Divulgação da atividade parlamentar":125.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":2028.9675,
+          "Serviços de Segurança Privada":517.0483333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"53",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":6333.4,
+        "lista":{
+          "Diárias":6333.4
+        }
+      },
+      {
+        "ano":2009,
+        "total":34460.06,
+        "lista":{
+          "Aluguel de imóveis para escritório político":10000.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":11318.86,
+          "Divulgação da atividade parlamentar":3000.0,
+          "Diárias":10141.2
+        }
+      },
+      {
+        "ano":2010,
+        "total":60370.26,
+        "lista":{
+          "Aluguel de imóveis para escritório político":21354.72,
+          "Locomoção, hospedagem, alimentação, combustíveis e":32015.54,
+          "Divulgação da atividade parlamentar":7000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3374",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3579",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":139092.72,
+        "lista":{
+          "Aluguel de imóveis para escritório político":60750.0,
+          "Aquisição de material de consumo":8650.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":48435.0,
+          "Contratação de serviços de apoio ao parlamentar":16715.0,
+          "Diárias":4542.72
+        }
+      },
+      {
+        "ano":2010,
+        "total":29935.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":13500.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":8200.0,
+          "Contratação de serviços de apoio ao parlamentar":8235.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":14438.55,
+        "lista":{
+          "Aluguel de imóveis para escritório político":8369.9525,
+          "Contratação de serviços de apoio ao parlamentar":24.151666666666664,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1977.7824999999998,
+          "Serviços de Segurança Privada":4066.6666666666665
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3643",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":1110.51,
+        "lista":{
+          "Aluguel de imóveis para escritório político":177.4,
+          "Aquisição de material de consumo":31.916666666666664,
+          "Locomoção, hospedagem, alimentação, combustíveis e":901.1916666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"643",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":134869.31,
+        "lista":{
+          "Aluguel de imóveis para escritório político":29575.84,
+          "Aquisição de material de consumo":2073.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":41510.48,
+          "Contratação de serviços de apoio ao parlamentar":16465.0,
+          "Divulgação da atividade parlamentar":45244.99
+        }
+      },
+      {
+        "ano":2010,
+        "total":146604.15,
+        "lista":{
+          "Aluguel de imóveis para escritório político":38917.53,
+          "Aquisição de material de consumo":8682.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":56013.91,
+          "Contratação de serviços de apoio ao parlamentar":26320.75,
+          "Divulgação da atividade parlamentar":16669.96
+        }
+      },
+      {
+        "ano":2011,
+        "total":18286.9,
+        "lista":{
+          "Aluguel de imóveis para escritório político":3916.536666666667,
+          "Locomoção, hospedagem, alimentação, combustíveis e":2691.415,
+          "Contratação de serviços de apoio ao parlamentar":10566.666666666666,
+          "Divulgação da atividade parlamentar":50.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1062.2841666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"631",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":19220.94,
+        "lista":{
+          "Diárias":19220.94
+        }
+      },
+      {
+        "ano":2009,
+        "total":122765.83,
+        "lista":{
+          "Aluguel de imóveis para escritório político":41307.77,
+          "Aquisição de material de consumo":9510.14,
+          "Locomoção, hospedagem, alimentação, combustíveis e":36139.98,
+          "Contratação de serviços de apoio ao parlamentar":2063.02,
+          "Divulgação da atividade parlamentar":10155.0,
+          "Diárias":23589.92
+        }
+      },
+      {
+        "ano":2010,
+        "total":125265.06,
+        "lista":{
+          "Aluguel de imóveis para escritório político":65482.78,
+          "Aquisição de material de consumo":7819.88,
+          "Locomoção, hospedagem, alimentação, combustíveis e":46235.31,
+          "Contratação de serviços de apoio ao parlamentar":1017.48,
+          "Diárias":4709.61
+        }
+      },
+      {
+        "ano":2011,
+        "total":15957.76,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6039.262499999999,
+          "Aquisição de material de consumo":2.625,
+          "Locomoção, hospedagem, alimentação, combustíveis e":2248.1225,
+          "Contratação de serviços de apoio ao parlamentar":1233.3333333333333,
+          "Passagens aéreas, aquáticas e terrestres nacionais":6434.420833333334
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3366",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":152637.91,
+        "lista":{
+          "Aluguel de imóveis para escritório político":55082.26,
+          "Aquisição de material de consumo":21164.53,
+          "Locomoção, hospedagem, alimentação, combustíveis e":51056.79,
+          "Contratação de serviços de apoio ao parlamentar":1798.32,
+          "Divulgação da atividade parlamentar":16500.0,
+          "Diárias":7036.01
+        }
+      },
+      {
+        "ano":2010,
+        "total":119994.03,
+        "lista":{
+          "Aluguel de imóveis para escritório político":62355.08,
+          "Aquisição de material de consumo":110.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":34665.69,
+          "Contratação de serviços de apoio ao parlamentar":1100.0,
+          "Divulgação da atividade parlamentar":21763.26
+        }
+      },
+      {
+        "ano":2011,
+        "total":21882.78,
+        "lista":{
+          "Aluguel de imóveis para escritório político":8185.820833333333,
+          "Aquisição de material de consumo":97.82916666666667,
+          "Locomoção, hospedagem, alimentação, combustíveis e":4239.428333333333,
+          "Contratação de serviços de apoio ao parlamentar":4279.166666666666,
+          "Divulgação da atividade parlamentar":3237.5,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1843.0316666666668
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4788",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":6402.24,
+        "lista":{
+          "Diárias":6402.24
+        }
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"86",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":1885.02,
+        "lista":{
+          "Diárias":1885.02
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4535",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":14736.39,
+        "lista":{
+          "Diárias":14736.39
+        }
+      },
+      {
+        "ano":2009,
+        "total":142910.72,
+        "lista":{
+          "Aluguel de imóveis para escritório político":68334.86,
+          "Aquisição de material de consumo":9331.1,
+          "Locomoção, hospedagem, alimentação, combustíveis e":48508.42,
+          "Contratação de serviços de apoio ao parlamentar":8825.62,
+          "Diárias":7910.72
+        }
+      },
+      {
+        "ano":2010,
+        "total":147085.76,
+        "lista":{
+          "Aluguel de imóveis para escritório político":92123.3,
+          "Aquisição de material de consumo":12257.72,
+          "Locomoção, hospedagem, alimentação, combustíveis e":28356.46,
+          "Contratação de serviços de apoio ao parlamentar":14348.28
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"105",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"1023",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":43210.24,
+        "lista":{
+          "Aluguel de imóveis para escritório político":31210.24,
+          "Locomoção, hospedagem, alimentação, combustíveis e":12000.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":73416.24,
+        "lista":{
+          "Aluguel de imóveis para escritório político":36416.24,
+          "Locomoção, hospedagem, alimentação, combustíveis e":37000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":8744.13,
+        "lista":{
+          "Aluguel de imóveis para escritório político":4410.676666666666,
+          "Locomoção, hospedagem, alimentação, combustíveis e":3490.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":843.4533333333334
+        }
+      }
+    ]
+  },
+  {
+    "senador":"59",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":63607.27,
+        "lista":{
+          "Aluguel de imóveis para escritório político":25107.99,
+          "Aquisição de material de consumo":2495.56,
+          "Locomoção, hospedagem, alimentação, combustíveis e":33497.72,
+          "Contratação de serviços de apoio ao parlamentar":2050.0,
+          "Diárias":456.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":39094.27,
+        "lista":{
+          "Aluguel de imóveis para escritório político":17809.87,
+          "Aquisição de material de consumo":1865.76,
+          "Locomoção, hospedagem, alimentação, combustíveis e":19418.64
+        }
+      },
+      {
+        "ano":2011,
+        "total":540.79,
+        "lista":{
+          "Aluguel de imóveis para escritório político":208.66,
+          "Aquisição de material de consumo":13.145833333333332,
+          "Locomoção, hospedagem, alimentação, combustíveis e":318.9891666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"527",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":15133.69,
+        "lista":{
+          "Diárias":15133.69
+        }
+      },
+      {
+        "ano":2009,
+        "total":167826.97,
+        "lista":{
+          "Aluguel de imóveis para escritório político":53854.8,
+          "Aquisição de material de consumo":28221.62,
+          "Locomoção, hospedagem, alimentação, combustíveis e":48949.15,
+          "Contratação de serviços de apoio ao parlamentar":8487.16,
+          "Divulgação da atividade parlamentar":7136.0,
+          "Diárias":21178.24
+        }
+      },
+      {
+        "ano":2010,
+        "total":188909.36,
+        "lista":{
+          "Aluguel de imóveis para escritório político":73146.75,
+          "Aquisição de material de consumo":33355.86,
+          "Locomoção, hospedagem, alimentação, combustíveis e":61628.65,
+          "Contratação de serviços de apoio ao parlamentar":2373.25,
+          "Divulgação da atividade parlamentar":9485.0,
+          "Diárias":8919.85
+        }
+      },
+      {
+        "ano":2011,
+        "total":7747.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":3371.0133333333333,
+          "Aquisição de material de consumo":1238.07,
+          "Locomoção, hospedagem, alimentação, combustíveis e":2168.4541666666664,
+          "Divulgação da atividade parlamentar":763.3333333333333,
+          "Passagens aéreas, aquáticas e terrestres nacionais":206.13083333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"670",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":58617.39,
+        "lista":{
+          "Aluguel de imóveis para escritório político":2462.74,
+          "Locomoção, hospedagem, alimentação, combustíveis e":56154.65
+        }
+      },
+      {
+        "ano":2010,
+        "total":164335.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6730.59,
+          "Aquisição de material de consumo":25333.88,
+          "Locomoção, hospedagem, alimentação, combustíveis e":131839.87,
+          "Contratação de serviços de apoio ao parlamentar":430.66
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"952",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":8502.0,
+        "lista":{
+          "Diárias":8502.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":142670.52,
+        "lista":{
+          "Aluguel de imóveis para escritório político":8829.77,
+          "Aquisição de material de consumo":8532.83,
+          "Locomoção, hospedagem, alimentação, combustíveis e":46126.0,
+          "Contratação de serviços de apoio ao parlamentar":46532.5,
+          "Divulgação da atividade parlamentar":29883.42,
+          "Diárias":2766.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":180000.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":13104.59,
+          "Aquisição de material de consumo":11442.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":84185.23,
+          "Contratação de serviços de apoio ao parlamentar":54113.75,
+          "Divulgação da atividade parlamentar":17154.43
+        }
+      },
+      {
+        "ano":2011,
+        "total":37530.02,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1414.7958333333331,
+          "Aquisição de material de consumo":762.81,
+          "Locomoção, hospedagem, alimentação, combustíveis e":13510.644999999999,
+          "Contratação de serviços de apoio ao parlamentar":2834.9849999999997,
+          "Divulgação da atividade parlamentar":16889.25,
+          "Passagens aéreas, aquáticas e terrestres nacionais":1893.3875,
+          "Serviços de Segurança Privada":60.0,
+          "Diárias":164.14499999999998
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4539",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":121349.34,
+        "lista":{
+          "Aquisição de material de consumo":57317.49,
+          "Locomoção, hospedagem, alimentação, combustíveis e":52531.85,
+          "Divulgação da atividade parlamentar":11500.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":180000.0,
+        "lista":{
+          "Aquisição de material de consumo":43046.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":76954.0,
+          "Contratação de serviços de apoio ao parlamentar":60000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":25672.49,
+        "lista":{
+          "Aluguel de imóveis para escritório político":730.3016666666667,
+          "Aquisição de material de consumo":443.25416666666666,
+          "Locomoção, hospedagem, alimentação, combustíveis e":11648.943333333333,
+          "Contratação de serviços de apoio ao parlamentar":1333.3333333333333,
+          "Divulgação da atividade parlamentar":166.66666666666666,
+          "Passagens aéreas, aquáticas e terrestres nacionais":11349.994166666665
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3364",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":5066.88,
+        "lista":{
+          "Diárias":5066.88
+        }
+      },
+      {
+        "ano":2009,
+        "total":136415.62,
+        "lista":{
+          "Aluguel de imóveis para escritório político":2330.72,
+          "Aquisição de material de consumo":440.4,
+          "Locomoção, hospedagem, alimentação, combustíveis e":68955.04,
+          "Contratação de serviços de apoio ao parlamentar":9225.0,
+          "Divulgação da atividade parlamentar":53975.18,
+          "Diárias":1489.28
+        }
+      },
+      {
+        "ano":2010,
+        "total":183947.33,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":145712.78,
+          "Contratação de serviços de apoio ao parlamentar":5400.0,
+          "Divulgação da atividade parlamentar":28391.75,
+          "Diárias":4442.8
+        }
+      },
+      {
+        "ano":2011,
+        "total":1250.0,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":1250.0
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3644",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":3975.41,
+        "lista":{
+          "Diárias":3975.41
+        }
+      },
+      {
+        "ano":2009,
+        "total":135615.94,
+        "lista":{
+          "Aluguel de imóveis para escritório político":40180.88,
+          "Aquisição de material de consumo":2206.73,
+          "Locomoção, hospedagem, alimentação, combustíveis e":71726.08,
+          "Contratação de serviços de apoio ao parlamentar":1341.05,
+          "Divulgação da atividade parlamentar":7700.0,
+          "Diárias":12461.2
+        }
+      },
+      {
+        "ano":2010,
+        "total":148717.97,
+        "lista":{
+          "Aluguel de imóveis para escritório político":43054.51,
+          "Aquisição de material de consumo":4666.19,
+          "Locomoção, hospedagem, alimentação, combustíveis e":83961.5,
+          "Divulgação da atividade parlamentar":11398.36,
+          "Diárias":5637.41
+        }
+      },
+      {
+        "ano":2011,
+        "total":1250.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":292.0425,
+          "Aquisição de material de consumo":73.02499999999999,
+          "Locomoção, hospedagem, alimentação, combustíveis e":884.9325
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3648",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4961",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":29131.79,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":28521.8,
+          "Contratação de serviços de apoio ao parlamentar":609.99
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"66",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":135149.65,
+        "lista":{
+          "Aluguel de imóveis para escritório político":9822.37,
+          "Aquisição de material de consumo":10517.16,
+          "Locomoção, hospedagem, alimentação, combustíveis e":63615.36,
+          "Contratação de serviços de apoio ao parlamentar":10694.76,
+          "Divulgação da atividade parlamentar":40500.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":111703.51,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6274.33,
+          "Aquisição de material de consumo":12257.09,
+          "Locomoção, hospedagem, alimentação, combustíveis e":57191.96,
+          "Contratação de serviços de apoio ao parlamentar":12480.13,
+          "Divulgação da atividade parlamentar":23500.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":1250.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":100.35083333333333,
+          "Aquisição de material de consumo":100.25,
+          "Locomoção, hospedagem, alimentação, combustíveis e":632.7325,
+          "Divulgação da atividade parlamentar":416.66666666666663
+        }
+      }
+    ]
+  },
+  {
+    "senador":"1210",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":32161.36,
+        "lista":{
+          "Aquisição de material de consumo":8240.18,
+          "Locomoção, hospedagem, alimentação, combustíveis e":10293.22,
+          "Contratação de serviços de apoio ao parlamentar":6750.0,
+          "Divulgação da atividade parlamentar":6235.5,
+          "Diárias":642.46
+        }
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3393",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":99780.07,
+        "lista":{
+          "Aluguel de imóveis para escritório político":3050.0,
+          "Aquisição de material de consumo":5164.07,
+          "Locomoção, hospedagem, alimentação, combustíveis e":19966.0,
+          "Contratação de serviços de apoio ao parlamentar":18000.0,
+          "Divulgação da atividade parlamentar":53600.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":96253.13,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6900.0,
+          "Aquisição de material de consumo":6730.23,
+          "Locomoção, hospedagem, alimentação, combustíveis e":34122.9,
+          "Contratação de serviços de apoio ao parlamentar":7500.0,
+          "Divulgação da atividade parlamentar":41000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":51.57,
+        "lista":{
+          "Aquisição de material de consumo":45.35,
+          "Locomoção, hospedagem, alimentação, combustíveis e":6.216666666666666
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3397",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":65360.92,
+        "lista":{
+          "Aluguel de imóveis para escritório político":30785.57,
+          "Aquisição de material de consumo":1225.17,
+          "Locomoção, hospedagem, alimentação, combustíveis e":30393.84,
+          "Contratação de serviços de apoio ao parlamentar":2836.34,
+          "Divulgação da atividade parlamentar":120.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":151794.87,
+        "lista":{
+          "Aluguel de imóveis para escritório político":58858.51,
+          "Aquisição de material de consumo":1635.56,
+          "Locomoção, hospedagem, alimentação, combustíveis e":58863.65,
+          "Contratação de serviços de apoio ao parlamentar":8999.15,
+          "Divulgação da atividade parlamentar":23438.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":1169.18,
+        "lista":{
+          "Aluguel de imóveis para escritório político":217.49666666666667,
+          "Locomoção, hospedagem, alimentação, combustíveis e":935.0191666666666,
+          "Contratação de serviços de apoio ao parlamentar":16.666666666666664
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4549",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":76014.73,
+        "lista":{
+          "Aquisição de material de consumo":293.25,
+          "Locomoção, hospedagem, alimentação, combustíveis e":21105.48,
+          "Contratação de serviços de apoio ao parlamentar":2096.0,
+          "Divulgação da atividade parlamentar":52520.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":82965.82,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":37165.82,
+          "Divulgação da atividade parlamentar":45800.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"1169",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"825",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":110632.72,
+        "lista":{
+          "Aluguel de imóveis para escritório político":31488.35,
+          "Aquisição de material de consumo":1188.2,
+          "Locomoção, hospedagem, alimentação, combustíveis e":12895.22,
+          "Contratação de serviços de apoio ao parlamentar":8100.0,
+          "Divulgação da atividade parlamentar":56960.95
+        }
+      },
+      {
+        "ano":2010,
+        "total":172399.16,
+        "lista":{
+          "Aluguel de imóveis para escritório político":93719.61,
+          "Aquisição de material de consumo":24923.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":30188.55,
+          "Contratação de serviços de apoio ao parlamentar":7058.0,
+          "Divulgação da atividade parlamentar":16510.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":28481.37,
+        "lista":{
+          "Aluguel de imóveis para escritório político":4024.1724999999997,
+          "Aquisição de material de consumo":1781.7725,
+          "Locomoção, hospedagem, alimentação, combustíveis e":6258.014166666666,
+          "Contratação de serviços de apoio ao parlamentar":800.5,
+          "Divulgação da atividade parlamentar":12242.148333333333,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3132.4341666666664,
+          "Serviços de Segurança Privada":242.32666666666665
+        }
+      }
+    ]
+  },
+  {
+    "senador":"68",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":9922.83,
+        "lista":{
+          "Diárias":9922.83
+        }
+      },
+      {
+        "ano":2009,
+        "total":6191.62,
+        "lista":{
+          "Diárias":6191.62
+        }
+      },
+      {
+        "ano":2010,
+        "total":1959.15,
+        "lista":{
+          "Diárias":1959.15
+        }
+      },
+      {
+        "ano":2011,
+        "total":2461.6,
+        "lista":{
+          "Passagens aéreas, aquáticas e terrestres nacionais":2297.455,
+          "Diárias":164.14499999999998
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4927",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"1206",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":128123.98,
+        "lista":{
+          "Aluguel de imóveis para escritório político":20143.83,
+          "Aquisição de material de consumo":10661.22,
+          "Locomoção, hospedagem, alimentação, combustíveis e":40081.63,
+          "Contratação de serviços de apoio ao parlamentar":34664.3,
+          "Divulgação da atividade parlamentar":22573.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":116274.95,
+        "lista":{
+          "Aluguel de imóveis para escritório político":16288.33,
+          "Aquisição de material de consumo":10192.33,
+          "Locomoção, hospedagem, alimentação, combustíveis e":57357.7,
+          "Contratação de serviços de apoio ao parlamentar":16830.0,
+          "Divulgação da atividade parlamentar":15606.59
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"69",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3639",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3580",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"70",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":55419.89,
+        "lista":{
+          "Aluguel de imóveis para escritório político":29853.16,
+          "Aquisição de material de consumo":1103.95,
+          "Locomoção, hospedagem, alimentação, combustíveis e":23784.78,
+          "Contratação de serviços de apoio ao parlamentar":678.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":120634.8,
+        "lista":{
+          "Aluguel de imóveis para escritório político":40756.28,
+          "Aquisição de material de consumo":419.7,
+          "Locomoção, hospedagem, alimentação, combustíveis e":14258.82,
+          "Contratação de serviços de apoio ao parlamentar":51200.0,
+          "Divulgação da atividade parlamentar":14000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":21346.74,
+        "lista":{
+          "Aluguel de imóveis para escritório político":3220.493333333333,
+          "Aquisição de material de consumo":58.166666666666664,
+          "Locomoção, hospedagem, alimentação, combustíveis e":647.2874999999999,
+          "Contratação de serviços de apoio ao parlamentar":14750.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":2670.788333333333
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3868",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":6651.88,
+        "lista":{
+          "Diárias":6651.88
+        }
+      },
+      {
+        "ano":2009,
+        "total":132362.69,
+        "lista":{
+          "Aluguel de imóveis para escritório político":97046.78,
+          "Aquisição de material de consumo":2454.19,
+          "Locomoção, hospedagem, alimentação, combustíveis e":13624.12,
+          "Divulgação da atividade parlamentar":10420.0,
+          "Diárias":8817.6
+        }
+      },
+      {
+        "ano":2010,
+        "total":153624.82,
+        "lista":{
+          "Aluguel de imóveis para escritório político":133827.04,
+          "Aquisição de material de consumo":1509.27,
+          "Locomoção, hospedagem, alimentação, combustíveis e":11872.51,
+          "Divulgação da atividade parlamentar":5300.0,
+          "Diárias":1116.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3631",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":34765.6,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1000.0,
+          "Contratação de serviços de apoio ao parlamentar":11400.0,
+          "Divulgação da atividade parlamentar":13900.0,
+          "Diárias":8465.6
+        }
+      },
+      {
+        "ano":2010,
+        "total":69413.16,
+        "lista":{
+          "Aluguel de imóveis para escritório político":9274.42,
+          "Aquisição de material de consumo":884.62,
+          "Locomoção, hospedagem, alimentação, combustíveis e":7068.2,
+          "Contratação de serviços de apoio ao parlamentar":43400.0,
+          "Diárias":8785.92
+        }
+      },
+      {
+        "ano":2011,
+        "total":348.26,
+        "lista":{
+          "Aluguel de imóveis para escritório político":81.59666666666666,
+          "Contratação de serviços de apoio ao parlamentar":266.66666666666663
+        }
+      }
+    ]
+  },
+  {
+    "senador":"73",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":141737.08,
+        "lista":{
+          "Aluguel de imóveis para escritório político":59365.84,
+          "Aquisição de material de consumo":20330.66,
+          "Locomoção, hospedagem, alimentação, combustíveis e":47040.58,
+          "Divulgação da atividade parlamentar":15000.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":155103.84,
+        "lista":{
+          "Aluguel de imóveis para escritório político":63573.91,
+          "Aquisição de material de consumo":40569.52,
+          "Locomoção, hospedagem, alimentação, combustíveis e":34745.35,
+          "Contratação de serviços de apoio ao parlamentar":16215.06
+        }
+      },
+      {
+        "ano":2011,
+        "total":29660.79,
+        "lista":{
+          "Aluguel de imóveis para escritório político":6142.511666666666,
+          "Aquisição de material de consumo":2455.8424999999997,
+          "Locomoção, hospedagem, alimentação, combustíveis e":5021.416666666666,
+          "Contratação de serviços de apoio ao parlamentar":1283.9766666666665,
+          "Divulgação da atividade parlamentar":4778.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":9919.041666666666,
+          "Serviços de Segurança Privada":60.0
+        }
+      }
+    ]
+  },
+  {
+    "senador":"74",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":22090.39,
+        "lista":{
+          "Diárias":22090.39
+        }
+      },
+      {
+        "ano":2009,
+        "total":158996.09,
+        "lista":{
+          "Aquisição de material de consumo":79.6,
+          "Locomoção, hospedagem, alimentação, combustíveis e":144490.8,
+          "Diárias":14425.69
+        }
+      },
+      {
+        "ano":2010,
+        "total":151952.64,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":149347.5,
+          "Diárias":2605.14
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4543",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":133309.59,
+        "lista":{
+          "Aquisição de material de consumo":1465.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":20433.09,
+          "Contratação de serviços de apoio ao parlamentar":32765.0,
+          "Divulgação da atividade parlamentar":78190.5,
+          "Diárias":456.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":141816.93,
+        "lista":{
+          "Aquisição de material de consumo":1530.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":41084.43,
+          "Contratação de serviços de apoio ao parlamentar":68452.5,
+          "Divulgação da atividade parlamentar":30750.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3359",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":6493.76,
+        "lista":{
+          "Diárias":6493.76
+        }
+      },
+      {
+        "ano":2009,
+        "total":10000.0,
+        "lista":{
+          "Divulgação da atividade parlamentar":10000.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4893",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3646",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":50391.5,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":38630.5,
+          "Divulgação da atividade parlamentar":11761.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":37112.33,
+        "lista":{
+          "Locomoção, hospedagem, alimentação, combustíveis e":22498.33,
+          "Divulgação da atividade parlamentar":14614.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3645",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":30000.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":26.3,
+          "Locomoção, hospedagem, alimentação, combustíveis e":29973.7
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"735",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":16377.92,
+        "lista":{
+          "Diárias":16377.92
+        }
+      },
+      {
+        "ano":2009,
+        "total":118251.94,
+        "lista":{
+          "Aluguel de imóveis para escritório político":15501.94,
+          "Aquisição de material de consumo":3850.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":68100.0,
+          "Contratação de serviços de apoio ao parlamentar":30800.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":95921.93,
+        "lista":{
+          "Aluguel de imóveis para escritório político":19973.29,
+          "Locomoção, hospedagem, alimentação, combustíveis e":56790.0,
+          "Contratação de serviços de apoio ao parlamentar":11550.0,
+          "Diárias":7608.64
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3362",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":125453.14,
+        "lista":{
+          "Aluguel de imóveis para escritório político":33842.02,
+          "Aquisição de material de consumo":3874.54,
+          "Locomoção, hospedagem, alimentação, combustíveis e":41810.5,
+          "Contratação de serviços de apoio ao parlamentar":14467.2,
+          "Divulgação da atividade parlamentar":29200.0,
+          "Diárias":2258.88
+        }
+      },
+      {
+        "ano":2010,
+        "total":153094.0,
+        "lista":{
+          "Aluguel de imóveis para escritório político":46763.09,
+          "Aquisição de material de consumo":3962.93,
+          "Locomoção, hospedagem, alimentação, combustíveis e":40067.32,
+          "Contratação de serviços de apoio ao parlamentar":42936.34,
+          "Divulgação da atividade parlamentar":7500.0,
+          "Diárias":11864.32
+        }
+      },
+      {
+        "ano":2011,
+        "total":1202.44,
+        "lista":{
+          "Aluguel de imóveis para escritório político":204.33499999999998,
+          "Aquisição de material de consumo":103.10999999999999,
+          "Locomoção, hospedagem, alimentação, combustíveis e":299.24749999999995,
+          "Contratação de serviços de apoio ao parlamentar":595.75
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3532",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":10433.76,
+        "lista":{
+          "Diárias":10433.76
+        }
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4957",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3365",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3375",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":11684.3,
+        "lista":{
+          "Diárias":11684.3
+        }
+      },
+      {
+        "ano":2009,
+        "total":70462.28,
+        "lista":{
+          "Aluguel de imóveis para escritório político":30599.25,
+          "Aquisição de material de consumo":3696.94,
+          "Locomoção, hospedagem, alimentação, combustíveis e":9580.26,
+          "Contratação de serviços de apoio ao parlamentar":240.91,
+          "Divulgação da atividade parlamentar":18000.0,
+          "Diárias":8344.92
+        }
+      },
+      {
+        "ano":2010,
+        "total":128051.58,
+        "lista":{
+          "Aluguel de imóveis para escritório político":46650.12,
+          "Aquisição de material de consumo":3627.51,
+          "Locomoção, hospedagem, alimentação, combustíveis e":16633.57,
+          "Contratação de serviços de apoio ao parlamentar":37850.0,
+          "Divulgação da atividade parlamentar":4000.0,
+          "Diárias":19290.38
+        }
+      },
+      {
+        "ano":2011,
+        "total":655.14,
+        "lista":{
+          "Aluguel de imóveis para escritório político":483.4133333333333,
+          "Aquisição de material de consumo":15.594166666666666,
+          "Locomoção, hospedagem, alimentação, combustíveis e":31.134166666666665,
+          "Contratação de serviços de apoio ao parlamentar":125.0
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3396",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":27485.0,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":23000.0,
+          "Divulgação da atividade parlamentar":4485.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":23000.0,
+        "lista":{
+          "Contratação de serviços de apoio ao parlamentar":23000.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"78",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"982",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":4592.64,
+        "lista":{
+          "Diárias":4592.64
+        }
+      },
+      {
+        "ano":2009,
+        "total":94984.34,
+        "lista":{
+          "Aluguel de imóveis para escritório político":27821.47,
+          "Aquisição de material de consumo":2830.85,
+          "Locomoção, hospedagem, alimentação, combustíveis e":45859.92,
+          "Contratação de serviços de apoio ao parlamentar":18236.1,
+          "Divulgação da atividade parlamentar":236.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":168206.89,
+        "lista":{
+          "Aluguel de imóveis para escritório político":39137.34,
+          "Aquisição de material de consumo":5103.96,
+          "Locomoção, hospedagem, alimentação, combustíveis e":38979.53,
+          "Contratação de serviços de apoio ao parlamentar":84809.06,
+          "Divulgação da atividade parlamentar":177.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3372",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":2912.0,
+        "lista":{
+          "Diárias":2912.0
+        }
+      },
+      {
+        "ano":2009,
+        "total":150049.27,
+        "lista":{
+          "Aquisição de material de consumo":3200.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":31883.0,
+          "Divulgação da atividade parlamentar":113490.73,
+          "Diárias":1475.54
+        }
+      },
+      {
+        "ano":2010,
+        "total":187404.2,
+        "lista":{
+          "Aluguel de imóveis para escritório político":25968.96,
+          "Aquisição de material de consumo":276.75,
+          "Locomoção, hospedagem, alimentação, combustíveis e":40385.36,
+          "Divulgação da atividade parlamentar":113368.33,
+          "Diárias":7404.8
+        }
+      },
+      {
+        "ano":2011,
+        "total":27173.87,
+        "lista":{
+          "Aluguel de imóveis para escritório político":1725.0716666666667,
+          "Aquisição de material de consumo":125.0,
+          "Locomoção, hospedagem, alimentação, combustíveis e":15667.6725,
+          "Divulgação da atividade parlamentar":2702.9166666666665,
+          "Passagens aéreas, aquáticas e terrestres nacionais":6485.204166666666,
+          "Diárias":468.0
+        }
+      }
+    ]
+  },
+  {
+    "senador":"3629",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":134554.45,
+        "lista":{
+          "Aluguel de imóveis para escritório político":11925.23,
+          "Aquisição de material de consumo":2612.99,
+          "Locomoção, hospedagem, alimentação, combustíveis e":84325.83,
+          "Contratação de serviços de apoio ao parlamentar":129.8,
+          "Divulgação da atividade parlamentar":35560.6
+        }
+      },
+      {
+        "ano":2010,
+        "total":185160.22,
+        "lista":{
+          "Aluguel de imóveis para escritório político":22839.28,
+          "Aquisição de material de consumo":12912.4,
+          "Locomoção, hospedagem, alimentação, combustíveis e":117269.02,
+          "Contratação de serviços de apoio ao parlamentar":8560.0,
+          "Divulgação da atividade parlamentar":17110.0,
+          "Diárias":6469.52
+        }
+      },
+      {
+        "ano":2011,
+        "total":989.69,
+        "lista":{
+          "Aluguel de imóveis para escritório político":47.52916666666667,
+          "Aquisição de material de consumo":23.258333333333333,
+          "Locomoção, hospedagem, alimentação, combustíveis e":698.3649999999999,
+          "Contratação de serviços de apoio ao parlamentar":57.20333333333333,
+          "Divulgação da atividade parlamentar":163.33333333333331
+        }
+      }
+    ]
+  },
+  {
+    "senador":"4786",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":24583.52,
+        "lista":{
+          "Diárias":24583.52
+        }
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3583",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":5957.12,
+        "lista":{
+          "Diárias":5957.12
+        }
+      },
+      {
+        "ano":2009,
+        "total":130118.21,
+        "lista":{
+          "Aluguel de imóveis para escritório político":30435.11,
+          "Aquisição de material de consumo":9615.27,
+          "Locomoção, hospedagem, alimentação, combustíveis e":39027.83,
+          "Contratação de serviços de apoio ao parlamentar":51040.0
+        }
+      },
+      {
+        "ano":2010,
+        "total":44478.63,
+        "lista":{
+          "Aluguel de imóveis para escritório político":10023.12,
+          "Aquisição de material de consumo":16286.06,
+          "Locomoção, hospedagem, alimentação, combustíveis e":15424.45,
+          "Contratação de serviços de apoio ao parlamentar":2245.0,
+          "Divulgação da atividade parlamentar":500.0
+        }
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"4772",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"3597",
+    "gastos":[
+      {
+        "ano":2007,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2008,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2009,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2010,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2011,
+        "total":0.0,
+        "lista":{}
+      }
+    ]
+  }
+]

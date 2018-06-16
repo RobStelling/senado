@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Gastos de Senadores</title>
+  </head>
+  <body>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+<!--LegislaturaLevantamento-->
+    <script>
+      legislaturaLevantamento = 53;
+    </script>
+    <script src="js/senado.js"></script>
+    <div class="container">
+<!--Cabecalho-->
+      <center>
+        <div class="row">Legislaturas: <a href=index.html>55</a> <a href=54_index.html>54</a> <a href=53_index.html>53</a></div>
+      </center>
+<!--TituloLegislatura-->
+      <div class="row"><b class="SenadoTitle">BRASIL - 53ª Legislatura</b><br></div>
+      <div class="row"><b class="SenadoSubTitle">Informações de despesas de senadores</b><br></div>
+      <div class="row"><b class="SenadoSubTitle">Dados coletados em 
+<!--Data-->       
+15/06/2018 às 
+<!--Hora-->
+18:03:57      </b><br></div>
+      <br>
+      <div class="TextoImagem">
+        <center>
+        <text>A liberação de dados se inicia em 2008, no segundo ano da 53ª legislatura.<br>Os 15 senadores com maiores despesas gastaram cerca de R$ 200.000,00 no último ano desta legislatura.</text>
+        <br>
+<!--Imagem--maiores--90-->
+<img src="imagens/53_maiores.png" width="90%"></img>
+        </center>
+      </div>
+      <br>
+      <br>
+      <div class="TextoImagem">
+        <center>
+        <text>Naquela legislatura nem todos os gastos foram registrados.<br>Os maiores gastos registrados foram os relativos a locomoção, hospedagem, alimentação e combustíveis.</text>
+        <br>
+<!--Imagem--gastosSenado--50-->
+<img src="imagens/53_gastosSenado.png" width="50%"></img>
+        </center>
+      </div>
+      <div class="TextoImagem">
+        <center>
+          <text>Os partidos com maiores despesas foram: MDB, PSDB e DEM.</text>
+          <br>
+<!--Imagem--gastoPartidos--90-->
+<img src="imagens/53_gastoPartidos.png" width="90%"></img>
+        </center>
+      </div>
+      <div class="TextoImagem">
+        <center>
+          <text>Mas houveram diferenças em como os senadores de cada unidade da federação gastaram os recursos da união.</text>
+          <br>
+<!--Imagem--gastoEstados--90-->
+<img src="imagens/53_gastoEstados.png" width="90%"></img>
+        </center>
+      </div>
+      <div class="TextoImagem">
+        <center>
+          <text>Há também custos indiretos, como o tamanho do gabinete. O MDB teve mais de 350 pessoas nos gabinetes dos seus senadores, enquanto o PTB teve quase 200 pessoas.</text>
+        </center>
+        <center>
+<!--Imagem--gastoGabinetePartidos2011--50-->
+<img src="imagens/53_gastoGabinetePartidos2011.png" width="50%"></img>
+        </center>
+      </div>
+      <br>
+      <center>
+        <text class="TextoImagem">A tabela abaixo mostra todos os senadores e seus gastos, as colunas marcadas com <img src="imagens/sort.png"> podem ser reordenadas com um clique. As despesas de um senador são detalhadas quando se passa o mouse sobre o montante.</text>
+      </center>
+      <br><br><br>
+      <div class="tabelaSenado">
+        <table id="leg2">
+<!--CaptionForaExercicio-->
+          <caption>Senadores fora de Exercício - 2007/2011</caption>
+          <thead>
+            <tr>
+              <th align="left">Nº</th>
+              <th align="middle">Foto</th>
+              <th onclick="ordenaTabela('asc',  'leg2', 2, 'texto')" align="left">Nome<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 3, 'reais')" align="left">Despesas no Mandato<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 4, 'participacao')" align="left">Participação<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 5, 'texto')" align="middle">UF<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('asc',  'leg2', 6, 'texto')" align="left">Partido<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 7, 'dados')" align="right">Escritório e Gabinete<img src="imagens/sort.png"></th>
+              <th onclick="ordenaTabela('desc', 'leg2', 8, 'dados')" align="right">Benefício Moradia<img src="imagens/sort.png"></th>
+            </tr>
+          </thead>
+          <tbody>
+<!--ForaExercicio-->
+            <tr>
+              <td>1</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4981/?ano=2011' target='_blank'><img src='fotos/senador4981.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Acir Gurgacz</td>
+              <td align='left' class='gastos' name='4981'>R$ 223.441,17</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RO</td>
+              <td align='left'>PDT</td>
+              <td align='right'>37 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4815/?ano=2011' target='_blank'><img src='fotos/senador4815.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Ada Mello</td>
+              <td align='left' class='gastos' name='4815'>R$ 0,00</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>AL</td>
+              <td align='left'>PTB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3622/?ano=2011' target='_blank'><img src='fotos/senador3622.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Adelmir Santana</td>
+              <td align='left' class='gastos' name='3622'>R$ 348.110,23</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>DF</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3651/?ano=2011' target='_blank'><img src='fotos/senador3651.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Alfredo Cotait</td>
+              <td align='left' class='gastos' name='3651'>R$ 40.831,16</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>SP</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4527/?ano=2011' target='_blank'><img src='fotos/senador4527.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Alfredo Nascimento</td>
+              <td align='left' class='gastos' name='4527'>R$ 16.291,18</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AM</td>
+              <td align='left'>PR</td>
+              <td align='right'>25 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3433/?ano=2011' target='_blank'><img src='fotos/senador3433.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Almeida Lima</td>
+              <td align='left' class='gastos' name='3433'>R$ 316.793,15</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SE</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/845/?ano=2011' target='_blank'><img src='fotos/senador845.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Aloizio Mercadante</td>
+              <td align='left' class='gastos' name='845'>R$ 242.824,82</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SP</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/945/?ano=2011' target='_blank'><img src='fotos/senador945.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Alvaro Dias</td>
+              <td align='left' class='gastos' name='945'>R$ 6.402,28</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PR</td>
+              <td align='left'>PODE</td>
+              <td align='right'>30 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3363/?ano=2011' target='_blank'><img src='fotos/senador3363.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Ana Júlia Carepa</td>
+              <td align='left' class='gastos' name='3363'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PA</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4869/?ano=2011' target='_blank'><img src='fotos/senador4869.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Ana Rita</td>
+              <td align='left' class='gastos' name='4869'>R$ 20.823,16</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>ES</td>
+              <td align='left'>PT</td>
+              <td align='right'>29 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4837/?ano=2011' target='_blank'><img src='fotos/senador4837.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Anibal Diniz</td>
+              <td align='left' class='gastos' name='4837'>R$ 22.834,77</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>AC</td>
+              <td align='left'>PT</td>
+              <td align='right'>44 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4897/?ano=2011' target='_blank'><img src='fotos/senador4897.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Antonio Aureliano</td>
+              <td align='left' class='gastos' name='4897'>R$ 0,00</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>MG</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/118/?ano=2011' target='_blank'><img src='fotos/senador118.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Antonio Carlos Júnior</td>
+              <td align='left' class='gastos' name='118'>R$ 318.522,51</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>BA</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4/?ano=2011' target='_blank'><img src='fotos/senador4.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Antonio Carlos Magalhães</td>
+              <td align='left' class='gastos' name='4'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>BA</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3/?ano=2011' target='_blank'><img src='fotos/senador3.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Antonio Carlos Valadares</td>
+              <td align='left' class='gastos' name='3'>R$ 248.864,49</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SE</td>
+              <td align='left'>PSB</td>
+              <td align='right'>39 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4516/?ano=2011' target='_blank'><img src='fotos/senador4516.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Antonio João</td>
+              <td align='left' class='gastos' name='4516'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>MS</td>
+              <td align='left'>PTB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4891/?ano=2011' target='_blank'><img src='fotos/senador4891.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Antonio Russo</td>
+              <td align='left' class='gastos' name='4891'>R$ 12.959,94</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>MS</td>
+              <td align='left'>PR</td>
+              <td align='right'>27 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/551/?ano=2011' target='_blank'><img src='fotos/senador551.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Arthur Virgílio</td>
+              <td align='left' class='gastos' name='551'>R$ 255.253,60</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AM</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4983/?ano=2011' target='_blank'><img src='fotos/senador4983.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Nenhum</span></a></td>
+              <td align='left'>Assis Gurgacz</td>
+              <td align='left' class='gastos' name='4983'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>RO</td>
+              <td align='left'>PDT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3432/?ano=2011' target='_blank'><img src='fotos/senador3432.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Augusto Botelho</td>
+              <td align='left' class='gastos' name='3432'>R$ 331.219,49</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RR</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3642/?ano=2011' target='_blank'><img src='fotos/senador3642.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Belini Meurer</td>
+              <td align='left' class='gastos' name='3642'>R$ 24.180,20</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>SC</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>22</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/704/?ano=2011' target='_blank'><img src='fotos/senador704.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Carlos Dunga</td>
+              <td align='left' class='gastos' name='704'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>PB</td>
+              <td align='left'>PTB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/13/?ano=2011' target='_blank'><img src='fotos/senador13.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Casildo Maldaner</td>
+              <td align='left' class='gastos' name='13'>R$ 21.960,78</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>SC</td>
+              <td align='left'>MDB</td>
+              <td align='right'>32 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3395/?ano=2011' target='_blank'><img src='fotos/senador3395.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>César Borges</td>
+              <td align='left' class='gastos' name='3395'>R$ 313.414,52</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>BA</td>
+              <td align='left'>PR</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4529/?ano=2011' target='_blank'><img src='fotos/senador4529.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Cícero Lucena</td>
+              <td align='left' class='gastos' name='4529'>R$ 376.613,05</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PB</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>40 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>26</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4895/?ano=2011' target='_blank'><img src='fotos/senador4895.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Clésio Andrade</td>
+              <td align='left' class='gastos' name='4895'>R$ 8.340,44</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>MG</td>
+              <td align='left'>MDB</td>
+              <td align='right'>34 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3398/?ano=2011' target='_blank'><img src='fotos/senador3398.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Cristovam Buarque</td>
+              <td align='left' class='gastos' name='3398'>R$ 107.138,89</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>DF</td>
+              <td align='left'>PPS</td>
+              <td align='right'>24 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4877/?ano=2011' target='_blank'><img src='fotos/senador4877.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Cyro Miranda</td>
+              <td align='left' class='gastos' name='4877'>R$ 20.041,60</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>GO</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>32 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>29</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3637/?ano=2011' target='_blank'><img src='fotos/senador3637.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Danimar Cristina</td>
+              <td align='left' class='gastos' name='3637'>R$ 1.220,80</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>PR</td>
+              <td align='left'>PR</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3360/?ano=2011' target='_blank'><img src='fotos/senador3360.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Delcídio do Amaral</td>
+              <td align='left' class='gastos' name='3360'>R$ 306.512,25</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MS</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>30 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3399/?ano=2011' target='_blank'><img src='fotos/senador3399.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Demóstenes Torres</td>
+              <td align='left' class='gastos' name='3399'>R$ 364.145,20</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>GO</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>32</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3412/?ano=2011' target='_blank'><img src='fotos/senador3412.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Duciomar Costa</td>
+              <td align='left' class='gastos' name='3412'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PA</td>
+              <td align='left'>PTB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>33</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/16/?ano=2011' target='_blank'><img src='fotos/senador16.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Edison Lobão</td>
+              <td align='left' class='gastos' name='16'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MA</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>34</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3400/?ano=2011' target='_blank'><img src='fotos/senador3400.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Eduardo Azeredo</td>
+              <td align='left' class='gastos' name='3400'>R$ 384.942,20</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MG</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>35</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/17/?ano=2011' target='_blank'><img src='fotos/senador17.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Eduardo Suplicy</td>
+              <td align='left' class='gastos' name='17'>R$ 107.955,51</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SP</td>
+              <td align='left'>PT</td>
+              <td align='right'>18 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>36</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/707/?ano=2011' target='_blank'><img src='fotos/senador707.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Efraim Morais</td>
+              <td align='left' class='gastos' name='707'>R$ 333.618,11</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PB</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>37</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/394/?ano=2011' target='_blank'><img src='fotos/senador394.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Eliseu Resende</td>
+              <td align='left' class='gastos' name='394'>R$ 319.290,51</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MG</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>38</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/20/?ano=2011' target='_blank'><img src='fotos/senador20.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Epitácio Cafeteira</td>
+              <td align='left' class='gastos' name='20'>R$ 289.848,40</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MA</td>
+              <td align='left'>PTB</td>
+              <td align='right'>43 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>39</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4780/?ano=2011' target='_blank'><img src='fotos/senador4780.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Euclydes Mello</td>
+              <td align='left' class='gastos' name='4780'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>AL</td>
+              <td align='left'>PRB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>40</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3552/?ano=2011' target='_blank'><img src='fotos/senador3552.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Eurípedes Camargo</td>
+              <td align='left' class='gastos' name='3552'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>DF</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>41</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1189/?ano=2011' target='_blank'><img src='fotos/senador1189.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Expedito Júnior</td>
+              <td align='left' class='gastos' name='1189'>R$ 117.286,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RO</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>42</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3371/?ano=2011' target='_blank'><img src='fotos/senador3371.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Fátima Cleide</td>
+              <td align='left' class='gastos' name='3371'>R$ 284.291,02</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RO</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>43</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4525/?ano=2011' target='_blank'><img src='fotos/senador4525.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Fernando Collor</td>
+              <td align='left' class='gastos' name='4525'>R$ 348.257,56</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AL</td>
+              <td align='left'>PTC</td>
+              <td align='right'>56 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>44</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/345/?ano=2011' target='_blank'><img src='fotos/senador345.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Flávio Arns</td>
+              <td align='left' class='gastos' name='345'>R$ 309.505,97</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PR</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3619/?ano=2011' target='_blank'><img src='fotos/senador3619.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Flávio Torres</td>
+              <td align='left' class='gastos' name='3619'>R$ 48.002,54</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>CE</td>
+              <td align='left'>PDT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>46</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3634/?ano=2011' target='_blank'><img src='fotos/senador3634.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
+              <td align='left'>Flexa Ribeiro</td>
+              <td align='left' class='gastos' name='3634'>R$ 314.326,48</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>PA</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>31 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>47</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/765/?ano=2011' target='_blank'><img src='fotos/senador765.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Francisco Dornelles</td>
+              <td align='left' class='gastos' name='765'>R$ 343.175,72</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RJ</td>
+              <td align='left'>PP</td>
+              <td align='right'>32 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>48</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3574/?ano=2011' target='_blank'><img src='fotos/senador3574.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Francisco Pereira</td>
+              <td align='left' class='gastos' name='3574'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>ES</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>49</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4935/?ano=2011' target='_blank'><img src='fotos/senador4935.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Garibaldi Alves</td>
+              <td align='left' class='gastos' name='4935'>R$ 5.460,85</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>RN</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>50</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/87/?ano=2011' target='_blank'><img src='fotos/senador87.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Garibaldi Alves Filho</td>
+              <td align='left' class='gastos' name='87'>R$ 267.207,74</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RN</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>51</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4522/?ano=2011' target='_blank'><img src='fotos/senador4522.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Geovani Borges</td>
+              <td align='left' class='gastos' name='4522'>R$ 86.252,62</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>AP</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>52</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3392/?ano=2011' target='_blank'><img src='fotos/senador3392.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Geraldo Mesquita Júnior</td>
+              <td align='left' class='gastos' name='3392'>R$ 323.492,81</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AC</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>53</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/28/?ano=2011' target='_blank'><img src='fotos/senador28.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Gerson Camata</td>
+              <td align='left' class='gastos' name='28'>R$ 197.618,03</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>ES</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>54</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3626/?ano=2011' target='_blank'><img src='fotos/senador3626.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Gilberto Goellner</td>
+              <td align='left' class='gastos' name='3626'>R$ 257.694,07</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>MT</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>55</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/30/?ano=2011' target='_blank'><img src='fotos/senador30.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Gilvam Borges</td>
+              <td align='left' class='gastos' name='30'>R$ 258.727,50</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AP</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>56</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1179/?ano=2011' target='_blank'><img src='fotos/senador1179.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Hélio Costa</td>
+              <td align='left' class='gastos' name='1179'>R$ 89.633,48</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MG</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>57</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/740/?ano=2011' target='_blank'><img src='fotos/senador740.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Heráclito Fortes</td>
+              <td align='left' class='gastos' name='740'>R$ 302.989,94</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PI</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>58</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3373/?ano=2011' target='_blank'><img src='fotos/senador3373.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Ideli Salvatti</td>
+              <td align='left' class='gastos' name='3373'>R$ 279.509,93</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SC</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>59</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3578/?ano=2011' target='_blank'><img src='fotos/senador3578.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Ildon Marques</td>
+              <td align='left' class='gastos' name='3578'>R$ 0,00</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>MA</td>
+              <td align='left'>PSB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/613/?ano=2011' target='_blank'><img src='fotos/senador613.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Inácio Arruda</td>
+              <td align='left' class='gastos' name='613'>R$ 376.229,14</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>CE</td>
+              <td align='left'>PCdoB</td>
+              <td align='right'>28 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>61</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4937/?ano=2011' target='_blank'><img src='fotos/senador4937.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Ivonete Dantas</td>
+              <td align='left' class='gastos' name='4937'>R$ 927,77</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>RN</td>
+              <td align='left'>MDB</td>
+              <td align='right'>34 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>62</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4545/?ano=2011' target='_blank'><img src='fotos/senador4545.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Jarbas Vasconcelos</td>
+              <td align='left' class='gastos' name='4545'>R$ 319.627,42</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PE</td>
+              <td align='left'>MDB</td>
+              <td align='right'>32 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>63</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4531/?ano=2011' target='_blank'><img src='fotos/senador4531.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Jayme Campos</td>
+              <td align='left' class='gastos' name='4531'>R$ 271.728,74</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MT</td>
+              <td align='left'>DEM</td>
+              <td align='right'>36 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>64</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/36/?ano=2011' target='_blank'><img src='fotos/senador36.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Jefferson Peres</td>
+              <td align='left' class='gastos' name='36'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AM</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>65</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4792/?ano=2011' target='_blank'><img src='fotos/senador4792.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Jefferson Praia</td>
+              <td align='left' class='gastos' name='4792'>R$ 168.335,71</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>AM</td>
+              <td align='left'>PDT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>66</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3394/?ano=2011' target='_blank'><img src='fotos/senador3394.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Rodrigo Viana/Supres</span></a></td>
+              <td align='left'>João Capiberibe</td>
+              <td align='left' class='gastos' name='3394'>R$ 2.992,56</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AP</td>
+              <td align='left'>PSB</td>
+              <td align='right'>16 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>67</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4537/?ano=2011' target='_blank'><img src='fotos/senador4537.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>João Durval</td>
+              <td align='left' class='gastos' name='4537'>R$ 301.010,94</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>BA</td>
+              <td align='left'>PDT</td>
+              <td align='right'>35 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>68</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3593/?ano=2011' target='_blank'><img src='fotos/senador3593.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>João Faustino</td>
+              <td align='left' class='gastos' name='3593'>R$ 37.671,91</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>RN</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>69</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4774/?ano=2011' target='_blank'><img src='fotos/senador4774.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>João Pedro</td>
+              <td align='left' class='gastos' name='4774'>R$ 159.940,39</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>AM</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>70</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/916/?ano=2011' target='_blank'><img src='fotos/senador916.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>João Ribeiro</td>
+              <td align='left' class='gastos' name='916'>R$ 352.851,48</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>TO</td>
+              <td align='left'>PR</td>
+              <td align='right'>59 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>71</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3652/?ano=2011' target='_blank'><img src='fotos/senador3652.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>João Tenório</td>
+              <td align='left' class='gastos' name='3652'>R$ 74.569,42</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>AL</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>72</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4541/?ano=2011' target='_blank'><img src='fotos/senador4541.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>João Vicente Claudino</td>
+              <td align='left' class='gastos' name='4541'>R$ 316.585,49</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PI</td>
+              <td align='left'>PTB</td>
+              <td align='right'>42 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>73</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4533/?ano=2011' target='_blank'><img src='fotos/senador4533.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Joaquim Roriz</td>
+              <td align='left' class='gastos' name='4533'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>DF</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>74</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/38/?ano=2011' target='_blank'><img src='fotos/senador38.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Jonas Pinheiro</td>
+              <td align='left' class='gastos' name='38'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MT</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>75</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4776/?ano=2011' target='_blank'><img src='fotos/senador4776.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Jorge Afonso Argello</td>
+              <td align='left' class='gastos' name='4776'>R$ 319.694,31</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>DF</td>
+              <td align='left'>PTB</td>
+              <td align='right'>55 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>76</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4885/?ano=2011' target='_blank'><img src='fotos/senador4885.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Jorge Yanai</td>
+              <td align='left' class='gastos' name='4885'>R$ 59.737,47</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>MT</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>77</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/40/?ano=2011' target='_blank'><img src='fotos/senador40.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>José Agripino</td>
+              <td align='left' class='gastos' name='40'>R$ 183.016,91</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RN</td>
+              <td align='left'>DEM</td>
+              <td align='right'>36 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>78</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3595/?ano=2011' target='_blank'><img src='fotos/senador3595.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>José Bezerra</td>
+              <td align='left' class='gastos' name='3595'>R$ 57.240,50</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>RN</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>79</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3361/?ano=2011' target='_blank'><img src='fotos/senador3361.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>José Maranhão</td>
+              <td align='left' class='gastos' name='3361'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PB</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>80</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4547/?ano=2011' target='_blank'><img src='fotos/senador4547.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>José Nery</td>
+              <td align='left' class='gastos' name='4547'>R$ 365.214,40</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>PA</td>
+              <td align='left'>PSOL</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>81</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/47/?ano=2011' target='_blank'><img src='fotos/senador47.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>José Sarney</td>
+              <td align='left' class='gastos' name='47'>R$ 67.100,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AP</td>
+              <td align='left'>MDB</td>
+              <td align='right'>36 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>82</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1249/?ano=2011' target='_blank'><img src='fotos/senador1249.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Beto Oliveira/Supres</span></a></td>
+              <td align='left'>Kátia Abreu</td>
+              <td align='left' class='gastos' name='1249'>R$ 304.519,63</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>TO</td>
+              <td align='left'>PDT</td>
+              <td align='right'>29 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>83</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/53/?ano=2011' target='_blank'><img src='fotos/senador53.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Leomar Quintanilha</td>
+              <td align='left' class='gastos' name='53'>R$ 101.163,72</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>TO</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>84</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3374/?ano=2011' target='_blank'><img src='fotos/senador3374.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Leonel Pavan</td>
+              <td align='left' class='gastos' name='3374'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SC</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>85</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3579/?ano=2011' target='_blank'><img src='fotos/senador3579.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Lobão Filho</td>
+              <td align='left' class='gastos' name='3579'>R$ 183.466,27</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>MA</td>
+              <td align='left'>MDB</td>
+              <td align='right'>42 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>86</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/643/?ano=2011' target='_blank'><img src='fotos/senador643.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Lúcia Vânia</td>
+              <td align='left' class='gastos' name='643'>R$ 299.760,36</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>GO</td>
+              <td align='left'>PSB</td>
+              <td align='right'>31 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>87</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3643/?ano=2011' target='_blank'><img src='fotos/senador3643.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Nenhum</span></a></td>
+              <td align='left'>Luiz Carlos</td>
+              <td align='left' class='gastos' name='3643'>R$ 1.110,51</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>SC</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>88</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/631/?ano=2011' target='_blank'><img src='fotos/senador631.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Magno Malta</td>
+              <td align='left' class='gastos' name='631'>R$ 283.209,59</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>ES</td>
+              <td align='left'>PR</td>
+              <td align='right'>39 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>89</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3364/?ano=2011' target='_blank'><img src='fotos/senador3364.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Mão Santa</td>
+              <td align='left' class='gastos' name='3364'>R$ 326.679,83</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PI</td>
+              <td align='left'>PSC</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>90</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3366/?ano=2011' target='_blank'><img src='fotos/senador3366.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Marcelo Crivella</td>
+              <td align='left' class='gastos' name='3366'>R$ 294.514,72</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RJ</td>
+              <td align='left'>PRB</td>
+              <td align='right'>43 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>91</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4788/?ano=2011' target='_blank'><img src='fotos/senador4788.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Marco Antonio</td>
+              <td align='left' class='gastos' name='4788'>R$ 6.402,24</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>TO</td>
+              <td align='left'>PSL</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>92</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/86/?ano=2011' target='_blank'><img src='fotos/senador86.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Marco Maciel</td>
+              <td align='left' class='gastos' name='86'>R$ 1.885,02</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PE</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>93</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4535/?ano=2011' target='_blank'><img src='fotos/senador4535.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Marconi Perillo</td>
+              <td align='left' class='gastos' name='4535'>R$ 304.732,87</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>GO</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>94</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/105/?ano=2011' target='_blank'><img src='fotos/senador105.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Marcos Guerra</td>
+              <td align='left' class='gastos' name='105'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>ES</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>95</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1023/?ano=2011' target='_blank'><img src='fotos/senador1023.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Maria do Carmo Alves</td>
+              <td align='left' class='gastos' name='1023'>R$ 125.370,61</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SE</td>
+              <td align='left'>DEM</td>
+              <td align='right'>34 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>96</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/59/?ano=2011' target='_blank'><img src='fotos/senador59.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Marina Silva</td>
+              <td align='left' class='gastos' name='59'>R$ 103.242,33</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AC</td>
+              <td align='left'>PV</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>97</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4539/?ano=2011' target='_blank'><img src='fotos/senador4539.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Mário Couto</td>
+              <td align='left' class='gastos' name='4539'>R$ 327.021,83</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PA</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>35 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>98</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/527/?ano=2011' target='_blank'><img src='fotos/senador527.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Marisa Serrano</td>
+              <td align='left' class='gastos' name='527'>R$ 379.617,02</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MS</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>99</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/670/?ano=2011' target='_blank'><img src='fotos/senador670.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Mauro Fecury</td>
+              <td align='left' class='gastos' name='670'>R$ 222.952,39</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>MA</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>100</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/952/?ano=2011' target='_blank'><img src='fotos/senador952.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Mozarildo Cavalcanti</td>
+              <td align='left' class='gastos' name='952'>R$ 368.702,54</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RR</td>
+              <td align='left'>PTB</td>
+              <td align='right'>49 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>101</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3644/?ano=2011' target='_blank'><img src='fotos/senador3644.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Neuto de Conto</td>
+              <td align='left' class='gastos' name='3644'>R$ 289.559,32</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>SC</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>102</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3648/?ano=2011' target='_blank'><img src='fotos/senador3648.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Nezinho Alencar</td>
+              <td align='left' class='gastos' name='3648'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>TO</td>
+              <td align='left'>PSB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>103</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4961/?ano=2011' target='_blank'><img src='fotos/senador4961.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Níura Demarchi</td>
+              <td align='left' class='gastos' name='4961'>R$ 29.131,79</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>SC</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>104</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/66/?ano=2011' target='_blank'><img src='fotos/senador66.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Osmar Dias</td>
+              <td align='left' class='gastos' name='66'>R$ 248.103,16</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PR</td>
+              <td align='left'>PDT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>105</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1210/?ano=2011' target='_blank'><img src='fotos/senador1210.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Osvaldo Sobrinho</td>
+              <td align='left' class='gastos' name='1210'>R$ 32.161,36</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>MT</td>
+              <td align='left'>PTB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>106</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3393/?ano=2011' target='_blank'><img src='fotos/senador3393.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Papaléo Paes</td>
+              <td align='left' class='gastos' name='3393'>R$ 196.084,77</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AP</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>107</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3397/?ano=2011' target='_blank'><img src='fotos/senador3397.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Patrícia Saboya</td>
+              <td align='left' class='gastos' name='3397'>R$ 218.324,97</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>CE</td>
+              <td align='left'>PDT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>108</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4549/?ano=2011' target='_blank'><img src='fotos/senador4549.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Paulo Duque</td>
+              <td align='left' class='gastos' name='4549'>R$ 158.980,55</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>RJ</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>109</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1169/?ano=2011' target='_blank'><img src='fotos/senador1169.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Paulo Octávio</td>
+              <td align='left' class='gastos' name='1169'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>DF</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>110</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/825/?ano=2011' target='_blank'><img src='fotos/senador825.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Paulo Paim</td>
+              <td align='left' class='gastos' name='825'>R$ 311.513,25</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RS</td>
+              <td align='left'>PT</td>
+              <td align='right'>38 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>111</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/68/?ano=2011' target='_blank'><img src='fotos/senador68.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Pedro Simon</td>
+              <td align='left' class='gastos' name='68'>R$ 20.535,20</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RS</td>
+              <td align='left'>MDB</td>
+              <td align='right'>18 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>112</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4927/?ano=2011' target='_blank'><img src='fotos/senador4927.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Nenhum</span></a></td>
+              <td align='left'>Pericles Olivier</td>
+              <td align='left' class='gastos' name='4927'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>RJ</td>
+              <td align='left'>PP</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>113</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/1206/?ano=2011' target='_blank'><img src='fotos/senador1206.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Raimundo Colombo</td>
+              <td align='left' class='gastos' name='1206'>R$ 244.398,93</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SC</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>114</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/69/?ano=2011' target='_blank'><img src='fotos/senador69.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Ramez Tebet</td>
+              <td align='left' class='gastos' name='69'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MS</td>
+              <td align='left'>S/Partido</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>115</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3639/?ano=2011' target='_blank'><img src='fotos/senador3639.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Regis Fichtner</td>
+              <td align='left' class='gastos' name='3639'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>RJ</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>116</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3580/?ano=2011' target='_blank'><img src='fotos/senador3580.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Nenhum</span></a></td>
+              <td align='left'>Remi Ribeiro</td>
+              <td align='left' class='gastos' name='3580'>R$ 0,00</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>MA</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>117</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/70/?ano=2011' target='_blank'><img src='fotos/senador70.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Renan Calheiros</td>
+              <td align='left' class='gastos' name='70'>R$ 197.401,43</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AL</td>
+              <td align='left'>MDB</td>
+              <td align='right'>39 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>118</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3868/?ano=2011' target='_blank'><img src='fotos/senador3868.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Renato Casagrande</td>
+              <td align='left' class='gastos' name='3868'>R$ 292.639,39</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>ES</td>
+              <td align='left'>PSB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>119</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3631/?ano=2011' target='_blank'><img src='fotos/senador3631.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Roberto Cavalcanti</td>
+              <td align='left' class='gastos' name='3631'>R$ 104.527,02</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>PB</td>
+              <td align='left'>PRB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>120</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/73/?ano=2011' target='_blank'><img src='fotos/senador73.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Romero Jucá</td>
+              <td align='left' class='gastos' name='73'>R$ 326.501,71</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RR</td>
+              <td align='left'>MDB</td>
+              <td align='right'>25 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>121</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/74/?ano=2011' target='_blank'><img src='fotos/senador74.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Romeu Tuma</td>
+              <td align='left' class='gastos' name='74'>R$ 333.039,12</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>SP</td>
+              <td align='left'>PTB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>122</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4543/?ano=2011' target='_blank'><img src='fotos/senador4543.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Rosalba Ciarlini</td>
+              <td align='left' class='gastos' name='4543'>R$ 275.126,52</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RN</td>
+              <td align='left'>DEM</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>123</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3359/?ano=2011' target='_blank'><img src='fotos/senador3359.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Roseana Sarney</td>
+              <td align='left' class='gastos' name='3359'>R$ 16.493,76</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MA</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>124</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4893/?ano=2011' target='_blank'><img src='fotos/senador4893.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Ruben Figueiró</td>
+              <td align='left' class='gastos' name='4893'>R$ 0,00</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>MS</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>125</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3646/?ano=2011' target='_blank'><img src='fotos/senador3646.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Sadi Cassol</td>
+              <td align='left' class='gastos' name='3646'>R$ 87.503,83</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>TO</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>126</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3645/?ano=2011' target='_blank'><img src='fotos/senador3645.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Selma Elias</td>
+              <td align='left' class='gastos' name='3645'>R$ 30.000,00</td>
+              <td align='left'>2º Suplente</td>
+              <td align='middle'>SC</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>127</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3365/?ano=2011' target='_blank'><img src='fotos/senador3365.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Sérgio Cabral</td>
+              <td align='left' class='gastos' name='3365'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RJ</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>128</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/735/?ano=2011' target='_blank'><img src='fotos/senador735.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Sergio Guerra</td>
+              <td align='left' class='gastos' name='735'>R$ 230.551,79</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>PE</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>129</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3375/?ano=2011' target='_blank'><img src='fotos/senador3375.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Sérgio Zambiasi</td>
+              <td align='left' class='gastos' name='3375'>R$ 210.853,30</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RS</td>
+              <td align='left'>PTB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>130</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3362/?ano=2011' target='_blank'><img src='fotos/senador3362.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Serys Slhessarenko</td>
+              <td align='left' class='gastos' name='3362'>R$ 279.749,58</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>MT</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>131</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3532/?ano=2011' target='_blank'><img src='fotos/senador3532.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Sibá Machado</td>
+              <td align='left' class='gastos' name='3532'>R$ 10.433,76</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>AC</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>132</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4957/?ano=2011' target='_blank'><img src='fotos/senador4957.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Nenhum</span></a></td>
+              <td align='left'>Sodré Santoro</td>
+              <td align='left' class='gastos' name='4957'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>RR</td>
+              <td align='left'>PTB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>133</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3396/?ano=2011' target='_blank'><img src='fotos/senador3396.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Tasso Jereissati</td>
+              <td align='left' class='gastos' name='3396'>R$ 50.485,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>CE</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>134</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/78/?ano=2011' target='_blank'><img src='fotos/senador78.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Teotonio Vilela Filho</td>
+              <td align='left' class='gastos' name='78'>R$ 0,00</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AL</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>135</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/982/?ano=2011' target='_blank'><img src='fotos/senador982.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Tião Viana</td>
+              <td align='left' class='gastos' name='982'>R$ 267.783,87</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>AC</td>
+              <td align='left'>PT</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>136</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3372/?ano=2011' target='_blank'><img src='fotos/senador3372.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Cléber Medeiros/Supres</span></a></td>
+              <td align='left'>Valdir Raupp</td>
+              <td align='left' class='gastos' name='3372'>R$ 367.539,33</td>
+              <td align='left'>Titular</td>
+              <td align='middle'>RO</td>
+              <td align='left'>MDB</td>
+              <td align='right'>59 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>137</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3629/?ano=2011' target='_blank'><img src='fotos/senador3629.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Valter Pereira</td>
+              <td align='left' class='gastos' name='3629'>R$ 320.704,36</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>MS</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>138</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4786/?ano=2011' target='_blank'><img src='fotos/senador4786.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Virginio de Carvalho</td>
+              <td align='left' class='gastos' name='4786'>R$ 24.583,52</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>SE</td>
+              <td align='left'>PSC</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>139</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3583/?ano=2011' target='_blank'><img src='fotos/senador3583.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Wellington Salgado</td>
+              <td align='left' class='gastos' name='3583'>R$ 180.553,96</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>MG</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>140</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/4772/?ano=2011' target='_blank'><img src='fotos/senador4772.jpg' height='51' width='42'><span class='fototip'>Crédito foto: A definir</span></a></td>
+              <td align='left'>Wilson Matos</td>
+              <td align='left' class='gastos' name='4772'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>PR</td>
+              <td align='left'>PSDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+            <tr>
+              <td>141</td>
+              <td align='middle'><a href='http://www6g.senado.leg.br/transparencia/sen/3597/?ano=2011' target='_blank'><img src='fotos/senador3597.jpg' height='51' width='42'><span class='fototip'>Crédito foto: Senado Federal</span></a></td>
+              <td align='left'>Wirlande da Luz</td>
+              <td align='left' class='gastos' name='3597'>R$ 0,00</td>
+              <td align='left'>1º Suplente</td>
+              <td align='middle'>RR</td>
+              <td align='left'>MDB</td>
+              <td align='right'>0 pessoas</td>
+              <td align='right'>0.0 meses</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <footer>
+          <center>
+            <br>Fonte de dados: <a href="https://dadosabertos.senado.leg.br/">Dados Abertos do Senado Federal</a> Dataset: <a href="./json/54_gastosSenadores.json">JSON</a>, 
+            <a href="./csv/54_senado.csv">CSV</a> Copyright © 2018 <a href="http://stelling.cc">Roberto Stelling</a>
+          </center>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
