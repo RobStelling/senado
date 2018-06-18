@@ -1,8 +1,5 @@
-
 *.pyc
-
 sandbox/\.ipynb_checkpoints/leArquivos-checkpoint\.ipynb
-
 sandbox/\.ipynb_checkpoints/Senado-checkpoint\.ipynb
 css/.DS_Store
 csv/.DS_Store
