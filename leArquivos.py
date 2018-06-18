@@ -68,7 +68,7 @@ anos = [ano for ano in anos if ano <= anoAtual]
 # Lê créditos das fotos
 with open('csv/creditos.csv', newline='') as creditos:
     creditosReader = csv.reader(creditos)
-    header = next(creditosReader)
+    header = next(creditosReader) # Ignora o header
     listaCredito = {}
     for row in creditosReader:
         listaCredito[int(row[0].split('.')[0].replace('senador', ''))] = row[1]
@@ -216,7 +216,7 @@ def geraHTML(modeloHtml, saida):
       <div class="row">Legislaturas: <a href='index.html'>55</a></div>
       </center>
       """
-    def header(_):
+    def cabecalho(_):
         html = '{:<6}<center>\n'.format('')
         html += '{:<8}<div class="row">Legislaturas:'.format('')
         i = legislaturaAtual
@@ -235,6 +235,13 @@ def geraHTML(modeloHtml, saida):
         html += '</div>\n{:<6}</center>\n'.format('')
         return html
 
+    def rodape(_):
+        html = '{:<12}<br>Fonte de dados: <a href="https://dadosabertos.senado.leg.br/">Dados Abertos do Senado Federal</a> Dataset: <a href='.format('')
+        html += f'"./json/{legislaturaLevantamento}_gastosSenadores.json">JSON</a>, '
+        html += f'<a href="./csv/{legislaturaLevantamento}_senado.csv">CSV</a> Copyright © 2018 <a href="http://stelling.cc">Roberto Stelling</a>\n'
+        return html
+                     
+            
     def exercicio(_):
         """Lista de senadores em exercício, em ordem alfabética de nome
         """
@@ -286,7 +293,8 @@ def geraHTML(modeloHtml, saida):
               "<!--CaptionForaExercicio-->": captionForaExercicio,
               "<!--TituloLegislatura-->": tituloLegislatura,
               "<!--LegislaturaLevantamento-->": legislatura,
-              "<!--Cabecalho-->": header}
+              "<!--Cabecalho-->": cabecalho,
+              "<!--Rodape-->": rodape}
 
     # Le arquivo de entrada e inclui o texto gerado de acordo com o padrão encontrado
     for linha in modeloHtml:
