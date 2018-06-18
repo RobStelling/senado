@@ -68,7 +68,7 @@ anos = [ano for ano in anos if ano <= anoAtual]
 # Lê créditos das fotos
 with open('csv/creditos.csv', newline='') as creditos:
     creditosReader = csv.reader(creditos)
-    header = next(creditosReader) # Ignora o header
+    header = next(creditosReader)  # Ignora o header
     listaCredito = {}
     for row in creditosReader:
         listaCredito[int(row[0].split('.')[0].replace('senador', ''))] = row[1]
@@ -157,8 +157,6 @@ with open(f'json/{legislaturaLevantamento}_gastosSenado.json', 'w', encoding='ut
               indent=2, separators=(',', ':'))
 saida.close()
 
-# Gera página HTML
-
 
 def geraHTML(modeloHtml, saida):
     """Gera página HTML a partir de um modelo (modeloHtml)
@@ -236,12 +234,12 @@ def geraHTML(modeloHtml, saida):
         return html
 
     def rodape(_):
-        html = '{:<12}<br>Fonte de dados: <a href="https://dadosabertos.senado.leg.br/">Dados Abertos do Senado Federal</a> Dataset: <a href='.format('')
+        html = '{:<12}<br>Fonte de dados: <a href="https://dadosabertos.senado.leg.br/">Dados Abertos do Senado Federal</a> Dataset: <a href='.format(
+            '')
         html += f'"./json/{legislaturaLevantamento}_gastosSenadores.json">JSON</a>, '
         html += f'<a href="./csv/{legislaturaLevantamento}_senado.csv">CSV</a> Copyright © 2018 <a href="http://stelling.cc">Roberto Stelling</a>\n'
         return html
-                     
-            
+
     def exercicio(_):
         """Lista de senadores em exercício, em ordem alfabética de nome
         """
@@ -303,7 +301,7 @@ def geraHTML(modeloHtml, saida):
         linhaLimpa = linha.strip()
         for index, p in enumerate(padrao):
             if re.match(p, linhaLimpa):
-                saida.write(f"{padrao[p](linhaLimpa)}")
+                saida.write(f'{padrao[p](linhaLimpa)}')
 
     modeloHtml.close()
     saida.close()
@@ -316,7 +314,8 @@ if not args.nopage:
     else:
         arquivoSaida = f'{legislaturaLevantamento}_index.html'
     try:
-        modeloHtml = open(f'{legislaturaLevantamento}_index.tmpl', "r")
+        arquivoEntrada = f'{legislaturaLevantamento}_index.tmpl'
+        modeloHtml = open(arquivoEntrada, "r")
         try:
             # Se conseguiu abrir entrada, tenta abrir saída e gerar modelo
             saida = open(arquivoSaida, "w")
@@ -329,10 +328,10 @@ if not args.nopage:
             print("Erro no nome do arquivo de saída")
         except IOError:
             modeloHtml.close()
-            print("Não consigo criar index.html")
+            print(f'Não consigo criar {arquivoSaida}')
     except IOError:
         # Trata erro na abertura do arquivo de entrada
-        print("Não consigo abrir index.tmpl")
+        print(f'Não consigo abrir {arquivoEntrada}')
 
 
 def tickReais(x, pos=None):
