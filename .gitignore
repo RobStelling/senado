@@ -1,0 +1,6 @@
+
+*.pyc
+
+sandbox/\.ipynb_checkpoints/leArquivos-checkpoint\.ipynb
+
+sandbox/\.ipynb_checkpoints/Senado-checkpoint\.ipynb
