@@ -1,10 +1,11 @@
 #!/bin/bash
-# Script para coleta de dados do senado
-# Arquivos alterados são atualizados no git
-# Falta incluir ftp dos arquivos para stelling.cc
-# Uso: $0 -l|--legislatura legislatura -i|--intervalo intervalo -v|--verbose
-
-POSITIONAL=()
+# Script para coleta automática de dados do senado
+# Arquivos alterados são atualizados no github
+# OBS: git push requer configuração de ssh, como descrito em:
+# https://gist.github.com/developius/c81f021eb5c5916013dc
+#
+# Uso: $0 -l|--legislatura # [-i|--intervalo #.#] [-v|--verbose]
+IGNORE=()
 verbose=""
 legislatura=""
 intervalo="0.5"
@@ -27,16 +28,16 @@ do
 	shift
 	;;
 	*)
-	POSITIONAL+=("$1")
+	IGNORE+=("$1")
 	shift
 	;;
     esac
 done
-set -- "${POSITIONAL[@]}"
+set -- "${IGNORE[@]}"
 
 if [ "$legislatura" == "" ]
 then
-    echo " Uso: $0 -l|--legislatura legislatura -i|--intervalo intervalo -v|--verbose"
+    echo " Uso: $0 -l|--legislatura # [-i|--intervalo #.#] [-v|--verbose]"
     exit 1
 fi
 
