@@ -51,7 +51,7 @@ then
 	echo "Há dados a atualizar!"
 	python leArquivos.py -l $legislatura
 	git add `git diff --name-only | tr '\r\n' ' '`
-	git commit -m "Atualização de dados do Senado"
+	git commit -m "Atualização de dados do Senado - auto"
 	git push
     else
 	echo "Não há dados a atualizar!"
