@@ -41,22 +41,42 @@ then
     exit 1
 fi
 
+antigos=`git diff --name-only`
+contaAntigos=`echo $antigos | wc -w`
+
 echo "Iniciando leitura de dados do senado......"
 python senado.py -v -i $intervalo -l $legislatura $verbose
 if [ $? -eq 0 ]
 then
-    arquivos=`git diff --name-only | wc -l`
-    if [ $arquivos -gt 1 ]
+	arquivos=`git diff --name-only`
+    contaArquivos=`echo $arquivos | wc -w`
+    adicionais=`expr $contaArquivos - $contaAntigos`
+    if [ $adicionais -gt 1 ]
     then
-	echo "Há arquivos a atualizar!"
-	python leArquivos.py -l $legislatura
-	arquivos=`git diff --name-only | wc -l`
-	echo "$arquivos arquivos serão atualizados"
-	git add `git diff --name-only | tr '\r\n' ' '`
-	git commit -m "Atualização de dados do Senado - auto"
-	git push
+		echo "Há arquivos a atualizar!"
+		python leArquivos.py -l $legislatura
+		arquivos=`git diff --name-only`
+		contaArquivos=`echo $arquivos | wc -w`
+		contaArquivos=`expr $contaArquivos - $contaAntigos`
+		if [ $contaAntigos -eq 0 ]
+		then
+			lista=$arquivos
+		else
+			lista=""
+			for i in $arquivos
+			do
+				if ! [[ " $antigos " =~ .*\ $i\ .* ]]
+				then
+					lista+="$i "
+				fi
+			done
+		fi
+		echo "$contaArquivos arquivos serão atualizados"
+		git add $lista
+		git commit -m "Atualização de dados do Senado - auto"
+		git push
     else
-	echo "Não há arquivos a atualizar!"
-	git checkout -- csv/${legislatura}_anos.csv
+		echo "Não há arquivos a atualizar!"
+		git checkout -- csv/${legislatura}_anos.csv
     fi
 fi
