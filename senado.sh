@@ -45,16 +45,18 @@ echo "Iniciando leitura de dados do senado......"
 python senado.py -v -i $intervalo -l $legislatura $verbose
 if [ $? -eq 0 ]
 then
-    linhas=`git diff --name-only | wc -l`
-    if [ $linhas -gt 1 ]
+    arquivos=`git diff --name-only | wc -l`
+    if [ $arquivos -gt 1 ]
     then
-	echo "Há dados a atualizar!"
+	echo "Há arquivos a atualizar!"
 	python leArquivos.py -l $legislatura
+	arquivos=`git diff --name-only | wc -l`
+	echo "$arquivos arquivos serão atualizados"
 	git add `git diff --name-only | tr '\r\n' ' '`
 	git commit -m "Atualização de dados do Senado - auto"
 	git push
     else
-	echo "Não há dados a atualizar!"
+	echo "Não há arquivos a atualizar!"
 	git checkout -- csv/${legislatura}_anos.csv
     fi
 fi
