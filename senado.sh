@@ -4,14 +4,16 @@
 # OBS: git push requer configuração de ssh, como descrito em:
 # https://gist.github.com/developius/c81f021eb5c5916013dc
 #
-# Uso: $0 -l|--legislatura # [-i|--intervalo #.#] [-v|--verbose]
+# Uso: $0 -l|--legislatura # [-i|--intervalo #.#] [-v|--verbose] [-h|--help]
 IGNORE=()
 
 # Valores default para as variáveis que
 # dependem dos parâmetros
+# Número da legislatura é obrigatório
 verbose=""
 legislatura=""
 intervalo="0.5"
+ajuda=""
 
 # Tratamento de parâmetros
 while [[ $# -gt 0 ]]
@@ -21,6 +23,10 @@ do
 	-l|--legislatura)
 	legislatura=$2
 	shift
+	shift
+	;;
+	-h|--help)
+	ajuda="sim"
 	shift
 	;;
 	-i|--intervalo)
@@ -44,9 +50,9 @@ set -- "${IGNORE[@]}"
 
 # Se o parâmetro legislatura não foi passado, mostra como chamar
 # e termina a execução com erro
-if [ "$legislatura" == "" ]
+if [ "$legislatura" == "" -o "$ajuda" == "sim" ]
 then
-    echo " Uso: $0 -l|--legislatura # [-i|--intervalo #.#] [-v|--verbose]"
+    echo "Uso: $0 -l|--legislatura # [-i|--intervalo #.#] [-v|--verbose] [-h|--help]"
     exit 1
 fi
 
@@ -94,6 +100,8 @@ then
 		# É necessária uma autenticação ssh entre a
 		# estação de trabalho e o github para que o 
 		# push possa ser executado sem pedir senha
+		# Pode ser necessário configurar o cliente
+		# de atualização do github 
 		echo "$contaArquivos arquivos serão atualizados"
 		git add $lista
 		git commit -m "Atualização de dados do Senado - auto"
