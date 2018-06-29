@@ -331,14 +331,14 @@
       },
       {
         "ano":2018,
-        "total":82140.59,
+        "total":87590.91,
         "lista":{
           "Aluguel de imóveis para escritório político":2090.0,
           "Locomoção, hospedagem, alimentação, combustíveis e":24794.1,
           "Contratação de serviços de apoio ao parlamentar":5100.0,
           "Divulgação da atividade parlamentar":18550.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":23358.64,
-          "Diárias":4002.93,
+          "Diárias":9453.25,
           "Outros materiais":965.32,
           "Correios":3279.6
         }
@@ -1781,14 +1781,14 @@
       },
       {
         "ano":2018,
-        "total":233855.66,
+        "total":239305.98,
         "lista":{
           "Aluguel de imóveis para escritório político":43001.23,
           "Aquisição de material de consumo":10126.9,
           "Locomoção, hospedagem, alimentação, combustíveis e":75727.65,
           "Contratação de serviços de apoio ao parlamentar":1101.96,
           "Passagens aéreas, aquáticas e terrestres nacionais":56831.19,
-          "Diárias":5281.21,
+          "Diárias":10731.53,
           "Outros materiais":2197.07,
           "Correios":39588.45
         }
@@ -3725,7 +3725,7 @@
       },
       {
         "ano":2018,
-        "total":182447.34,
+        "total":187925.9,
         "lista":{
           "Aluguel de imóveis para escritório político":32239.92,
           "Aquisição de material de consumo":1841.76,
@@ -3733,7 +3733,7 @@
           "Contratação de serviços de apoio ao parlamentar":24934.56,
           "Divulgação da atividade parlamentar":17060.72,
           "Passagens aéreas, aquáticas e terrestres nacionais":34837.69,
-          "Diárias":10011.48,
+          "Diárias":15490.04,
           "Outros materiais":1287.38,
           "Correios":34701.27
         }
@@ -4596,7 +4596,7 @@
       },
       {
         "ano":2018,
-        "total":220754.41,
+        "total":224225.95,
         "lista":{
           "Aluguel de imóveis para escritório político":47615.02,
           "Aquisição de material de consumo":10311.97,
@@ -4605,7 +4605,7 @@
           "Divulgação da atividade parlamentar":35500.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":37296.91,
           "Outros materiais":2467.99,
-          "Correios":15302.14
+          "Correios":18773.68
         }
       }
     ]
