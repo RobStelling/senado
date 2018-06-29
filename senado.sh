@@ -21,26 +21,26 @@ do
     key="$1"
     case $key in
 	-l|--legislatura)
-	legislatura=$2
-	shift
-	shift
+		legislatura=$2
+		shift
+		shift
 	;;
 	-h|--help)
-	ajuda="sim"
-	shift
+		ajuda="sim"
+		shift
 	;;
 	-i|--intervalo)
-	intervalo=$2
-	shift
-	shift
+		intervalo=$2
+		shift
+		shift
 	;;
 	-v|--verbose)
-	verbose="-v"
-	shift
+		verbose="-v"
+		shift
 	;;
 	*)
-	IGNORE+=("$1")
-	shift
+		IGNORE+=("$1")
+		shift
 	;;
     esac
 done
@@ -78,7 +78,6 @@ then
 		python leArquivos.py -l $legislatura
 		arquivos=`git diff --name-only`
 		contaArquivos=`echo $arquivos | wc -w`
-		contaArquivos=`expr $contaArquivos - $contaAntigos`
 		# Se não havia artivos já modificados
 		if [ $contaAntigos -eq 0 ]
 		then
@@ -86,7 +85,7 @@ then
 			lista=$arquivos
 		else
 			# Senão exclui os já alterados dos arquivos
-			# dar commit
+			# que serão acrescentados da lista de commit
 			lista=""
 			for i in $arquivos
 			do
@@ -95,6 +94,8 @@ then
 					lista+="$i "
 				fi
 			done
+			# E atualiza o total de arquivos a ser guardados
+			contaArquivos=`expr $contaArquivos - $contaAntigos`
 		fi
 		# Acrescenta os arquivos, dá commit e push
 		# É necessária uma autenticação ssh entre a
@@ -104,7 +105,7 @@ then
 		# de atualização do github 
 		echo "$contaArquivos arquivos serão atualizados"
 		git add $lista
-		git commit -m "Atualização de dados do Senado - auto"
+		git commit -m "Atualização de dados do Senado ($legislatura)- auto"
 		git push
     else
 		echo "Não há arquivos a atualizar!"
