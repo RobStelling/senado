@@ -2,7 +2,8 @@
 # Script para coleta automática de dados do senado
 # Arquivos alterados são atualizados no github
 # OBS: git push requer configuração de ssh, como descrito em:
-# https://gist.github.com/developius/c81f021eb5c5916013dc
+# https://gist.github.com/developius/c81f021eb5c5916013dc e
+# https://help.github.com/articles/connecting-to-github-with-ssh/
 #
 # Uso: $0 -l|--legislatura # [-i|--intervalo #.#] [-v|--verbose] [-h|--help]
 IGNORE=()
