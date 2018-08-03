@@ -164,13 +164,16 @@ def leDadosParlamentares(legislatura):
     i = 0
     # Retira da lista os parlamentares que nunca exerceram mandato
     # ou que estão na "listaNegada"
-    while i < len(parlamentares):
-        #print(parlamentares[i]['Mandatos']['Mandato'])
+
+    def exerciciosParlamentar(mandato):
         try:
-            exercicio = parlamentares[i]['Mandatos']['Mandato']['Exercicios']
+            exercicio = mandato['Exercicios']
         except:
-            exercicio = ''
-        if exercicio == '':
+            exercicio = 'nenhum'
+        return exercicio
+
+    while i < len(parlamentares):
+        if exerciciosParlamentar(parlamentares[i]['Mandatos']['Mandato']) == 'nenhum':
             parlamentares.pop(i)
         elif parlamentares[i]['IdentificacaoParlamentar']['NomeParlamentar'] in listaNegada:
             listaNegada.remove(
