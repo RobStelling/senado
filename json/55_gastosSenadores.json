@@ -142,11 +142,11 @@
       },
       {
         "ano":2018,
-        "total":31323.04,
+        "total":31502.54,
         "lista":{
           "Passagens aéreas, aquáticas e terrestres nacionais":11766.44,
           "Outros materiais":4119.19,
-          "Correios":15437.41
+          "Correios":15616.91
         }
       }
     ]
@@ -446,14 +446,14 @@
       },
       {
         "ano":2018,
-        "total":176431.02,
+        "total":176432.74,
         "lista":{
           "Aluguel de imóveis para escritório político":28573.01,
           "Locomoção, hospedagem, alimentação, combustíveis e":44732.5,
           "Divulgação da atividade parlamentar":31250.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":59186.03,
           "Outros materiais":1606.65,
-          "Correios":11082.83
+          "Correios":11084.55
         }
       }
     ]
@@ -572,14 +572,14 @@
       },
       {
         "ano":2018,
-        "total":418245.16,
+        "total":418386.55,
         "lista":{
           "Locomoção, hospedagem, alimentação, combustíveis e":269241.38,
           "Passagens aéreas, aquáticas e terrestres nacionais":41434.22,
           "Diárias":16585.92,
           "Ressarcimento de Passagens":41960.41,
           "Outros materiais":3969.43,
-          "Correios":45053.8
+          "Correios":45195.19
         }
       }
     ]
@@ -1932,7 +1932,7 @@
       },
       {
         "ano":2018,
-        "total":227157.62,
+        "total":227197.2,
         "lista":{
           "Aluguel de imóveis para escritório político":18623.63,
           "Aquisição de material de consumo":5187.95,
@@ -1941,7 +1941,7 @@
           "Passagens aéreas, aquáticas e terrestres nacionais":56203.53,
           "Serviços de Segurança Privada":33594.77,
           "Outros materiais":3387.29,
-          "Correios":22946.2
+          "Correios":22985.78
         }
       }
     ]
@@ -2123,7 +2123,7 @@
       },
       {
         "ano":2018,
-        "total":249961.96,
+        "total":250691.24,
         "lista":{
           "Aluguel de imóveis para escritório político":26040.99,
           "Aquisição de material de consumo":40983.64,
@@ -2131,7 +2131,7 @@
           "Contratação de serviços de apoio ao parlamentar":19100.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":52920.09,
           "Outros materiais":3716.55,
-          "Correios":54098.07
+          "Correios":54827.35
         }
       }
     ]
@@ -2302,7 +2302,7 @@
       },
       {
         "ano":2018,
-        "total":302240.14,
+        "total":302373.65,
         "lista":{
           "Aluguel de imóveis para escritório político":59100.73,
           "Aquisição de material de consumo":29534.17,
@@ -2310,7 +2310,7 @@
           "Contratação de serviços de apoio ao parlamentar":41500.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":80327.93,
           "Outros materiais":1751.48,
-          "Correios":12006.67
+          "Correios":12140.18
         }
       }
     ]
@@ -2421,7 +2421,7 @@
       },
       {
         "ano":2018,
-        "total":133757.12,
+        "total":133939.72,
         "lista":{
           "Aluguel de imóveis para escritório político":39620.37,
           "Aquisição de material de consumo":7676.9,
@@ -2430,7 +2430,7 @@
           "Divulgação da atividade parlamentar":2800.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":18329.64,
           "Outros materiais":1914.23,
-          "Correios":7393.45
+          "Correios":7576.05
         }
       }
     ]
@@ -3569,7 +3569,7 @@
       },
       {
         "ano":2018,
-        "total":165561.44,
+        "total":166250.18,
         "lista":{
           "Aluguel de imóveis para escritório político":52892.95,
           "Aquisição de material de consumo":19319.58,
@@ -3578,7 +3578,7 @@
           "Divulgação da atividade parlamentar":580.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":32347.88,
           "Outros materiais":1842.52,
-          "Correios":6249.42
+          "Correios":6938.16
         }
       }
     ]
@@ -3713,7 +3713,7 @@
       },
       {
         "ano":2018,
-        "total":253505.97,
+        "total":253588.06,
         "lista":{
           "Aluguel de imóveis para escritório político":117346.83,
           "Aquisição de material de consumo":1400.0,
@@ -3722,7 +3722,7 @@
           "Divulgação da atividade parlamentar":1500.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":70567.54,
           "Outros materiais":2687.05,
-          "Correios":27858.41
+          "Correios":27940.5
         }
       }
     ]
@@ -3870,7 +3870,7 @@
       },
       {
         "ano":2018,
-        "total":212929.18,
+        "total":212937.41,
         "lista":{
           "Aluguel de imóveis para escritório político":49355.55,
           "Aquisição de material de consumo":28976.69,
@@ -3879,7 +3879,7 @@
           "Divulgação da atividade parlamentar":18000.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":99539.23,
           "Outros materiais":2078.98,
-          "Correios":4452.53
+          "Correios":4460.76
         }
       }
     ]
@@ -4326,7 +4326,7 @@
       },
       {
         "ano":2018,
-        "total":270534.13,
+        "total":271005.62,
         "lista":{
           "Aluguel de imóveis para escritório político":29359.32,
           "Aquisição de material de consumo":1533.36,
@@ -4336,7 +4336,7 @@
           "Passagens aéreas, aquáticas e terrestres nacionais":87980.25,
           "Diárias":1400.0,
           "Outros materiais":3441.26,
-          "Correios":21132.42
+          "Correios":21603.91
         }
       }
     ]
@@ -4450,7 +4450,7 @@
       },
       {
         "ano":2018,
-        "total":163758.29,
+        "total":163919.43,
         "lista":{
           "Aluguel de imóveis para escritório político":48114.6,
           "Aquisição de material de consumo":10515.96,
@@ -4459,7 +4459,7 @@
           "Divulgação da atividade parlamentar":10350.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":33298.51,
           "Outros materiais":2795.09,
-          "Correios":6979.15
+          "Correios":7140.29
         }
       }
     ]
