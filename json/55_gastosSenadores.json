@@ -142,11 +142,11 @@
       },
       {
         "ano":2018,
-        "total":31596.5,
+        "total":31647.5,
         "lista":{
           "Passagens aéreas, aquáticas e terrestres nacionais":11766.44,
           "Outros materiais":4119.19,
-          "Correios":15710.87
+          "Correios":15761.87
         }
       }
     ]
@@ -523,6 +523,60 @@
     ]
   },
   {
+    "senador":"5108",
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":272606.36000000004,
+        "lista":{
+          "Aluguel de imóveis para escritório político":64065.24,
+          "Aquisição de material de consumo":47508.8,
+          "Contratação de serviços de apoio ao parlamentar":15800.0,
+          "Divulgação da atividade parlamentar":65600.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":39425.94,
+          "Diárias":31423.81,
+          "Combustíveis":5244.83,
+          "Outros materiais":2905.66,
+          "Correios":632.08
+        }
+      },
+      {
+        "ano":2017,
+        "total":377190.11,
+        "lista":{
+          "Aluguel de imóveis para escritório político":112343.17,
+          "Aquisição de material de consumo":5976.13,
+          "Locomoção, hospedagem, alimentação, combustíveis e":4529.22,
+          "Contratação de serviços de apoio ao parlamentar":41733.44,
+          "Divulgação da atividade parlamentar":131600.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":57282.24,
+          "Diárias":6925.86,
+          "Outros materiais":5371.08,
+          "Correios":3231.34,
+          "Combustíveis":8197.63
+        }
+      },
+      {
+        "ano":2018,
+        "total":102538.42,
+        "lista":{
+          "Aluguel de imóveis para escritório político":39143.1,
+          "Aquisição de material de consumo":640.0,
+          "Contratação de serviços de apoio ao parlamentar":9000.0,
+          "Divulgação da atividade parlamentar":32000.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":11326.51,
+          "Outros materiais":1170.08,
+          "Correios":9258.73
+        }
+      }
+    ]
+  },
+  {
     "senador":"739",
     "gastos":[
       {
@@ -805,14 +859,14 @@
       },
       {
         "ano":2018,
-        "total":184888.7,
+        "total":184954.88,
         "lista":{
           "Aluguel de imóveis para escritório político":28130.43,
           "Aquisição de material de consumo":36677.37,
           "Locomoção, hospedagem, alimentação, combustíveis e":86761.03,
           "Passagens aéreas, aquáticas e terrestres nacionais":7595.73,
           "Outros materiais":1982.01,
-          "Correios":23742.13
+          "Correios":23808.31
         }
       }
     ]
@@ -1036,14 +1090,14 @@
       },
       {
         "ano":2018,
-        "total":371392.48,
+        "total":371443.12,
         "lista":{
           "Locomoção, hospedagem, alimentação, combustíveis e":692.43,
           "Contratação de serviços de apoio ao parlamentar":234044.25,
           "Divulgação da atividade parlamentar":46000.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":73476.12,
           "Outros materiais":3804.44,
-          "Correios":13375.24
+          "Correios":13425.88
         }
       }
     ]
@@ -1088,7 +1142,7 @@
       },
       {
         "ano":2018,
-        "total":267713.86,
+        "total":267750.62,
         "lista":{
           "Aluguel de imóveis para escritório político":28681.03,
           "Aquisição de material de consumo":6860.0,
@@ -1098,7 +1152,7 @@
           "Diárias":7487.13,
           "Ressarcimento de Passagens":11045.51,
           "Outros materiais":1721.81,
-          "Correios":44905.72
+          "Correios":44942.48
         }
       }
     ]
@@ -1196,7 +1250,7 @@
       },
       {
         "ano":2018,
-        "total":259662.84,
+        "total":268957.79,
         "lista":{
           "Aluguel de imóveis para escritório político":53442.44,
           "Aquisição de material de consumo":1488.82,
@@ -1204,7 +1258,7 @@
           "Contratação de serviços de apoio ao parlamentar":33972.5,
           "Passagens aéreas, aquáticas e terrestres nacionais":55616.61,
           "Outros materiais":2893.53,
-          "Correios":45823.54
+          "Correios":55118.49
         }
       }
     ]
@@ -1316,7 +1370,7 @@
       },
       {
         "ano":2018,
-        "total":275199.67,
+        "total":275421.67,
         "lista":{
           "Aluguel de imóveis para escritório político":38594.1,
           "Aquisição de material de consumo":3132.94,
@@ -1324,7 +1378,7 @@
           "Contratação de serviços de apoio ao parlamentar":45446.65,
           "Passagens aéreas, aquáticas e terrestres nacionais":31970.43,
           "Outros materiais":4654.32,
-          "Correios":58773.61
+          "Correios":58995.61
         }
       }
     ]
@@ -1551,7 +1605,7 @@
       },
       {
         "ano":2018,
-        "total":304945.83,
+        "total":305000.71,
         "lista":{
           "Aluguel de imóveis para escritório político":13557.29,
           "Locomoção, hospedagem, alimentação, combustíveis e":116510.51,
@@ -1562,7 +1616,7 @@
           "Diárias":16103.36,
           "Ressarcimento de Passagens":41206.15,
           "Outros materiais":2395.0,
-          "Correios":3915.98
+          "Correios":3970.86
         }
       }
     ]
@@ -2060,7 +2114,7 @@
       },
       {
         "ano":2018,
-        "total":294831.92,
+        "total":294880.02,
         "lista":{
           "Aluguel de imóveis para escritório político":20870.65,
           "Aquisição de material de consumo":1284.2,
@@ -2069,7 +2123,7 @@
           "Divulgação da atividade parlamentar":46806.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":51429.78,
           "Outros materiais":3230.07,
-          "Correios":13179.84
+          "Correios":13227.94
         }
       }
     ]
@@ -2243,14 +2297,14 @@
       },
       {
         "ano":2018,
-        "total":224696.91,
+        "total":224753.81,
         "lista":{
           "Aluguel de imóveis para escritório político":65881.19,
           "Locomoção, hospedagem, alimentação, combustíveis e":98615.6,
           "Passagens aéreas, aquáticas e terrestres nacionais":45941.84,
           "Serviços de Segurança Privada":9600.0,
           "Outros materiais":3179.51,
-          "Correios":1478.77
+          "Correios":1535.67
         }
       }
     ]
@@ -2481,14 +2535,14 @@
       },
       {
         "ano":2018,
-        "total":207298.93,
+        "total":207368.23,
         "lista":{
           "Aluguel de imóveis para escritório político":54998.95,
           "Locomoção, hospedagem, alimentação, combustíveis e":12721.83,
           "Contratação de serviços de apoio ao parlamentar":30000.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":100413.21,
           "Outros materiais":2233.45,
-          "Correios":6931.49
+          "Correios":7000.79
         }
       }
     ]
@@ -2545,7 +2599,7 @@
       },
       {
         "ano":2018,
-        "total":185544.42,
+        "total":185573.9,
         "lista":{
           "Aluguel de imóveis para escritório político":56184.93,
           "Aquisição de material de consumo":21568.62,
@@ -2555,7 +2609,7 @@
           "Passagens aéreas, aquáticas e terrestres nacionais":46148.05,
           "Serviços de Segurança Privada":75.0,
           "Outros materiais":2023.14,
-          "Correios":18952.43
+          "Correios":18981.91
         }
       }
     ]
@@ -2675,7 +2729,7 @@
       },
       {
         "ano":2018,
-        "total":285603.3,
+        "total":285625.71,
         "lista":{
           "Aluguel de imóveis para escritório político":31037.03,
           "Aquisição de material de consumo":463.55,
@@ -2684,7 +2738,7 @@
           "Divulgação da atividade parlamentar":2600.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":161527.37,
           "Outros materiais":4683.38,
-          "Correios":29757.25
+          "Correios":29779.66
         }
       }
     ]
@@ -2790,7 +2844,7 @@
       },
       {
         "ano":2018,
-        "total":166777.3,
+        "total":166843.6,
         "lista":{
           "Aluguel de imóveis para escritório político":82572.71,
           "Aquisição de material de consumo":3052.7,
@@ -2798,7 +2852,7 @@
           "Contratação de serviços de apoio ao parlamentar":12843.63,
           "Passagens aéreas, aquáticas e terrestres nacionais":42552.08,
           "Outros materiais":2163.39,
-          "Correios":6257.28
+          "Correios":6323.58
         }
       }
     ]
@@ -2960,14 +3014,14 @@
       },
       {
         "ano":2018,
-        "total":242791.49,
+        "total":242850.4,
         "lista":{
           "Aluguel de imóveis para escritório político":59315.57,
           "Aquisição de material de consumo":1990.34,
           "Locomoção, hospedagem, alimentação, combustíveis e":78667.97,
           "Passagens aéreas, aquáticas e terrestres nacionais":64187.93,
           "Outros materiais":4518.1,
-          "Correios":34111.58
+          "Correios":34170.49
         }
       }
     ]
@@ -3363,14 +3417,14 @@
       },
       {
         "ano":2018,
-        "total":228021.28,
+        "total":228037.87,
         "lista":{
           "Aluguel de imóveis para escritório político":33155.78,
           "Aquisição de material de consumo":875.82,
           "Locomoção, hospedagem, alimentação, combustíveis e":90453.75,
           "Passagens aéreas, aquáticas e terrestres nacionais":84320.59,
           "Outros materiais":2857.71,
-          "Correios":16357.63
+          "Correios":16374.22
         }
       }
     ]
@@ -3515,7 +3569,7 @@
       },
       {
         "ano":2018,
-        "total":167561.06,
+        "total":167585.11,
         "lista":{
           "Aluguel de imóveis para escritório político":35937.48,
           "Aquisição de material de consumo":596.2,
@@ -3524,7 +3578,7 @@
           "Passagens aéreas, aquáticas e terrestres nacionais":63798.72,
           "Diárias":5957.12,
           "Outros materiais":1991.22,
-          "Correios":2955.9
+          "Correios":2979.95
         }
       }
     ]
@@ -3729,37 +3783,6 @@
     ]
   },
   {
-    "senador":"5110",
-    "gastos":[
-      {
-        "ano":2015,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2016,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2017,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2018,
-        "total":55282.73,
-        "lista":{
-          "Aluguel de imóveis para escritório político":35341.33,
-          "Aquisição de material de consumo":640.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":16694.85,
-          "Outros materiais":1222.55,
-          "Correios":1384.0
-        }
-      }
-    ]
-  },
-  {
     "senador":"73",
     "gastos":[
       {
@@ -3809,7 +3832,7 @@
       },
       {
         "ano":2018,
-        "total":328524.29,
+        "total":329721.24,
         "lista":{
           "Aluguel de imóveis para escritório político":44592.66,
           "Aquisição de material de consumo":30074.66,
@@ -3818,7 +3841,7 @@
           "Divulgação da atividade parlamentar":28555.5,
           "Passagens aéreas, aquáticas e terrestres nacionais":89517.82,
           "Outros materiais":4827.86,
-          "Correios":42279.55
+          "Correios":43476.5
         }
       }
     ]
@@ -3871,7 +3894,7 @@
       },
       {
         "ano":2018,
-        "total":212974.17,
+        "total":213011.57,
         "lista":{
           "Aluguel de imóveis para escritório político":49355.55,
           "Aquisição de material de consumo":28976.69,
@@ -3880,7 +3903,7 @@
           "Divulgação da atividade parlamentar":18000.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":99539.23,
           "Outros materiais":2078.98,
-          "Correios":4497.52
+          "Correios":4534.92
         }
       }
     ]
@@ -3994,7 +4017,7 @@
       },
       {
         "ano":2018,
-        "total":190207.98,
+        "total":190378.81,
         "lista":{
           "Aluguel de imóveis para escritório político":35563.07,
           "Locomoção, hospedagem, alimentação, combustíveis e":10661.52,
@@ -4002,7 +4025,7 @@
           "Divulgação da atividade parlamentar":55980.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":61548.5,
           "Outros materiais":3096.94,
-          "Correios":3153.45
+          "Correios":3324.28
         }
       }
     ]
@@ -4090,7 +4113,7 @@
       },
       {
         "ano":2018,
-        "total":91431.8,
+        "total":91517.05,
         "lista":{
           "Aluguel de imóveis para escritório político":48056.59,
           "Aquisição de material de consumo":1437.63,
@@ -4098,7 +4121,7 @@
           "Contratação de serviços de apoio ao parlamentar":1000.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":16065.82,
           "Outros materiais":3271.0,
-          "Correios":14822.67
+          "Correios":14907.92
         }
       }
     ]
@@ -4259,7 +4282,7 @@
       },
       {
         "ano":2018,
-        "total":252036.13,
+        "total":252066.73,
         "lista":{
           "Aluguel de imóveis para escritório político":16209.74,
           "Locomoção, hospedagem, alimentação, combustíveis e":41360.32,
@@ -4267,7 +4290,7 @@
           "Divulgação da atividade parlamentar":104028.96,
           "Passagens aéreas, aquáticas e terrestres nacionais":70905.04,
           "Outros materiais":4978.55,
-          "Correios":6053.52
+          "Correios":6084.12
         }
       }
     ]
@@ -4451,7 +4474,7 @@
       },
       {
         "ano":2018,
-        "total":163919.43,
+        "total":163954.6,
         "lista":{
           "Aluguel de imóveis para escritório político":48114.6,
           "Aquisição de material de consumo":10515.96,
@@ -4460,7 +4483,7 @@
           "Divulgação da atividade parlamentar":10350.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":33298.51,
           "Outros materiais":2795.09,
-          "Correios":7140.29
+          "Correios":7175.46
         }
       }
     ]
@@ -4703,7 +4726,7 @@
       },
       {
         "ano":2018,
-        "total":280108.95,
+        "total":288312.47,
         "lista":{
           "Aluguel de imóveis para escritório político":12778.95,
           "Locomoção, hospedagem, alimentação, combustíveis e":32317.3,
@@ -4711,7 +4734,7 @@
           "Divulgação da atividade parlamentar":74680.0,
           "Passagens aéreas, aquáticas e terrestres nacionais":29705.75,
           "Outros materiais":2758.35,
-          "Correios":53868.6
+          "Correios":62072.12
         }
       }
     ]
@@ -4897,60 +4920,6 @@
         "ano":2018,
         "total":0.0,
         "lista":{}
-      }
-    ]
-  },
-  {
-    "senador":"5108",
-    "gastos":[
-      {
-        "ano":2015,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2016,
-        "total":272606.36000000004,
-        "lista":{
-          "Aluguel de imóveis para escritório político":64065.24,
-          "Aquisição de material de consumo":47508.8,
-          "Contratação de serviços de apoio ao parlamentar":15800.0,
-          "Divulgação da atividade parlamentar":65600.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":39425.94,
-          "Diárias":31423.81,
-          "Combustíveis":5244.83,
-          "Outros materiais":2905.66,
-          "Correios":632.08
-        }
-      },
-      {
-        "ano":2017,
-        "total":377190.11,
-        "lista":{
-          "Aluguel de imóveis para escritório político":112343.17,
-          "Aquisição de material de consumo":5976.13,
-          "Locomoção, hospedagem, alimentação, combustíveis e":4529.22,
-          "Contratação de serviços de apoio ao parlamentar":41733.44,
-          "Divulgação da atividade parlamentar":131600.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":57282.24,
-          "Diárias":6925.86,
-          "Outros materiais":5371.08,
-          "Correios":3231.34,
-          "Combustíveis":8197.63
-        }
-      },
-      {
-        "ano":2018,
-        "total":102538.42,
-        "lista":{
-          "Aluguel de imóveis para escritório político":39143.1,
-          "Aquisição de material de consumo":640.0,
-          "Contratação de serviços de apoio ao parlamentar":9000.0,
-          "Divulgação da atividade parlamentar":32000.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":11326.51,
-          "Outros materiais":1170.08,
-          "Correios":9258.73
-        }
       }
     ]
   },
@@ -6032,6 +6001,37 @@
         "ano":2018,
         "total":0.0,
         "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"5110",
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":55282.73,
+        "lista":{
+          "Aluguel de imóveis para escritório político":35341.33,
+          "Aquisição de material de consumo":640.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":16694.85,
+          "Outros materiais":1222.55,
+          "Correios":1384.0
+        }
       }
     ]
   },
