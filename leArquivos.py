@@ -410,12 +410,6 @@ if not args.nograph:
     gabinetePartidos.get_figure().savefig(
         f'{imagens}/{legislaturaLevantamento}_gastoGabinetePartidos{anos[-1]}.png')
     plt.close()
-    gTop = top[listaGastos].plot(
-        kind='bar', rot=20, title=f'Senadores com maiores gastos na legislatura {legislaturaLevantamento}', x=top['nome'], figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
-    gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
-    gTop.get_figure().savefig(
-        f'{imagens}/{legislaturaLevantamento}_maiores.png')
-    plt.close()
 
     listaBeneficioMoradia = [x for x in gastoEstados.columns if re.match(
         r'(Auxílio-Moradia|Imóvel Funcional)-[0-9]+$', x)]
@@ -428,4 +422,13 @@ if not args.nograph:
         kind='bar', title='Média de meses anuais de uso de benefícios de moradia por unidade da federação', figsize=(10, 10), fontsize=(12), legend=False)
     gBeneficio.get_figure().savefig(
         f'{imagens}/{legislaturaLevantamento}_moradiaEstado.png')
+    plt.close()
+    
+    gTop = top[listaGastos].plot(
+        kind='bar', rot=20, title=f'Senadores com maiores gastos na legislatura {legislaturaLevantamento}',
+        figsize=(18, 8), legend=True, fontsize=12, colormap='Paired')
+    gTop.set_xticklabels(top['nome'])
+    gTop.yaxis.set_major_formatter(FuncFormatter(rtn.reais))
+    gTop.get_figure().savefig(
+        f'{imagens}/{legislaturaLevantamento}_maiores.png')
     plt.close()
