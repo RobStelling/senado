@@ -3,6 +3,7 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
 import argparse
+import copy
 import csv
 import errno
 import json
@@ -60,6 +61,9 @@ parser.add_argument('-i', '--intervalo', dest='intervalo', type=float, default=0
 
 parser.add_argument('-l', '--legislatura', dest='legislatura', type=int, default=0,
                     help='Legislatura de coleta de dados, default: legislatura atual')
+
+parser.add_argument('-D', '--semDados', dest='semdados', action='store_true',
+                    help='Não gera arquivos de dados')
 
 args = parser.parse_args()
 
@@ -173,6 +177,12 @@ def leDadosParlamentares(legislatura):
         return exercicio
 
     while i < len(parlamentares):
+        # Há um erro na base com o Senador José Amauri o código abaixo
+        # "corrige" o erro
+        if type(parlamentares[i]['Mandatos']['Mandato']) == type([]):
+            mandato = copy.copy(parlamentares[i]['Mandatos']['Mandato'][0])
+            parlamentares[i]['Mandatos']['Mandato'] = {}
+            parlamentares[i]['Mandatos']['Mandato'] = mandato
         if exerciciosParlamentar(parlamentares[i]['Mandatos']['Mandato']) == 'nenhum':
             parlamentares.pop(i)
         elif parlamentares[i]['IdentificacaoParlamentar']['NomeParlamentar'] in listaNegada:
@@ -598,9 +608,10 @@ consolidaDadosCombustiveisSenadores(dados, combustiveis)
 if not os.path.exists('json'):
     os.makedirs('json')
 
-with open(f'json/{legislaturaLevantamento}_gastosSenadores.json', 'w', encoding='utf-8') as saida:
-    json.dump(gastosSenadores, saida, ensure_ascii=False,
-              indent=2, separators=(',', ':'))
+if not args.semdados:
+    with open(f'json/{legislaturaLevantamento}_gastosSenadores.json', 'w', encoding='utf-8') as saida:
+        json.dump(gastosSenadores, saida, ensure_ascii=False,
+                indent=2, separators=(',', ':'))
 
 # Acrescenta zeros (int) em colunas que não existem para alguns senadores
 # Por exemplo: um determinado senador não possui informação de Gabinete em 2015
@@ -675,64 +686,66 @@ if args.verbose:
 if not os.path.exists('csv'):
     os.makedirs('csv')
 
-dadosSenado.to_csv(f'csv/{legislaturaLevantamento}_senado.csv', na_rep='', header=True, index=True,
+if not args.semdados:
+    dadosSenado.to_csv(f'csv/{legislaturaLevantamento}_senado.csv', na_rep='', header=True, index=True,
                    mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
-top.to_csv(f'csv/{legislaturaLevantamento}_top.csv', na_rep='', header=True, index=False,
+    top.to_csv(f'csv/{legislaturaLevantamento}_top.csv', na_rep='', header=True, index=False,
            mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
-gastoPartidos.to_csv(f'csv/{legislaturaLevantamento}_gastoPartidos.csv', na_rep='', header=True,
+    gastoPartidos.to_csv(f'csv/{legislaturaLevantamento}_gastoPartidos.csv', na_rep='', header=True,
                      index=True, mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
-gastoEstados.to_csv(f'csv/{legislaturaLevantamento}_gastoEstados.csv', na_rep='', header=True, index=True,
+    gastoEstados.to_csv(f'csv/{legislaturaLevantamento}_gastoEstados.csv', na_rep='', header=True, index=True,
                     mode='w', encoding='utf-8', line_terminator='\n', decimal='.', float_format='%.2f')
-sexo.to_csv(f'csv/{legislaturaLevantamento}_sexo.csv', index=True, na_rep='', header=True,
+    sexo.to_csv(f'csv/{legislaturaLevantamento}_sexo.csv', index=True, na_rep='', header=True,
             index_label=None, mode='w', encoding='utf-8', decimal='.')
-sexoT.to_csv(f'csv/{legislaturaLevantamento}_sexoT.csv', index=True, na_rep='', header=True,
+    sexoT.to_csv(f'csv/{legislaturaLevantamento}_sexoT.csv', index=True, na_rep='', header=True,
              index_label=None, mode='w', encoding='utf-8', decimal='.')
 
-with open(f'csv/{legislaturaLevantamento}_anos.csv', 'w') as arquivoAnos:
-    anosWriter = csv.writer(arquivoAnos)
-    anosWriter.writerow(['Legislatura', 'Inicial', 'Final', 'Coleta'])
-    anosWriter.writerow(
-        [legislaturaLevantamento, anos[0], anos[-1], datetime.today()])
-    arquivoAnos.close()
+    with open(f'csv/{legislaturaLevantamento}_anos.csv', 'w') as arquivoAnos:
+        anosWriter = csv.writer(arquivoAnos)
+        anosWriter.writerow(['Legislatura', 'Inicial', 'Final', 'Coleta'])
+        anosWriter.writerow(
+            [legislaturaLevantamento, anos[0], anos[-1], datetime.today()])
+        arquivoAnos.close()
 
-if args.verbose:
-    print('Verificando fotos...')
-# Coleta fotos que estejam faltando
-# Créditos devem ser extraídos do
-# EXIF de cada foto
-dirFotos = 'fotos'
+if not args.semdados:
+    if args.verbose:
+        print('Verificando fotos...')
+    # Coleta fotos que estejam faltando
+    # Créditos devem ser extraídos do
+    # EXIF de cada foto
+    dirFotos = 'fotos'
 
-if not os.path.exists(dirFotos):
-    os.makedirs(dirFotos)
-
-
-def credita(fotoSenador, credito):
-    creditosFotos = 'creditos.csv'
-    with open(f'csv/{creditosFotos}', 'a') as creditos:
-        creditos.write(f'{fotoSenador},{credito}\n')
+    if not os.path.exists(dirFotos):
+        os.makedirs(dirFotos)
 
 
-for url in dadosSenado['urlFoto']:
-    fotoSenador = url.split('/')[-1]
-    nomeArquivo = f'{dirFotos}/{fotoSenador}'
-    if not os.path.exists(nomeArquivo):
-        header = {'user-agent': f'senadoInfo/{configuracao.VERSAO}',
-                  'Accept': 'image/jpeg'}
-        try:
-            requisicao = requests.get(url, headers=header, stream=True)
-        except requests.exceptions.RequestException as erro:
-            print(erro)
-            sys.exit(1)
-        if requisicao.status_code == 200:
-            print(f'Criando arquivo {nomeArquivo}...')
-            with open(nomeArquivo, 'wb') as arquivo:
-                arquivo.write(requisicao.content)
-            credita(fotoSenador, 'A definir')
-        else:
-            print(f'Erro {requisicao.status_code} na recuperação de {url}')
-            print(f'Criando arquivo {nomeArquivo} com foto vazia...')
-            fotoBranco = f'{dirFotos}/branco.jpg'
-            shutil.copyfile(fotoBranco, nomeArquivo)
-            credita(fotoSenador, 'Nenhum')
-            #
-            # Falta incluir informação de crédito da foto...
+    def credita(fotoSenador, credito):
+        creditosFotos = 'creditos.csv'
+        with open(f'csv/{creditosFotos}', 'a') as creditos:
+            creditos.write(f'{fotoSenador},{credito}\n')
+
+
+    for url in dadosSenado['urlFoto']:
+        fotoSenador = url.split('/')[-1]
+        nomeArquivo = f'{dirFotos}/{fotoSenador}'
+        if not os.path.exists(nomeArquivo):
+            header = {'user-agent': f'senadoInfo/{configuracao.VERSAO}',
+                      'Accept': 'image/jpeg'}
+            try:
+                requisicao = requests.get(url, headers=header, stream=True)
+            except requests.exceptions.RequestException as erro:
+                print(erro)
+                sys.exit(1)
+            if requisicao.status_code == 200:
+                print(f'Criando arquivo {nomeArquivo}...')
+                with open(nomeArquivo, 'wb') as arquivo:
+                    arquivo.write(requisicao.content)
+                credita(fotoSenador, 'A definir')
+            else:
+                print(f'Erro {requisicao.status_code} na recuperação de {url}')
+                print(f'Criando arquivo {nomeArquivo} com foto vazia...')
+                fotoBranco = f'{dirFotos}/branco.jpg'
+                shutil.copyfile(fotoBranco, nomeArquivo)
+                credita(fotoSenador, 'Nenhum')
+                #
+                # Falta incluir informação de crédito da foto...
