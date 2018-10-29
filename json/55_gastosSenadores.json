@@ -3340,39 +3340,6 @@
     ]
   },
   {
-    "senador":"5072",
-    "gastos":[
-      {
-        "ano":2015,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2016,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2017,
-        "total":0.0,
-        "lista":{}
-      },
-      {
-        "ano":2018,
-        "total":52951.6,
-        "lista":{
-          "Aluguel de imóveis para escritório político":4949.35,
-          "Aquisição de material de consumo":219.59,
-          "Locomoção, hospedagem, alimentação, combustíveis e":16980.27,
-          "Divulgação da atividade parlamentar":26000.0,
-          "Passagens aéreas, aquáticas e terrestres nacionais":3418.72,
-          "Outros materiais":716.9,
-          "Correios":666.77
-        }
-      }
-    ]
-  },
-  {
     "senador":"5182",
     "gastos":[
       {
@@ -6041,6 +6008,39 @@
         "ano":2018,
         "total":0.0,
         "lista":{}
+      }
+    ]
+  },
+  {
+    "senador":"5072",
+    "gastos":[
+      {
+        "ano":2015,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2016,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2017,
+        "total":0.0,
+        "lista":{}
+      },
+      {
+        "ano":2018,
+        "total":52951.6,
+        "lista":{
+          "Aluguel de imóveis para escritório político":4949.35,
+          "Aquisição de material de consumo":219.59,
+          "Locomoção, hospedagem, alimentação, combustíveis e":16980.27,
+          "Divulgação da atividade parlamentar":26000.0,
+          "Passagens aéreas, aquáticas e terrestres nacionais":3418.72,
+          "Outros materiais":716.9,
+          "Correios":666.77
+        }
       }
     ]
   },
