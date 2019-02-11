@@ -4,11 +4,11 @@
     "gastos":[
       {
         "ano":2019,
-        "total":6378.98,
+        "total":6444.07,
         "lista":{
           "Aluguel de imóveis para escritório político":5500.0,
           "Outros materiais":173.80916666666667,
-          "Correios":705.1733333333333
+          "Correios":770.2566666666667
         }
       }
     ]
@@ -28,11 +28,11 @@
     "gastos":[
       {
         "ano":2019,
-        "total":6189.91,
+        "total":6279.01,
         "lista":{
           "Passagens aéreas, aquáticas e terrestres nacionais":909.6816666666666,
           "Outros materiais":121.77916666666665,
-          "Correios":5158.45
+          "Correios":5247.55
         }
       }
     ]
@@ -302,13 +302,13 @@
     "gastos":[
       {
         "ano":2019,
-        "total":34822.05,
+        "total":36128.45,
         "lista":{
           "Aluguel de imóveis para escritório político":7477.121666666666,
           "Locomoção, hospedagem, alimentação, combustíveis e":11963.315833333332,
           "Passagens aéreas, aquáticas e terrestres nacionais":10086.358333333332,
           "Outros materiais":108.56083333333333,
-          "Correios":5186.6925
+          "Correios":6493.098333333333
         }
       }
     ]
@@ -361,8 +361,10 @@
     "gastos":[
       {
         "ano":2019,
-        "total":0.0,
-        "lista":{}
+        "total":24.66,
+        "lista":{
+          "Correios":24.65833333333333
+        }
       }
     ]
   },
@@ -453,10 +455,10 @@
     "gastos":[
       {
         "ano":2019,
-        "total":164.47,
+        "total":337.93,
         "lista":{
           "Outros materiais":91.70333333333333,
-          "Correios":72.76499999999999
+          "Correios":246.22583333333333
         }
       }
     ]
@@ -608,9 +610,9 @@
     "gastos":[
       {
         "ano":2019,
-        "total":36.58,
+        "total":70.34,
         "lista":{
-          "Correios":36.58
+          "Correios":70.34
         }
       }
     ]
@@ -686,9 +688,9 @@
     "gastos":[
       {
         "ano":2019,
-        "total":6.3,
+        "total":15.9,
         "lista":{
-          "Correios":6.3
+          "Correios":15.9
         }
       }
     ]
@@ -796,12 +798,12 @@
     "gastos":[
       {
         "ano":2019,
-        "total":15618.27,
+        "total":15725.7,
         "lista":{
           "Contratação de serviços de apoio ao parlamentar":2524.7383333333332,
           "Passagens aéreas, aquáticas e terrestres nacionais":12417.826666666666,
           "Outros materiais":164.5875,
-          "Correios":511.115
+          "Correios":618.5483333333333
         }
       }
     ]
@@ -868,10 +870,10 @@
     "gastos":[
       {
         "ano":2019,
-        "total":7080.08,
+        "total":7310.76,
         "lista":{
           "Outros materiais":443.4925,
-          "Correios":6636.5841666666665
+          "Correios":6867.272499999999
         }
       }
     ]
@@ -919,10 +921,10 @@
     "gastos":[
       {
         "ano":2019,
-        "total":182.23,
+        "total":269.75,
         "lista":{
           "Outros materiais":103.96833333333333,
-          "Correios":78.26499999999999
+          "Correios":165.77916666666667
         }
       }
     ]
